@@ -12,7 +12,7 @@ const Faq = () => {
                 <div className="space-y-4">
                     {[
                         { q: "Mon enfant est débutant, est-ce pour lui ?", a: "Absolument. Thrive est idéal pour bâtir les bases techniques et la confiance dès le début, évitant ainsi de mauvaises habitudes." },
-                        { q: "Où se déroulent les séances ?", a: "Nous opérons dans plusieurs parcs et complexes sportifs partenaires à Rosemont, Outremont et VMR. Le lieu est confirmé selon votre code postal." },
+                        { q: "Où se déroulent les séances ?", a: "Au plus proche de chez vous, dans les arénas ou sur les lieux d'entraînement ouverts." },
                         { q: "Les parents doivent-ils être présents ?", a: "Pour les 2-5 ans, oui. Pour les plus grands, nous vous encourageons à assister aux 5 dernières minutes pour le bilan de fin de séance." },
                         { q: "Puis-je utiliser mes assurances ?", a: "Bien que nos mentors soient formés en psychologie, le service est facturé comme du tutorat sportif. Vérifiez avec votre assureur pour la catégorie 'Activité physique' ou 'Bien-être'." }
                     ].map((item, i) => (

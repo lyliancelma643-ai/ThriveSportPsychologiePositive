@@ -17,9 +17,7 @@ const Cta = ({ setCurrentPage, setBookingStep }) => {
                         <CheckCircle2 className="mr-2" /> Réserver l'évaluation
                     </button>
                 </div>
-                <p className="mt-6 text-sm text-gray-400 flex items-center justify-center">
-                    <ShieldCheck size={14} className="mr-1" /> Satisfait ou remboursé sur la séance découverte.
-                </p>
+
             </div>
         </section>
     );

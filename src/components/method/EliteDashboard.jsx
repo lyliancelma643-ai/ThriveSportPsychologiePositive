@@ -40,7 +40,7 @@ const EliteDashboard = () => {
                             </div>
                         </div>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            Graphique en toile d'araignée superposant la Séance 1 (Baseline) et la Séance 6. L'expansion visuelle crée le "Wow Effect" immédiat.
+                            Graphique en toile d'araignée superposant la Séance 1 (Baseline) et la Séance 6.
                         </p>
                     </div>
 
@@ -65,7 +65,7 @@ const EliteDashboard = () => {
                             ))}
                         </div>
                         <p className="text-gray-600 text-sm leading-relaxed">
-                            Observations BARS concrètes. Donne aux parents des anecdotes précises pour valoriser leur enfant.
+                            Observations BARS concrètes.
                         </p>
                     </div>
 
@@ -119,13 +119,13 @@ const EliteDashboard = () => {
                             ))}
                         </div>
                         <p className="text-white/60 text-sm leading-relaxed relative z-10 border-t border-white/10 pt-4">
-                            Badge visuel des 5 forces dominantes. Transforme l'identité de l'enfant : il n'est plus "moyen", il est "puissant".
+                            Badge visuel des 5 forces dominantes.
                         </p>
                     </div>
 
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

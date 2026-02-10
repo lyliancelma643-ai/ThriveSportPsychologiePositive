@@ -18,8 +18,8 @@ const Home = ({ setCurrentPage, setBookingStep }) => {
             <PainPoints />
             <Comparison />
             <MethodTeaser setCurrentPage={setCurrentPage} />
-            <Testimonials />
             <Locations />
+            <Testimonials />
             <Faq />
             <Cta setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
         </>

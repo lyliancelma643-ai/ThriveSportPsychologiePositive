@@ -4,6 +4,7 @@ import BookingForm from '../components/booking/BookingForm';
 import PaymentForm from '../components/booking/PaymentForm';
 import SuccessView from '../components/booking/SuccessView';
 import RecommendationView from '../components/booking/RecommendationView';
+import SportSelection from '../components/booking/SportSelection';
 
 const Booking = ({
     bookingStep,
@@ -37,8 +38,9 @@ const Booking = ({
         switch (bookingStep) {
             case 'assessment': return '15%';
             case 'recommendation': return '30%';
-            case 'calendar': return '50%';
-            case 'form': return '75%';
+            case 'calendar': return '45%';
+            case 'form': return '60%';
+            case 'sport': return '80%';
             case 'payment': return '90%';
             case 'success': return '100%';
             default: return '0%';
@@ -117,8 +119,19 @@ const Booking = ({
                                 selectedDate={selectedDate}
                                 selectedTime={selectedTime}
                                 isRecurring={isRecurring}
+                                onSubmit={() => setBookingStep('sport')}
+                                submitLabel="Valider et choisir mon sport"
                             />
                         </div>
+                    )}
+
+                    {/* Step: Sport Selection */}
+                    {bookingStep === 'sport' && (
+                        <SportSelection
+                            bookingData={bookingData}
+                            setBookingData={setBookingData}
+                            setBookingStep={setBookingStep}
+                        />
                     )}
 
                     {bookingStep === 'payment' && (

@@ -41,10 +41,17 @@ const App = () => {
                     <Sport
                         setCurrentPage={setCurrentPage}
                         setBookingStep={booking.setBookingStep}
+                        bookingData={booking.bookingData}
+                        setBookingData={booking.setBookingData}
                     />
                 )}
 
-                {currentPage === 'methode' && <Method />}
+                {currentPage === 'methode' && (
+                    <Method
+                        setCurrentPage={setCurrentPage}
+                        setBookingStep={booking.setBookingStep}
+                    />
+                )}
 
                 {currentPage === 'programmes' && (
                     <Programs handleSelectProgram={booking.handleSelectProgram} />

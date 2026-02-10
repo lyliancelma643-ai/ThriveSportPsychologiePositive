@@ -7,10 +7,9 @@ const SECTIONS = [
     { id: 'scorecard', label: 'Scorecard THRIVE', icon: <Shield size={18} /> },
     { id: 'science', label: 'Preuves Scientifiques', icon: <Microscope size={18} /> },
     { id: 'dashboard', label: 'Dashboard Élite', icon: <BarChart3 size={18} /> },
-    { id: 'tools', label: 'Outils', icon: <Wrench size={18} /> },
 ];
 
-const MethodSidebar = () => {
+const MethodSidebar = ({ setCurrentPage, setBookingStep }) => {
     const [activeSection, setActiveSection] = useState('intro');
 
     useEffect(() => {
@@ -71,7 +70,10 @@ const MethodSidebar = () => {
             <div className="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center">
                 <p className="text-xs text-gray-500 mb-3 font-medium">Convaincu par la méthode ?</p>
                 <button
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} // Simplified, ideally links to booking
+                    onClick={() => {
+                        setBookingStep('calendar');
+                        setCurrentPage('booking');
+                    }}
                     className="w-full py-2 bg-[#C5A059] text-white rounded-lg text-xs font-bold hover:bg-[#b08d4d] transition-colors"
                 >
                     Réserver une séance

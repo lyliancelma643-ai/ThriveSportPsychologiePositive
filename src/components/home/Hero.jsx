@@ -18,10 +18,10 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                             <span>Tutorat Sportif Premium - Montréal</span>
                         </div>
                         <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            Transformez le doute de votre enfant en <span className="text-[#8F9779]">compétence durable.</span>
+                            L'expérience unique du tutorat par la <span className="text-[#8F9779]">psychologie positive.</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            Le premier service de Tutorat Sportif à Montréal supervisé par la science de la psychologie positive. Nous ne coachons pas des équipes, nous mentorons l'individu.
+                            Faites passer votre enfant doutant à <span className="relative inline-block px-1">l'enfant leader et confiant<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>, <span className="font-bold text-[#1B263B]">dans le sport et dans la vie.</span> Le premier service de Tutorat Sportif à Montréal supervisé par la science de la psychologie positive.
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
@@ -41,56 +41,73 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                             alt="Thrive Sport Psychology - Athlètes en action"
                             className="relative rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
                         />
-                        {/* Float Badge 1 (Bottom Left) - Moves gently up/down */}
-                        <div className="absolute bottom-16 -left-8 animate-float-slow z-30">
-                            <div className="bg-white p-4 rounded-2xl shadow-xl flex items-center hover:scale-110 hover:-rotate-3 transition-transform duration-300 cursor-pointer">
-                                <div className="bg-green-100 p-2 rounded-full mr-3 text-green-600 font-bold">✓</div>
+
+                        {/* 
+                            PREMIUM FLOATING BADGES 
+                            Style: Glassmorphism + Soft Shadows + Serif Typography
+                            Positioning: Adjusted to prevent overlapping
+                        */}
+
+                        {/* Badge 1 (Bottom Left) - Resultat Prouve */}
+                        <div className="absolute -bottom-4 -left-16 animate-float-slow z-30">
+                            <div className="bg-white/90 backdrop-blur-xl p-4 rounded-3xl shadow-2xl shadow-blue-900/10 border border-white/40 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default group">
+                                <div className="bg-gradient-to-br from-green-50 to-green-100 p-2.5 rounded-2xl text-green-600 shadow-inner group-hover:scale-110 transition-transform">
+                                    <span className="text-lg">✓</span>
+                                </div>
                                 <div>
-                                    <div className="text-xs text-gray-400 font-bold uppercase">Résultat prouvé</div>
-                                    <div className="font-serif font-bold text-[#1B263B]">+31% Performance</div>
+                                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Résultat prouvé</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-lg">+31% Performance</div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Float Badge 2 (Top Right) - Moves reverse (down/up) */}
-                        <div className="absolute top-12 -right-8 animate-float-reverse lg:block hidden z-20">
-                            <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center hover:scale-110 hover:rotate-3 transition-transform duration-300 cursor-pointer">
-                                <div className="bg-amber-100 p-2 rounded-full mr-3 text-amber-600">💡</div>
+                        {/* Badge 2 (Top Right) - Potentiel */}
+                        <div className="absolute top-8 -right-16 animate-float-reverse lg:block hidden z-20">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-amber-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default">
+                                <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-2 rounded-xl text-amber-600 shadow-sm">
+                                    <span className="text-base">💡</span>
+                                </div>
                                 <div>
-                                    <div className="text-[10px] text-gray-400 font-bold uppercase">Potentiel</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Potentiel</div>
                                     <div className="font-serif font-bold text-[#1B263B] text-sm">3x Plus de Créativité</div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Float Badge 3 (Middle Right) - Slower floating */}
-                        <div className="absolute top-1/2 -right-12 transform -translate-y-1/2 animate-float-slower lg:block hidden z-20">
-                            <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center hover:scale-110 hover:-rotate-3 transition-transform duration-300 cursor-pointer">
-                                <div className="bg-blue-100 p-2 rounded-full mr-3 text-blue-500">📚</div>
+                        {/* Badge 3 (Middle Right) - Rigueur */}
+                        <div className="absolute top-1/2 -right-24 transform -translate-y-1/2 animate-float-slower lg:block hidden z-20">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-blue-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-100">
+                                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-2 rounded-xl text-blue-500 shadow-sm">
+                                    <span className="text-base">📚</span>
+                                </div>
                                 <div>
-                                    <div className="text-[10px] text-gray-400 font-bold uppercase">Rigueur</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Rigueur</div>
                                     <div className="font-serif font-bold text-[#1B263B] text-sm">120+ Études Analysées</div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Float Badge 4 (Top Left) - Standard Float */}
-                        <div className="absolute top-20 -left-10 animate-float lg:block hidden z-20">
-                            <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center hover:scale-110 hover:rotate-3 transition-transform duration-300 cursor-pointer">
-                                <div className="bg-purple-100 p-2 rounded-full mr-3 text-purple-500">🎓</div>
+                        {/* Badge 4 (Top Left) - Ecole */}
+                        <div className="absolute top-12 -left-20 animate-float lg:block hidden z-20">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-purple-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-75">
+                                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-2 rounded-xl text-purple-500 shadow-sm">
+                                    <span className="text-base">🎓</span>
+                                </div>
                                 <div>
-                                    <div className="text-[10px] text-gray-400 font-bold uppercase">École</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">École</div>
                                     <div className="font-serif font-bold text-[#1B263B] text-sm">+11% Réussite Scolaire</div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Float Badge 5 (Bottom Right) - Delayed Float */}
-                        <div className="absolute bottom-20 -right-6 animate-float-delayed lg:block hidden z-30">
-                            <div className="bg-white p-3 rounded-2xl shadow-lg flex items-center hover:scale-110 hover:-rotate-3 transition-transform duration-300 cursor-pointer">
-                                <div className="bg-teal-100 p-2 rounded-full mr-3 text-teal-500">😌</div>
+                        {/* Badge 5 (Bottom Right) - Bien-etre */}
+                        <div className="absolute bottom-12 -right-12 animate-float-delayed lg:block hidden z-30">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-teal-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-150">
+                                <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-2 rounded-xl text-teal-500 shadow-sm">
+                                    <span className="text-base">😌</span>
+                                </div>
                                 <div>
-                                    <div className="text-[10px] text-gray-400 font-bold uppercase">Bien-être</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Bien-être</div>
                                     <div className="font-serif font-bold text-[#1B263B] text-sm">Réduction des Troubles</div>
                                 </div>
                             </div>

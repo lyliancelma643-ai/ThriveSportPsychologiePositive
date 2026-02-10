@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, Check, Sparkles, CheckCircle2 } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 import { PROGRAMS_DATA } from '../data/programs';
+import ContactSection from '../components/ui/ContactSection';
 
 const Programs = ({ handleSelectProgram }) => {
     return (
@@ -73,6 +74,7 @@ const Programs = ({ handleSelectProgram }) => {
                     );
                 })}
             </div>
+            <ContactSection />
         </section>
     );
 };

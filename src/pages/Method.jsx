@@ -1,19 +1,20 @@
 import React from 'react';
 import PermaGrid from '../components/method/PermaGrid';
 import ScientificProof from '../components/method/ScientificProof';
-import ToolsGrid from '../components/method/ToolsGrid';
+
 import ScorecardLevels from '../components/method/ScorecardLevels';
 import EliteDashboard from '../components/method/EliteDashboard';
 import MethodSidebar from '../components/method/MethodSidebar';
+import ContactSection from '../components/ui/ContactSection';
 
-const Method = () => {
+const Method = ({ setCurrentPage, setBookingStep }) => {
     return (
         <div className="py-20 bg-[#FAFAFA]">
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
                     {/* Left Column: Sidebar (Sticky) */}
-                    <MethodSidebar />
+                    <MethodSidebar setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
 
                     {/* Right Column: Content */}
                     <main className="space-y-24">
@@ -51,12 +52,11 @@ const Method = () => {
                         </section>
 
                         {/* Section 6: Tools */}
-                        <section id="tools" className="scroll-mt-32 pb-20">
-                            <ToolsGrid />
-                        </section>
+
 
                     </main>
                 </div>
+                <ContactSection />
             </div>
         </div>
     );

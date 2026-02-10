@@ -12,7 +12,8 @@ const useBooking = (setCurrentPage) => {
         confidence: "Moyenne (Hésitation)",
         objective: "Plaisir & Bien-être",
         name: "",
-        age: ""
+        age: "",
+        sport: null
     });
     const [paymentMethod, setPaymentMethod] = useState('full');
     const [processingPayment, setProcessingPayment] = useState(false);

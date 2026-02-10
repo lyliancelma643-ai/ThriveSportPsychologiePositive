@@ -1,10 +1,11 @@
 import React from 'react';
 import { MapPin, Navigation, Home, Users } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
+import ContactSection from '../ui/ContactSection';
 
 const Locations = () => {
     return (
-        <section className="py-20 bg-white border-t border-gray-100">
+        <section className="py-20 bg-white border-t border-gray-100 pb-0">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
@@ -73,6 +74,7 @@ const Locations = () => {
 
                 </div>
             </div>
+            <ContactSection />
         </section>
     );
 };

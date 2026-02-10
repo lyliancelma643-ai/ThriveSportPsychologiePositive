@@ -77,6 +77,12 @@ const PaymentFormContent = ({
                                 <p className="text-gray-400 text-xs uppercase font-bold">Athlète</p>
                                 <p className="font-bold text-[#1B263B]">{bookingData.name} ({bookingData.age} ans)</p>
                             </div>
+                            {bookingData.sport && (
+                                <div>
+                                    <p className="text-gray-400 text-xs uppercase font-bold">Discipline</p>
+                                    <p className="font-bold text-[#1B263B]">{bookingData.sport}</p>
+                                </div>
+                            )}
                             <div>
                                 <p className="text-gray-400 text-xs uppercase font-bold">1ère Séance</p>
                                 <p className="font-bold text-[#1B263B]">{selectedDate?.toLocaleDateString('fr-FR')} à {selectedTime}</p>

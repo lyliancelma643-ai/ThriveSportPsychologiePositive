@@ -11,6 +11,19 @@ const ScorecardLevels = () => {
                     subtitle="L'Ingénierie de la Transformation : Transformer l'intangible en actif mesurable."
                 />
 
+                {/* Validation Note */}
+                <div className="flex justify-center mb-12">
+                    <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-4 flex items-center gap-3 max-w-2xl text-center md:text-left">
+                        <div className="bg-blue-100 p-2 rounded-full shrink-0">
+                            <Shield size={20} className="text-blue-600" />
+                        </div>
+                        <p className="text-sm text-blue-800">
+                            <span className="font-bold block md:inline">Précision Scientifique : </span>
+                            Toutes ces mesures sont effectuées à l'aide de <span className="font-semibold">tests psychométriques standardisés</span> et validés par les comités internationaux de psychologie. Ce sont de véritables outils diagnostiques, pas de simples observations.
+                        </p>
+                    </div>
+                </div>
+
                 <div className="space-y-12">
                     {/* Strate I */}
                     <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100">
@@ -27,15 +40,15 @@ const ScorecardLevels = () => {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Heart size={16} className="text-[#C5A059] mr-2" /> HRV (Variabilité Cardiaque)</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Heart size={16} className="text-[#C5A059] mr-2" /> Stress & Récupération</h4>
                                         <p className="text-sm text-gray-500">Mesure la "Readiness". Un HRV bas signale une fatigue invisible ; nous adaptons la séance pour protéger l'estime de soi.</p>
                                     </div>
                                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Brain size={16} className="text-[#C5A059] mr-2" /> DALDA (Indice de Charge)</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Brain size={16} className="text-[#C5A059] mr-2" /> Charge Mentale & Globale</h4>
                                         <p className="text-sm text-gray-500">Évaluation du sommeil, de l'humeur et du stress global (école, famille, sport). L'enfant est pris en compte dans sa globalité.</p>
                                     </div>
                                     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Zap size={16} className="text-[#C5A059] mr-2" /> RPE (Perception de l'Effort)</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2 flex items-center"><Zap size={16} className="text-[#C5A059] mr-2" /> Perception de l'Effort</h4>
                                         <p className="text-sm text-gray-500">Détecte les blocages mentaux : si l'effort perçu est de 9/10 pour un exercice simple, nous intervenons immédiatement.</p>
                                     </div>
                                 </div>
@@ -61,15 +74,15 @@ const ScorecardLevels = () => {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                                        <h4 className="font-bold text-[#C5A059] mb-2">SMTQ (Dureté Mentale)</h4>
+                                        <h4 className="font-bold text-[#C5A059] mb-2">Dureté Mentale</h4>
                                         <p className="text-sm text-white/70">Mesure les 4C : Confiance, Contrôle, Challenge, Constance. On sort l'enfant de l'ombre.</p>
                                     </div>
                                     <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                                        <h4 className="font-bold text-[#C5A059] mb-2">PERMA-Profiler</h4>
+                                        <h4 className="font-bold text-[#C5A059] mb-2">Épanouissement Personnel</h4>
                                         <p className="text-sm text-white/70">La mesure du "Flourishing" (Épanouissement). Validation scientifique que l'enfant est heureux, engagé et accompli.</p>
                                     </div>
                                     <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/10">
-                                        <h4 className="font-bold text-[#C5A059] mb-2">VIA Youth (Forces)</h4>
+                                        <h4 className="font-bold text-[#C5A059] mb-2">Forces de Caractère</h4>
                                         <p className="text-sm text-white/70">Change le narratif : on ne parle plus de ce qu'il faut corriger, mais de ses "forces signatures" puissantes.</p>
                                     </div>
                                 </div>
@@ -92,17 +105,17 @@ const ScorecardLevels = () => {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="p-6 rounded-xl bg-gray-50">
-                                        <h4 className="font-bold text-[#1B263B] mb-2">SMS-II (Motivation)</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2">Motivation Intrinsèque</h4>
                                         <div className="h-1 w-12 bg-[#8F9779] mb-3"></div>
                                         <p className="text-sm text-gray-600">Prouve que l'enfant joue désormais pour lui-même (intrinsèque) et non par peur de décevoir.</p>
                                     </div>
                                     <div className="p-6 rounded-xl bg-gray-50">
-                                        <h4 className="font-bold text-[#1B263B] mb-2">ASES (Auto-efficacité)</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2">Confiance Technique</h4>
                                         <div className="h-1 w-12 bg-[#8F9779] mb-3"></div>
                                         <p className="text-sm text-gray-600">Mesure chirurgicale de la confiance sur un geste technique. La confiance n'est plus floue, c'est une certitude.</p>
                                     </div>
                                     <div className="p-6 rounded-xl bg-gray-50">
-                                        <h4 className="font-bold text-[#1B263B] mb-2">BARS / BOS</h4>
+                                        <h4 className="font-bold text-[#1B263B] mb-2">Comportements Observables</h4>
                                         <div className="h-1 w-12 bg-[#8F9779] mb-3"></div>
                                         <p className="text-sm text-gray-600">Le "Standard Or". Observation de comportements concrets (ex: encourager un coéquipier après une erreur).</p>
                                     </div>

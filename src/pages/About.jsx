@@ -1,6 +1,7 @@
 import React from 'react';
 import { Award, BookOpen, ShieldCheck, Users, GraduationCap, Activity, Quote } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
+import ContactSection from '../components/ui/ContactSection';
 
 const About = () => {
     return (
@@ -87,6 +88,7 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            <ContactSection />
         </div>
     );
 };
