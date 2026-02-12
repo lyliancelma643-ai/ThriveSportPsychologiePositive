@@ -13,10 +13,7 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
 
                     {/* LEFTSIDE: Text Content */}
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
-                        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#8F9779]/10 border border-[#8F9779]/20 text-[#8F9779] text-xs font-bold uppercase tracking-wider mb-6">
-                            <span className="flex h-2 w-2 rounded-full bg-[#8F9779]"></span>
-                            <span>Tutorat Sportif Premium - Montréal</span>
-                        </div>
+
                         <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
                             L'expérience unique du tutorat par la <span className="text-[#8F9779]">psychologie positive.</span>
                         </h1>

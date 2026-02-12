@@ -10,7 +10,7 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
         if (sportName) {
             setBookingData({ ...bookingData, sport: sportName });
         }
-        setBookingStep('calendar');
+        setBookingStep('sport');
         setCurrentPage('booking');
     };
 

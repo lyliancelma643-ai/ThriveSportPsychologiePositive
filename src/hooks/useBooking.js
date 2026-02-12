@@ -24,7 +24,7 @@ const useBooking = (setCurrentPage) => {
         // Reset payment method default
         const prog = PROGRAMS_DATA[programName];
         setPaymentMethod(prog?.installments > 1 ? 'installments' : 'full');
-        setBookingStep('calendar');
+        setBookingStep('sport');
         setIsRecurring(false); // Reset recurrence
         setSelectedDate(null);
         setSelectedTime(null);

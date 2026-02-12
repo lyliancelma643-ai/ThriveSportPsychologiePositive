@@ -12,7 +12,8 @@ export const PROGRAMS_DATA = {
             "Bilan \"Confiance\" Initial (Supervisé par l'UdeM)",
             "Rapports de Victoire (Photo/Vidéo après chaque séance)",
             "Le \"Guide de Survie du Parent Positif\" (Inclus)"
-        ]
+        ],
+        calLink: "thrive-psychologie-positive/seance-1"
     },
     "Avance": {
         sessions: 6,
@@ -29,7 +30,8 @@ export const PROGRAMS_DATA = {
             "Rapports de Victoire (Photo/Vidéo après chaque séance)",
             "Le \"Guide de Survie du Parent Positif\" (Inclus)",
             "Mesure scientifique des progrès (Début vs Fin)"
-        ]
+        ],
+        calLink: "thrive-psychologie-positive/seance-l-vance"
     },
     "Performance": {
         sessions: 13,
@@ -47,6 +49,7 @@ export const PROGRAMS_DATA = {
             "Le \"Guide de Survie du Parent Positif\" (Inclus)",
             "Ligne Directe avec le Coach (WhatsApp 7j/7)",
             "Mesure scientifique des progrès (Début vs Fin)"
-        ]
+        ],
+        calLink: "thrive-psychologie-positive/seance-1"
     }
 };
