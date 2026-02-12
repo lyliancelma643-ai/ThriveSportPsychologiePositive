@@ -50,6 +50,6 @@ export const PROGRAMS_DATA = {
             "Ligne Directe avec le Coach (WhatsApp 7j/7)",
             "Mesure scientifique des progrès (Début vs Fin)"
         ],
-        calLink: "thrive-psychologie-positive/seance-1"
+        calLink: "thrive-psychologie-positive/pack-3-le-peformance"
     }
 };

@@ -15,8 +15,7 @@ const SuccessView = ({ setCurrentPage }) => {
                 <p className="text-xs font-bold text-gray-400 uppercase mb-3 tracking-widest">Prochaines étapes</p>
                 <ul className="space-y-3 text-sm text-gray-700">
                     <li className="flex items-center"><CheckCircle2 size={14} className="mr-2 text-[#8F9779]" /> Email de confirmation reçu.</li>
-                    <li className="flex items-center"><CheckCircle2 size={14} className="mr-2 text-[#8F9779]" /> Accès Hexfit (Journal de bord) activé sous 2h.</li>
-                    <li className="flex items-center"><CheckCircle2 size={14} className="mr-2 text-[#8F9779]" /> Votre mentor vous contactera demain.</li>
+                    <li className="flex items-center"><CheckCircle2 size={14} className="mr-2 text-[#8F9779]" /> Votre mentor vous contactera d'ici 24h.</li>
                 </ul>
             </div>
             <br />
