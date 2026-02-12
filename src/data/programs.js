@@ -13,7 +13,7 @@ export const PROGRAMS_DATA = {
             "Rapports de Victoire (Photo/Vidéo après chaque séance)",
             "Le \"Guide de Survie du Parent Positif\" (Inclus)"
         ],
-        calLink: "thrive-psychologie-positive/seance-1"
+        calLink: "thrive-psychologie-positive/pack-1-l-essentiel"
     },
     "Avance": {
         sessions: 6,
