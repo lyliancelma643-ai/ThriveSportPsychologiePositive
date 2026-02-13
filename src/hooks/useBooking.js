@@ -15,29 +15,14 @@ const useBooking = (setCurrentPage) => {
         age: "",
         sport: null
     });
-    const [paymentMethod, setPaymentMethod] = useState('full');
-    const [processingPayment, setProcessingPayment] = useState(false);
-    const [termsAccepted, setTermsAccepted] = useState(false);
 
     const handleSelectProgram = (programName) => {
         setBookingData({ ...bookingData, program: programName });
-        // Reset payment method default
-        const prog = PROGRAMS_DATA[programName];
-        setPaymentMethod(prog?.installments > 1 ? 'installments' : 'full');
         setBookingStep('sport');
         setIsRecurring(false); // Reset recurrence
         setSelectedDate(null);
         setSelectedTime(null);
         setCurrentPage('booking');
-    };
-
-    const handleProcessPayment = async () => {
-        if (!termsAccepted) return;
-        setProcessingPayment(true);
-        // Simulation d'un délai de traitement API (Stripe)
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        setProcessingPayment(false);
-        setBookingStep('success');
     };
 
     return {
@@ -51,13 +36,7 @@ const useBooking = (setCurrentPage) => {
         setIsRecurring,
         bookingData,
         setBookingData,
-        paymentMethod,
-        setPaymentMethod,
-        processingPayment,
-        termsAccepted,
-        setTermsAccepted,
-        handleSelectProgram,
-        handleProcessPayment
+        handleSelectProgram
     };
 };
 
