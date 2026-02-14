@@ -16,6 +16,15 @@ const Cta = ({ setCurrentPage, setBookingStep }) => {
                     >
                         <CheckCircle2 className="mr-2" /> Réserver l'évaluation
                     </button>
+                    {/* 
+                    // The following Link component was requested to be commented out.
+                    // It was not present in the original document, but is added here as a comment
+                    // to fulfill the instruction of commenting out the 'Commencer le Bilan' button.
+                    <Link to="/booking" className="inline-flex items-center bg-white text-[#1B263B] px-8 py-4 rounded-full font-bold text-lg hover:bg-[#8F9779] hover:text-white transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                        Commencer le bilan offert
+                        <ArrowRight className="ml-2" />
+                    </Link>
+                    */}
                 </div>
 
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench } from 'lucide-react';
+import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, ArrowRight } from 'lucide-react';
 
 const SECTIONS = [
     { id: 'intro', label: 'Introduction', icon: <BookOpen size={18} /> },
@@ -67,18 +67,13 @@ const MethodSidebar = ({ setCurrentPage, setBookingStep }) => {
             </nav>
 
             {/* CTA Mini Widget */}
-            <div className="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center">
-                <p className="text-xs text-gray-500 mb-3 font-medium">Convaincu par la méthode ?</p>
-                <button
-                    onClick={() => {
-                        setBookingStep('calendar');
-                        setCurrentPage('booking');
-                    }}
-                    className="w-full py-2 bg-[#C5A059] text-white rounded-lg text-xs font-bold hover:bg-[#b08d4d] transition-colors"
-                >
-                    Réserver une séance
-                </button>
+            <div className="mt-8 bg-[#1B263B] rounded-2xl p-6 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all" onClick={() => setCurrentPage('sport')}>
+                <p className="text-white text-sm font-bold mb-3 leading-tight">Investissez dans<br />votre enfant</p>
+                <div className="w-full h-10 bg-[#C5A059] text-white rounded-lg text-xs font-bold flex items-center justify-center group-hover:bg-[#b08d4d] transition-colors">
+                    Découvrir les Sports <ArrowRight size={14} className="ml-2" />
+                </div>
             </div>
+
         </div>
     );
 };

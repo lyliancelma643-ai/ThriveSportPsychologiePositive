@@ -27,7 +27,7 @@ const Navbar = ({ currentPage, setCurrentPage, setBookingStep }) => {
                     {navLinks.map(link => (
                         <button key={link.id} onClick={() => setCurrentPage(link.id)} className={`text-sm font-medium transition-colors ${currentPage === link.id ? 'text-[#8F9779]' : 'text-[#1B263B] hover:text-[#8F9779]'}`}>{link.label}</button>
                     ))}
-                    <button onClick={() => { setBookingStep('calendar'); setCurrentPage('booking'); }} className="bg-[#1B263B] text-white px-6 py-2.5 rounded-full text-sm font-medium shadow-md">Évaluation</button>
+
                 </div>
                 <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>

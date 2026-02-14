@@ -46,32 +46,7 @@ const Booking = ({
                         ></div>
                     </div>
 
-                    {/* Step: Assessment (No program selected) */}
-                    {bookingStep === 'assessment' && (
-                        <div>
-                            <div className="text-center mb-10">
-                                <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">Étape 1 sur 4</span>
-                                <h2 className="text-3xl font-serif text-[#1B263B]">Commençons par cerner vos besoins</h2>
-                            </div>
-                            <BookingForm
-                                bookingData={bookingData}
-                                setBookingData={setBookingData}
-                                setBookingStep={setBookingStep} // Not used for return here but props need matching
-                                onSubmit={() => setBookingStep('recommendation')}
-                                submitLabel="Voir ma recommandation"
-                                selectedDate={null} // Explicitly null to hide date header
-                                selectedTime={null}
-                            />
-                        </div>
-                    )}
 
-                    {/* Step: Recommendation */}
-                    {bookingStep === 'recommendation' && (
-                        <RecommendationView
-                            bookingData={bookingData}
-                            onSelectProgram={handleSelectProgram}
-                        />
-                    )}
 
                     {/* Step: Sport Selection */}
                     {bookingStep === 'sport' && (

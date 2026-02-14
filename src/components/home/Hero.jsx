@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import heroVisual from '../../assets/hero-visual.jpg';
+import heroVisual from '../../assets/Design sans titre.png';
 
 const Hero = ({ setCurrentPage, setBookingStep }) => {
     return (
@@ -15,17 +15,17 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
 
                         <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            L'expérience unique du tutorat par la <span className="text-[#8F9779]">psychologie positive.</span>
+                            L'expérience unique du tutorat sportif par la <span className="text-[#8F9779]">psychologie positive.</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                             Faites passer votre enfant doutant à <span className="relative inline-block px-1">l'enfant leader et confiant<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>, <span className="font-bold text-[#1B263B]">dans le sport et dans la vie.</span> Le premier service de Tutorat Sportif à Montréal supervisé par la science de la psychologie positive.
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
-                                onClick={() => { setBookingStep('calendar'); setCurrentPage('booking'); }}
+                                onClick={() => document.getElementById('contact-section')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
-                                Réserver une évaluation <ChevronRight className="ml-2" size={20} />
+                                Nous contacter <ChevronRight className="ml-2" size={20} />
                             </button>
                         </div>
                     </div>

@@ -34,6 +34,7 @@ const App = () => {
                     <Home
                         setCurrentPage={setCurrentPage}
                         setBookingStep={booking.setBookingStep}
+                        handleSelectProgram={booking.handleSelectProgram}
                     />
                 )}
 

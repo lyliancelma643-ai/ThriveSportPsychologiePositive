@@ -87,21 +87,30 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
                 </div>
             </div>
 
-            <div className="mt-12 mb-8 bg-[#F8F9FA] rounded-3xl p-8 border border-gray-100 text-center relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#8F9779]/10 rounded-full blur-2xl -mr-8 -mt-8"></div>
-                <div className="relative z-10">
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-2">Besoin d'aide pour choisir ?</h3>
-                    <p className="text-sm text-gray-600 mb-6 max-w-lg mx-auto">
-                        Vous hésitez entre deux packs ou avez une question spécifique sur les besoins de votre enfant ?
-                        Contactez-nous directement, nous vous guiderons vers l'option la plus adaptée.
-                    </p>
-                    <a
-                        href="mailto:thrive.psypositive@gmail.com"
-                        className="inline-flex items-center text-sm font-bold text-[#8F9779] hover:text-[#1B263B] transition-colors underline underline-offset-4"
-                    >
-                        thrive.psypositive@gmail.com
-                    </a>
-                </div>
+            <div className="text-center mb-8">
+                <h3 className="text-xl font-bold text-[#1B263B] mb-2">Autres options disponibles</h3>
+                <p className="text-sm text-gray-500">Si vous préférez une autre approche, ces programmes sont aussi accessibles.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
+                {Object.entries(PROGRAMS_DATA).map(([key, program]) => {
+                    if (key === recommendedKey) return null;
+                    return (
+                        <div key={key} className="p-6 rounded-2xl border border-gray-200 bg-white">
+                            <h4 className="font-bold text-[#1B263B] mb-1">{program.label}</h4>
+                            <p className="text-xs text-gray-500 mb-4">{program.desc}</p>
+                            <div className="flex items-center justify-between">
+                                <span className="font-bold">{program.price} $</span>
+                                <button
+                                    onClick={() => onSelectProgram(key)}
+                                    className="text-xs font-bold underline hover:text-[#8F9779]"
+                                >
+                                    Choisir plutôt celui-ci
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );

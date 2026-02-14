@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Activity, Brain, Heart, Zap, Target, ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
+import ContactSection from '../components/ui/ContactSection'; // Import ContactSection
 
 import { SPORTS_DATA } from '../data/sports';
 
 const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) => {
 
+    // Ref for the contact section
+    const contactRef = useRef(null);
+
     const handleBook = (sportName = null) => {
         if (sportName) {
             setBookingData({ ...bookingData, sport: sportName });
         }
-        setBookingStep('sport');
-        setCurrentPage('booking');
+        // Redirect to Programs page instead of direct booking
+        setCurrentPage('programmes');
+        window.scrollTo(0, 0);
+    };
+
+    // Scroll handler
+    const handleScrollToContact = () => {
+        contactRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
     return (
@@ -23,7 +33,7 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
                 />
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
                 {SPORTS_DATA.map((sport) => (
                     <div key={sport.id} className="group relative h-[520px] perspective-1000">
                         {/* Card Container */}
@@ -92,12 +102,23 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
                         Peu importe la discipline, nous appliquons la même rigueur scientifique pour développer l'athlète complet.
                     </p>
                     <button
-                        onClick={handleBook}
+                        onClick={handleScrollToContact}
                         className="bg-[#C5A059] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#b08d4b] transition-colors shadow-lg w-full flex items-center justify-center"
                     >
                         Réserver une évaluation <ArrowRight size={20} className="ml-2" />
                     </button>
                 </div>
+            </div>
+
+            {/* Contact / Diagnostic Section */}
+            <div ref={contactRef}>
+                <ContactSection handleSelectProgram={(program) => {
+                    // Start booking flow from diagnostic recommendation
+                    setBookingData(prev => ({ ...prev, program }));
+                    setCurrentPage('booking');
+                    setBookingStep('cal');
+                    window.scrollTo(0, 0);
+                }} />
             </div>
         </div>
     );

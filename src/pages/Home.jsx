@@ -7,10 +7,11 @@ import MethodTeaser from '../components/home/MethodTeaser';
 import Testimonials from '../components/home/Testimonials';
 import Faq from '../components/home/Faq';
 import Cta from '../components/home/Cta';
+import ContactSection from '../components/ui/ContactSection';
 
 import Locations from '../components/home/Locations';
 
-const Home = ({ setCurrentPage, setBookingStep }) => {
+const Home = ({ setCurrentPage, setBookingStep, handleSelectProgram }) => {
     return (
         <>
             <Hero setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
@@ -21,6 +22,9 @@ const Home = ({ setCurrentPage, setBookingStep }) => {
             <Locations />
             <Testimonials />
             <Faq />
+            <div id="contact-section">
+                <ContactSection handleSelectProgram={handleSelectProgram} />
+            </div>
             <Cta setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
         </>
     );
