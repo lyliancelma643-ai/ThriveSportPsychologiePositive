@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
 import BookingForm from '../components/booking/BookingForm';
 import SuccessView from '../components/booking/SuccessView';
 import RecommendationView from '../components/booking/RecommendationView';
@@ -47,6 +48,30 @@ const Booking = ({
                     </div>
 
 
+
+
+                    {/* Step: Assessment (Questions) */}
+                    {bookingStep === 'assessment' && (
+                        <BookingForm
+                            bookingData={bookingData}
+                            setBookingData={setBookingData}
+                            setBookingStep={setBookingStep}
+                            onSubmit={() => setBookingStep('recommendation')}
+                            submitLabel={
+                                <>
+                                    Voir ma recommandation <ArrowRight className="ml-2" />
+                                </>
+                            }
+                        />
+                    )}
+
+                    {/* Step: Recommendation */}
+                    {bookingStep === 'recommendation' && (
+                        <RecommendationView
+                            bookingData={bookingData}
+                            onSelectProgram={handleSelectProgram}
+                        />
+                    )}
 
                     {/* Step: Sport Selection */}
                     {bookingStep === 'sport' && (

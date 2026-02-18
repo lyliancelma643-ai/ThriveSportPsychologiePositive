@@ -15,7 +15,7 @@ const Footer = () => {
                         <p className="text-[11px] text-white/40 leading-relaxed">IMPORTANT : Les services de Thrive visent l'amélioration de la performance et le développement des habiletés mentales. Le consultant n'est pas psychologue ni psychothérapeute membre de l'OPQ.</p>
                     </div>
                 </div>
-                <p className="text-center text-white/30 text-[10px]">&copy; {new Date().getFullYear()} Thrive Sport Positive Psychology (TSPP). Tous droits réservés.</p>
+                <p className="text-center text-white/30 text-[10px]">&copy; {new Date().getFullYear()} Thrive Sport Positive. Tous droits réservés.</p>
             </div>
         </footer>
     );

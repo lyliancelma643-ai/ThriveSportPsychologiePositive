@@ -25,7 +25,6 @@ const Home = ({ setCurrentPage, setBookingStep, handleSelectProgram }) => {
             <div id="contact-section">
                 <ContactSection handleSelectProgram={handleSelectProgram} />
             </div>
-            <Cta setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
         </>
     );
 };

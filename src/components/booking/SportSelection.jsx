@@ -23,7 +23,10 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                         ? "Confirmez votre discipline"
                         : "Quelle discipline pratiquez-vous ?"}
                 </h2>
-                <p className="text-gray-500 mt-2 max-w-2xl mx-auto">
+                <div className="mt-4 mb-6 inline-block px-4 py-2 bg-[#8F9779]/10 rounded-full text-[#8F9779] text-sm font-bold">
+                    Pack sélectionné : {bookingData.program}
+                </div>
+                <p className="text-gray-500 max-w-2xl mx-auto">
                     Nos coachs sont spécialisés. Sélectionnez votre sport pour que nous puissions vous attribuer l'expert idéal.
                 </p>
             </div>
@@ -34,8 +37,8 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                         key={sport.id}
                         onClick={() => handleSelectSport(sport.name)}
                         className={`group p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 relative overflow-hidden ${bookingData.sport === sport.name
-                                ? 'border-[#C5A059] bg-[#C5A059]/5 shadow-lg scale-105'
-                                : 'border-gray-100 bg-white hover:border-[#1B263B]/20 hover:shadow-md'
+                            ? 'border-[#C5A059] bg-[#C5A059]/5 shadow-lg scale-105'
+                            : 'border-gray-100 bg-white hover:border-[#1B263B]/20 hover:shadow-md'
                             }`}
                     >
                         {bookingData.sport === sport.name && (
@@ -60,8 +63,8 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                     onClick={handleContinue}
                     disabled={!bookingData.sport}
                     className={`px-8 py-4 rounded-xl font-bold flex items-center transition-all ${bookingData.sport
-                            ? 'bg-[#1B263B] text-white hover:bg-[#253550] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
-                            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                        ? 'bg-[#1B263B] text-white hover:bg-[#253550] shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'
+                        : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         }`}
                 >
                     Continuer vers le paiement <ArrowRight size={20} className="ml-2" />

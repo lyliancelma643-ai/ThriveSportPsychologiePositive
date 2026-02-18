@@ -17,7 +17,7 @@ const Comparison = () => {
                         <h3 className="text-2xl font-bold text-[#1B263B] mb-4">La Science vs Le Hasard</h3>
                         <p className="text-lg text-gray-600 mb-4 leading-relaxed">
                             <span className="font-bold text-[#1B263B]">Pourquoi la majorité des parents se contentent-ils de deviner les progrès de leur enfant ?</span><br />
-                            Dans un camp traditionnel, vous payez pour du temps de glace. Chez TSPP, vous investissez dans une trajectoire de vie.
+                            Dans un camp traditionnel, vous payez pour du temps de glace. Chez Thrive Sport Positive, vous investissez dans une trajectoire de vie.
                         </p>
                         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                             Là où les autres voient un enfant "timide", nous mesurons un déficit de contrôle émotionnel. Là où ils voient un "manque de talent", nous identifions un besoin d'auto-efficacité.

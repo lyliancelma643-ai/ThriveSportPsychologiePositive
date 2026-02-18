@@ -35,7 +35,7 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                         <div className="absolute -inset-4 bg-[#C5A059]/20 rounded-[2.5rem] blur-xl animate-pulse-slow"></div>
                         <img
                             src={heroVisual}
-                            alt="Thrive Sport Psychology - Athlètes en action"
+                            alt="Thrive Sport Positive - Athlètes en action"
                             className="relative rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
                         />
 

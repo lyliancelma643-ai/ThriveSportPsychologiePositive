@@ -73,6 +73,20 @@ const App = () => {
                         <Locations />
                     </div>
                 )}
+
+                {/* 404 Fallback - Should not happen if nav is correct but good for robustness */}
+                {!['home', 'sport', 'methode', 'programmes', 'booking', 'a-propos', 'zones'].includes(currentPage) && (
+                    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+                        <h1 className="text-4xl font-serif text-[#1B263B] mb-4">Page Introuvable</h1>
+                        <p className="text-gray-600 mb-8">Désolé, la page que vous cherchez n'existe pas.</p>
+                        <button
+                            onClick={() => setCurrentPage('home')}
+                            className="bg-[#1B263B] text-white px-8 py-3 rounded-full hover:bg-[#2c3e5a] transition-colors"
+                        >
+                            Retour à l'accueil
+                        </button>
+                    </div>
+                )}
             </main>
 
             <Footer />
