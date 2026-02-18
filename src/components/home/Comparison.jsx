@@ -2,7 +2,7 @@ import React from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 
-const Comparison = () => {
+const Comparison = ({ setCurrentPage, setBookingStep, openDiagnostic }) => {
     return (
         <section className="py-24 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,6 +53,16 @@ const Comparison = () => {
                     ))}
                 </div>
 
+                <div className="mt-12 text-center">
+                    <button
+                        onClick={() => {
+                            setCurrentPage('evaluation');
+                        }}
+                        className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all inline-flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                    >
+                        Réserver une séance d'évaluation offerte <CheckCircle2 className="ml-2" size={20} />
+                    </button>
+                </div>
             </div>
         </section>
     );

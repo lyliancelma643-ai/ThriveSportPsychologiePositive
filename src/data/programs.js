@@ -1,55 +1,46 @@
 export const PROGRAMS_DATA = {
     "Essentiel": {
         sessions: 3,
-        price: 344.97,
+        price: 360,
         installments: 1,
-        label: "Pack 1 : L'ESSENTIEL",
-        desc: "Idéal pour évaluer l'intérêt et commencer à corriger les premières bases.",
+        label: "Le Forfait « Essentiel »",
+        desc: "L'Évaluation Diagnostique Initiale : Un test de base pour identifier les forces de caractère dominantes de l'enfant et son niveau de confiance actuel sur la glace.",
         highlight: false,
         features: [
-            "3 Séances de Coaching Privé (Sport + Mental)",
-            "Double Expertise : Athlète Pro & Psychologie",
-            "Bilan \"Confiance\" Initial (Supervisé par l'UdeM)",
-            "Rapports de Victoire (Photo/Vidéo après chaque séance)",
-            "Le \"Guide de Survie du Parent Positif\" (Inclus)"
-        ],
-        calLink: "thrive-psychologie-positive/pack-1-l-essentiel"
+            "3 séances sur la glace",
+            "Objectif : Briser la glace et fixer une direction claire dès les premiers coups de patin."
+        ]
     },
     "Avance": {
         sessions: 6,
-        price: 599.94,
+        price: 630,
         installments: 2,
-        installmentPrice: 299.97,
-        label: "Pack 2 : L'AVANCÉ",
-        desc: "Pour travailler une compétence spécifique avec un suivi intermédiaire.",
+        installmentPrice: 315,
+        label: "Le Forfait « Avancé »",
+        desc: "Tout ce qui est dans le forfait Essentiel, plus :",
         highlight: false,
         features: [
-            "6 Séances de Coaching Privé (Sport + Mental)",
-            "Double Expertise : Athlète Pro & Psychologie",
-            "Bilan \"Confiance\" Initial (Supervisé par l'UdeM)",
-            "Rapports de Victoire (Photo/Vidéo après chaque séance)",
-            "Le \"Guide de Survie du Parent Positif\" (Inclus)",
-            "Mesure scientifique des progrès (Début vs Fin)"
-        ],
-        calLink: "thrive-psychologie-positive/seance-l-vance"
+            "6 séances sur la glace",
+            "Test de Fixation d'Objectifs (Goal-Setting) : Un outil d'engagement psychologique.",
+            "Bilan de Mi-Parcours : Évaluation intermédiaire de l'estime de soi et anxiété."
+        ]
     },
     "Performance": {
         sessions: 13,
-        price: 899.99,
+        price: 1157,
         installments: 3,
-        installmentPrice: 300,
-        label: "Pack 3 : LE PERFORMANCE",
-        desc: "Le choix recommandé. Une transformation complète pour des résultats durables.",
+        installmentPrice: 386,
+        label: "Le Forfait « Performance »",
+        desc: "La solution ultime pour transformer le potentiel en performance réelle et mesurable.",
         highlight: true,
         features: [
-            "13 Séances de Coaching Privé (Sport + Mental)",
-            "Double Expertise : Athlète Pro & Psychologie",
-            "Bilan \"Confiance\" Initial (Supervisé par l'UdeM)",
-            "Rapports de Victoire (Photo/Vidéo après chaque séance)",
-            "Le \"Guide de Survie du Parent Positif\" (Inclus)",
-            "Ligne Directe avec le Coach (WhatsApp 7j/7)",
-            "Mesure scientifique des progrès (Début vs Fin)"
-        ],
-        calLink: "thrive-psychologie-positive/pack-3-le-peformance"
+            "13 séances sur la glace",
+            "Test de Fixation d'Objectifs (Goal-Setting) : Un outil d'engagement psychologique",
+            "Bilan de Mi-Parcours : Évaluation intermédiaire de l'estime de soi et anxiété",
+            "Test de Résilience face à l'échec",
+            "Suivi Continu de l'État d'Esprit (Mindset) avant/après séance",
+            "Cartographie Mentale Finale (Bilan fin de programme)",
+            "L'Avantage Logistique : Accès prioritaire réservations"
+        ]
     }
 };

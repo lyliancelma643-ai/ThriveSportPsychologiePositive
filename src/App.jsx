@@ -6,6 +6,7 @@ import Sport from './pages/Sport';
 import Method from './pages/Method';
 import Programs from './pages/Programs';
 import Booking from './pages/Booking';
+import Evaluation from './pages/Evaluation';
 import About from './pages/About';
 import Locations from './components/home/Locations';
 import useBooking from './hooks/useBooking';
@@ -74,8 +75,12 @@ const App = () => {
                     </div>
                 )}
 
+                {currentPage === 'evaluation' && (
+                    <Evaluation handleSelectProgram={booking.handleSelectProgram} />
+                )}
+
                 {/* 404 Fallback - Should not happen if nav is correct but good for robustness */}
-                {!['home', 'sport', 'methode', 'programmes', 'booking', 'a-propos', 'zones'].includes(currentPage) && (
+                {!['home', 'sport', 'methode', 'programmes', 'booking', 'a-propos', 'zones', 'evaluation'].includes(currentPage) && (
                     <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
                         <h1 className="text-4xl font-serif text-[#1B263B] mb-4">Page Introuvable</h1>
                         <p className="text-gray-600 mb-8">Désolé, la page que vous cherchez n'existe pas.</p>

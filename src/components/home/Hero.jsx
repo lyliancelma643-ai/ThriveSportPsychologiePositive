@@ -15,14 +15,14 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
 
                         <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            <span className="font-bold italic">Deviens le leader du jeu.</span> <span className="text-[#8F9779]">Nous construisons ton estime de soi durable.</span>
+                            <span className="font-bold italic">Deviens le leader du jeu.</span> <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">Nous construisons ton estime de soi durable.</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                             Transformez le doute en <span className="relative inline-block px-1">compétence réelle<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>. Un tutorat sportif unique à Montréal qui allie <span className="font-bold text-[#1B263B]">performance technique</span> et <span className="font-bold text-[#1B263B]">psychologie positive</span>.
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
-                                onClick={() => { setBookingStep('calendar'); setCurrentPage('booking'); }}
+                                onClick={() => { setCurrentPage('evaluation'); }}
                                 className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
                                 Réserver une séance d'évaluation offerte <ChevronRight className="ml-2" size={20} />

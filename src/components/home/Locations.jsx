@@ -1,7 +1,7 @@
 import React from 'react';
 import { MapPin, Navigation, Home, Users } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
-import ContactSection from '../ui/ContactSection';
+
 
 const Locations = () => {
     return (
@@ -74,7 +74,6 @@ const Locations = () => {
 
                 </div>
             </div>
-            <ContactSection />
         </section>
     );
 };
