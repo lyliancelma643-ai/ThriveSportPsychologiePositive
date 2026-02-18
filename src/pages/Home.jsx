@@ -10,17 +10,23 @@ import Cta from '../components/home/Cta';
 import ContactSection from '../components/ui/ContactSection';
 
 import Locations from '../components/home/Locations';
+import ProcessSteps from '../components/home/ProcessSteps';
+import ParentCommitment from '../components/home/ParentCommitment';
+import Logistics from '../components/home/Logistics';
 
 const Home = ({ setCurrentPage, setBookingStep, handleSelectProgram }) => {
     return (
         <>
             <Hero setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
             <AuthorityBar />
+            <ProcessSteps />
             <PainPoints />
             <Comparison />
             <MethodTeaser setCurrentPage={setCurrentPage} />
+            <Logistics />
             <Locations />
             <Testimonials />
+            <ParentCommitment />
             <Faq />
             <div id="contact-section">
                 <ContactSection handleSelectProgram={handleSelectProgram} />

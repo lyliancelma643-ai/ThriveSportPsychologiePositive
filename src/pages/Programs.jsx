@@ -33,7 +33,7 @@ const Programs = ({ handleSelectProgram }) => {
                                 </div>
                                 <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-2">{program.label.toUpperCase()}</h3>
                                 <div className="flex items-baseline mb-1">
-                                    <span className="text-3xl font-bold text-[#1B263B]">{unitPrice} $ <span className="text-lg font-medium text-gray-500">/ séance</span></span>
+                                    <span className="text-3xl font-bold text-[#1B263B]">Pack de Transformation</span>
                                 </div>
                                 <div className="text-sm font-bold text-gray-400 mb-4">
                                     Total du pack : {program.price} $
