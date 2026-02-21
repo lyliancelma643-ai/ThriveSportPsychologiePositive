@@ -1,8 +1,11 @@
+import React from 'react';
+import { PatinageIcon, HockeyIcon, BasketballIcon, SoccerIcon, FootballIcon } from '../components/icons/PremiumSportsIcons';
+
 export const SPORTS_DATA = [
     {
         id: 'patinage',
         name: "Patinage",
-        icon: "⛸️",
+        icon: <PatinageIcon className="mx-auto text-cyan-500 drop-shadow-md" />,
         color: "from-blue-500 to-cyan-400",
         lightColor: "bg-blue-50 border-blue-100",
         techDetails: [
@@ -19,7 +22,7 @@ export const SPORTS_DATA = [
     {
         id: 'hockey',
         name: "Hockey",
-        icon: "🏒",
+        icon: <HockeyIcon className="mx-auto text-slate-700 drop-shadow-md" />,
         color: "from-slate-700 to-slate-900",
         lightColor: "bg-slate-50 border-slate-100",
         techDetails: [
@@ -36,7 +39,7 @@ export const SPORTS_DATA = [
     {
         id: 'basket',
         name: "Basketball",
-        icon: "🏀",
+        icon: <BasketballIcon className="mx-auto text-orange-500 drop-shadow-md" />,
         color: "from-orange-500 to-amber-500",
         lightColor: "bg-orange-50 border-orange-100",
         techDetails: [
@@ -53,7 +56,7 @@ export const SPORTS_DATA = [
     {
         id: 'soccer',
         name: "Soccer",
-        icon: "⚽",
+        icon: <SoccerIcon className="mx-auto text-emerald-500 drop-shadow-md" />,
         color: "from-emerald-500 to-green-400",
         lightColor: "bg-emerald-50 border-emerald-100",
         techDetails: [
@@ -70,7 +73,7 @@ export const SPORTS_DATA = [
     {
         id: 'football',
         name: "Football",
-        icon: "🏈",
+        icon: <FootballIcon className="mx-auto text-yellow-500 drop-shadow-md" />,
         color: "from-yellow-600 to-yellow-500",
         lightColor: "bg-yellow-50 border-yellow-100",
         techDetails: [

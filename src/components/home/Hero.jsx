@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
 import heroVisual from '../../assets/Design sans titre.png';
 
 const Hero = ({ setBookingStep }) => {
@@ -50,8 +50,8 @@ const Hero = ({ setBookingStep }) => {
                         {/* Badge 1 (Bottom Left) - Resultat Prouve */}
                         <div className="absolute -bottom-4 -left-16 animate-float-slow z-30">
                             <div className="bg-white/90 backdrop-blur-xl p-4 rounded-3xl shadow-2xl shadow-blue-900/10 border border-white/40 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default group">
-                                <div className="bg-gradient-to-br from-green-50 to-green-100 p-2.5 rounded-2xl text-green-600 shadow-inner group-hover:scale-110 transition-transform">
-                                    <span className="text-lg">✓</span>
+                                <div className="bg-gradient-to-br from-green-50 to-green-100 p-2.5 rounded-2xl text-green-600 shadow-inner group-hover:scale-110 transition-transform flex items-center justify-center">
+                                    <TrendingUp size={24} />
                                 </div>
                                 <div>
                                     <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Résultat prouvé</div>
@@ -63,8 +63,8 @@ const Hero = ({ setBookingStep }) => {
                         {/* Badge 2 (Top Right) - Potentiel */}
                         <div className="absolute top-8 -right-16 animate-float-reverse lg:block hidden z-20">
                             <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-amber-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default">
-                                <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-2 rounded-xl text-amber-600 shadow-sm">
-                                    <span className="text-base">💡</span>
+                                <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-2 rounded-xl text-amber-600 shadow-sm flex items-center justify-center">
+                                    <Lightbulb size={20} />
                                 </div>
                                 <div>
                                     <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Potentiel</div>
@@ -76,8 +76,8 @@ const Hero = ({ setBookingStep }) => {
                         {/* Badge 3 (Middle Right) - Rigueur */}
                         <div className="absolute top-1/2 -right-24 transform -translate-y-1/2 animate-float-slower lg:block hidden z-20">
                             <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-blue-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-100">
-                                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-2 rounded-xl text-blue-500 shadow-sm">
-                                    <span className="text-base">📚</span>
+                                <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-2 rounded-xl text-blue-500 shadow-sm flex items-center justify-center">
+                                    <BookOpen size={20} />
                                 </div>
                                 <div>
                                     <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Rigueur</div>
@@ -89,8 +89,8 @@ const Hero = ({ setBookingStep }) => {
                         {/* Badge 4 (Top Left) - Ecole */}
                         <div className="absolute top-12 -left-20 animate-float lg:block hidden z-20">
                             <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-purple-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-75">
-                                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-2 rounded-xl text-purple-500 shadow-sm">
-                                    <span className="text-base">🎓</span>
+                                <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-2 rounded-xl text-purple-500 shadow-sm flex items-center justify-center">
+                                    <GraduationCap size={20} />
                                 </div>
                                 <div>
                                     <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">École</div>
@@ -102,8 +102,8 @@ const Hero = ({ setBookingStep }) => {
                         {/* Badge 5 (Bottom Right) - Bien-etre */}
                         <div className="absolute bottom-12 -right-12 animate-float-delayed lg:block hidden z-30">
                             <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-teal-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-150">
-                                <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-2 rounded-xl text-teal-500 shadow-sm">
-                                    <span className="text-base">😌</span>
+                                <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-2 rounded-xl text-teal-500 shadow-sm flex items-center justify-center">
+                                    <SmilePlus size={20} />
                                 </div>
                                 <div>
                                     <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Bien-être</div>
