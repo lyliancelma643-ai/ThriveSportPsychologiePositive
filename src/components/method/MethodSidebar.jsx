@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, ArrowRight } from 'lucide-react';
 
 const SECTIONS = [
@@ -9,8 +10,9 @@ const SECTIONS = [
     { id: 'dashboard', label: 'Dashboard Élite', icon: <BarChart3 size={18} /> },
 ];
 
-const MethodSidebar = ({ setCurrentPage, setBookingStep }) => {
+const MethodSidebar = ({ setBookingStep }) => {
     const [activeSection, setActiveSection] = useState('intro');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -67,7 +69,7 @@ const MethodSidebar = ({ setCurrentPage, setBookingStep }) => {
             </nav>
 
             {/* CTA Mini Widget */}
-            <div className="mt-8 bg-[#1B263B] rounded-2xl p-6 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all" onClick={() => setCurrentPage('sport')}>
+            <div className="mt-8 bg-[#1B263B] rounded-2xl p-6 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all" onClick={() => navigate('/sport')}>
                 <p className="text-white text-sm font-bold mb-3 leading-tight">Investissez dans<br />votre enfant</p>
                 <div className="w-full h-10 bg-[#C5A059] text-white rounded-lg text-xs font-bold flex items-center justify-center group-hover:bg-[#b08d4d] transition-colors">
                     Découvrir les Sports <ArrowRight size={14} className="ml-2" />

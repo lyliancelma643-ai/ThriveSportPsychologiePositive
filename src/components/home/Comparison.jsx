@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 
-const Comparison = ({ setCurrentPage, setBookingStep, openDiagnostic }) => {
+const Comparison = ({ setBookingStep, openDiagnostic }) => {
+    const navigate = useNavigate();
     return (
         <section className="py-24 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -56,7 +58,7 @@ const Comparison = ({ setCurrentPage, setBookingStep, openDiagnostic }) => {
                 <div className="mt-12 text-center">
                     <button
                         onClick={() => {
-                            setCurrentPage('evaluation');
+                            navigate('/evaluation');
                         }}
                         className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all inline-flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                     >

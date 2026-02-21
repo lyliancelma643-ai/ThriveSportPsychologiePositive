@@ -12,7 +12,6 @@ const Booking = ({
     setBookingStep,
     bookingData,
     setBookingData,
-    setCurrentPage,
     handleSelectProgram // Prop from useBooking
 }) => {
 
@@ -111,7 +110,7 @@ const Booking = ({
                     )}
 
                     {bookingStep === 'success' && (
-                        <SuccessView setCurrentPage={setCurrentPage} />
+                        <SuccessView />
                     )}
                 </div>
             </div>

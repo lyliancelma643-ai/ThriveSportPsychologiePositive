@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 
-const SuccessView = ({ setCurrentPage }) => {
+const SuccessView = () => {
+    const navigate = useNavigate();
     return (
         <div className="text-center py-12 animate-in zoom-in duration-500">
             <div className="w-20 h-20 bg-[#8F9779]/10 rounded-full flex items-center justify-center text-[#8F9779] mx-auto mb-8 shadow-inner">
@@ -19,7 +21,7 @@ const SuccessView = ({ setCurrentPage }) => {
                 </ul>
             </div>
             <br />
-            <button onClick={() => setCurrentPage('home')} className="text-[#1B263B] font-bold underline underline-offset-4">Retour à l'accueil</button>
+            <button onClick={() => navigate('/')} className="text-[#1B263B] font-bold underline underline-offset-4">Retour à l'accueil</button>
         </div>
     );
 };

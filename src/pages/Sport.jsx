@@ -1,11 +1,13 @@
 import React, { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Activity, Brain, Heart, Zap, Target, ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 import ContactSection from '../components/ui/ContactSection'; // Import ContactSection
 
 import { SPORTS_DATA } from '../data/sports';
 
-const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) => {
+const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
+    const navigate = useNavigate();
 
     // Ref for the contact section
     const contactRef = useRef(null);
@@ -15,7 +17,7 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
             setBookingData({ ...bookingData, sport: sportName });
         }
         // Redirect to Programs page instead of direct booking
-        setCurrentPage('programmes');
+        navigate('/programmes');
         window.scrollTo(0, 0);
     };
 
@@ -40,7 +42,7 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
                         <div className="relative w-full h-full transition-all duration-700 preserve-3d group-hover:rotate-y-180">
 
                             {/* FRONT SIDE (Technique) */}
-                            <div className={`absolute inset-0 backface-hidden bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center justify-between overflow-hidden`}>
+                            <div className="absolute inset-0 backface-hidden bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center justify-between overflow-hidden">
                                 <div className={`absolute top-0 w-full h-2 bg-gradient-to-r ${sport.color}`}></div>
 
                                 <div className="text-center mt-6">
@@ -114,9 +116,12 @@ const Sport = ({ setCurrentPage, setBookingStep, bookingData, setBookingData }) 
             <div ref={contactRef}>
                 <ContactSection handleSelectProgram={(program) => {
                     // Start booking flow from diagnostic recommendation
-                    setBookingData(prev => ({ ...prev, program }));
-                    setCurrentPage('booking');
-                    setBookingStep('cal');
+                    if (bookingData.program) {
+                        setBookingStep('cal');
+                        navigate('/booking');
+                    } else {
+                        navigate('/programmes');
+                    }
                     window.scrollTo(0, 0);
                 }} />
             </div>

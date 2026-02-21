@@ -7,14 +7,14 @@ import EliteDashboard from '../components/method/EliteDashboard';
 import MethodSidebar from '../components/method/MethodSidebar';
 import ContactSection from '../components/ui/ContactSection';
 
-const Method = ({ setCurrentPage, setBookingStep }) => {
+const Method = ({ setBookingStep }) => {
     return (
         <div className="py-20 bg-[#FAFAFA]">
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
                     {/* Left Column: Sidebar (Sticky) */}
-                    <MethodSidebar setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
+                    <MethodSidebar setBookingStep={setBookingStep} />
 
                     {/* Right Column: Content */}
                     <main className="space-y-24">

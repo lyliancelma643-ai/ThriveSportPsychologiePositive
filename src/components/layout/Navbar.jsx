@@ -1,32 +1,39 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/logo court sans fond.png';
 
-const Navbar = ({ currentPage, setCurrentPage, setBookingStep }) => {
+const Navbar = ({ setBookingStep }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navLinks = [
-        { id: 'home', label: 'Accueil' },
-        { id: 'sport', label: 'Le Sport' },
-        { id: 'methode', label: 'La Méthode' },
-        { id: 'programmes', label: 'Programmes' },
-        { id: 'zones', label: 'Zones' },
-        { id: 'a-propos', label: 'À Propos' }
+        { path: '/', label: 'Accueil' },
+        { path: '/sport', label: 'Le Sport' },
+        { path: '/methode', label: 'La Méthode' },
+        { path: '/programmes', label: 'Programmes' },
+        { path: '/zones', label: 'Zones' },
+        { path: '/a-propos', label: 'À Propos' }
     ];
 
     return (
         <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
-                <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+                <Link to="/" className="flex items-center space-x-3 cursor-pointer">
                     <img src={logo} alt="Thrive Logo" className="h-12 w-auto object-contain" />
                     <div>
                         <span className="text-xl font-serif font-bold text-[#1B263B]">THRIVE</span>
                         <p className="text-[10px] tracking-widest text-[#C5A059] font-bold uppercase -mt-1">Sport Positive</p>
                     </div>
-                </div>
+                </Link>
                 <div className="hidden md:flex items-center space-x-8">
                     {navLinks.map(link => (
-                        <button key={link.id} onClick={() => setCurrentPage(link.id)} className={`text-sm font-medium transition-colors ${currentPage === link.id ? 'text-[#8F9779]' : 'text-[#1B263B] hover:text-[#8F9779]'}`}>{link.label}</button>
+                        <NavLink
+                            key={link.path}
+                            to={link.path}
+                            className={({ isActive }) => `text-sm font-medium transition-colors ${isActive ? 'text-[#8F9779]' : 'text-[#1B263B] hover:text-[#8F9779]'}`}
+                        >
+                            {link.label}
+                        </NavLink>
                     ))}
 
                 </div>
@@ -35,7 +42,14 @@ const Navbar = ({ currentPage, setCurrentPage, setBookingStep }) => {
             {isMenuOpen && (
                 <div className="md:hidden bg-white border-b border-gray-100 p-4 space-y-4 shadow-xl">
                     {navLinks.map(link => (
-                        <button key={link.id} onClick={() => { setCurrentPage(link.id); setIsMenuOpen(false); }} className="block w-full text-left px-4 py-2 text-[#1B263B] font-medium">{link.label}</button>
+                        <NavLink
+                            key={link.path}
+                            to={link.path}
+                            onClick={() => setIsMenuOpen(false)}
+                            className={({ isActive }) => `block w-full text-left px-4 py-2 font-medium ${isActive ? 'text-[#8F9779]' : 'text-[#1B263B]'}`}
+                        >
+                            {link.label}
+                        </NavLink>
                     ))}
                 </div>
             )}

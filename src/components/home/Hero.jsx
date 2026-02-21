@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import heroVisual from '../../assets/Design sans titre.png';
 
-const Hero = ({ setCurrentPage, setBookingStep }) => {
+const Hero = ({ setBookingStep }) => {
+    const navigate = useNavigate();
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
             {/* Background Blob/Gradient for depth */}
@@ -22,7 +24,7 @@ const Hero = ({ setCurrentPage, setBookingStep }) => {
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
-                                onClick={() => { setCurrentPage('evaluation'); }}
+                                onClick={() => { navigate('/evaluation'); }}
                                 className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
                                 Réserver une séance d'évaluation offerte <ChevronRight className="ml-2" size={20} />

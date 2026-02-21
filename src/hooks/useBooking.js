@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { PROGRAMS_DATA } from '../data/programs';
 
-const useBooking = (setCurrentPage) => {
+const useBooking = () => {
+    const navigate = useNavigate();
     const [bookingStep, setBookingStep] = useState('calendar'); // 'calendar' | 'form' | 'payment' | 'success'
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
@@ -32,7 +34,7 @@ const useBooking = (setCurrentPage) => {
         setIsRecurring(false); // Reset recurrence
         setSelectedDate(null);
         setSelectedTime(null);
-        setCurrentPage('booking');
+        navigate('/booking');
     };
 
     return {

@@ -15,21 +15,20 @@ import ProcessSteps from '../components/home/ProcessSteps';
 import ParentCommitment from '../components/home/ParentCommitment';
 import Logistics from '../components/home/Logistics';
 
-const Home = ({ setCurrentPage, setBookingStep, handleSelectProgram }) => {
+const Home = ({ setBookingStep, handleSelectProgram }) => {
     const [isDiagnosticOpen, setIsDiagnosticOpen] = React.useState(false);
 
     return (
         <>
-            <Hero setCurrentPage={setCurrentPage} setBookingStep={setBookingStep} />
+            <Hero setBookingStep={setBookingStep} />
             <AuthorityBar />
             <ProcessSteps />
             <PainPoints />
             <Comparison
-                setCurrentPage={setCurrentPage}
                 setBookingStep={setBookingStep}
                 openDiagnostic={() => setIsDiagnosticOpen(true)}
             />
-            <MethodTeaser setCurrentPage={setCurrentPage} />
+            <MethodTeaser />
             <Logistics />
             <Locations />
             <Testimonials />

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Brain, Target, Users } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import soccerPhoto from '../../assets/photo-soccer.png';
 
-const MethodTeaser = ({ setCurrentPage }) => {
+const MethodTeaser = () => {
+    const navigate = useNavigate();
     return (
         <section className="py-24 bg-[#F8F9FA]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +65,7 @@ const MethodTeaser = ({ setCurrentPage }) => {
 
                 <div className="text-center">
                     <button
-                        onClick={() => setCurrentPage('methode')}
+                        onClick={() => navigate('/methode')}
                         className="inline-flex items-center text-[#1B263B] font-bold text-lg hover:underline underline-offset-4"
                     >
                         Voir comment nous mesurons le progrès <ArrowRight className="ml-2" size={20} />
