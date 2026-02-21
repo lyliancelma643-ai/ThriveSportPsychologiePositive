@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../../assets/logo court sans fond.png';
 
 const Navbar = ({ currentPage, setCurrentPage, setBookingStep }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,8 +17,8 @@ const Navbar = ({ currentPage, setCurrentPage, setBookingStep }) => {
     return (
         <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
-                <div className="flex items-center space-x-2 cursor-pointer" onClick={() => setCurrentPage('home')}>
-                    <div className="w-10 h-10 bg-[#8F9779] rounded-full flex items-center justify-center text-white font-serif text-xl font-bold">T</div>
+                <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+                    <img src={logo} alt="Thrive Logo" className="h-12 w-auto object-contain" />
                     <div>
                         <span className="text-xl font-serif font-bold text-[#1B263B]">THRIVE</span>
                         <p className="text-[10px] tracking-widest text-[#C5A059] font-bold uppercase -mt-1">Sport Positive</p>
