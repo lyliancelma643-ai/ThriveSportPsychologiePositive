@@ -14,8 +14,9 @@ const Programs = ({ handleSelectProgram }) => {
                 <link rel="canonical" href="https://thrivetutorpositive.com/programmes" />
             </Helmet>
             <SectionHeader
-                title="Forfaits de Transformation"
-                subtitle="Investissez dans la confiance de votre enfant. Des tarifs clairs, sans taux horaires cachés."
+                isH1={true}
+                title="Trouvez le tuteur parascolaire montréalais idéal avec nos programmes sur-mesure"
+                subtitle="Investir dans l'avenir de votre enfant nécessite une approche transparente et ciblée. Nos programmes de tutorat sportif à Montréal sont conçus pour s'adapter parfaitement à l'agenda très chargé des jeunes athlètes. Que vous cherchiez un tuteur parascolaire pour éviter l'échec scolaire ou un mentor mental pour atteindre l'excellence globale, nous avons un forfait adapté. Sans aucun frais caché ni mauvaise surprise, chaque programme inclut les séances régulières, le suivi psychologique et la communication constante avec la famille."
             />
 
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mt-12">

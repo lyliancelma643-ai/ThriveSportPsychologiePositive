@@ -52,8 +52,14 @@ const Booking = ({
                         ></div>
                     </div>
 
-
-
+                    <div className="text-center mb-10 mt-4">
+                        <h1 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-4">
+                            Réservez votre tuteur en sport et psychologie positive dès aujourd'hui
+                        </h1>
+                        <p className="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            Le meilleur moment pour agir contre les difficultés scolaires et soutenir la confiance de votre enfant, c'est maintenant. Réserver votre tuteur en sport avec Thrive est un processus conçu pour être fluide, rapide et transparent. Utilisez notre formulaire ci-dessous pour trouver le programme qui s'intègre le mieux entre les entraînements exigeants et la vie familiale. Quelques minutes suffisent pour planifier votre première séance de tutorat en psychologie positive et entamer le processus de transformation durable.
+                        </p>
+                    </div>
 
                     {/* Step: Assessment (Questions) */}
                     {bookingStep === 'assessment' && (

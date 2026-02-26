@@ -16,11 +16,11 @@ const Hero = ({ setBookingStep }) => {
                     {/* LEFTSIDE: Text Content */}
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
 
-                        <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            <span className="font-bold italic">Deviens le leader du jeu.</span> <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">Nous construisons ton estime de soi durable.</span>
+                        <h1 className="text-5xl md:text-6xl font-serif text-[#1B263B] leading-tight mb-6">
+                            <span className="font-bold italic">Tutorat sportif à Montréal :</span> <span className="text-[#8F9779] text-4xl md:text-5xl block mt-2">Alliez réussite scolaire et psychologie positive.</span>
                         </h1>
-                        <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            Transformez le doute en <span className="relative inline-block px-1">compétence réelle<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>. Un tutorat sportif unique à Montréal qui allie <span className="font-bold text-[#1B263B]">performance technique</span> et <span className="font-bold text-[#1B263B]">psychologie positive</span>.
+                        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Votre enfant excelle sur le terrain mais perd pied devant ses devoirs ? Découvrez Thrive, le premier service de <span className="font-bold text-[#1B263B]">tutorat sportif à Montréal</span> conçu spécifiquement pour les jeunes athlètes de 6 à 17 ans. Nos tuteurs parascolaires ne font pas que réviser des mathématiques ou du français : ils utilisent les piliers de la psychologie positive (méthode PERMA) pour reconstruire la motivation, vaincre l'anxiété de performance et bâtir une confiance inébranlable, tant à l'école que dans leur discipline sportive.
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
