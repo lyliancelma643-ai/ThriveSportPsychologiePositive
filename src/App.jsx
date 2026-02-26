@@ -64,8 +64,8 @@ const App = () => {
                     <Route path="/zones" element={
                         <div className="pt-10">
                             <Helmet>
-                                <title>Zones d'Intervention | Thrive Sport Positive</title>
-                                <meta name="description" content="Découvrez nos zones d'intervention à Montréal, Laval et Longueuil." />
+                                <title>Aide Aux Devoirs Montréal | Zones Desservies — Thrive</title>
+                                <meta name="description" content="Nous nous déplaçons pour votre aide aux devoirs à Montréal, Laval et Longueuil. À domicile ou au parc, trouvez un tuteur sportif certifié. Contactez-nous !" />
                                 <link rel="canonical" href="https://thrivetutorpositive.com/zones" />
                             </Helmet>
                             <Locations />

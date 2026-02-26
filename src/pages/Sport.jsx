@@ -30,8 +30,8 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
     return (
         <div className="py-20 bg-gray-50/50">
             <Helmet>
-                <title>Nos Disciplines Sportives | Thrive Sport Positive</title>
-                <meta name="description" content="Explorez nos 5 disciplines sportives. Une philosophie unique basée sur la psychologie positive pour développer des athlètes complets et épanouis." />
+                <title>Tutorat Motivation Sport | 5 Disciplines Clés — Thrive</title>
+                <meta name="description" content="Alliez passion et rigueur avec notre tutorat motivation sport. Hockey, soccer, natation... Nous développons l'athlète complet. Découvrez nos sports couverts !" />
                 <link rel="canonical" href="https://thrivetutorpositive.com/sport" />
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">

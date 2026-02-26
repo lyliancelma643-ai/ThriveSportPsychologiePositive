@@ -9,8 +9,8 @@ const Programs = ({ handleSelectProgram }) => {
     return (
         <section className="py-20 px-4 bg-gray-50/50">
             <Helmet>
-                <title>Programmes et Tarifs | Thrive Sport Positive</title>
-                <meta name="description" content="Découvrez nos forfaits de transformation sportive à Montréal. Investissez dans la confiance de votre enfant avec des tarifs clairs et sans frais cachés." />
+                <title>Tuteur Parascolaire Montréal | Nos Programmes — Thrive</title>
+                <meta name="description" content="Investissez dans la réussite avec notre tuteur parascolaire à Montréal. Explorez nos forfaits de transformation clairs et sans frais cachés. Réservez le vôtre !" />
                 <link rel="canonical" href="https://thrivetutorpositive.com/programmes" />
             </Helmet>
             <SectionHeader

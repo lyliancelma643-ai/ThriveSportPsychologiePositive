@@ -37,8 +37,8 @@ const Booking = ({
     return (
         <section className="py-20 min-h-[80vh] bg-[#F8F9FA]">
             <Helmet>
-                <title>Réserver une Séance | Thrive Sport Positive</title>
-                <meta name="description" content="Réservez votre programme d'accompagnement sportif personnalisé ou votre séance d'évaluation avec Thrive." />
+                <title>Réserver Tuteur Sport | Planifiez Votre Séance — Thrive</title>
+                <meta name="description" content="Prêt pour le changement ? Réservez votre séance avec notre tuteur sport. Processus de réservation simple et rapide pour libérer son potentiel. Réservez ici !" />
                 <link rel="canonical" href="https://thrivetutorpositive.com/booking" />
             </Helmet>
             <div className="max-w-5xl mx-auto px-4">

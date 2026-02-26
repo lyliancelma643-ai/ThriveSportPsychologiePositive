@@ -22,8 +22,8 @@ const Home = ({ setBookingStep, handleSelectProgram }) => {
     return (
         <>
             <Helmet>
-                <title>Thrive Sport Positive | Confiance & Performance</title>
-                <meta name="description" content="Le premier service de tutorat sportif à Montréal supervisé par la psychologie positive. Transformez le doute de votre enfant en compétence durable." />
+                <title>Tutorat Sportif Montréal | Confiance & Réussite — Thrive</title>
+                <meta name="description" content="Découvrez notre aide aux devoirs sportifs à Montréal. Nous allions sport et psychologie positive pour la réussite scolaire de votre enfant. Réservez un essai !" />
                 <link rel="canonical" href="https://thrivetutorpositive.com/" />
             </Helmet>
             <Hero setBookingStep={setBookingStep} />

@@ -12,8 +12,8 @@ const Method = ({ setBookingStep }) => {
     return (
         <div className="py-20 bg-[#FAFAFA]">
             <Helmet>
-                <title>Notre Méthode PERMA | Thrive Sport Positive</title>
-                <meta name="description" content="Découvrez le Modèle PERMA appliqué au sport. Une approche scientifique de la psychologie positive pour le développement des jeunes athlètes à Montréal." />
+                <title>Méthode PERMA Enfant | Psychologie Appliquée — Thrive</title>
+                <meta name="description" content="Transformez le potentiel de votre enfant avec la méthode PERMA enfant. Une pédagogie positive validée par la science pour booster sa confiance. Découvrez-la !" />
                 <link rel="canonical" href="https://thrivetutorpositive.com/methode" />
             </Helmet>
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
