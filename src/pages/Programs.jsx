@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Calendar, Check, Sparkles, CheckCircle2, Star } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 import { PROGRAMS_DATA } from '../data/programs';
@@ -7,6 +8,11 @@ import ContactSection from '../components/ui/ContactSection';
 const Programs = ({ handleSelectProgram }) => {
     return (
         <section className="py-20 px-4 bg-gray-50/50">
+            <Helmet>
+                <title>Programmes et Tarifs | Thrive Sport Positive</title>
+                <meta name="description" content="Découvrez nos forfaits de transformation sportive à Montréal. Investissez dans la confiance de votre enfant avec des tarifs clairs et sans frais cachés." />
+                <link rel="canonical" href="https://thrivetutorpositive.com/programmes" />
+            </Helmet>
             <SectionHeader
                 title="Forfaits de Transformation"
                 subtitle="Investissez dans la confiance de votre enfant. Des tarifs clairs, sans taux horaires cachés."

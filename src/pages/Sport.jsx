@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Brain, Heart, Zap, Target, ArrowRight } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
@@ -28,6 +29,11 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
 
     return (
         <div className="py-20 bg-gray-50/50">
+            <Helmet>
+                <title>Nos Disciplines Sportives | Thrive Sport Positive</title>
+                <meta name="description" content="Explorez nos 5 disciplines sportives. Une philosophie unique basée sur la psychologie positive pour développer des athlètes complets et épanouis." />
+                <link rel="canonical" href="https://thrivetutorpositive.com/sport" />
+            </Helmet>
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
                 <SectionHeader
                     title="Excellence Multisports"

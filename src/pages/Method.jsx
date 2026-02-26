@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import PermaGrid from '../components/method/PermaGrid';
 import ScientificProof from '../components/method/ScientificProof';
 
@@ -10,6 +11,11 @@ import ContactSection from '../components/ui/ContactSection';
 const Method = ({ setBookingStep }) => {
     return (
         <div className="py-20 bg-[#FAFAFA]">
+            <Helmet>
+                <title>Notre Méthode PERMA | Thrive Sport Positive</title>
+                <meta name="description" content="Découvrez le Modèle PERMA appliqué au sport. Une approche scientifique de la psychologie positive pour le développement des jeunes athlètes à Montréal." />
+                <link rel="canonical" href="https://thrivetutorpositive.com/methode" />
+            </Helmet>
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 

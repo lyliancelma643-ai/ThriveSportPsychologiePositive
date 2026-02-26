@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Hero from '../components/home/Hero';
 import AuthorityBar from '../components/home/AuthorityBar';
 import PainPoints from '../components/home/PainPoints';
@@ -20,6 +21,11 @@ const Home = ({ setBookingStep, handleSelectProgram }) => {
 
     return (
         <>
+            <Helmet>
+                <title>Thrive Sport Positive | Confiance & Performance</title>
+                <meta name="description" content="Le premier service de tutorat sportif à Montréal supervisé par la psychologie positive. Transformez le doute de votre enfant en compétence durable." />
+                <link rel="canonical" href="https://thrivetutorpositive.com/" />
+            </Helmet>
             <Hero setBookingStep={setBookingStep} />
             <AuthorityBar />
             <ProcessSteps />

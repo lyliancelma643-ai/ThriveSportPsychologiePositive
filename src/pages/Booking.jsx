@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
 import BookingForm from '../components/booking/BookingForm';
 import SuccessView from '../components/booking/SuccessView';
@@ -35,6 +36,11 @@ const Booking = ({
 
     return (
         <section className="py-20 min-h-[80vh] bg-[#F8F9FA]">
+            <Helmet>
+                <title>Réserver une Séance | Thrive Sport Positive</title>
+                <meta name="description" content="Réservez votre programme d'accompagnement sportif personnalisé ou votre séance d'évaluation avec Thrive." />
+                <link rel="canonical" href="https://thrivetutorpositive.com/booking" />
+            </Helmet>
             <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-100 relative overflow-hidden">
 

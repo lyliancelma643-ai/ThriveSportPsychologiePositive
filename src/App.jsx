@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -62,6 +63,11 @@ const App = () => {
                     {/* Reusing Locations component as a standalone page */}
                     <Route path="/zones" element={
                         <div className="pt-10">
+                            <Helmet>
+                                <title>Zones d'Intervention | Thrive Sport Positive</title>
+                                <meta name="description" content="Découvrez nos zones d'intervention à Montréal, Laval et Longueuil." />
+                                <link rel="canonical" href="https://thrivetutorpositive.com/zones" />
+                            </Helmet>
                             <Locations />
                         </div>
                     } />
