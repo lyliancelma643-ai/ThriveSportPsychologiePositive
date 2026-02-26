@@ -14,10 +14,12 @@ const About = () => {
             </Helmet>
             <div className="max-w-4xl mx-auto px-4 text-center mb-16">
                 <SectionHeader
-                    isH1={true}
-                    title="Rencontrez les éducateurs de la confiance en sport derrière Thrive"
-                    subtitle="Derrière Thrive, il n'y a pas qu'une simple agence de soutien scolaire, il y a une authentique mission de vie. Nous sommes des éducateurs de la confiance en sport, d'anciens athlètes de compétition qui ont personnellement vécu la pression accablante inhérente à l'exigence du haut niveau. En alliant notre véritable expérience du terrain avec la rigueur de la recherche scientifique menée à l'Université de Montréal, nous avons créé l'organisation de mentorat que nous aurions rêvé d'avoir étant jeunes."
+                    title="L'Élite du Mentorat Sportif"
+                    subtitle="Nous ne sommes pas juste des entraîneurs. Nous sommes des éducateurs de la confiance."
                 />
+                <p className="text-xl text-gray-600 leading-relaxed">
+                    Fondé par d'anciens athlètes de haut niveau reconvertis en psychologie, Thrive comble le fossé entre la performance brute et le bien-être mental.
+                </p>
             </div>
 
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">

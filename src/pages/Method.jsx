@@ -28,12 +28,12 @@ const Method = ({ setBookingStep }) => {
                         {/* Section 1: Intro */}
                         <section id="intro" className="text-center pt-8">
                             <span className="text-[#8F9779] font-bold uppercase tracking-widest text-sm">La Science du Succès</span>
-                            <h1 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
-                                La méthode PERMA enfant : <br />
-                                <span className="text-3xl md:text-4xl text-gray-500 italic font-serif">La psychologie positive appliquée au sport-études.</span>
+                            <h1 className="text-5xl md:text-6xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
+                                Le Modèle PERMA <br />
+                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif">appliqué au sport.</span>
                             </h1>
-                            <p className="max-w-3xl mx-auto text-lg text-gray-600 leading-relaxed">
-                                L'échec scolaire ou la perte de motivation ne sont pas des fatalités. Chez Thrive, nous utilisons la méthode PERMA enfant, un modèle validé par la science et la psychologie positive, pour transformer l'approche mentale de votre jeune athlète. Plutôt que de punir les mauvaises notes, notre pédagogie renforce les émotions positives, l'engagement et l'accomplissement. En appliquant ces stratégies mentales issues du sport de haut niveau à leurs devoirs, nos étudiants-athlètes développent une résilience académique redoutable et une véritable passion pour l'apprentissage.
+                            <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
+                                Développé par le Dr. Martin Seligman, père de la psychologie positive, ce modèle est notre boussole. Nous ne devinons pas comment motiver votre enfant, nous appliquons une science validée.
                             </p>
                         </section>
 

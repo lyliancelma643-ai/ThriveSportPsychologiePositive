@@ -44,9 +44,9 @@ const Locations = () => {
                     {/* Text Content Side */}
                     <div>
                         <SectionHeader
-                            isH1={true}
-                            title="Spécialistes de l'aide aux devoirs à Montréal : Découvrez nos zones d'intervention"
-                            subtitle="La logistique familiale d'un jeune athlète de compétition est déjà un défi quotidien ; le soutien scolaire ne doit pas être un fardeau supplémentaire. C'est pourquoi notre réseau de spécialistes en aide aux devoirs à Montréal se déplace directement chez vous ou sur les lieux de pratique. Que vous habitiez au cœur de la métropole, sur la Rive-Nord à Laval ou sur la Rive-Sud à Longueuil, nos tuteurs certifiés vous rejoignent là où les conditions sont optimales pour l'apprentissage."
+                            title="Notre Zone d'Intervention"
+                            subtitle="Nous venons à vous, là où l'athlète s'entraîne."
+                            align="left"
                         />
 
                         <p className="text-lg text-gray-600 mb-6 leading-relaxed">

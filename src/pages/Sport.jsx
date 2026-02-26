@@ -36,9 +36,8 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
                 <SectionHeader
-                    isH1={true}
-                    title="Tutorat et motivation dans le sport : Découvrez nos 5 disciplines sportives d'expertise"
-                    subtitle="Le sport forge le caractère, mais chaque discipline exige une préparation mentale différente. Notre tutorat motivation sport ne propose pas une solution unique : nous adaptons nos stratégies d'aide aux devoirs à la réalité spécifique de la passion de votre enfant. De la patinoire de hockey intense des arénas montréalais aux bassins de natation, jusqu'aux terrains de soccer, nos tuteurs comprennent la culture, les exigences intenses et les moments de doute inhérents à ces 5 sports majeurs, pour un accompagnement psychologique parfaitement aligné."
+                    title="Excellence Multisports"
+                    subtitle="5 disciplines, une seule philosophie : La performance par le développement humain."
                 />
             </div>
 

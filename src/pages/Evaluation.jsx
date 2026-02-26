@@ -21,9 +21,8 @@ const Evaluation = ({ handleSelectProgram }) => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <SectionHeader
-                    isH1={true}
-                    title="Obtenez votre bilan de tutorat sportif avec notre évaluation initiale gratuite"
-                    subtitle="Chaque transformation commence par une compréhension claire de la situation de départ. C'est pourquoi nous vous offrons un bilan complet de tutorat sportif avant tout engagement. Cette évaluation initiale gratuite de 30 minutes n'est pas un examen scolaire angoissant, mais un échange constructif basé sur le dialogue. Notre diagnostic exclusif nous permet de mesurer le niveau de motivation de l'élève, de déceler d'éventuels signes d'anxiété de performance et de vous orienter immédiatement vers le programme ou le mentor Thrive adéquat."
+                    title="Votre Séance d'Évaluation Offerte"
+                    subtitle="La première étape pour transformer le potentiel de votre enfant. Sans engagement."
                 />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
