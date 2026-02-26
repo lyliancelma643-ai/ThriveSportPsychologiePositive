@@ -1,4 +1,21 @@
+# -------------------------------------------------------------------
+# Fichier robots.txt optimisé pour Thrive Sport Positive (Vite SSG)
+# -------------------------------------------------------------------
+
 User-agent: *
 Allow: /
 
+# Bloquer l'exploration des répertoires de build, API et fichiers de configuration
+Disallow: /api/
+Disallow: /_vercel/
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.map$
+Disallow: /prerender.js
+
+# S'assurer que les assets critiques (CSS/JS) restent explorables
+Allow: /assets/
+
+# Lien vers le sitemap
 Sitemap: https://www.thrivetutorpositive.com/sitemap.xml
