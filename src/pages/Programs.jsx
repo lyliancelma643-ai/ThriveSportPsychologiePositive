@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Calendar, Check, Sparkles, CheckCircle2, Star } from 'lucide-react';
+import { Calendar, Check, Sparkles, CheckCircle2, Star, Video } from 'lucide-react';
 import SectionHeader from '../components/ui/SectionHeader';
 import { PROGRAMS_DATA } from '../data/programs';
 import ContactSection from '../components/ui/ContactSection';
@@ -18,7 +18,23 @@ const Programs = ({ handleSelectProgram }) => {
                 subtitle="Investissez dans la confiance de votre enfant. Des tarifs clairs, sans taux horaires cachés."
             />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mt-12">
+            <div className="max-w-3xl mx-auto mt-6 mb-8 lg:mb-12">
+                <div className="bg-[#1B263B]/5 border border-[#1B263B]/10 rounded-2xl py-4 px-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left transition-transform hover:scale-[1.02]">
+                    <div className="w-12 h-12 rounded-full bg-[#1B263B]/10 flex items-center justify-center shrink-0">
+                        <Video className="text-[#1B263B]" size={24} />
+                    </div>
+                    <div>
+                        <h4 className="text-[#1B263B] font-bold text-[17px] mb-1">
+                            Inclus dans chaque forfait
+                        </h4>
+                        <p className="text-gray-600 text-sm md:text-[15px] leading-snug">
+                            Une visio initiale de <span className="font-semibold text-[#1B263B]">30 minutes</span> pour comprendre et analyser le profil de l'enfant.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mt-4">
                 {Object.entries(PROGRAMS_DATA).map(([key, program]) => {
                     const isPerformance = program.highlight;
 
@@ -28,7 +44,7 @@ const Programs = ({ handleSelectProgram }) => {
                             className={`
                                 relative flex flex-col p-8 rounded-[2.5rem] transition-all duration-300
                                 ${isPerformance
-                                    ? 'bg-white border-4 border-[#C5A059] shadow-2xl scale-105 z-10 lg:-mt-4 lg:-mb-4 min-h-[640px] ring-4 ring-[#C5A059]/10'
+                                    ? 'bg-white border-2 border-[#C5A059]/80 shadow-[0_8px_30px_rgb(197,160,89,0.25)] scale-105 z-10 lg:-mt-4 lg:-mb-4 min-h-[640px]'
                                     : 'bg-white border border-gray-100 shadow-lg hover:-translate-y-2 min-h-[580px] opacity-90 hover:opacity-100'
                                 }
                             `}
