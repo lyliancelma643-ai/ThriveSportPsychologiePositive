@@ -27,7 +27,7 @@ const Hero = ({ setBookingStep }) => {
                                 onClick={() => { navigate('/evaluation'); }}
                                 className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
-                                Réserver une séance d'évaluation offerte <ChevronRight className="ml-2" size={20} />
+                                Rencontrer un de nos coachs gratuitement <ChevronRight className="ml-2" size={20} />
                             </button>
                         </div>
                     </div>
