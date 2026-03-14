@@ -21,7 +21,7 @@ const Faq = () => {
                                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
                                 className="w-full flex justify-between items-center p-6 bg-gray-50 hover:bg-gray-100 transition-colors text-left"
                             >
-                                <span className="font-bold text-[#1B263B]">{item.q}</span>
+                                <h3 className="font-bold text-[#1B263B] m-0 p-0 text-base">{item.q}</h3>
                                 {openFaq === i ? <ChevronRight className="rotate-90 transition-transform" /> : <ChevronRight className="transition-transform" />}
                             </button>
                             {openFaq === i && (

@@ -34,7 +34,7 @@ const MethodTeaser = () => {
                             </div>
                             <div>
                                 <h3 className="text-lg font-serif font-bold text-[#1B263B] mb-1">Progression Visible</h3>
-                                <p className="text-sm text-gray-600">La règle d'or : On ne corrige pas par la critique, mais par l'addition de compétences et le renforcement positif.</p>
+                                <p className="text-sm text-gray-600">La règle d'or : On ne corrige pas par la critique, mais par l'addition de compétences et le renforcement positif.<span className="block mt-2 font-medium text-[#1B263B]">Après chaque séance, recevez un rapport de progrès quantifié et qualifié.</span></p>
                             </div>
                         </div>
 

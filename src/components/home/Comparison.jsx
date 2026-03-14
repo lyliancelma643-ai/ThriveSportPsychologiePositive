@@ -42,7 +42,7 @@ const Comparison = ({ setBookingStep, openDiagnostic }) => {
                         { criteria: "Attention", club: "1 coach pour 15 enfants", thrive: "1 Mentor pour 1 Enfant" },
                         { criteria: "Feedback", club: "Critique les erreurs", thrive: "Renforce les réussites (Zéro Négatif)" },
                         { criteria: "Objectif", club: "Gagner le match samedi", thrive: "Bâtir la confiance à vie" },
-                        { criteria: "Suivi", club: "Aucun rapport écrit", thrive: "Journal de bord, Bilan avant et après chaques séances" },
+                        { criteria: "Suivi", club: "Aucun rapport écrit", thrive: "Après chaque séance, recevez un rapport de progrès quantifié et qualifié." },
                         { criteria: "Psychologie", club: "Approche 'à la dure'", thrive: "Science PERMA & Bienveillance" },
                     ].map((row, i) => (
                         <div key={i} className={`grid grid-cols-3 p-6 text-center border-b border-gray-100 last:border-0 items-center ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>

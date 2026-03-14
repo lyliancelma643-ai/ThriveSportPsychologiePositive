@@ -160,7 +160,7 @@ const CalEmbedAvance = ({ onBookingSuccessful }) => {
         Cal.ns["seance-l-vance"]("inline", {
             elementOrSelector: "#my-cal-inline-seance-l-vance",
             config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-psychologie-positive/seance-l-vance",
+            calLink: "thrive-sport-positive/seance-l-vance",
         });
 
         Cal.ns["seance-l-vance"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
@@ -175,7 +175,7 @@ const CalEmbedAvance = ({ onBookingSuccessful }) => {
     }, [onBookingSuccessful]);
 
     return (
-        <div style={{ width: "100%", height: "600px", overflow: "scroll" }} id="my-cal-inline-seance-l-vance"></div>
+        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-seance-l-vance"></div>
     );
 };
 
@@ -214,7 +214,7 @@ const CalEmbedEssentiel = ({ onBookingSuccessful }) => {
         Cal.ns["pack-1-l-essentiel"]("inline", {
             elementOrSelector: "#my-cal-inline-pack-1-l-essentiel",
             config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-psychologie-positive/pack-1-l-essentiel",
+            calLink: "thrive-sport-positive/pack-1-l-essentiel",
         });
 
         Cal.ns["pack-1-l-essentiel"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
@@ -229,7 +229,7 @@ const CalEmbedEssentiel = ({ onBookingSuccessful }) => {
     }, [onBookingSuccessful]);
 
     return (
-        <div style={{ width: "100%", height: "600px", overflow: "scroll" }} id="my-cal-inline-pack-1-l-essentiel"></div>
+        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-pack-1-l-essentiel"></div>
     );
 };
 
@@ -268,7 +268,7 @@ const CalEmbedPerformance = ({ onBookingSuccessful }) => {
         Cal.ns["pack-3-le-peformance"]("inline", {
             elementOrSelector: "#my-cal-inline-pack-3-le-peformance",
             config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-psychologie-positive/pack-3-le-peformance",
+            calLink: "thrive-sport-positive/pack-3-le-peformance",
         });
 
         Cal.ns["pack-3-le-peformance"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
@@ -283,7 +283,7 @@ const CalEmbedPerformance = ({ onBookingSuccessful }) => {
     }, [onBookingSuccessful]);
 
     return (
-        <div style={{ width: "100%", height: "600px", overflow: "scroll" }} id="my-cal-inline-pack-3-le-peformance"></div>
+        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-pack-3-le-peformance"></div>
     );
 };
 

@@ -19,21 +19,21 @@ const Locations = () => {
                                 <div className="bg-white p-4 rounded-xl shadow-lg flex items-center transform translate-x-4">
                                     <div className="bg-blue-100 p-2 rounded-full mr-3 text-blue-600"><MapPin size={24} /></div>
                                     <div>
-                                        <div className="font-bold text-[#1B263B]">Île de Montréal</div>
+                                        <h3 className="font-bold text-[#1B263B]">Île de Montréal</h3>
                                         <div className="text-xs text-gray-500">Centre & Périphérie</div>
                                     </div>
                                 </div>
                                 <div className="bg-white p-4 rounded-xl shadow-lg flex items-center transform -translate-x-4">
                                     <div className="bg-purple-100 p-2 rounded-full mr-3 text-purple-600"><MapPin size={24} /></div>
                                     <div>
-                                        <div className="font-bold text-[#1B263B]">Laval</div>
+                                        <h3 className="font-bold text-[#1B263B]">Laval</h3>
                                         <div className="text-xs text-gray-500">Rive-Nord</div>
                                     </div>
                                 </div>
                                 <div className="bg-white p-4 rounded-xl shadow-lg flex items-center transform translate-x-8">
                                     <div className="bg-emerald-100 p-2 rounded-full mr-3 text-emerald-600"><MapPin size={24} /></div>
                                     <div>
-                                        <div className="font-bold text-[#1B263B]">Longueuil</div>
+                                        <h3 className="font-bold text-[#1B263B]">Longueuil</h3>
                                         <div className="text-xs text-gray-500">Rive-Sud</div>
                                     </div>
                                 </div>
@@ -54,9 +54,9 @@ const Locations = () => {
                         </p>
 
                         <div className="bg-[#8F9779]/10 p-6 rounded-2xl border border-[#8F9779]/20 mb-8">
-                            <h4 className="flex items-center text-[#1B263B] font-serif font-bold text-xl mb-3">
+                            <h3 className="flex items-center text-[#1B263B] font-serif font-bold text-xl mb-3">
                                 <Navigation className="mr-2 text-[#8F9779]" /> Flexibilité Totale
-                            </h4>
+                            </h3>
                             <p className="text-gray-700">
                                 Nous savons que la logistique familiale est un sport en soi. Nous nous adaptons à chaque famille pour trouver <strong>le consensus parfait</strong> : un lieu qui arrange les parents tout en offrant les meilleures conditions d'entraînement pour l'enfant.
                             </p>

@@ -3,14 +3,14 @@ import path from 'path';
 
 // Dossiers et fichiers à ignorer pour ne pas surcharger le fichier texte
 const IGNORE_DIRS = new Set(['node_modules', '.git', 'dist', 'build', '.gemini']);
-const IGNORE_FILES = new Set(['.DS_Store', 'package-lock.json', 'generate_context.js', 'gemini-context.txt']);
+const IGNORE_FILES = new Set(['.DS_Store', 'package-lock.json', 'generate_context.js', 'fichier-pour-ia.txt']);
 const IGNORE_EXTS = new Set([
     '.jpg', '.jpeg', '.png', '.gif', '.svg', '.ico', '.webp',
     '.woff', '.woff2', '.ttf', '.eot',
     '.mp4', '.webm', '.pdf', '.zip'
 ]);
 
-const OUTPUT_FILE = 'gemini-context.txt';
+const OUTPUT_FILE = 'fichier-pour-ia.txt';
 
 async function scanDirectory(dirPath, outputFileHandle) {
     const entries = await fs.readdir(dirPath, { withFileTypes: true });

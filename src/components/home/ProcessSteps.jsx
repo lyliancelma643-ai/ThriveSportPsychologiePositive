@@ -13,7 +13,7 @@ export const ProcessSteps = () => {
         {
             number: "03",
             title: "Le Bilan",
-            desc: "Validation des acquis : rapport vidéo et feedback positif pour ancrer la progression."
+            desc: "Validation des acquis : rapport vidéo et feedback positif. Après chaque séance, recevez un rapport de progrès quantifié et qualifié."
         }
     ];
 
