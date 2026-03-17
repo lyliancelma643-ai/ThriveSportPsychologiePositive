@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center justify-center mb-12">
                     <div className="flex items-center space-x-3 bg-white p-4 rounded-full shadow-lg">
-                        <img src={logo} alt="Thrive Logo" className="h-12 w-auto object-contain" />
+                        <img src={logo} alt="Thrive Logo" width="3000" height="3000" className="h-12 w-auto object-contain" />
                         <div className="text-left pr-4">
                             <span className="text-xl font-serif font-bold text-[#1B263B]">THRIVE</span>
                             <p className="text-[10px] tracking-widest text-[#C5A059] font-bold uppercase -mt-1">Sport Positive</p>

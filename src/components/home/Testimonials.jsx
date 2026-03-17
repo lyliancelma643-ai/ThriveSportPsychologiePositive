@@ -23,7 +23,7 @@ const Testimonials = () => {
                         </p>
                         <div className="flex items-center">
                             <div className="w-12 h-12 rounded-full bg-gray-400 mr-4 overflow-hidden">
-                                <img src="https://i.pravatar.cc/150?u=parent1" alt="Photo de Marie-Hélène L." />
+                                <img src="https://i.pravatar.cc/150?u=parent1" alt="Photo de Marie-Hélène L." width="150" height="150" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <p className="font-bold">Marie-Hélène L.</p>
@@ -41,7 +41,7 @@ const Testimonials = () => {
                         </p>
                         <div className="flex items-center">
                             <div className="w-12 h-12 rounded-full bg-gray-400 mr-4 overflow-hidden">
-                                <img src="https://i.pravatar.cc/150?u=parent2" alt="Photo de Jean-Philippe R." />
+                                <img src="https://i.pravatar.cc/150?u=parent2" alt="Photo de Jean-Philippe R." width="150" height="150" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <p className="font-bold">Jean-Philippe R.</p>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Brain, Target, Users } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
-import soccerPhoto from '../../assets/photo-soccer.png';
+import soccerPhoto from '../../assets/photo-soccer.jpg';
 
 const MethodTeaser = () => {
     const navigate = useNavigate();
@@ -54,6 +54,8 @@ const MethodTeaser = () => {
                         <img
                             src={soccerPhoto}
                             alt="Coach Thrive en action"
+                            width="2584"
+                            height="1364"
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B263B]/80 to-transparent flex items-end p-8">

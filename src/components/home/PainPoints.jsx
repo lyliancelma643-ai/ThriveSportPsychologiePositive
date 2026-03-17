@@ -11,6 +11,8 @@ const PainPoints = () => {
                             <img
                                 src="https://images.unsplash.com/photo-1544919982-b61976f0ba43?auto=format&fit=crop&q=80"
                                 alt="Joueur dans l'ombre"
+                                width="4928"
+                                height="3264"
                                 className="w-full h-96 object-cover"
                             />
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-8">

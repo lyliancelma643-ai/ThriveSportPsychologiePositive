@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
-import heroVisual from '../../assets/Design sans titre.png';
+import heroVisual from '../../assets/Design sans titre.jpg';
 
 const Hero = ({ setBookingStep }) => {
     const navigate = useNavigate();
@@ -35,11 +35,17 @@ const Hero = ({ setBookingStep }) => {
                     {/* RIGHTSIDE: Image */}
                     <div className="relative lg:col-span-7 lg:-mr-12 lg:ml-8 lg:-mt-24 transform scale-110 z-10 animate-float">
                         <div className="absolute -inset-4 bg-[#C5A059]/20 rounded-[2.5rem] blur-xl animate-pulse-slow"></div>
-                        <img
-                            src={heroVisual}
-                            alt="Thrive Sport Positive - Athlètes en action"
-                            className="relative rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
-                        />
+                        <picture>
+                            <source srcSet={heroVisual.replace('.jpg', '.webp')} type="image/webp" />
+                            <img
+                                src={heroVisual}
+                                alt="Thrive Sport Positive - Athlètes en action"
+                                width="2048"
+                                height="1073"
+                                fetchPriority="high"
+                                className="relative rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
+                            />
+                        </picture>
 
                         {/* 
                             PREMIUM FLOATING BADGES 
