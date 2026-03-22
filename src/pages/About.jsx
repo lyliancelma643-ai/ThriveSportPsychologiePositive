@@ -10,7 +10,7 @@ const About = () => {
             <Helmet>
                 <title>Éducateurs Confiance Sport | Qui Sommes-Nous ? — Thrive</title>
                 <meta name="description" content="Rencontrez nos éducateurs confiance sport et notre équipe UdeM. Découvrez l'histoire de Thrive et notre mission pour guider vos enfants. Lisez notre histoire !" />
-                <link rel="canonical" href="https://thrivetutorpositive.com/a-propos" />
+                <link rel="canonical" href="https://thrivesportpositive.com/a-propos" />
             </Helmet>
             <div className="max-w-4xl mx-auto px-4 text-center mb-16">
                 <SectionHeader

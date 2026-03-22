@@ -39,7 +39,7 @@ const Booking = ({
             <Helmet>
                 <title>Réserver Tuteur Sport | Planifiez Votre Séance — Thrive</title>
                 <meta name="description" content="Prêt pour le changement ? Réservez votre séance avec notre tuteur sport. Processus de réservation simple et rapide pour libérer son potentiel. Réservez ici !" />
-                <link rel="canonical" href="https://thrivetutorpositive.com/booking" />
+                <link rel="canonical" href="https://thrivesportpositive.com/booking" />
             </Helmet>
             <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-100 relative overflow-hidden">

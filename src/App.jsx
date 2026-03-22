@@ -66,7 +66,7 @@ const App = () => {
                             <Helmet>
                                 <title>Aide Aux Devoirs Montréal | Zones Desservies — Thrive</title>
                                 <meta name="description" content="Nous nous déplaçons pour votre aide aux devoirs à Montréal, Laval et Longueuil. À domicile ou au parc, trouvez un tuteur sportif certifié. Contactez-nous !" />
-                                <link rel="canonical" href="https://thrivetutorpositive.com/zones" />
+                                <link rel="canonical" href="https://thrivesportpositive.com/zones" />
                             </Helmet>
                             <Locations />
                         </div>

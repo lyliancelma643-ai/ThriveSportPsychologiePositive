@@ -8,7 +8,7 @@ export default defineConfig({
     plugins: [
         react(),
         Sitemap({
-            hostname: 'https://thrivetutorpositive.com',
+            hostname: 'https://thrivesportpositive.com',
             dynamicRoutes: [
                 '/methode',
                 '/programmes',

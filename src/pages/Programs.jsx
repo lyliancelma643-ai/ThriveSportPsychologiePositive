@@ -11,7 +11,7 @@ const Programs = ({ handleSelectProgram }) => {
             <Helmet>
                 <title>Tuteur Parascolaire Montréal | Nos Programmes — Thrive</title>
                 <meta name="description" content="Investissez dans la réussite avec notre tuteur parascolaire à Montréal. Explorez nos forfaits de transformation clairs et sans frais cachés. Réservez le vôtre !" />
-                <link rel="canonical" href="https://thrivetutorpositive.com/programmes" />
+                <link rel="canonical" href="https://thrivesportpositive.com/programmes" />
             </Helmet>
             <SectionHeader
                 title="Forfaits de Transformation"

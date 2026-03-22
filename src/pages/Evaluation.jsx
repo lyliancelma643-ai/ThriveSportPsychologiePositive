@@ -16,7 +16,7 @@ const Evaluation = ({ handleSelectProgram }) => {
             <Helmet>
                 <title>Bilan Tutorat Sportif | Évaluation Offerte — Thrive</title>
                 <meta name="description" content="Passez à l'action avec notre bilan tutorat sportif. Profitez d'une première évaluation offerte pour identifier les besoins de votre enfant. Contactez-nous !" />
-                <link rel="canonical" href="https://thrivetutorpositive.com/evaluation" />
+                <link rel="canonical" href="https://thrivesportpositive.com/evaluation" />
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

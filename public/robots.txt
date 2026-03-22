@@ -18,4 +18,4 @@ Disallow: /prerender.js
 Allow: /assets/
 
 # Lien vers le sitemap
-Sitemap: https://www.thrivetutorpositive.com/sitemap.xml
+Sitemap: https://www.thrivesportpositive.com/sitemap.xml

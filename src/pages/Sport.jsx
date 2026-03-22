@@ -32,7 +32,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
             <Helmet>
                 <title>Tutorat Motivation Sport | 5 Disciplines Clés — Thrive</title>
                 <meta name="description" content="Alliez passion et rigueur avec notre tutorat motivation sport. Hockey, soccer, natation... Nous développons l'athlète complet. Découvrez nos sports couverts !" />
-                <link rel="canonical" href="https://thrivetutorpositive.com/sport" />
+                <link rel="canonical" href="https://thrivesportpositive.com/sport" />
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
                 <SectionHeader
