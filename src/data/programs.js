@@ -4,10 +4,10 @@ export const PROGRAMS_DATA = {
         price: 360,
         installments: 1,
         label: "Le Forfait « Essentiel »",
-        desc: "L'Évaluation Diagnostique Initiale : Un test de base pour identifier les forces de caractère dominantes de l'enfant et son niveau de confiance actuel sur la glace.",
+        desc: "L'Évaluation Diagnostique Initiale : Un test de base pour identifier les forces de caractère dominantes de l'enfant et son niveau de confiance actuel.",
         highlight: false,
         features: [
-            "3 séances de 1h sur la glace",
+            "3 séances de 1h",
             "Évaluation des forces de caractère (intégré pendant les séances)",
             "Mesure du bien-être psychologique (intégré pendant les séances)",
             "Analyse de l'anxiété compétitive (intégré pendant les séances)"
@@ -22,7 +22,7 @@ export const PROGRAMS_DATA = {
         desc: "La solution ultime pour transformer le potentiel en performance réelle et mesurable.",
         highlight: true,
         features: [
-            "13 séances de 1h sur la glace",
+            "13 séances de 1h",
             "Évaluation des forces de caractère",
             "Mesure du bien-être psychologique",
             "Analyse de l'anxiété compétitive",
@@ -43,7 +43,7 @@ export const PROGRAMS_DATA = {
         desc: "Tout ce qui est dans le forfait Essentiel, plus :",
         highlight: false,
         features: [
-            "6 séances de 1h sur la glace",
+            "6 séances de 1h",
             "Évaluation des forces de caractère",
             "Mesure du bien-être psychologique",
             "Analyse de l'anxiété compétitive",
