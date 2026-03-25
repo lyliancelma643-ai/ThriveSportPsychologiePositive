@@ -1,5 +1,6 @@
 import React from 'react';
 import { XCircle } from 'lucide-react';
+import childShadowImage from '../../assets/pexels-tima-miroshnichenko-6015973.jpg';
 
 const PainPoints = () => {
     return (
@@ -9,11 +10,11 @@ const PainPoints = () => {
                     <div className="w-full md:w-1/2">
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                             <img
-                                src="https://images.unsplash.com/photo-1544919982-b61976f0ba43?auto=format&fit=crop&q=80"
+                                src={childShadowImage}
                                 alt="Joueur dans l'ombre"
                                 width="4928"
                                 height="3264"
-                                className="w-full h-96 object-cover"
+                                className="w-full h-96 object-cover object-top"
                             />
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-8">
                                 <p className="text-white text-xl font-serif italic text-center">

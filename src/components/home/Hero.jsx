@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
+import heroImage from '../../assets/pexels-gustavo-fring-6720436.jpg';
 
 const Hero = ({ setBookingStep }) => {
     const navigate = useNavigate();
@@ -32,19 +33,16 @@ const Hero = ({ setBookingStep }) => {
                     </div>
 
                     {/* RIGHTSIDE: Image */}
-                    <div className="relative lg:col-span-7 lg:-mr-12 lg:ml-8 lg:-mt-24 transform scale-110 z-10">
+                    <div className="relative lg:col-span-7 lg:ml-6 z-10">
                         <div className="absolute -inset-4 bg-[#C5A059]/20 rounded-[2.5rem] blur-xl"></div>
-                        <picture>
-                            <source srcSet="/Design sans titre.webp" type="image/webp" />
-                            <img
-                                src="/Design sans titre.jpg"
-                                alt="Thrive Sport Positive - Athlètes en action"
-                                width="2048"
-                                height="1073"
-                                fetchPriority="high"
-                                className="relative rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
-                            />
-                        </picture>
+                        <img
+                            src={heroImage}
+                            alt="Thrive Sport Positive - Athlètes en action"
+                            width="2048"
+                            height="1073"
+                            fetchPriority="high"
+                            className="relative w-full h-[450px] sm:h-[500px] lg:h-[650px] object-cover object-top rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
+                        />
 
                         {/* 
                             PREMIUM FLOATING BADGES 

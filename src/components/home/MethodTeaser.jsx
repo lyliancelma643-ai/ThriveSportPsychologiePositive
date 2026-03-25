@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Brain, Target, Users } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
-import soccerPhoto from '../../assets/photo-soccer.jpg';
+import soccerPhoto from '../../assets/pexels-cottonbro-6557330.jpg';
 
 const MethodTeaser = () => {
     const navigate = useNavigate();
