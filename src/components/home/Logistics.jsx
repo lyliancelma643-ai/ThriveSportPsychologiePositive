@@ -13,8 +13,8 @@ const Logistics = () => {
                     <div className="p-6 bg-gray-50 rounded-2xl">
                         <MapPin size={32} className="mx-auto text-[#1B263B] mb-4" />
                         <h3 className="font-bold text-[#1B263B] uppercase tracking-widest mb-2">Lieux</h3>
-                        <p className="text-gray-600">Montréal, Laval, Longueuil.</p>
-                        <p className="text-gray-500 text-xs mt-1">À domicile, au parc ou terrain local.</p>
+                        <p className="text-gray-600">CEPSUM (Montréal).</p>
+                        <p className="text-gray-500 text-xs mt-1">Intervention à domicile possible.</p>
                     </div>
 
                     <div className="p-6 bg-gray-50 rounded-2xl">

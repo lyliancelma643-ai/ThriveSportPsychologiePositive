@@ -20,10 +20,10 @@ const ContactSection = ({ handleSelectProgram }) => {
                         </p>
 
                         <a
-                            href="mailto:thrive.psypositive@gmail.com"
+                            href="mailto:info@thrivesportpositive.com"
                             className="inline-flex items-center gap-3 bg-white text-[#1B263B] px-8 py-4 rounded-full font-bold hover:bg-[#C5A059] hover:text-white transition-all duration-300 shadow-lg"
                         >
-                            <span>thrive.psypositive@gmail.com</span>
+                            <span>info@thrivesportpositive.com</span>
                         </a>
                     </div>
                 </div>

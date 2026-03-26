@@ -79,9 +79,9 @@ const Evaluation = ({ handleSelectProgram }) => {
                         <div className="bg-[#1B263B] text-white p-8 rounded-[2rem] shadow-lg">
                             <h4 className="font-serif font-bold text-xl mb-4">Contact Direct</h4>
                             <div className="space-y-4 text-sm">
-                                <a href="mailto:thrive.psypositive@gmail.com" className="flex items-center hover:text-[#C5A059] transition-colors">
+                                <a href="mailto:info@thrivesportpositive.com" className="flex items-center hover:text-[#C5A059] transition-colors">
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4"><Mail size={18} /></div>
-                                    thrive.psypositive@gmail.com
+                                    info@thrivesportpositive.com
                                 </a>
                                 <div className="flex items-center">
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4"><Phone size={18} /></div>
