@@ -17,6 +17,7 @@ export default {
                 'float-slow': 'float 8s ease-in-out infinite',
                 'float-slower': 'float 10s ease-in-out infinite',
                 'float-reverse': 'float-reverse 7s ease-in-out infinite',
+                'shimmer': 'shimmer 1.5s infinite linear',
             },
             keyframes: {
                 'pulse-slow': {
@@ -30,6 +31,9 @@ export default {
                 'float-reverse': {
                     '0%, 100%': { transform: 'translateY(0)' },
                     '50%': { transform: 'translateY(20px)' },
+                },
+                'shimmer': {
+                    '100%': { transform: 'translateX(100%)' },
                 }
             }
         },

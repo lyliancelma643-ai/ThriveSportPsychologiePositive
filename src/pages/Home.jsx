@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import Hero from '../components/home/Hero';
 import AuthorityBar from '../components/home/AuthorityBar';
 import PainPoints from '../components/home/PainPoints';
@@ -18,12 +19,14 @@ import Logistics from '../components/home/Logistics';
 
 const Home = ({ setBookingStep, handleSelectProgram }) => {
     const [isDiagnosticOpen, setIsDiagnosticOpen] = React.useState(false);
+    const { t, i18n } = useTranslation();
 
     return (
         <>
             <Helmet>
-                <title>Tutorat Sportif Montréal | Confiance & Réussite — Thrive</title>
-                <meta name="description" content="Découvrez notre aide aux devoirs sportifs à Montréal. Nous allions sport et psychologie positive pour la réussite scolaire de votre enfant. Réservez un essai !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.home.title')}</title>
+                <meta name="description" content={t('seo.home.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/" />
             </Helmet>
             <Hero setBookingStep={setBookingStep} />

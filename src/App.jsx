@@ -12,11 +12,13 @@ import Evaluation from './pages/Evaluation';
 import About from './pages/About';
 import Locations from './components/home/Locations';
 import useBooking from './hooks/useBooking';
+import { useTranslation } from 'react-i18next';
 import './styles.css';
 
 const App = () => {
     // We use useLocation to recreate the scroll to top behavior on route change
     const location = useLocation();
+    const { t, i18n } = useTranslation();
 
     // Use the custom hook for all booking logic
     const booking = useBooking();
@@ -64,8 +66,9 @@ const App = () => {
                     <Route path="/zones" element={
                         <div className="pt-10">
                             <Helmet>
-                                <title>Aide Aux Devoirs Montréal | Zones Desservies — Thrive</title>
-                                <meta name="description" content="Nous nous déplaçons pour votre aide aux devoirs à Montréal, Laval et Longueuil. À domicile ou au parc, trouvez un tuteur sportif certifié. Contactez-nous !" />
+                                <html lang={i18n.language} />
+                                <title>{t('seo.zones.title')}</title>
+                                <meta name="description" content={t('seo.zones.desc')} />
                                 <link rel="canonical" href="https://thrivesportpositive.com/zones" />
                             </Helmet>
                             <Locations />
@@ -77,13 +80,13 @@ const App = () => {
                     {/* 404 Fallback */}
                     <Route path="*" element={
                         <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-                            <h1 className="text-4xl font-serif text-[#1B263B] mb-4">Page Introuvable</h1>
-                            <p className="text-gray-600 mb-8">Désolé, la page que vous cherchez n'existe pas.</p>
+                            <h1 className="text-4xl font-serif text-[#1B263B] mb-4">{t('error.not_found_title')}</h1>
+                            <p className="text-gray-600 mb-8">{t('error.not_found_desc')}</p>
                             <button
                                 onClick={() => window.location.href = "/"}
                                 className="bg-[#1B263B] text-white px-8 py-3 rounded-full hover:bg-[#2c3e5a] transition-colors"
                             >
-                                Retour à l'accueil
+                                {t('error.not_found_btn')}
                             </button>
                         </div>
                     } />

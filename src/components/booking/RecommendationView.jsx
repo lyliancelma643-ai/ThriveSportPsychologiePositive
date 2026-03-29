@@ -1,23 +1,25 @@
 import React from 'react';
 import { Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { PROGRAMS_DATA } from '../../data/programs';
 
 const RecommendationView = ({ bookingData, onSelectProgram }) => {
+    const { t, i18n } = useTranslation();
 
     // Logic for recommendation
     const getRecommendation = () => {
         const score = bookingData.wellbeing;
         if (score <= 4) return {
             key: "Performance",
-            reason: "Le score de bien-être indique un besoin de soutien important. Ce pack intensif (13 séances) est conçu pour reconstruire les bases émotionnelles en profondeur et transformer durablement l'état d'esprit de l'enfant."
+            reason: t('booking.r_reason_perf')
         };
         if (score <= 7) return {
             key: "Avance",
-            reason: "Votre enfant montre des signes de fragilité mais aussi de résilience. Ce programme intermédiaire (6 séances) est idéal pour cibler les blocages spécifiques qui l'empêchent de s'épanouir pleinement."
+            reason: t('booking.r_reason_adv')
         };
         return {
             key: "Essentiel",
-            reason: "Le niveau de bien-être est encourageant ! Ce pack court (3 séances) agira comme un 'boost' pour consolider ses acquis, résoudre un point précis et lui donner des outils pour maintenir cette dynamique."
+            reason: t('booking.r_reason_ess')
         };
     };
 
@@ -28,8 +30,8 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
     return (
         <div className="animate-in slide-in-from-right duration-500">
             <div className="text-center mb-10">
-                <h2 className="text-3xl font-serif text-[#1B263B]">Notre recommandation pour {bookingData.name}</h2>
-                <p className="text-gray-500 italic mt-2">Basé sur votre bilan, ce programme est le plus adapté.</p>
+                <h2 className="text-3xl font-serif text-[#1B263B]">{t('booking.r_title', { name: bookingData.name })}</h2>
+                <p className="text-gray-500 italic mt-2">{t('booking.r_subtitle')}</p>
             </div>
 
             <div className="max-w-md mx-auto mb-16">
@@ -38,42 +40,42 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
 
                     <div className="relative z-10">
                         <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#8F9779] text-white text-xs font-bold mb-4">
-                            <Sparkles size={12} className="mr-1" /> Recommandé pour vous
+                            <Sparkles size={12} className="mr-1" /> {t('booking.r_tag')}
                         </div>
 
                         {/* Justification Block */}
                         <div className="mb-6 p-4 bg-white/10 rounded-xl border border-white/10 backdrop-blur-sm">
                             <p className="text-xs leading-relaxed text-gray-200">
-                                <span className="font-bold text-[#8F9779] block mb-1 uppercase tracking-widest text-[10px]">Pourquoi ce pack ?</span>
+                                <span className="font-bold text-[#8F9779] block mb-1 uppercase tracking-widest text-[10px]">{t('booking.r_why')}</span>
                                 {recommendation.reason}
                             </p>
                         </div>
 
                         <div className="flex items-center space-x-2 mb-3">
                             <div className="bg-white/10 text-white px-3 py-1 rounded-lg text-xs font-bold uppercase tracking-wider border border-white/20">
-                                📦 {recommendedProgram.sessions} Séances
+                                📦 {recommendedProgram.sessions} {t('booking.r_sessions')}
                             </div>
                         </div>
 
-                        <h3 className="text-2xl font-serif font-bold mb-2">{recommendedProgram.label}</h3>
-                        <p className="text-gray-300 italic text-sm mb-6">{recommendedProgram.desc}</p>
+                        <h3 className="text-2xl font-serif font-bold mb-2">{t(`programs.${recommendedKey}.label`)}</h3>
+                        <p className="text-gray-300 italic text-sm mb-6">{t(`programs.${recommendedKey}.desc`)}</p>
 
                         <div className="space-y-3 mb-8">
-                            {recommendedProgram.features.map((feature, idx) => (
+                            {recommendedProgram.features.map((_, idx) => (
                                 <div key={idx} className="flex items-start text-sm text-gray-200">
                                     <CheckCircle2 className="text-[#8F9779] mr-2 shrink-0 mt-0.5" size={16} />
-                                    <span>{feature}</span>
+                                    <span>{t(`programs.${recommendedKey}.f${idx}`)}</span>
                                 </div>
                             ))}
                         </div>
 
                         <div className="mb-6">
                             <div className="flex items-baseline">
-                                <span className="text-4xl font-bold">{(recommendedProgram.price / recommendedProgram.sessions).toFixed(2)} $</span>
-                                <span className="text-lg text-gray-300 ml-2">/ séance</span>
+                                <span className="text-4xl font-bold">{i18n.language === 'en' ? `$${(recommendedProgram.price / recommendedProgram.sessions).toFixed(2)}` : `${(recommendedProgram.price / recommendedProgram.sessions).toFixed(2)} $`}</span>
+                                <span className="text-lg text-gray-300 ml-2">{t('booking.r_per_session')}</span>
                             </div>
                             <div className="text-sm text-gray-400 font-bold mt-1">
-                                Total : {recommendedProgram.price} $ {recommendedProgram.installments > 1 && `(ou ${recommendedProgram.installments}x ${recommendedProgram.installmentPrice}$)`}
+                                {t('booking.r_total')} {i18n.language === 'en' ? `$${recommendedProgram.price}` : `${recommendedProgram.price} $`} {recommendedProgram.installments > 1 && t('booking.r_or', { count: recommendedProgram.installments, price: recommendedProgram.installmentPrice })}
                             </div>
                         </div>
 
@@ -81,15 +83,15 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
                             onClick={() => onSelectProgram(recommendedKey)}
                             className="w-full py-4 bg-white text-[#1B263B] font-bold rounded-xl hover:bg-gray-100 transition-all flex items-center justify-center"
                         >
-                            Choisir ce programme <ArrowRight className="ml-2" size={18} />
+                            {t('booking.btn_choose')} <ArrowRight className="ml-2" size={18} />
                         </button>
                     </div>
                 </div>
             </div>
 
             <div className="text-center mb-8">
-                <h3 className="text-xl font-bold text-[#1B263B] mb-2">Autres options disponibles</h3>
-                <p className="text-sm text-gray-500">Si vous préférez une autre approche, ces programmes sont aussi accessibles.</p>
+                <h3 className="text-xl font-bold text-[#1B263B] mb-2">{t('booking.o_title')}</h3>
+                <p className="text-sm text-gray-500">{t('booking.o_subtitle')}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
@@ -97,15 +99,15 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
                     if (key === recommendedKey) return null;
                     return (
                         <div key={key} className="p-6 rounded-2xl border border-gray-200 bg-white">
-                            <h4 className="font-bold text-[#1B263B] mb-1">{program.label}</h4>
-                            <p className="text-xs text-gray-500 mb-4">{program.desc}</p>
+                            <h4 className="font-bold text-[#1B263B] mb-1">{t(`programs.${key}.label`)}</h4>
+                            <p className="text-xs text-gray-500 mb-4">{t(`programs.${key}.desc`)}</p>
                             <div className="flex items-center justify-between">
-                                <span className="font-bold">{program.price} $</span>
+                                <span className="font-bold">{i18n.language === 'en' ? `$${program.price}` : `${program.price} $`}</span>
                                 <button
                                     onClick={() => onSelectProgram(key)}
                                     className="text-xs font-bold underline hover:text-[#8F9779]"
                                 >
-                                    Choisir plutôt celui-ci
+                                    {t('booking.btn_choose_other')}
                                 </button>
                             </div>
                         </div>

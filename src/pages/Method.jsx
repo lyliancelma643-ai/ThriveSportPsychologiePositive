@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import PermaGrid from '../components/method/PermaGrid';
 import ScientificProof from '../components/method/ScientificProof';
 
@@ -9,11 +10,13 @@ import MethodSidebar from '../components/method/MethodSidebar';
 import ContactSection from '../components/ui/ContactSection';
 
 const Method = ({ setBookingStep }) => {
+    const { t, i18n } = useTranslation();
     return (
         <div className="py-20 bg-[#FAFAFA]">
             <Helmet>
-                <title>Méthode PERMA Enfant | Psychologie Appliquée — Thrive</title>
-                <meta name="description" content="Transformez le potentiel de votre enfant avec la méthode PERMA enfant. Une pédagogie positive validée par la science pour booster sa confiance. Découvrez-la !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.method.title')}</title>
+                <meta name="description" content={t('seo.method.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/methode" />
             </Helmet>
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,13 +30,13 @@ const Method = ({ setBookingStep }) => {
 
                         {/* Section 1: Intro */}
                         <section id="intro" className="text-center pt-8">
-                            <span className="text-[#8F9779] font-bold uppercase tracking-widest text-sm">La Science du Succès</span>
+                            <span className="text-[#8F9779] font-bold uppercase tracking-widest text-sm">{t('method.intro_tag')}</span>
                             <h1 className="text-5xl md:text-6xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
-                                Le Modèle PERMA <br />
-                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif">appliqué au sport.</span>
+                                <span dangerouslySetInnerHTML={{ __html: t('method.intro_title') }}></span>
+                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif">{t('method.intro_title_italic')}</span>
                             </h1>
                             <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
-                                Développé par le Dr. Martin Seligman, père de la psychologie positive, ce modèle est notre boussole. Nous ne devinons pas comment motiver votre enfant, nous appliquons une science validée.
+                                {t('method.intro_desc')}
                             </p>
                         </section>
 

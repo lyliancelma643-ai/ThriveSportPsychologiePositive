@@ -1,24 +1,27 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Award, BookOpen, ShieldCheck, Users, GraduationCap, Activity, Quote } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import SectionHeader from '../components/ui/SectionHeader';
 import ContactSection from '../components/ui/ContactSection';
 
 const About = () => {
+    const { t, i18n } = useTranslation();
     return (
         <div className="py-20 bg-gray-50/50">
             <Helmet>
-                <title>Éducateurs Confiance Sport | Qui Sommes-Nous ? — Thrive</title>
-                <meta name="description" content="Rencontrez nos éducateurs confiance sport et notre équipe UdeM. Découvrez l'histoire de Thrive et notre mission pour guider vos enfants. Lisez notre histoire !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.about.title')}</title>
+                <meta name="description" content={t('seo.about.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/a-propos" />
             </Helmet>
             <div className="max-w-4xl mx-auto px-4 text-center mb-16">
                 <SectionHeader
-                    title="L'Élite du Mentorat Sportif"
-                    subtitle="Nous ne sommes pas juste des entraîneurs. Nous sommes des éducateurs de la confiance."
+                    title={t('about.header_title')}
+                    subtitle={t('about.header_subtitle')}
                 />
                 <p className="text-xl text-gray-600 leading-relaxed">
-                    Fondé par d'anciens athlètes de haut niveau reconvertis en psychologie, Thrive comble le fossé entre la performance brute et le bien-être mental.
+                    {t('about.intro_p')}
                 </p>
             </div>
 
@@ -27,9 +30,11 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#1B263B]/10 rounded-full flex items-center justify-center text-[#1B263B] mb-6">
                         <Users size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">Sélection Drastique</h3>
+                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col1_title')}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                        Chaque mentor est trié sur le volet selon deux critères non-négociables : une <strong>expérience terrain significative</strong> (athlète universitaire ou pro) et une solide <strong>connaissance académique</strong> en psychologie ou pédagogie.
+                        <Trans i18nKey="about.col1_desc">
+                            {t('about.col1_desc_1')}<strong>{t('about.col1_desc_b1')}</strong>{t('about.col1_desc_2')}<strong>{t('about.col1_desc_b2')}</strong>{t('about.col1_desc_3')}
+                        </Trans>
                     </p>
                 </div>
 
@@ -38,9 +43,11 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#8F9779]/10 rounded-full flex items-center justify-center text-[#8F9779] mb-6">
                         <BookOpen size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">Formation Thrive Certifiée</h3>
+                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col2_title')}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                        Avant de rencontrer votre enfant, tous nos coachs suivent une formation intensive à la <strong>Psychologie Positive Appliquée</strong>. Ce cursus est vérifié et validé par notre comité pédagogique pour garantir l'approche Thrive.
+                        <Trans i18nKey="about.col2_desc">
+                            {t('about.col2_desc_1')}<strong>{t('about.col2_desc_b1')}</strong>{t('about.col2_desc_2')}
+                        </Trans>
                     </p>
                 </div>
 
@@ -48,9 +55,11 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mb-6">
                         <ShieldCheck size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">Test & Validation</h3>
+                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col3_title')}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">
-                        La théorie ne suffit pas. Chaque coach passe un <strong>examen pratique</strong> en situation réelle. Seuls ceux qui démontrent 100% de maîtrise de la communication positive et de la sécurité affective sont validés.
+                        <Trans i18nKey="about.col3_desc">
+                            {t('about.col3_desc_1')}<strong>{t('about.col3_desc_b1')}</strong>{t('about.col3_desc_2')}
+                        </Trans>
                     </p>
                 </div>
             </div>
@@ -63,31 +72,35 @@ const About = () => {
                     </div>
 
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-10 text-center">L'Histoire Thrive : De la Glace à la Science</h2>
+                        <h2 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-10 text-center">{t('about.hist_title')}</h2>
 
                         <div className="space-y-8 text-lg text-gray-600 leading-relaxed font-light">
                             <p>
-                                <span className="font-serif text-[#C5A059] text-2xl mr-1 font-bold">Thrive</span> est né d'une trajectoire unique : celle d'un <strong>athlète de haut niveau</strong> confronté aux extrêmes de la pression sportive, combinée à la rigueur intellectuelle de l'<strong>Université de Montréal</strong>.
+                                <span className="font-serif text-[#C5A059] text-2xl mr-1 font-bold">{t('about.hist_intro_b1')}</span>{t('about.hist_intro_2')}<strong>{t('about.hist_intro_b2')}</strong>{t('about.hist_intro_3')}<strong>{t('about.hist_intro_b3')}</strong>{t('about.hist_intro_4')}
                             </p>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-12">
                                 <div>
-                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><GraduationCap className="mr-3 text-[#8F9779]" /> L'Alliance Scientifique UdeM</h3>
+                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><GraduationCap className="mr-3 text-[#8F9779]" /> {t('about.hist_col1_title')}</h3>
                                     <p className="text-sm leading-7">
-                                        Ce projet a été co-construit main dans la main avec des professeurs émérites de l'Université de Montréal. Ils ont accompagné le développement de la méthode d'A à Z, validant l'analyse minutieuse de plus de <strong>120 études scientifiques</strong>. Thrive repose sur des bases prouvées et fiables.
+                                        <Trans i18nKey="about.hist_col1_desc">
+                                            {t('about.hist_col1_desc_1')}<strong>{t('about.hist_col1_desc_b')}</strong>{t('about.hist_col1_desc_2')}
+                                        </Trans>
                                     </p>
                                 </div>
                                 <div>
-                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><Activity className="mr-3 text-[#8F9779]" /> La Science de la Mesure</h3>
+                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><Activity className="mr-3 text-[#8F9779]" /> {t('about.hist_col2_title')}</h3>
                                     <p className="text-sm leading-7">
-                                        Nous ne devinons pas le progrès, nous le mesurons. Grâce à des échelles scientifiques reconnues, nous évaluons l'état de l'enfant <strong>avant et après chaque séance</strong>. Ces données permettent un débriefing précis aux parents pour valoriser concrètement chaque victoire et ancrer la confiance.
+                                        <Trans i18nKey="about.hist_col2_desc">
+                                            {t('about.hist_col2_desc_1')}<strong>{t('about.hist_col2_desc_b')}</strong>{t('about.hist_col2_desc_2')}
+                                        </Trans>
                                     </p>
                                 </div>
                             </div>
 
                             <div className="text-center relative py-8 mt-4 border-t border-gray-100">
                                 <p className="font-serif text-[#1B263B] text-2xl italic leading-relaxed">
-                                    "Nous pensons que l'essence de la joie et de la prospérité naît de la positivité."
+                                    {t('about.quote')}
                                 </p>
                             </div>
                         </div>

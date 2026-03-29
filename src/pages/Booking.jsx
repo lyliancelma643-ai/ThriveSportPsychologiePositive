@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import BookingForm from '../components/booking/BookingForm';
 import SuccessView from '../components/booking/SuccessView';
 import RecommendationView from '../components/booking/RecommendationView';
@@ -15,6 +16,7 @@ const Booking = ({
     setBookingData,
     handleSelectProgram // Prop from useBooking
 }) => {
+    const { t, i18n } = useTranslation();
 
     // Redirect to assessment if no program selected when entering
     useEffect(() => {
@@ -37,8 +39,9 @@ const Booking = ({
     return (
         <section className="py-20 min-h-[80vh] bg-[#F8F9FA]">
             <Helmet>
-                <title>Réserver Tuteur Sport | Planifiez Votre Séance — Thrive</title>
-                <meta name="description" content="Prêt pour le changement ? Réservez votre séance avec notre tuteur sport. Processus de réservation simple et rapide pour libérer son potentiel. Réservez ici !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.booking.title')}</title>
+                <meta name="description" content={t('seo.booking.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/booking" />
             </Helmet>
             <div className="max-w-5xl mx-auto px-4">
@@ -64,7 +67,7 @@ const Booking = ({
                             onSubmit={() => setBookingStep('recommendation')}
                             submitLabel={
                                 <>
-                                    Voir ma recommandation <ArrowRight className="ml-2" />
+                                    {t('booking.submit_label')} <ArrowRight className="ml-2" />
                                 </>
                             }
                         />
@@ -95,9 +98,9 @@ const Booking = ({
                     {bookingStep === 'cal' && (
                         <div className="animate-in slide-in-from-right duration-500">
                             <div className="text-center mb-10">
-                                <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">Étape 4 sur 4</span>
-                                <h2 className="text-3xl font-serif text-[#1B263B]">Finaliser la réservation</h2>
-                                <p className="text-gray-500 mt-2">Choisissez votre créneau pour le programme <span className="font-bold text-[#1B263B]">{bookingData.program}</span>.</p>
+                                <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">{t('booking.step_4_tag')}</span>
+                                <h2 className="text-3xl font-serif text-[#1B263B]">{t('booking.step_4_title')}</h2>
+                                <p className="text-gray-500 mt-2">{t('booking.step_4_subtitle')} <span className="font-bold text-[#1B263B]">{t(`programs.${bookingData.program}.label`)}</span>.</p>
                             </div>
 
                             {bookingData.program === 'Avance' ? (

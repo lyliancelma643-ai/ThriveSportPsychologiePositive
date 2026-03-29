@@ -1,8 +1,10 @@
 import React from 'react';
 import { XCircle } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import childShadowImage from '../../assets/pexels-tima-miroshnichenko-6015973.jpg';
 
 const PainPoints = () => {
+    const { t } = useTranslation();
     return (
         <section className="py-24 bg-[#F8F9FA]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,22 +20,22 @@ const PainPoints = () => {
                             />
                             <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-8">
                                 <p className="text-white text-xl font-serif italic text-center">
-                                    "50% des enfants sont invisibles dans les clubs de masse."
+                                    {t('home.pain_points.quote')}
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <h2 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-6">Votre enfant est-il un <span className="italic">"Joueur de l'Ombre"</span> ?</h2>
+                        <h2 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-6">{t('home.pain_points.heading_1')}<span className="italic">{t('home.pain_points.heading_italic')}</span>{t('home.pain_points.heading_2')}</h2>
                         <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                            Dans les structures traditionnelles, le focus est mis sur l'élite ou la gestion du groupe. Les enfants qui <span className="font-bold text-[#1B263B]">manquent de confiance</span>, qui hésitent ou qui ne sont pas "naturellement" compétitifs se perdent. <span className="font-bold text-[#1B263B]">Ils se retrouvent souvent seuls, isolés au sein même de leur équipe, sans le soutien émotionnel nécessaire pour s'épanouir.</span>
+                            {t('home.pain_points.desc_1')}<span className="font-bold text-[#1B263B]">{t('home.pain_points.desc_bold_1')}</span>{t('home.pain_points.desc_2')}<span className="font-bold text-[#1B263B]">{t('home.pain_points.desc_bold_2')}</span>
                         </p>
                         <div className="space-y-4 mb-8">
                             {[
-                                "Hésitation devant l'échec et peur du jugement",
-                                "Perte de plaisir et envie fréquente d'abandonner",
-                                "Performance bloquée par l'anxiété de compétition",
-                                "Manque de repères individuels et de feedback constructif"
+                                t('home.pain_points.list_1'),
+                                t('home.pain_points.list_2'),
+                                t('home.pain_points.list_3'),
+                                t('home.pain_points.list_4')
                             ].map((item, idx) => (
                                 <div key={idx} className="flex items-start">
                                     <XCircle className="text-red-400 mr-3 mt-1 shrink-0" size={20} />
@@ -42,7 +44,7 @@ const PainPoints = () => {
                             ))}
                         </div>
                         <p className="text-[#8F9779] font-bold text-lg">
-                            Thrive n'entraîne pas les foules. Nous créons des leaders résilients.
+                            {t('home.pain_points.conclusion')}
                         </p>
                     </div>
                 </div>

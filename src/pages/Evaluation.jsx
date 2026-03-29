@@ -3,8 +3,10 @@ import { Helmet } from 'react-helmet-async';
 import DiagnosticWidget from '../components/ui/DiagnosticWidget';
 import SectionHeader from '../components/ui/SectionHeader';
 import { Mail, Phone, Calendar, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Evaluation = ({ handleSelectProgram }) => {
+    const { t, i18n } = useTranslation();
     React.useEffect(() => {
         (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
         Cal("init", "30min", { origin: "https://app.cal.com" });
@@ -14,15 +16,16 @@ const Evaluation = ({ handleSelectProgram }) => {
     return (
         <div className="pt-24 pb-24 bg-[#F8F9FA] min-h-screen">
             <Helmet>
-                <title>Bilan Tutorat Sportif | Évaluation Offerte — Thrive</title>
-                <meta name="description" content="Passez à l'action avec notre bilan tutorat sportif. Profitez d'une première évaluation offerte pour identifier les besoins de votre enfant. Contactez-nous !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.evaluation.title')}</title>
+                <meta name="description" content={t('seo.evaluation.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/evaluation" />
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <SectionHeader
-                    title="Votre Séance d'Évaluation Offerte"
-                    subtitle="La première étape pour transformer le potentiel de votre enfant. Sans engagement."
+                    title={t('evaluation.title')}
+                    subtitle={t('evaluation.subtitle')}
                 />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
@@ -32,9 +35,9 @@ const Evaluation = ({ handleSelectProgram }) => {
                         <div className="mb-6">
                             <h3 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
                                 <span className="w-8 h-8 rounded-full bg-[#1B263B] text-white flex items-center justify-center mr-3 text-sm">1</span>
-                                Le Bilan Rapide
+                                {t('evaluation.step_1_title')}
                             </h3>
-                            <p className="text-gray-600 text-sm">Répondez à ces 3 questions pour nous aider à préparer la séance.</p>
+                            <p className="text-gray-600 text-sm">{t('evaluation.step_1_desc')}</p>
                         </div>
                         <DiagnosticWidget handleSelectProgram={handleSelectProgram} />
                     </div>
@@ -44,23 +47,23 @@ const Evaluation = ({ handleSelectProgram }) => {
                         <div>
                             <h3 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
                                 <span className="w-8 h-8 rounded-full bg-[#1B263B] text-white flex items-center justify-center mr-3 text-sm">2</span>
-                                Planifier la Rencontre
+                                {t('evaluation.step_2_title')}
                             </h3>
-                            <p className="text-gray-600 text-sm mb-6">Laissez vos coordonnées pour qu'un mentor vous contacte sous 24h.</p>
+                            <p className="text-gray-600 text-sm mb-6">{t('evaluation.step_2_desc')}</p>
 
                             <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
                                 <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                                     <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">Votre Nom</label>
-                                        <input type="text" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder="Ex: Jean Dupont" />
+                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_name')}</label>
+                                        <input type="text" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_name')} />
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">Email</label>
-                                        <input type="email" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder="jean@exemple.com" />
+                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_email')}</label>
+                                        <input type="email" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_email')} />
                                     </div>
                                     <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">Téléphone</label>
-                                        <input type="tel" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder="514 123 4567" />
+                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_phone')}</label>
+                                        <input type="tel" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_phone')} />
                                     </div>
                                     <button
                                         className="w-full py-4 bg-[#8F9779] text-white font-bold rounded-xl hover:bg-[#7A8266] transition-all flex items-center justify-center shadow-lg mt-4"
@@ -68,16 +71,16 @@ const Evaluation = ({ handleSelectProgram }) => {
                                         data-cal-namespace="30min"
                                         data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                                     >
-                                        Valider ma demande <ArrowRight className="ml-2" size={18} />
+                                        {t('evaluation.btn_submit')} <ArrowRight className="ml-2" size={18} />
                                     </button>
                                 </form>
-                                <p className="text-xs text-center text-gray-400 mt-4">Vos données sont confidentielles et ne seront jamais partagées.</p>
+                                <p className="text-xs text-center text-gray-400 mt-4">{t('evaluation.form_disclaimer')}</p>
                             </div>
                         </div>
 
                         {/* Contact Direct */}
                         <div className="bg-[#1B263B] text-white p-8 rounded-[2rem] shadow-lg">
-                            <h4 className="font-serif font-bold text-xl mb-4">Contact Direct</h4>
+                            <h4 className="font-serif font-bold text-xl mb-4">{t('evaluation.contact_title')}</h4>
                             <div className="space-y-4 text-sm">
                                 <a href="mailto:info@thrivesportpositive.com" className="flex items-center hover:text-[#C5A059] transition-colors">
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4"><Mail size={18} /></div>
@@ -85,7 +88,7 @@ const Evaluation = ({ handleSelectProgram }) => {
                                 </a>
                                 <div className="flex items-center">
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4"><Phone size={18} /></div>
-                                    (263) 362-2030 (Lundi-Samedi 9h-18h)
+                                    (263) 362-2030 {t('evaluation.contact_hours')}
                                 </div>
                             </div>
                         </div>

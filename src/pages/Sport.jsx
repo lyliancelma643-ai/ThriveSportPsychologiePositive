@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Brain, Heart, Zap, Target, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SectionHeader from '../components/ui/SectionHeader';
 import ContactSection from '../components/ui/ContactSection'; // Import ContactSection
 
@@ -9,6 +10,7 @@ import { SPORTS_DATA } from '../data/sports';
 
 const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
     const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 
     // Ref for the contact section
     const contactRef = useRef(null);
@@ -30,14 +32,15 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
     return (
         <div className="py-20 bg-gray-50/50">
             <Helmet>
-                <title>Tutorat Motivation Sport | 5 Disciplines Clés — Thrive</title>
-                <meta name="description" content="Alliez passion et rigueur avec notre tutorat motivation sport. Hockey, soccer, natation... Nous développons l'athlète complet. Découvrez nos sports couverts !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.sport.title')}</title>
+                <meta name="description" content={t('seo.sport.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/sport" />
             </Helmet>
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
                 <SectionHeader
-                    title="Excellence Multisports"
-                    subtitle="5 disciplines, une seule philosophie : La performance par le développement humain."
+                    title={t('sports.page_title')}
+                    subtitle={t('sports.page_subtitle')}
                 />
             </div>
 
@@ -55,21 +58,21 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                                     <div className="text-6xl mb-6 transform group-hover:scale-110 transition-transform duration-500" role="img" aria-label={sport.name}>
                                         {sport.icon}
                                     </div>
-                                    <h3 className="text-3xl font-serif font-bold text-[#1B263B] mb-2">{sport.name}</h3>
+                                    <h3 className="text-3xl font-serif font-bold text-[#1B263B] mb-2">{t(`sports.${sport.id}.name`)}</h3>
                                     <div className="w-12 h-1 bg-[#1B263B]/10 mx-auto rounded-full mb-8"></div>
                                 </div>
 
                                 <ul className="space-y-4 w-full px-4">
-                                    {sport.techDetails.map((detail, idx) => (
+                                    {sport.techDetails.map((_, idx) => (
                                         <li key={idx} className="flex items-center text-gray-600 font-medium">
                                             <Zap size={16} className="text-[#C5A059] mr-3 shrink-0" />
-                                            <span className="text-sm">{detail}</span>
+                                            <span className="text-sm">{t(`sports.${sport.id}.tech_${idx + 1}`)}</span>
                                         </li>
                                     ))}
                                 </ul>
 
                                 <div className="mt-6 text-xs font-bold text-gray-400 uppercase tracking-widest flex items-center animate-bounce">
-                                    <Brain size={14} className="mr-2" /> Survolez pour l'approche Mentale
+                                    <Brain size={14} className="mr-2" /> {t('sports.hover_text')}
                                 </div>
                             </div>
 
@@ -79,13 +82,13 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                                     <div className="bg-white/10 p-4 rounded-full mb-6 backdrop-blur-sm">
                                         <Heart size={32} className="text-white" />
                                     </div>
-                                    <h4 className="text-2xl font-serif font-bold mb-2">{sport.permaFocus.title}</h4>
+                                    <h4 className="text-2xl font-serif font-bold mb-2">{t(`sports.${sport.id}.perma_title`)}</h4>
                                     <div className="w-12 h-1 bg-white/30 mx-auto rounded-full mb-6"></div>
                                     <p className="text-white/90 leading-relaxed text-lg font-light">
-                                        "{sport.permaFocus.desc}"
+                                        "{t(`sports.${sport.id}.perma_desc`)}"
                                     </p>
                                     <div className="mt-8 flex items-center text-xs font-bold uppercase tracking-widest text-white/60">
-                                        <Target size={14} className="mr-2" /> Impact Thrive
+                                        <Target size={14} className="mr-2" /> {t('sports.impact_text')}
                                     </div>
                                 </div>
 
@@ -94,7 +97,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                                     onClick={() => handleBook(sport.name)}
                                     className="w-full bg-white text-[#1B263B] py-3 rounded-xl font-bold flex items-center justify-center mt-6 hover:bg-gray-100 transition-colors"
                                 >
-                                    Réserver ce Programme <ArrowRight size={18} className="ml-2" />
+                                    {t('sports.btn_book')} <ArrowRight size={18} className="ml-2" />
                                 </button>
                             </div>
 
@@ -105,15 +108,15 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                 {/* Last Card: Summary / CTA */}
                 <div className="bg-[#1B263B] p-8 rounded-[2.5rem] shadow-xl flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
                     <Activity size={100} className="absolute text-white/5 -top-4 -right-4" />
-                    <h3 className="text-3xl font-serif font-bold mb-6">Votre Sport,<br />Notre Méthode.</h3>
+                    <h3 className="text-3xl font-serif font-bold mb-6" dangerouslySetInnerHTML={{ __html: t('sports.summary_title') }}></h3>
                     <p className="text-white/70 mb-8 leading-relaxed">
-                        Peu importe la discipline, nous appliquons la même rigueur scientifique pour développer l'athlète complet.
+                        {t('sports.summary_desc')}
                     </p>
                     <button
                         onClick={handleScrollToContact}
                         className="bg-[#C5A059] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#b08d4b] transition-colors shadow-lg w-full flex items-center justify-center"
                     >
-                        Réserver une évaluation <ArrowRight size={20} className="ml-2" />
+                        {t('sports.summary_btn')} <ArrowRight size={20} className="ml-2" />
                     </button>
                 </div>
             </div>

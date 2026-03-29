@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import SectionHeader from '../ui/SectionHeader';
 
 const Faq = () => {
     const [openFaq, setOpenFaq] = useState(null);
+    const { t } = useTranslation();
 
     return (
         <section className="py-24 bg-white">
             <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <SectionHeader title="Questions Fréquentes" />
+                <SectionHeader title={t('home.faq.title')} />
                 <div className="space-y-4">
                     {[
-                        { q: "Mon enfant est débutant, est-ce pour lui ?", a: "Absolument. Thrive est idéal pour bâtir les bases techniques et la confiance dès le début, évitant ainsi de mauvaises habitudes." },
-                        { q: "Où se déroulent les séances ?", a: "Au plus proche de chez vous, dans les arénas ou sur les lieux d'entraînement ouverts." },
-                        { q: "Les parents doivent-ils être présents ?", a: "Pour les 2-5 ans, oui. Pour les plus grands, nous vous encourageons à assister aux 5 dernières minutes pour le bilan de fin de séance." },
-                        { q: "Puis-je utiliser mes assurances ?", a: "Bien que nos mentors soient formés en psychologie, le service est facturé comme du tutorat sportif. Vérifiez avec votre assureur pour la catégorie 'Activité physique' ou 'Bien-être'." }
+                        { q: t('home.faq.q1'), a: t('home.faq.a1') },
+                        { q: t('home.faq.q2'), a: t('home.faq.a2') },
+                        { q: t('home.faq.q3'), a: t('home.faq.a3') },
+                        { q: t('home.faq.q4'), a: t('home.faq.a4') }
                     ].map((item, i) => (
                         <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden">
                             <button

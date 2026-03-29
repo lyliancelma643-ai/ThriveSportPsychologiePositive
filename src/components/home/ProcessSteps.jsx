@@ -1,19 +1,22 @@
+import { useTranslation } from 'react-i18next';
+
 export const ProcessSteps = () => {
+    const { t } = useTranslation();
     const steps = [
         {
             number: "01",
-            title: "L'Évaluation",
-            desc: "Analyse complète du profil : tests psychométriques et bilan physique pour cibler les besoins."
+            title: t('home.process.step1_t'),
+            desc: t('home.process.step1_d')
         },
         {
             number: "02",
-            title: "L'Action",
-            desc: "Séances sur le terrain : exercices techniques combinés à des défis mentaux adaptés."
+            title: t('home.process.step2_t'),
+            desc: t('home.process.step2_d')
         },
         {
             number: "03",
-            title: "Le Bilan",
-            desc: "Validation des acquis : rapport vidéo et feedback positif. Après chaque séance, recevez un rapport de progrès quantifié et qualifié."
+            title: t('home.process.step3_t'),
+            desc: t('home.process.step3_d')
         }
     ];
 
@@ -21,9 +24,9 @@ export const ProcessSteps = () => {
         <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-serif text-[#1B263B] mb-4">Notre Méthode en 3 Étapes</h2>
+                    <h2 className="text-3xl font-serif text-[#1B263B] mb-4">{t('home.process.title')}</h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        Un processus structuré pour transformer le potentiel en performance réelle.
+                        {t('home.process.subtitle')}
                     </p>
                 </div>
 

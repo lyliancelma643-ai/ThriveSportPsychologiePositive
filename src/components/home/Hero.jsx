@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import heroImage from '../../assets/pexels-gustavo-fring-6720436.jpg';
 
 const Hero = ({ setBookingStep }) => {
     const navigate = useNavigate();
+    const { t } = useTranslation();
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
             {/* Background Blob/Gradient for depth */}
@@ -17,17 +19,17 @@ const Hero = ({ setBookingStep }) => {
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
 
                         <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            <span className="font-bold italic">Deviens le leader du jeu.</span> <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">Nous construisons ton estime de soi durable.</span>
+                            <span className="font-bold italic">{t('home.hero.heading_1')}</span> <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">{t('home.hero.heading_2')}</span>
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            Transformez le doute en <span className="relative inline-block px-1">compétence réelle<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>. Un tutorat sportif unique à Montréal qui allie <span className="font-bold text-[#1B263B]">performance technique</span> et <span className="font-bold text-[#1B263B]">psychologie positive</span>.
+                            {t('home.hero.subtitle_1')}<span className="relative inline-block px-1">{t('home.hero.subtitle_highlight')}<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>{t('home.hero.subtitle_2')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_1')}</span>{t('home.hero.subtitle_3')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_2')}</span>{t('home.hero.subtitle_4')}
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
                                 onClick={() => { navigate('/evaluation'); }}
                                 className="bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
-                                Rencontrer un de nos coachs gratuitement <ChevronRight className="ml-2" size={20} />
+                                {t('home.hero.cta')} <ChevronRight className="ml-2" size={20} />
                             </button>
                         </div>
                     </div>
@@ -57,8 +59,8 @@ const Hero = ({ setBookingStep }) => {
                                     <TrendingUp size={24} />
                                 </div>
                                 <div>
-                                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Résultat prouvé</div>
-                                    <div className="font-serif font-bold text-[#1B263B] text-lg">+31% Performance</div>
+                                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">{t('home.hero.badge1_title')}</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-lg">{t('home.hero.badge1_desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -70,8 +72,8 @@ const Hero = ({ setBookingStep }) => {
                                     <Lightbulb size={20} />
                                 </div>
                                 <div>
-                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Potentiel</div>
-                                    <div className="font-serif font-bold text-[#1B263B] text-sm">3x Plus de Créativité</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{t('home.hero.badge2_title')}</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-sm">{t('home.hero.badge2_desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -83,8 +85,8 @@ const Hero = ({ setBookingStep }) => {
                                     <BookOpen size={20} />
                                 </div>
                                 <div>
-                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Rigueur</div>
-                                    <div className="font-serif font-bold text-[#1B263B] text-sm">120+ Études Analysées</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{t('home.hero.badge3_title')}</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-sm">{t('home.hero.badge3_desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -96,8 +98,8 @@ const Hero = ({ setBookingStep }) => {
                                     <GraduationCap size={20} />
                                 </div>
                                 <div>
-                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">École</div>
-                                    <div className="font-serif font-bold text-[#1B263B] text-sm">+11% Réussite Scolaire</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{t('home.hero.badge4_title')}</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-sm">{t('home.hero.badge4_desc')}</div>
                                 </div>
                             </div>
                         </div>
@@ -109,8 +111,8 @@ const Hero = ({ setBookingStep }) => {
                                     <SmilePlus size={20} />
                                 </div>
                                 <div>
-                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">Bien-être</div>
-                                    <div className="font-serif font-bold text-[#1B263B] text-sm">Réduction des Troubles</div>
+                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-wider">{t('home.hero.badge5_title')}</div>
+                                    <div className="font-serif font-bold text-[#1B263B] text-sm">{t('home.hero.badge5_desc')}</div>
                                 </div>
                             </div>
                         </div>

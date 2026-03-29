@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo court sans fond.png';
+import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Navbar = ({ setBookingStep }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { t } = useTranslation();
 
     const navLinks = [
-        { path: '/', label: 'Accueil' },
-        { path: '/sport', label: 'Le Sport' },
-        { path: '/methode', label: 'La Méthode' },
-        { path: '/programmes', label: 'Programmes' },
-        { path: '/zones', label: 'Zones' },
-        { path: '/a-propos', label: 'À Propos' }
+        { path: '/', label: t('nav.home') },
+        { path: '/sport', label: t('nav.sport') },
+        { path: '/methode', label: t('nav.method') },
+        { path: '/programmes', label: t('nav.programs') },
+        { path: '/zones', label: t('nav.locations') },
+        { path: '/a-propos', label: t('nav.about') }
     ];
 
     return (
@@ -35,7 +38,9 @@ const Navbar = ({ setBookingStep }) => {
                             {link.label}
                         </NavLink>
                     ))}
-
+                    <div className="pl-6 ml-2 border-l border-gray-200">
+                        <LanguageSwitcher />
+                    </div>
                 </div>
                 <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
@@ -51,6 +56,9 @@ const Navbar = ({ setBookingStep }) => {
                             {link.label}
                         </NavLink>
                     ))}
+                    <div className="pt-2 pb-1 border-t border-gray-100 flex justify-center">
+                        <LanguageSwitcher />
+                    </div>
                 </div>
             )}
         </nav>

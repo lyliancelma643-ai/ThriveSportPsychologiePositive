@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, ArrowRight } from 'lucide-react';
-
-const SECTIONS = [
-    { id: 'intro', label: 'Introduction', icon: <BookOpen size={18} /> },
-    { id: 'perma', label: 'Modèle PERMA', icon: <Activity size={18} /> },
-    { id: 'scorecard', label: 'Scorecard THRIVE', icon: <Shield size={18} /> },
-    { id: 'science', label: 'Preuves Scientifiques', icon: <Microscope size={18} /> },
-    { id: 'dashboard', label: 'Dashboard Élite', icon: <BarChart3 size={18} /> },
-];
+import { useTranslation } from 'react-i18next';
 
 const MethodSidebar = ({ setBookingStep }) => {
+    const { t } = useTranslation();
     const [activeSection, setActiveSection] = useState('intro');
     const navigate = useNavigate();
+
+    const SECTIONS = [
+        { id: 'intro', label: t('method.sidebar.l1'), icon: <BookOpen size={18} /> },
+        { id: 'perma', label: t('method.sidebar.l2'), icon: <Activity size={18} /> },
+        { id: 'scorecard', label: t('method.sidebar.l3'), icon: <Shield size={18} /> },
+        { id: 'science', label: t('method.sidebar.l4'), icon: <Microscope size={18} /> },
+        { id: 'dashboard', label: t('method.sidebar.l5'), icon: <BarChart3 size={18} /> },
+    ];
 
     useEffect(() => {
         const handleScroll = () => {
@@ -48,7 +50,7 @@ const MethodSidebar = ({ setBookingStep }) => {
     return (
         <div className="hidden lg:block sticky top-28 self-start bg-white p-6 rounded-3xl shadow-lg border border-gray-100 max-w-[280px] z-30 h-fit">
             <h3 className="text-[#1B263B] font-serif font-bold text-xl mb-6 px-4">
-                Navigation
+                {t('method.sidebar.nav_title')}
             </h3>
             <nav className="space-y-2">
                 {SECTIONS.map((section) => (
@@ -70,9 +72,9 @@ const MethodSidebar = ({ setBookingStep }) => {
 
             {/* CTA Mini Widget */}
             <div className="mt-8 bg-[#1B263B] rounded-2xl p-6 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all" onClick={() => navigate('/sport')}>
-                <p className="text-white text-sm font-bold mb-3 leading-tight">Investissez dans<br />votre enfant</p>
+                <p className="text-white text-sm font-bold mb-3 leading-tight" dangerouslySetInnerHTML={{ __html: t('method.sidebar.cta_text') }}></p>
                 <div className="w-full h-10 bg-[#C5A059] text-white rounded-lg text-xs font-bold flex items-center justify-center group-hover:bg-[#b08d4d] transition-colors">
-                    Découvrir les Sports <ArrowRight size={14} className="ml-2" />
+                    {t('method.sidebar.cta_btn')} <ArrowRight size={14} className="ml-2" />
                 </div>
             </div>
 

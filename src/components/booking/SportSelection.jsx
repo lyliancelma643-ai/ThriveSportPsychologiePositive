@@ -1,8 +1,10 @@
 import React from 'react';
 import { SPORTS_DATA } from '../../data/sports';
 import { Check, ArrowRight, Trophy } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
+    const { t } = useTranslation();
 
     const handleSelectSport = (sportName) => {
         setBookingData({ ...bookingData, sport: sportName });
@@ -17,17 +19,17 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
     return (
         <div className="animate-fade-in">
             <div className="text-center mb-10">
-                <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">Étape 4 sur 5</span>
+                <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">{t('booking.ss_step')}</span>
                 <h2 className="text-3xl font-serif text-[#1B263B]">
                     {bookingData.sport
-                        ? "Confirmez votre discipline"
-                        : "Quelle discipline pratiquez-vous ?"}
+                        ? t('booking.ss_title_confirm')
+                        : t('booking.ss_title_ask')}
                 </h2>
                 <div className="mt-4 mb-6 inline-block px-4 py-2 bg-[#8F9779]/10 rounded-full text-[#8F9779] text-sm font-bold">
-                    Pack sélectionné : {bookingData.program}
+                    {t('booking.ss_pack')} {t(`programs.${bookingData.program}.label`)}
                 </div>
                 <p className="text-gray-500 max-w-2xl mx-auto">
-                    Nos coachs sont spécialisés. Sélectionnez votre sport pour que nous puissions vous attribuer l'expert idéal.
+                    {t('booking.ss_desc')}
                 </p>
             </div>
 
@@ -52,7 +54,7 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                         </div>
                         <span className={`font-bold text-sm ${bookingData.sport === sport.name ? 'text-[#C5A059]' : 'text-gray-600'
                             }`}>
-                            {sport.name}
+                            {t(`sports.${sport.id}.name`)}
                         </span>
                     </button>
                 ))}
@@ -67,7 +69,7 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                         : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                         }`}
                 >
-                    Continuer vers le paiement <ArrowRight size={20} className="ml-2" />
+                    {t('booking.ss_btn')} <ArrowRight size={20} className="ml-2" />
                 </button>
             </div>
         </div>

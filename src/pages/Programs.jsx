@@ -1,21 +1,24 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, Check, Sparkles, CheckCircle2, Star, Video } from 'lucide-react';
+import { useTranslation, Trans } from 'react-i18next';
 import SectionHeader from '../components/ui/SectionHeader';
 import { PROGRAMS_DATA } from '../data/programs';
 import ContactSection from '../components/ui/ContactSection';
 
 const Programs = ({ handleSelectProgram }) => {
+    const { t, i18n } = useTranslation();
     return (
         <section className="py-20 px-4 bg-gray-50/50">
             <Helmet>
-                <title>Tuteur Parascolaire Montréal | Nos Programmes — Thrive</title>
-                <meta name="description" content="Investissez dans la réussite avec notre tuteur parascolaire à Montréal. Explorez nos forfaits de transformation clairs et sans frais cachés. Réservez le vôtre !" />
+                <html lang={i18n.language} />
+                <title>{t('seo.programs.title')}</title>
+                <meta name="description" content={t('seo.programs.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/programmes" />
             </Helmet>
             <SectionHeader
-                title="Forfaits de Transformation"
-                subtitle="Investissez dans la confiance de votre enfant. Des tarifs clairs, sans taux horaires cachés."
+                title={t('programs.page_title')}
+                subtitle={t('programs.page_subtitle')}
             />
 
             <div className="max-w-3xl mx-auto mt-6 mb-8 lg:mb-12">
@@ -25,10 +28,12 @@ const Programs = ({ handleSelectProgram }) => {
                     </div>
                     <div>
                         <h4 className="text-[#1B263B] font-bold text-[17px] mb-1">
-                            Inclus dans chaque forfait
+                            {t('programs.included_title')}
                         </h4>
                         <p className="text-gray-600 text-sm md:text-[15px] leading-snug">
-                            Une visio initiale de <span className="font-semibold text-[#1B263B]">30 minutes</span> pour comprendre et analyser le profil de l'enfant.
+                            {t('programs.included_desc_1')}
+                            <span className="font-semibold text-[#1B263B]">{t('programs.included_desc_b')}</span>
+                            {t('programs.included_desc_2')}
                         </p>
                     </div>
                 </div>
@@ -51,37 +56,37 @@ const Programs = ({ handleSelectProgram }) => {
                         >
                             {isPerformance && (
                                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#C5A059] text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest shadow-lg flex items-center whitespace-nowrap">
-                                    <Star size={16} fill="white" className="mr-2" /> Le Choix des Parents
+                                    <Star size={16} fill="white" className="mr-2" /> {t('programs.badge_popular')}
                                 </div>
                             )}
 
                             <div className="mb-6 text-center">
                                 <h3 className={`font-serif font-bold text-[#1B263B] mb-4 ${isPerformance ? 'text-2xl' : 'text-xl'}`}>
-                                    {program.label}
+                                    {t(`programs.${key}.label`)}
                                 </h3>
 
                                 <div className="flex items-center justify-center baseline mb-2">
                                     <span className={`font-bold text-[#1B263B] ${isPerformance ? 'text-5xl' : 'text-4xl'}`}>
-                                        {program.price} $
+                                        {i18n.language === 'en' ? `$${program.price}` : `${program.price} $`}
                                     </span>
                                 </div>
                                 <p className="text-gray-400 text-xs font-bold uppercase tracking-widest mb-6">
-                                    {program.installments > 1 ? `Ou ${program.installments}x ${program.installmentPrice}$` : 'Paiement unique'}
+                                    {program.installments > 1 ? t('programs.lbl_installments', { count: program.installments, price: program.installmentPrice }) : t('programs.lbl_single')}
                                 </p>
 
                                 <div className="h-px w-full bg-gray-100 mb-6"></div>
 
                                 <p className="text-gray-600 text-sm leading-relaxed italic mb-6">
-                                    {program.desc}
+                                    {t(`programs.${key}.desc`)}
                                 </p>
                             </div>
 
                             {/* Features List */}
                             <div className="space-y-4 mb-8 flex-grow">
-                                {program.features.map((feature, idx) => (
+                                {program.features.map((_, idx) => (
                                     <div key={idx} className="flex items-start text-sm text-gray-700 leading-tight">
                                         <CheckCircle2 className={`${isPerformance ? 'text-[#C5A059]' : 'text-[#8F9779]'} mr-3 shrink-0 mt-0.5`} size={18} />
-                                        <span className={isPerformance ? 'font-medium' : ''}>{feature}</span>
+                                        <span className={isPerformance ? 'font-medium' : ''}>{t(`programs.${key}.f${idx}`)}</span>
                                     </div>
                                 ))}
                             </div>
@@ -96,7 +101,7 @@ const Programs = ({ handleSelectProgram }) => {
                                     }
                                 `}
                             >
-                                {isPerformance ? "Sécuriser la transformation" : "Réserver ce forfait"}
+                                {isPerformance ? t('programs.btn_secure') : t('programs.btn_book')}
                                 <Calendar className="ml-2" size={20} />
                             </button>
                         </div>
