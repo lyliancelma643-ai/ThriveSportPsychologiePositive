@@ -103,18 +103,15 @@ const Booking = ({
                                 <p className="text-gray-500 mt-2">{t('booking.step_4_subtitle')} <span className="font-bold text-[#1B263B]">{t(`programs.${bookingData.program}.label`)}</span>.</p>
                             </div>
 
-                            {bookingData.program === 'Avance' ? (
-                                <CalEmbedAvance onBookingSuccessful={() => setBookingStep('success')} />
-                            ) : bookingData.program === 'Essentiel' ? (
-                                <CalEmbedEssentiel onBookingSuccessful={() => setBookingStep('success')} />
-                            ) : bookingData.program === 'Performance' ? (
-                                <CalEmbedPerformance onBookingSuccessful={() => setBookingStep('success')} />
-                            ) : (
-                                <CalBooking
-                                    calLink={PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-psychologie-positive/seance-1"}
-                                    onBookingSuccessful={() => setBookingStep('success')}
-                                />
-                            )}
+                            <CalBooking
+                                calLink={
+                                    bookingData.program === 'Avance' ? "thrive-sport-positive/seance-l-vance" :
+                                    bookingData.program === 'Essentiel' ? "thrive-sport-positive/pack-1-l-essentiel" :
+                                    bookingData.program === 'Performance' ? "thrive-sport-positive/pack-3-le-peformance" :
+                                    PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-psychologie-positive/seance-1"
+                                }
+                                onBookingSuccessful={() => setBookingStep('success')}
+                            />
                         </div>
                     )}
 
@@ -124,169 +121,6 @@ const Booking = ({
                 </div>
             </div>
         </section>
-    );
-};
-
-
-const CalEmbedAvance = ({ onBookingSuccessful }) => {
-    useEffect(() => {
-        (function (C, A, L) {
-            let p = function (a, ar) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                    cal.ns = {};
-                    cal.q = cal.q || [];
-                    d.head.appendChild(d.createElement("script")).src = A;
-                    cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
-                    const namespace = ar[1];
-                    api.q = api.q || [];
-                    if (typeof namespace === "string") {
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ["initNamespace", namespace]);
-                    } else p(cal, ar);
-                    return;
-                }
-                p(cal, ar);
-            };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
-
-        const Cal = window.Cal;
-        Cal("init", "seance-l-vance", { origin: "https://app.cal.com" });
-
-        Cal.ns["seance-l-vance"]("inline", {
-            elementOrSelector: "#my-cal-inline-seance-l-vance",
-            config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-sport-positive/seance-l-vance",
-        });
-
-        Cal.ns["seance-l-vance"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
-
-        // Listen for booking successful event
-        Cal("on", {
-            action: "bookingSuccessful",
-            callback: (e) => {
-                if (onBookingSuccessful) onBookingSuccessful();
-            }
-        });
-    }, [onBookingSuccessful]);
-
-    return (
-        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-seance-l-vance"></div>
-    );
-};
-
-const CalEmbedEssentiel = ({ onBookingSuccessful }) => {
-    useEffect(() => {
-        (function (C, A, L) {
-            let p = function (a, ar) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                    cal.ns = {};
-                    cal.q = cal.q || [];
-                    d.head.appendChild(d.createElement("script")).src = A;
-                    cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
-                    const namespace = ar[1];
-                    api.q = api.q || [];
-                    if (typeof namespace === "string") {
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ["initNamespace", namespace]);
-                    } else p(cal, ar);
-                    return;
-                }
-                p(cal, ar);
-            };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
-
-        const Cal = window.Cal;
-        Cal("init", "pack-1-l-essentiel", { origin: "https://app.cal.com" });
-
-        Cal.ns["pack-1-l-essentiel"]("inline", {
-            elementOrSelector: "#my-cal-inline-pack-1-l-essentiel",
-            config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-sport-positive/pack-1-l-essentiel",
-        });
-
-        Cal.ns["pack-1-l-essentiel"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
-
-        // Listen for booking successful event
-        Cal("on", {
-            action: "bookingSuccessful",
-            callback: (e) => {
-                if (onBookingSuccessful) onBookingSuccessful();
-            }
-        });
-    }, [onBookingSuccessful]);
-
-    return (
-        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-pack-1-l-essentiel"></div>
-    );
-};
-
-const CalEmbedPerformance = ({ onBookingSuccessful }) => {
-    useEffect(() => {
-        (function (C, A, L) {
-            let p = function (a, ar) { a.q.push(ar); };
-            let d = C.document;
-            C.Cal = C.Cal || function () {
-                let cal = C.Cal;
-                let ar = arguments;
-                if (!cal.loaded) {
-                    cal.ns = {};
-                    cal.q = cal.q || [];
-                    d.head.appendChild(d.createElement("script")).src = A;
-                    cal.loaded = true;
-                }
-                if (ar[0] === L) {
-                    const api = function () { p(api, arguments); };
-                    const namespace = ar[1];
-                    api.q = api.q || [];
-                    if (typeof namespace === "string") {
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ["initNamespace", namespace]);
-                    } else p(cal, ar);
-                    return;
-                }
-                p(cal, ar);
-            };
-        })(window, "https://app.cal.com/embed/embed.js", "init");
-
-        const Cal = window.Cal;
-        Cal("init", "pack-3-le-peformance", { origin: "https://app.cal.com" });
-
-        Cal.ns["pack-3-le-peformance"]("inline", {
-            elementOrSelector: "#my-cal-inline-pack-3-le-peformance",
-            config: { "layout": "month_view", "useSlotsViewOnSmallScreen": "true" },
-            calLink: "thrive-sport-positive/pack-3-le-peformance",
-        });
-
-        Cal.ns["pack-3-le-peformance"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
-
-        // Listen for booking successful event
-        Cal("on", {
-            action: "bookingSuccessful",
-            callback: (e) => {
-                if (onBookingSuccessful) onBookingSuccessful();
-            }
-        });
-    }, [onBookingSuccessful]);
-
-    return (
-        <div style={{ width: "100%", height: "100%", overflow: "scroll" }} id="my-cal-inline-pack-3-le-peformance"></div>
     );
 };
 

@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import DiagnosticWidget from '../components/ui/DiagnosticWidget';
 import SectionHeader from '../components/ui/SectionHeader';
 import { Mail, Phone, Calendar, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { getCalApi } from "@calcom/embed-react";
+
+import CalBooking from '../components/booking/CalBooking';
 
 const Evaluation = ({ handleSelectProgram }) => {
     const { t, i18n } = useTranslation();
-    React.useEffect(() => {
-        (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-        Cal("init", "30min", { origin: "https://app.cal.com" });
-        Cal.ns["30min"]("ui", { "hideEventTypeDetails": false, "layout": "month_view" });
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi();
+            cal("ui", {
+                theme: "light",
+                styles: { branding: { brandColor: "#1B263B" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        })();
     }, []);
 
     return (
@@ -52,28 +61,7 @@ const Evaluation = ({ handleSelectProgram }) => {
                             <p className="text-gray-600 text-sm mb-6">{t('evaluation.step_2_desc')}</p>
 
                             <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
-                                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                                    <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_name')}</label>
-                                        <input type="text" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_name')} />
-                                    </div>
-                                    <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_email')}</label>
-                                        <input type="email" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_email')} />
-                                    </div>
-                                    <div>
-                                        <label className="block text-xs font-bold uppercase text-gray-400 mb-1">{t('evaluation.form_phone')}</label>
-                                        <input type="tel" className="w-full p-3 bg-gray-50 rounded-xl border border-gray-100 focus:ring-2 focus:ring-[#8F9779] outline-none" placeholder={t('evaluation.ph_phone')} />
-                                    </div>
-                                    <button
-                                        className="w-full py-4 bg-[#8F9779] text-white font-bold rounded-xl hover:bg-[#7A8266] transition-all flex items-center justify-center shadow-lg mt-4"
-                                        data-cal-link="thrive-psychologie-positive/30min"
-                                        data-cal-namespace="30min"
-                                        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                                    >
-                                        {t('evaluation.btn_submit')} <ArrowRight className="ml-2" size={18} />
-                                    </button>
-                                </form>
+                                <CalBooking calLink="thrive-sport-positive/30min" />
                                 <p className="text-xs text-center text-gray-400 mt-4">{t('evaluation.form_disclaimer')}</p>
                             </div>
                         </div>
