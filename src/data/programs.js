@@ -15,9 +15,9 @@ export const PROGRAMS_DATA = {
     },
     "Performance": {
         sessions: 13,
-        price: 1157,
+        price: 1299,
         installments: 3,
-        installmentPrice: 386,
+        installmentPrice: 433,
         label: "Le Forfait « Performance »",
         desc: "La solution ultime pour transformer le potentiel en performance réelle et mesurable.",
         highlight: true,
