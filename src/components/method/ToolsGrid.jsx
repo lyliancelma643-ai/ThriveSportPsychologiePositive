@@ -14,7 +14,7 @@ const ToolsGrid = () => {
                         { title: "La Roue des Émotions", icon: <Heart />, desc: "Faire le point sur sa 'météo intérieure' avant chaque début de pratique." },
                         { title: "Correction par Addition", icon: <CheckCircle2 />, desc: "Feedback axé sur ce qu'il faut ajouter au lieu de ce qu'il faut supprimer." }
                     ].map((tool, i) => (
-                        <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center">
+                        <div key={i} className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 text-center">
                             <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mx-auto mb-6">
                                 {tool.icon}
                             </div>

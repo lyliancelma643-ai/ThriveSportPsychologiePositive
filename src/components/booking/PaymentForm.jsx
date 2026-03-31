@@ -66,7 +66,7 @@ const PaymentFormContent = ({
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Summary Column */}
                 <div className="md:col-span-1">
-                    <div className="bg-[#F8F9FA] p-6 rounded-2xl border border-gray-100 h-full">
+                    <div className="bg-[#F8F9FA] p-6 rounded-[2rem] border border-gray-100 h-full">
                         <h4 className="font-serif font-bold text-[#1B263B] mb-4 text-lg">Récapitulatif</h4>
                         <div className="space-y-4 text-sm">
                             <div>
@@ -147,7 +147,7 @@ const PaymentFormContent = ({
                     )}
 
                     {/* Stripe Card Form */}
-                    <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                    <div className="bg-gray-50 p-6 rounded-[2rem] border border-gray-100">
                         <div className="flex items-center justify-between mb-6">
                             <h4 className="font-bold text-[#1B263B] flex items-center"><Lock size={18} className="mr-2" /> Carte de Crédit</h4>
                             <div className="flex space-x-2 opacity-50">
@@ -194,7 +194,7 @@ const PaymentFormContent = ({
                     <button
                         onClick={handleSubmit}
                         disabled={!termsAccepted || processingPayment || !stripe}
-                        className="w-full py-5 bg-[#1B263B] text-white font-bold rounded-2xl shadow-xl hover:bg-[#253550] transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full py-5 bg-[#1B263B] text-white font-bold rounded-[2rem] shadow-xl hover:bg-[#253550] transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         {processingPayment ? (
                             <>

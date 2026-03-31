@@ -32,7 +32,7 @@ export const ProcessSteps = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {steps.map((step, index) => (
-                        <div key={index} className="relative p-8 rounded-2xl bg-gray-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
+                        <div key={index} className="relative p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:shadow-lg transition-all duration-300">
                             <div className="text-5xl font-serif text-[#E5E7EB] absolute top-4 right-4 font-bold">
                                 {step.number}
                             </div>

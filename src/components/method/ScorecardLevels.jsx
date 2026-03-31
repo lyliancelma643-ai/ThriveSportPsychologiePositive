@@ -15,7 +15,7 @@ const ScorecardLevels = () => {
 
                 {/* Validation Note */}
                 <div className="flex justify-center mb-12">
-                    <div className="bg-blue-50/50 border border-blue-100 rounded-2xl p-4 flex items-center gap-3 max-w-2xl text-center md:text-left">
+                    <div className="bg-blue-50/50 border border-blue-100 rounded-[2rem] p-4 flex items-center gap-3 max-w-2xl text-center md:text-left">
                         <div className="bg-blue-100 p-2 rounded-full shrink-0">
                             <Shield size={20} className="text-blue-600" />
                         </div>
@@ -29,9 +29,9 @@ const ScorecardLevels = () => {
 
                 <div className="space-y-12">
                     {/* Strate I */}
-                    <div className="bg-gray-50 rounded-[2.5rem] p-8 md:p-12 border border-gray-100">
+                    <div className="bg-gray-50 rounded-[2rem] p-8 md:p-12 border border-gray-100">
                         <div className="flex flex-col md:flex-row items-start gap-8">
-                            <div className="bg-[#1B263B] text-white p-6 rounded-2xl shrink-0">
+                            <div className="bg-[#1B263B] text-white p-6 rounded-[2rem] shrink-0">
                                 <Activity size={32} />
                                 <div className="mt-2 font-serif font-bold text-2xl">01</div>
                                 <div className="text-xs uppercase tracking-widest text-[#C5A059] mt-1">{t('method.scorecard.s1_tag')}</div>
@@ -60,12 +60,12 @@ const ScorecardLevels = () => {
                     </div>
 
                     {/* Strate II */}
-                    <div className="bg-[#1B263B] rounded-[2.5rem] p-8 md:p-12 text-white relative overflow-hidden">
+                    <div className="bg-[#1B263B] rounded-[2rem] p-8 md:p-12 text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-12 opacity-5">
                             <Shield size={400} />
                         </div>
                         <div className="relative z-10 flex flex-col md:flex-row items-start gap-8">
-                            <div className="bg-[#C5A059] text-white p-6 rounded-2xl shrink-0">
+                            <div className="bg-[#C5A059] text-white p-6 rounded-[2rem] shrink-0">
                                 <Shield size={32} />
                                 <div className="mt-2 font-serif font-bold text-2xl">02</div>
                                 <div className="text-xs uppercase tracking-widest text-[#1B263B] mt-1 font-bold">{t('method.scorecard.s2_tag')}</div>
@@ -94,9 +94,9 @@ const ScorecardLevels = () => {
                     </div>
 
                     {/* Strate III */}
-                    <div className="bg-white rounded-[2.5rem] p-8 md:p-12 border-2 border-[#1B263B] shadow-xl">
+                    <div className="bg-white rounded-[2rem] p-8 md:p-12 border-2 border-[#1B263B] shadow-xl">
                         <div className="flex flex-col md:flex-row items-start gap-8">
-                            <div className="bg-gray-100 text-[#1B263B] p-6 rounded-2xl shrink-0">
+                            <div className="bg-gray-100 text-[#1B263B] p-6 rounded-[2rem] shrink-0">
                                 <BarChart3 size={32} />
                                 <div className="mt-2 font-serif font-bold text-2xl">03</div>
                                 <div className="text-xs uppercase tracking-widest text-gray-500 mt-1">{t('method.scorecard.s3_tag')}</div>

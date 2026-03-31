@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Mail, Phone } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo court sans fond.png';
@@ -38,7 +38,13 @@ const Navbar = ({ setBookingStep }) => {
                             {link.label}
                         </NavLink>
                     ))}
-                    <div className="pl-6 ml-2 border-l border-gray-200">
+                    <div className="flex items-center space-x-4 pl-6 ml-2 border-l border-gray-200">
+                        <a href="mailto:info@thrivesportpositive.com" className="text-[#1B263B] hover:text-[#C5A059] transition-colors p-1" title="Nous contacter par email">
+                            <Mail size={20} />
+                        </a>
+                        <a href="tel:+12633622030" className="text-[#1B263B] hover:text-[#C5A059] transition-colors p-1" title="Nous appeler">
+                            <Phone size={20} />
+                        </a>
                         <LanguageSwitcher />
                     </div>
                 </div>
@@ -56,7 +62,16 @@ const Navbar = ({ setBookingStep }) => {
                             {link.label}
                         </NavLink>
                     ))}
-                    <div className="pt-2 pb-1 border-t border-gray-100 flex justify-center">
+                    <div className="pt-4 pb-4 border-t border-gray-100 flex items-center justify-center space-x-6">
+                        <div className="flex space-x-4">
+                            <a href="mailto:info@thrivesportpositive.com" className="flex items-center text-[#1B263B] hover:text-[#C5A059] transition-colors p-2" title="Envoyer un email">
+                                <Mail size={20} />
+                            </a>
+                            <a href="tel:+12633622030" className="flex items-center text-[#1B263B] hover:text-[#C5A059] transition-colors p-2" title="Appeler">
+                                <Phone size={20} />
+                            </a>
+                        </div>
+                        <div className="h-6 w-px bg-gray-200"></div>
                         <LanguageSwitcher />
                     </div>
                 </div>

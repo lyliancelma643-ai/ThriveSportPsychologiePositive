@@ -13,9 +13,9 @@ const PermaGrid = () => {
                 { letter: 'M', title: t('method.perma.m_t'), desc: t('method.perma.m_d'), icon: <BookOpen />, color: '#555E40' },
                 { letter: 'A', title: t('method.perma.a_t'), desc: t('method.perma.a_d'), icon: <Award />, color: '#424B2D' }
             ].map((item, i) => (
-                <div key={i} className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform group">
+                <div key={i} className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 hover:-translate-y-2 transition-transform group">
                     <div className="flex items-center justify-between mb-6">
-                        <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-2xl font-serif font-bold shadow-md" style={{ backgroundColor: item.color }}>
+                        <div className="w-16 h-16 rounded-[2rem] flex items-center justify-center text-white text-2xl font-serif font-bold shadow-md" style={{ backgroundColor: item.color }}>
                             {item.letter}
                         </div>
                         <div className="text-gray-300 group-hover:text-[#C5A059] transition-colors">{item.icon}</div>

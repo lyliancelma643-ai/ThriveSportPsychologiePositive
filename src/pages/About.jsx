@@ -26,7 +26,7 @@ const About = () => {
             </div>
 
             <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
                     <div className="w-16 h-16 bg-[#1B263B]/10 rounded-full flex items-center justify-center text-[#1B263B] mb-6">
                         <Users size={32} />
                     </div>
@@ -38,7 +38,7 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
+                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
                     <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-[#8F9779] to-[#C5A059]"></div>
                     <div className="w-16 h-16 bg-[#8F9779]/10 rounded-full flex items-center justify-center text-[#8F9779] mb-6">
                         <BookOpen size={32} />
@@ -51,7 +51,7 @@ const About = () => {
                     </p>
                 </div>
 
-                <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
+                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
                     <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mb-6">
                         <ShieldCheck size={32} />
                     </div>

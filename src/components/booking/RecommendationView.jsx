@@ -35,7 +35,7 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
             </div>
 
             <div className="max-w-md mx-auto mb-16">
-                <div className="p-8 rounded-[2.5rem] bg-[#1B263B] text-white shadow-2xl relative overflow-hidden ring-4 ring-[#8F9779]/20">
+                <div className="group p-8 rounded-[2rem] bg-[#1B263B] text-white shadow-2xl relative overflow-hidden ring-4 ring-[#8F9779]/20">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#8F9779] rounded-full blur-3xl opacity-20 -mr-16 -mt-16"></div>
 
                     <div className="relative z-10">
@@ -57,7 +57,10 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
                             </div>
                         </div>
 
-                        <h3 className="text-2xl font-serif font-bold mb-2">{t(`programs.${recommendedKey}.label`)}</h3>
+                        <div className="relative overflow-hidden inline-block mb-2 px-2">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
+                            <h3 className="text-2xl font-serif font-bold relative z-0">{t(`programs.${recommendedKey}.label`)}</h3>
+                        </div>
                         <p className="text-gray-300 italic text-sm mb-6">{t(`programs.${recommendedKey}.desc`)}</p>
 
                         <div className="space-y-3 mb-8">
@@ -98,7 +101,7 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
                 {Object.entries(PROGRAMS_DATA).map(([key, program]) => {
                     if (key === recommendedKey) return null;
                     return (
-                        <div key={key} className="p-6 rounded-2xl border border-gray-200 bg-white">
+                        <div key={key} className="p-6 rounded-[2rem] border border-gray-200 bg-white">
                             <h4 className="font-bold text-[#1B263B] mb-1">{t(`programs.${key}.label`)}</h4>
                             <p className="text-xs text-gray-500 mb-4">{t(`programs.${key}.desc`)}</p>
                             <div className="flex items-center justify-between">

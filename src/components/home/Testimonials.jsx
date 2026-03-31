@@ -14,7 +14,7 @@ const Testimonials = () => {
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10">
+                    <div className="bg-white/5 backdrop-blur-md p-10 rounded-[2rem] border border-white/10">
                         <div className="flex mb-4">
                             {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#C5A059" className="text-[#C5A059]" />)}
                         </div>
@@ -32,7 +32,7 @@ const Testimonials = () => {
                         </div>
                     </div>
 
-                    <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10">
+                    <div className="bg-white/5 backdrop-blur-md p-10 rounded-[2rem] border border-white/10">
                         <div className="flex mb-4">
                             {[...Array(5)].map((_, i) => <Star key={i} size={16} fill="#C5A059" className="text-[#C5A059]" />)}
                         </div>

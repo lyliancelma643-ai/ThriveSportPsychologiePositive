@@ -23,7 +23,7 @@ const BookingForm = ({
             )}
 
             {selectedDate && (
-                <div className="mb-8 p-4 bg-[#F8F9FA] rounded-2xl flex items-center justify-between border border-gray-100">
+                <div className="mb-8 p-4 bg-[#F8F9FA] rounded-[2rem] flex items-center justify-between border border-gray-100">
                     <div className="flex items-center">
                         <div className="w-10 h-10 rounded-full bg-[#8F9779]/10 flex items-center justify-center text-[#8F9779] mr-4"><Calendar size={20} /></div>
                         <div>
@@ -162,7 +162,7 @@ const BookingForm = ({
                     type="button"
                     onClick={() => onSubmit ? onSubmit() : setBookingStep('payment')}
                     disabled={!bookingData.name || !bookingData.age}
-                    className="w-full py-5 bg-[#1B263B] text-white font-bold rounded-2xl shadow-xl hover:bg-[#253550] transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-5 bg-[#1B263B] text-white font-bold rounded-[2rem] shadow-xl hover:bg-[#253550] transition-all flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {submitLabel || (
                         <>{t('booking.btn_submit_default')} <ArrowRight className="ml-2" /></>

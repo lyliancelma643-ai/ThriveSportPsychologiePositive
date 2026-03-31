@@ -34,7 +34,7 @@ const Comparison = ({ setBookingStep, openDiagnostic }) => {
                     </p>
                 </div>
 
-                <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-xl">
+                <div className="overflow-hidden rounded-[2rem] border border-gray-200 shadow-xl">
                     <div className="grid grid-cols-3 bg-[#1B263B] text-white p-6 text-sm md:text-base font-serif font-bold tracking-wider uppercase text-center">
                         <div>{t('home.comparison.table_h_1')}</div>
                         <div className="text-gray-400">{t('home.comparison.table_h_2')}</div>

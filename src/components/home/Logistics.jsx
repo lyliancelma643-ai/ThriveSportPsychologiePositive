@@ -12,21 +12,21 @@ const Logistics = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-sm">
-                    <div className="p-6 bg-gray-50 rounded-2xl">
+                    <div className="p-6 bg-gray-50 rounded-[2rem]">
                         <MapPin size={32} className="mx-auto text-[#1B263B] mb-4" />
                         <h3 className="font-bold text-[#1B263B] uppercase tracking-widest mb-2">{t('home.logistics.item1_t')}</h3>
                         <p className="text-gray-600">{t('home.logistics.item1_d1')}</p>
                         <p className="text-gray-500 text-xs mt-1">{t('home.logistics.item1_d2')}</p>
                     </div>
 
-                    <div className="p-6 bg-gray-50 rounded-2xl">
+                    <div className="p-6 bg-gray-50 rounded-[2rem]">
                         <User size={32} className="mx-auto text-[#1B263B] mb-4" />
                         <h3 className="font-bold text-[#1B263B] uppercase tracking-widest mb-2">{t('home.logistics.item2_t')}</h3>
                         <p className="text-gray-600">{t('home.logistics.item2_d1')}</p>
                         <p className="text-gray-500 text-xs mt-1">{t('home.logistics.item2_d2')}</p>
                     </div>
 
-                    <div className="p-6 bg-gray-50 rounded-2xl">
+                    <div className="p-6 bg-gray-50 rounded-[2rem]">
                         <Shirt size={32} className="mx-auto text-[#1B263B] mb-4" />
                         <h3 className="font-bold text-[#1B263B] uppercase tracking-widest mb-2">{t('home.logistics.item3_t')}</h3>
                         <p className="text-gray-600">{t('home.logistics.item3_d1')}</p>

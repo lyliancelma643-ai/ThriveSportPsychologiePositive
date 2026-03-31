@@ -18,9 +18,13 @@ const Hero = ({ setBookingStep }) => {
                     {/* LEFTSIDE: Text Content */}
                     <div className="lg:col-span-5 max-w-2xl relative z-20 lg:-mt-12">
 
-                        <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight mb-6">
-                            <span className="font-bold italic">{t('home.hero.heading_1')}</span> <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">{t('home.hero.heading_2')}</span>
-                        </h1>
+                        <div className="group relative overflow-hidden inline-block mb-6 pr-4">
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
+                            <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight relative z-0">
+                                <span className="font-bold italic">{t('home.hero.heading_1')}</span> 
+                                <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">{t('home.hero.heading_2')}</span>
+                            </h1>
+                        </div>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                             {t('home.hero.subtitle_1')}<span className="relative inline-block px-1">{t('home.hero.subtitle_highlight')}<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>{t('home.hero.subtitle_2')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_1')}</span>{t('home.hero.subtitle_3')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_2')}</span>{t('home.hero.subtitle_4')}
                         </p>
@@ -35,15 +39,15 @@ const Hero = ({ setBookingStep }) => {
                     </div>
 
                     {/* RIGHTSIDE: Image */}
-                    <div className="relative lg:col-span-7 lg:ml-6 z-10">
-                        <div className="absolute -inset-4 bg-[#C5A059]/20 rounded-[2.5rem] blur-xl"></div>
+                    <div className="relative lg:col-span-7 lg:ml-6 lg:-mt-6 z-10">
+                        <div className="absolute -inset-4 bg-[#C5A059]/20 rounded-[2rem] blur-xl"></div>
                         <img
                             src={heroImage}
                             alt="Thrive Sport Positive - Athlètes en action"
                             width="2048"
                             height="1073"
                             fetchPriority="high"
-                            className="relative w-full h-[450px] sm:h-[500px] lg:h-[650px] object-cover object-top rounded-[2.5rem] shadow-2xl border-4 border-white transition-all duration-700"
+                            className="relative w-full h-[450px] sm:h-[500px] lg:h-[650px] object-cover object-top rounded-[2rem] shadow-2xl border-4 border-white transition-all duration-700"
                         />
 
                         {/* 
@@ -54,8 +58,8 @@ const Hero = ({ setBookingStep }) => {
 
                         {/* Badge 1 (Bottom Left) - Resultat Prouve */}
                         <div className="absolute -bottom-4 -left-16 z-30">
-                            <div className="bg-white/90 backdrop-blur-xl p-4 rounded-3xl shadow-2xl shadow-blue-900/10 border border-white/40 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default group">
-                                <div className="bg-gradient-to-br from-green-50 to-green-100 p-2.5 rounded-2xl text-green-600 shadow-inner group-hover:scale-110 transition-transform flex items-center justify-center">
+                            <div className="bg-white/90 backdrop-blur-xl p-4 rounded-[2rem] shadow-2xl shadow-blue-900/10 border border-white/40 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default group">
+                                <div className="bg-gradient-to-br from-green-50 to-green-100 p-2.5 rounded-[2rem] text-green-600 shadow-inner group-hover:scale-110 transition-transform flex items-center justify-center">
                                     <TrendingUp size={24} />
                                 </div>
                                 <div>
@@ -67,7 +71,7 @@ const Hero = ({ setBookingStep }) => {
 
                         {/* Badge 2 (Top Right) - Potentiel */}
                         <div className="absolute top-8 -right-16 lg:block hidden z-20">
-                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-amber-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-[2rem] shadow-xl shadow-amber-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default">
                                 <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-2 rounded-xl text-amber-600 shadow-sm flex items-center justify-center">
                                     <Lightbulb size={20} />
                                 </div>
@@ -80,7 +84,7 @@ const Hero = ({ setBookingStep }) => {
 
                         {/* Badge 3 (Middle Right) - Rigueur */}
                         <div className="absolute top-1/2 -right-24 transform -translate-y-1/2 lg:block hidden z-20">
-                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-blue-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-100">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-[2rem] shadow-xl shadow-blue-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-100">
                                 <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-2 rounded-xl text-blue-500 shadow-sm flex items-center justify-center">
                                     <BookOpen size={20} />
                                 </div>
@@ -93,7 +97,7 @@ const Hero = ({ setBookingStep }) => {
 
                         {/* Badge 4 (Top Left) - Ecole */}
                         <div className="absolute top-12 -left-20 lg:block hidden z-20">
-                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-purple-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-75">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-[2rem] shadow-xl shadow-purple-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-75">
                                 <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-2 rounded-xl text-purple-500 shadow-sm flex items-center justify-center">
                                     <GraduationCap size={20} />
                                 </div>
@@ -106,7 +110,7 @@ const Hero = ({ setBookingStep }) => {
 
                         {/* Badge 5 (Bottom Right) - Bien-etre */}
                         <div className="absolute bottom-12 -right-12 lg:block hidden z-30">
-                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-2xl shadow-xl shadow-teal-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-150">
+                            <div className="bg-white/80 backdrop-blur-lg p-3 rounded-[2rem] shadow-xl shadow-teal-900/5 border border-white/50 flex items-center gap-3 hover:scale-105 transition-all duration-500 cursor-default delay-150">
                                 <div className="bg-gradient-to-br from-teal-50 to-teal-100 p-2 rounded-xl text-teal-500 shadow-sm flex items-center justify-center">
                                     <SmilePlus size={20} />
                                 </div>

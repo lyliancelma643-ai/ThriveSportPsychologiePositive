@@ -13,7 +13,7 @@ const ParentCommitment = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-sm">
+                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-[2rem] shadow-sm">
                         <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-4">
                             <ShieldCheck size={24} />
                         </div>
@@ -21,7 +21,7 @@ const ParentCommitment = () => {
                         <p className="text-sm text-gray-500">{t('home.parent.card1_d')}</p>
                     </div>
 
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-sm">
+                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-[2rem] shadow-sm">
                         <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mb-4">
                             <HeartHandshake size={24} />
                         </div>
@@ -29,7 +29,7 @@ const ParentCommitment = () => {
                         <p className="text-sm text-gray-500">{t('home.parent.card2_d')}</p>
                     </div>
 
-                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-sm">
+                    <div className="flex flex-col items-center text-center p-6 bg-white rounded-[2rem] shadow-sm">
                         <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 mb-4">
                             <GraduationCap size={24} />
                         </div>

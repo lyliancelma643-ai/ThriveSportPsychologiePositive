@@ -51,7 +51,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                         <div className="relative w-full h-full transition-all duration-700 preserve-3d group-hover:rotate-y-180">
 
                             {/* FRONT SIDE (Technique) */}
-                            <div className="absolute inset-0 backface-hidden bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col items-center justify-between overflow-hidden">
+                            <div className="absolute inset-0 backface-hidden bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 flex flex-col items-center justify-between overflow-hidden">
                                 <div className={`absolute top-0 w-full h-2 bg-gradient-to-r ${sport.color}`}></div>
 
                                 <div className="text-center mt-6">
@@ -77,7 +77,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                             </div>
 
                             {/* BACK SIDE (Psychologie/PERMA) */}
-                            <div className={`absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br ${sport.color} p-8 pb-10 rounded-[2.5rem] shadow-2xl text-white flex flex-col items-center justify-between text-center`}>
+                            <div className={`absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br ${sport.color} p-8 pb-10 rounded-[2rem] shadow-2xl text-white flex flex-col items-center justify-between text-center`}>
                                 <div className="flex flex-col items-center justify-center flex-grow">
                                     <div className="bg-white/10 p-4 rounded-full mb-6 backdrop-blur-sm">
                                         <Heart size={32} className="text-white" />
@@ -106,7 +106,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                 ))}
 
                 {/* Last Card: Summary / CTA */}
-                <div className="bg-[#1B263B] p-8 rounded-[2.5rem] shadow-xl flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
+                <div className="bg-[#1B263B] p-8 rounded-[2rem] shadow-xl flex flex-col items-center justify-center text-center text-white relative overflow-hidden">
                     <Activity size={100} className="absolute text-white/5 -top-4 -right-4" />
                     <h3 className="text-3xl font-serif font-bold mb-6" dangerouslySetInnerHTML={{ __html: t('sports.summary_title') }}></h3>
                     <p className="text-white/70 mb-8 leading-relaxed">

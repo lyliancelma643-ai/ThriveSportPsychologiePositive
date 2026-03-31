@@ -12,13 +12,13 @@ const Locations = () => {
 
                     {/* Maps / Visual Side */}
                     <div className="relative">
-                        <div className="bg-gray-50 rounded-[2.5rem] p-8 min-h-[400px] flex flex-col justify-center relative overflow-hidden border-2 border-[#C5A059]/20 shadow-inner">
+                        <div className="bg-gray-50 rounded-[2rem] p-8 min-h-[400px] flex flex-col justify-center relative overflow-hidden border-2 border-[#C5A059]/20 shadow-inner">
                             {/* Decorative Background Map Pattern */}
                             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#1B263B 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
                             <div className="relative z-10 w-full space-y-6">
                                 {/* CEPSUM Card */}
-                                <div className="bg-white p-6 rounded-2xl shadow-xl flex items-start transform hover:-translate-y-1 transition-transform border border-gray-100">
+                                <div className="bg-white p-6 rounded-[2rem] shadow-xl flex items-start transform hover:-translate-y-1 transition-transform border border-gray-100">
                                     <div className="bg-[#1B263B]/10 p-4 rounded-full mr-4 text-[#1B263B] shrink-0"><Building2 size={28} /></div>
                                     <div>
                                         <div className="text-[10px] text-[#C5A059] font-bold uppercase tracking-widest mb-1">{t('home.locations.map1_badge')}</div>
@@ -32,7 +32,7 @@ const Locations = () => {
                                 </div>
 
                                 {/* Domicile Card */}
-                                <div className="bg-white p-6 rounded-2xl shadow-lg flex items-start transform translate-x-4 hover:-translate-y-1 transition-transform border border-gray-100">
+                                <div className="bg-white p-6 rounded-[2rem] shadow-lg flex items-start transform translate-x-4 hover:-translate-y-1 transition-transform border border-gray-100">
                                     <div className="bg-[#8F9779]/10 p-4 rounded-full mr-4 text-[#8F9779] shrink-0"><Home size={28} /></div>
                                     <div>
                                         <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-1">{t('home.locations.map2_badge')}</div>
@@ -56,7 +56,7 @@ const Locations = () => {
                             {t('home.locations.desc_1')}<strong>{t('home.locations.desc_1_b1')}</strong>{t('home.locations.desc_1_2')}<strong>{t('home.locations.desc_1_b2')}</strong>{t('home.locations.desc_1_3')}
                         </p>
 
-                        <div className="bg-[#8F9779]/10 p-6 rounded-2xl border border-[#8F9779]/20 mb-8">
+                        <div className="bg-[#8F9779]/10 p-6 rounded-[2rem] border border-[#8F9779]/20 mb-8">
                             <h3 className="flex items-center text-[#1B263B] font-serif font-bold text-xl mb-3">
                                 <Home className="mr-2 text-[#8F9779]" /> {t('home.locations.box_title')}
                             </h3>
@@ -86,7 +86,7 @@ const Locations = () => {
                 {/* Benefits Section */}
                 <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Benefices CEPSUM */}
-                    <div className="bg-[#1B263B] text-white p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                    <div className="bg-[#1B263B] text-white p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
                         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform duration-700"><Building2 size={160} /></div>
                         <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 relative z-10 text-white">{t('home.locations.effect1_title')}</h3>
                         <p className="text-gray-300 mb-8 relative z-10 text-lg leading-relaxed">
@@ -115,7 +115,7 @@ const Locations = () => {
                     </div>
 
                     {/* Benefices Domicile */}
-                    <div className="bg-[#8F9779] text-white p-8 rounded-[2.5rem] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
+                    <div className="bg-[#8F9779] text-white p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
                         <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700"><Home size={160} /></div>
                         <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 relative z-10 text-white">{t('home.locations.effect2_title')}</h3>
                         <p className="text-[#e2e6d9] mb-8 relative z-10 text-lg leading-relaxed">

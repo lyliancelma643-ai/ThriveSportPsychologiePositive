@@ -20,7 +20,7 @@ const MethodTeaser = () => {
 
                     {/* Left Column: Cards */}
                     <div className="space-y-6">
-                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
+                        <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
                             <div className="w-12 h-12 bg-[#8F9779]/10 rounded-xl flex items-center justify-center text-[#8F9779] shrink-0">
                                 <Brain size={24} />
                             </div>
@@ -30,7 +30,7 @@ const MethodTeaser = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
+                        <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
                             <div className="w-12 h-12 bg-[#C5A059]/10 rounded-xl flex items-center justify-center text-[#C5A059] shrink-0">
                                 <Target size={24} />
                             </div>
@@ -40,7 +40,7 @@ const MethodTeaser = () => {
                             </div>
                         </div>
 
-                        <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
+                        <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-md hover:-translate-y-1 transition-transform flex items-start gap-4">
                             <div className="w-12 h-12 bg-[#1B263B]/10 rounded-xl flex items-center justify-center text-[#1B263B] shrink-0">
                                 <Users size={24} />
                             </div>
@@ -52,7 +52,7 @@ const MethodTeaser = () => {
                     </div>
 
                     {/* Right Column: Image */}
-                    <div className="relative h-full min-h-[400px] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                    <div className="relative h-full min-h-[400px] rounded-[2rem] overflow-hidden shadow-2xl group">
                         <img
                             src={soccerPhoto}
                             alt="Coach Thrive en action"

@@ -19,14 +19,14 @@ const EliteDashboard = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-12">
                     {/* 1. Radar Analysis */}
-                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
+                    <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="bg-[#1B263B]/10 p-3 rounded-xl text-[#1B263B]">
                                 <Radar size={24} />
                             </div>
                             <h3 className="text-xl font-bold font-serif text-[#1B263B]">{t('method.dashboard.b1_title')}</h3>
                         </div>
-                        <div className="flex-grow flex items-center justify-center p-6 bg-gray-50 rounded-2xl border border-gray-100 mb-4 relative overflow-hidden group">
+                        <div className="flex-grow flex items-center justify-center p-6 bg-gray-50 rounded-[2rem] border border-gray-100 mb-4 relative overflow-hidden group">
                             {/* Abstract representation of a radar chart */}
                             <div className="relative w-48 h-48">
                                 <div className="absolute inset-0 border-2 border-gray-200 rounded-full opacity-30 animate-pulse"></div>
@@ -47,7 +47,7 @@ const EliteDashboard = () => {
                     </div>
 
                     {/* 2. Log de Micro-Victoires */}
-                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
+                    <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="bg-[#8F9779]/10 p-3 rounded-xl text-[#8F9779]">
                                 <ScrollText size={24} />
@@ -72,7 +72,7 @@ const EliteDashboard = () => {
                     </div>
 
                     {/* 3. Jauge État Interne */}
-                    <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
+                    <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 hover:shadow-xl transition-shadow flex flex-col">
                         <div className="flex items-center gap-4 mb-6">
                             <div className="bg-blue-50 p-3 rounded-xl text-blue-600">
                                 <TrendingUp size={24} />
@@ -104,7 +104,7 @@ const EliteDashboard = () => {
                     </div>
 
                     {/* 4. Certificat VIA */}
-                    <div className="bg-[#1B263B] p-8 rounded-3xl shadow-lg border border-[#1B263B] text-white flex flex-col relative overflow-hidden">
+                    <div className="bg-[#1B263B] p-8 rounded-[2rem] shadow-lg border border-[#1B263B] text-white flex flex-col relative overflow-hidden">
                         <Award className="absolute -bottom-4 -right-4 text-white/5 w-48 h-48" />
                         <div className="flex items-center gap-4 mb-6 relative z-10">
                             <div className="bg-[#C5A059] p-3 rounded-xl text-white">

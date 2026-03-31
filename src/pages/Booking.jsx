@@ -45,7 +45,7 @@ const Booking = ({
                 <link rel="canonical" href="https://thrivesportpositive.com/booking" />
             </Helmet>
             <div className="max-w-5xl mx-auto px-4">
-                <div className="bg-white p-6 md:p-12 rounded-[2.5rem] shadow-2xl border border-gray-100 relative overflow-hidden">
+                <div className="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100 relative overflow-hidden">
 
                     {/* Progress Bar */}
                     <div className="absolute top-0 left-0 w-full h-1.5 bg-gray-100">

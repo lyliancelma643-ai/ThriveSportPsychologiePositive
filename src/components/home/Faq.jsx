@@ -18,7 +18,7 @@ const Faq = () => {
                         { q: t('home.faq.q3'), a: t('home.faq.a3') },
                         { q: t('home.faq.q4'), a: t('home.faq.a4') }
                     ].map((item, i) => (
-                        <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden">
+                        <div key={i} className="border border-gray-200 rounded-[2rem] overflow-hidden">
                             <button
                                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
                                 className="w-full flex justify-between items-center p-6 bg-gray-50 hover:bg-gray-100 transition-colors text-left"

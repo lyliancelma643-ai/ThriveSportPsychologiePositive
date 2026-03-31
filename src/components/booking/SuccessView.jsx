@@ -15,7 +15,7 @@ const SuccessView = () => {
             <p className="text-lg text-gray-600 mb-8 max-w-md mx-auto">
                 {t('booking.success_desc')}
             </p>
-            <div className="bg-[#F8F9FA] p-6 rounded-2xl border border-gray-100 mb-8 inline-block text-left">
+            <div className="bg-[#F8F9FA] p-6 rounded-[2rem] border border-gray-100 mb-8 inline-block text-left">
                 <p className="text-xs font-bold text-gray-400 uppercase mb-3 tracking-widest">{t('booking.success_next')}</p>
                 <ul className="space-y-3 text-sm text-gray-700">
                     <li className="flex items-center"><CheckCircle2 size={14} className="mr-2 text-[#8F9779]" /> {t('booking.success_li1')}</li>

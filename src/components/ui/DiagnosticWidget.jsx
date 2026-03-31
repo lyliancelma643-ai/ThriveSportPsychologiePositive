@@ -65,7 +65,7 @@ const DiagnosticWidget = ({ handleSelectProgram, onClose, isModal = false }) => 
     const program = rec ? PROGRAMS_DATA[rec.key] : null;
 
     return (
-        <div className={`bg-white rounded-[2.5rem] p-8 shadow-2xl border border-gray-100 relative overflow-hidden flex flex-col justify-center min-h-[500px] w-full max-w-lg mx-auto ${isModal ? 'animate-in zoom-in duration-300' : ''}`}>
+        <div className={`bg-white rounded-[2rem] p-8 shadow-2xl border border-gray-100 relative overflow-hidden flex flex-col justify-center min-h-[500px] w-full max-w-lg mx-auto ${isModal ? 'animate-in zoom-in duration-300' : ''}`}>
 
             {onClose && (
                 <button onClick={onClose} className="absolute top-4 right-4 p-2 bg-gray-100 rounded-full hover:bg-gray-200 z-50">

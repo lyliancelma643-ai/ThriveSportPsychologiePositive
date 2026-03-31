@@ -22,7 +22,7 @@ const Programs = ({ handleSelectProgram }) => {
             />
 
             <div className="max-w-3xl mx-auto mt-6 mb-8 lg:mb-12">
-                <div className="bg-[#1B263B]/5 border border-[#1B263B]/10 rounded-2xl py-4 px-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left transition-transform hover:scale-[1.02]">
+                <div className="bg-[#1B263B]/5 border border-[#1B263B]/10 rounded-[2rem] py-4 px-6 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left transition-transform hover:scale-[1.02]">
                     <div className="w-12 h-12 rounded-full bg-[#1B263B]/10 flex items-center justify-center shrink-0">
                         <Video className="text-[#1B263B]" size={24} />
                     </div>
@@ -47,9 +47,9 @@ const Programs = ({ handleSelectProgram }) => {
                         <div
                             key={key}
                             className={`
-                                relative flex flex-col p-8 rounded-[2.5rem] transition-all duration-300
+                                group relative flex flex-col p-8 rounded-[2rem] transition-all duration-300
                                 ${isPerformance
-                                    ? 'bg-white border-2 border-[#C5A059]/80 shadow-[0_8px_30px_rgb(197,160,89,0.25)] scale-105 z-10 lg:-mt-4 lg:-mb-4 min-h-[640px]'
+                                    ? 'bg-white border-2 border-[#C5A059]/80 shadow-[0_8px_30px_rgb(197,160,89,0.25)] scale-[1.03] z-10 lg:-mt-2 lg:-mb-2 min-h-[620px]'
                                     : 'bg-white border border-gray-100 shadow-lg hover:-translate-y-2 min-h-[580px] opacity-90 hover:opacity-100'
                                 }
                             `}
@@ -61,9 +61,12 @@ const Programs = ({ handleSelectProgram }) => {
                             )}
 
                             <div className="mb-6 text-center">
-                                <h3 className={`font-serif font-bold text-[#1B263B] mb-4 ${isPerformance ? 'text-2xl' : 'text-xl'}`}>
-                                    {t(`programs.${key}.label`)}
-                                </h3>
+                                <div className="relative overflow-hidden inline-block mb-4 px-2">
+                                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/70 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
+                                    <h3 className={`font-serif font-bold text-[#1B263B] relative z-0 ${isPerformance ? 'text-2xl' : 'text-xl'}`}>
+                                        {t(`programs.${key}.label`)}
+                                    </h3>
+                                </div>
 
                                 <div className="flex items-center justify-center baseline mb-2">
                                     <span className={`font-bold text-[#1B263B] ${isPerformance ? 'text-5xl' : 'text-4xl'}`}>

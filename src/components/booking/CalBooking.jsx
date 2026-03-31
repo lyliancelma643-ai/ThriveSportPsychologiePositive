@@ -27,7 +27,7 @@ const CalBooking = ({
     }, [onBookingSuccessful]);
 
     return (
-        <div className="w-full h-[600px] overflow-hidden rounded-2xl border border-gray-100 shadow-sm bg-white">
+        <div className="w-full h-[600px] overflow-hidden rounded-[2rem] border border-gray-100 shadow-sm bg-white">
             <Cal
                 calLink={calLink}
                 style={{ width: "100%", height: "100%", overflow: "scroll" }}

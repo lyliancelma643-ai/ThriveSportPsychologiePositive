@@ -38,7 +38,7 @@ const SportSelection = ({ bookingData, setBookingData, setBookingStep }) => {
                     <button
                         key={sport.id}
                         onClick={() => handleSelectSport(sport.name)}
-                        className={`group p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 relative overflow-hidden ${bookingData.sport === sport.name
+                        className={`group p-4 rounded-[2rem] border-2 transition-all duration-300 flex flex-col items-center justify-center gap-3 relative overflow-hidden ${bookingData.sport === sport.name
                             ? 'border-[#C5A059] bg-[#C5A059]/5 shadow-lg scale-105'
                             : 'border-gray-100 bg-white hover:border-[#1B263B]/20 hover:shadow-md'
                             }`}
