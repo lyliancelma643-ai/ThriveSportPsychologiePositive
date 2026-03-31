@@ -29,7 +29,10 @@ const Home = ({ setBookingStep, handleSelectProgram }) => {
                 <meta name="description" content={t('seo.home.desc')} />
                 <link rel="canonical" href="https://thrivesportpositive.com/" />
             </Helmet>
-            <Hero setBookingStep={setBookingStep} />
+            <Hero 
+                setBookingStep={setBookingStep} 
+                openDiagnostic={() => setIsDiagnosticOpen(true)} 
+            />
             <AuthorityBar />
             <ProcessSteps />
             <PainPoints />
