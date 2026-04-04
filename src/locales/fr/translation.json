@@ -44,7 +44,7 @@
   "home": {
     "hero": {
       "heading_1": "Deviens le leader du jeu.",
-      "heading_2": "Nous construisons votre estime de soi durable.",
+      "heading_2": "Développer l'estime de soi par le sport.",
       "subtitle_1": "Transformez le doute en ",
       "subtitle_highlight": "compétence réelle",
       "subtitle_2": ". Un tutorat sportif unique à Montréal qui allie ",
@@ -114,14 +114,14 @@
     },
     "method_teaser": {
       "title": "La Méthode Thrive : Performance par le Bonheur",
-      "subtitle": "Une approche validée scientifiquement qui transforme l'attitude, sur le terrain et à la maison.",
+      "subtitle": "Comment redonner confiance à un jeune sportif ? Voici une approche validée scientifiquement pour son épanouissement global.",
       "card1_t": "Modèle PERMA",
       "card1_d": "Structure de psychologie positive validée par l'Université de Montréal pour optimiser le bien-être durable.",
       "card2_t": "Progression Visible",
       "card2_d_1": "La règle d'or : On ne corrige pas par la critique, mais par l'addition de compétences et le renforcement positif.",
       "card2_d_2": "Après chaque séance, recevez un rapport de progrès quantifié et qualifié.",
       "card3_t": "Sécurité Affective",
-      "card3_d": "Un lien mentor-enfant inconditionnel pour créer un environnement où l'erreur est permise et formatrice.",
+      "card3_d": "Un lien inconditionnel pour cultiver l'intelligence émotionnelle dans un environnement où l'erreur est formatrice.",
       "quote": "\"Le sport est le meilleur laboratoire pour la vie.\"",
       "btn": "Voir comment nous mesurons le progrès"
     },
@@ -274,20 +274,20 @@
   },
   "method": {
     "intro_tag": "La Science du Succès",
-    "intro_title": "Le Modèle PERMA <br />",
-    "intro_title_italic": "appliqué au sport.",
-    "intro_desc": "Développé par le Dr. Martin Seligman, père de la psychologie positive, ce modèle est notre boussole. Nous ne devinons pas comment motiver votre enfant, nous appliquons une science validée.",
+    "intro_title": "Le Modèle PERMA enfant sportif <br />",
+    "intro_title_italic": "par la psychologie.",
+    "intro_desc": "Développé par le Dr. Martin Seligman, le modèle PERMA enfant sportif est notre boussole de psychologie positive appliquée au sport. Nous utilisons une science validée pour renforcer le mental d'un jeune athlète.",
     "perma": {
       "p_t": "Émotions Positives",
-      "p_d": "Le plaisir libère de la dopamine, accélérant l'apprentissage moteur. Un enfant heureux apprend 3x plus vite qu'un enfant anxieux.",
+      "p_d": "Le plaisir libère de la dopamine, accélérant l'apprentissage moteur et le bien-être mental. L'épanouissement permet d'apprendre 3x plus vite.",
       "e_t": "Engagement (Flow)",
       "e_d": "Nous structurons les défis pour atteindre l'état de \"Flow\", où la concentration est totale et le temps disparaît.",
       "r_t": "Relations Positives",
-      "r_d": "Le lien mentor-athlète est la base de la sécurité affective. Savoir qu'il est soutenu inconditionnellement libère l'enfant de la peur de l'erreur.",
+      "r_d": "Le lien mentor-athlète forge l'intelligence émotionnelle. Ce soutien inconditionnel augmente la résilience et libère l'enfant de la peur de l'erreur.",
       "m_t": "Meaning (Sens)",
       "m_d": "Chaque exercice a un \"pourquoi\". Nous connectons l'effort aux valeurs de l'enfant (entraide, courage) pour donner du sens à la fatigue.",
       "a_t": "Accomplissement",
-      "a_d": "La confiance ne se donne pas, elle se construit par des victoires. Nous créons des \"micro-succès\" à chaque séance pour bâtir l'auto-efficacité."
+      "a_d": "La confiance se bâtit par l'action. Nous créons des 'micro-succès' pour développer son autonomie, un mindset de croissance et un dialogue interne positif."
     },
     "science": {
       "title": "L'Impact Mesurable du Bonheur",
@@ -376,7 +376,7 @@
   },
   "programs": {
     "page_title": "Forfaits de Transformation",
-    "page_subtitle": "Investissez dans la confiance de votre enfant. Des tarifs clairs, sans taux horaires cachés.",
+    "page_subtitle": "Investissez pour renforcer le mental d'un jeune athlète. Des tarifs clairs, axés sur les forces de caractère.",
     "included_title": "Inclus dans chaque forfait",
     "badge_popular": "Le Choix des Parents",
     "lbl_installments": "Ou {{count}}x {{price}}$",
@@ -551,7 +551,7 @@
   "about": {
     "header_title": "L'Élite du Mentorat Sportif",
     "header_subtitle": "Nous ne sommes pas juste des entraîneurs. Nous sommes des éducateurs de la confiance.",
-    "intro_p": "Fondé par d'anciens athlètes de haut niveau reconvertis en psychologie, Thrive comble le fossé entre la performance brute et le bien-être mental.",
+    "intro_p": "Fondé par d'anciens athlètes de haut niveau reconvertis, Thrive comble le fossé entre la performance brute et le bien-être mental pour cultiver la résilience de vos enfants.",
     "col1_title": "Sélection Drastique",
     "col1_desc_1": "Chaque mentor est trié sur le volet selon deux critères non-négociables : une ",
     "col1_desc_b1": "expérience terrain significative",
