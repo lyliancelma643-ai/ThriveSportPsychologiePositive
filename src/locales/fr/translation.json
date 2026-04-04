@@ -38,7 +38,7 @@
     },
     "zones": {
       "title": "Aide Aux Devoirs Montréal | Zones Desservies — Thrive",
-      "desc": "Nous nous déplaçons pour votre aide aux devoirs à Montréal, Laval et Longueuil. À domicile ou au parc, trouvez un tuteur sportif certifié. Contactez-nous !"
+      "desc": "Nous nous déplaçons dans la région de Montréal, Laval et Longueuil. À domicile, en aréna ou au parc, trouvez un coach certifié. Contactez-nous !"
     }
   },
   "home": {
@@ -47,8 +47,8 @@
       "heading_2": "Développer l'estime de soi par le sport.",
       "subtitle_1": "Transformez le doute en ",
       "subtitle_highlight": "compétence réelle",
-      "subtitle_2": ". Un tutorat sportif unique à Montréal qui allie ",
-      "subtitle_bold_1": "performance technique",
+      "subtitle_2": ". Un service de coach mental enfant Montréal qui allie ",
+      "subtitle_bold_1": "développement athlétique",
       "subtitle_3": " et ",
       "subtitle_bold_2": "psychologie positive",
       "subtitle_4": ".",
@@ -94,10 +94,10 @@
       "subtitle": "La différence entre un coach d'équipe et un mentor personnel.",
       "table_h_1": "Critère",
       "table_h_2": "Club Classique",
-      "table_h_3": "Tutorat Thrive",
+      "table_h_3": "Tutorat sportif privé pour jeune",
       "row1_c": "Attention",
       "row1_cl": "1 coach pour 15 enfants",
-      "row1_th": "1 Mentor pour 1 Enfant",
+      "row1_th": "Séances privées (1 Mentor pour 1 Enfant)",
       "row2_c": "Feedback",
       "row2_cl": "Critique les erreurs",
       "row2_th": "Renforce les réussites (Zéro Négatif)",
@@ -154,9 +154,9 @@
       "desc_1_b2": "calibre universitaire et professionnel",
       "desc_1_3": ", créant le cadre idéal pour favoriser la concentration, la motivation et l'excellence motrice.",
       "box_title": " Service Privé à Domicile",
-      "box_desc_1": "Nous offrons la flexibilité d'intervenir ",
+      "box_desc_1": "Nous offrons un accompagnement sur mesure pour intervenir ",
       "box_desc_b": "directement chez vous",
-      "box_desc_2": ". Cette option sur-mesure est possible si vous disposez d'un espace sécuritaire et de l'équipement nécessaire (à évaluer avec le coach lors de l'appel). Des frais de déplacement s'appliquent.",
+      "box_desc_2": ". Cette option est possible si vous disposez d'un espace sécuritaire et de l'équipement nécessaire (à évaluer avec le coach certifié lors de l'appel). Des frais de déplacement s'appliquent dans la région de Montréal.",
       "check1": "Installations premium",
       "check2": "Équipement de pointe",
       "check3": "Cadre d'entraînement idéal",
@@ -201,9 +201,9 @@
     "faq": {
       "title": "Questions Fréquentes",
       "q1": "Mon enfant est débutant, est-ce pour lui ?",
-      "a1": "Absolument. Thrive est idéal pour bâtir les bases techniques et la confiance dès le début, évitant ainsi de mauvaises habitudes.",
+      "a1": "Absolument. Cet accompagnement psychologique sport enfant est idéal pour bâtir les bases techniques et la confiance dès le début, évitant ainsi de mauvaises habitudes.",
       "q2": "Où se déroulent les séances ?",
-      "a2": "Au plus proche de chez vous, dans les arénas ou sur les lieux d'entraînement ouverts.",
+      "a2": "Au plus proche de chez vous : sur les terrains extérieurs, à la patinoire, dans les arénas locaux, ou à domicile.",
       "q3": "Les parents doivent-ils être présents ?",
       "a3": "Pour les 2-5 ans, oui. Pour les plus grands, nous vous encourageons à assister aux 5 dernières minutes pour le bilan de fin de séance.",
       "q4": "Puis-je utiliser mes assurances ?",
@@ -242,7 +242,7 @@
       "tech_3": "Protection de rondelle",
       "tech_4": "IQ Hockey & Lecture du jeu",
       "perma_title": "Engagement & Focus",
-      "perma_desc": "Le hockey demande une prise d'information constante. Nous travaillons l'Attention Plena (Mindfulness) pour que l'enfant reste lucide sous la pression."
+      "perma_desc": "Le hockey demande une prise d'information constante. Spécialistes du coaching mental hockey mineur Montréal, nous travaillons l'attention pour que l'enfant reste lucide et maîtrise sa progression sous pression."
     },
     "basket": {
       "name": "Basketball",
@@ -550,7 +550,7 @@
   },
   "about": {
     "header_title": "L'Élite du Mentorat Sportif",
-    "header_subtitle": "Nous ne sommes pas juste des entraîneurs. Nous sommes des éducateurs de la confiance.",
+    "header_subtitle": "Plus qu'un préparateur mental jeune athlète Québec, nous sommes des éducateurs de la confiance.",
     "intro_p": "Fondé par d'anciens athlètes de haut niveau reconvertis, Thrive comble le fossé entre la performance brute et le bien-être mental pour cultiver la résilience de vos enfants.",
     "col1_title": "Sélection Drastique",
     "col1_desc_1": "Chaque mentor est trié sur le volet selon deux critères non-négociables : une ",
