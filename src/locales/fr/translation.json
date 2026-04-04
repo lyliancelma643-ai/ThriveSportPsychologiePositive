@@ -10,7 +10,7 @@
   "seo": {
     "home": {
       "title": "Tutorat Sportif Montréal | Confiance & Réussite — Thrive",
-      "desc": "Découvrez notre aide aux devoirs sportifs à Montréal. Nous allions sport et psychologie positive pour la réussite scolaire de votre enfant. Réservez un essai !"
+      "desc": "Gestion du stress compétition jeune et anxiété de performance chez le jeune sportif : notre tutorat aide votre enfant qui se dévalorise au sport à Montréal."
     },
     "sport": {
       "title": "Tutorat Motivation Sport | 5 Disciplines Clés — Thrive",
@@ -76,13 +76,13 @@
       "heading_2": " ?",
       "desc_1": "Dans les structures traditionnelles, le focus est mis sur l'élite ou la gestion du groupe. Les enfants qui ",
       "desc_bold_1": "manquent de confiance",
-      "desc_2": ", qui hésitent ou qui ne sont pas \"naturellement\" compétitifs se perdent. ",
-      "desc_bold_2": "Ils se retrouvent souvent seuls, isolés au sein même de leur équipe, sans le soutien émotionnel nécessaire pour s'épanouir.",
-      "list_1": "Hésitation devant l'échec et peur du jugement",
-      "list_2": "Perte de plaisir et envie fréquente d'abandonner",
-      "list_3": "Performance bloquée par l'anxiété de compétition",
-      "list_4": "Manque de repères individuels et de feedback constructif",
-      "conclusion": "Thrive n'entraîne pas les foules. Nous créons des leaders résilients."
+      "desc_2": " et subissent le perfectionnisme ou les attentes démesurées se perdent. ",
+      "desc_bold_2": "Ils se retrouvent souvent seuls, face à la peur de l'échec sport enfant, sans le soutien émotionnel nécessaire pour s'épanouir.",
+      "list_1": "Peur de l'échec et blocage : pleurs, pression et peur du jugement",
+      "list_2": "Frustration, perte de plaisir et envie très fréquente d'abandon",
+      "list_3": "Enfant qui perd ses moyens en match : anxiété de performance chez le jeune sportif",
+      "list_4": "Mon enfant se dévalorise au sport : démotivation sévère et comparaison aux autres",
+      "conclusion": "Thrive n'entraîne pas les foules. Nous levons les blocages pour libérer les sportifs."
     },
     "comparison": {
       "heading": "Pourquoi choisir Thrive ?",
@@ -207,7 +207,9 @@
       "q3": "Les parents doivent-ils être présents ?",
       "a3": "Pour les 2-5 ans, oui. Pour les plus grands, nous vous encourageons à assister aux 5 dernières minutes pour le bilan de fin de séance.",
       "q4": "Puis-je utiliser mes assurances ?",
-      "a4": "Bien que nos mentors soient formés en psychologie, le service est facturé comme du tutorat sportif. Vérifiez avec votre assureur pour la catégorie 'Activité physique' ou 'Bien-être'."
+      "a4": "Bien que nos mentors soient formés en psychologie, le service est facturé comme du tutorat sportif. Vérifiez avec votre assureur pour la catégorie 'Activité physique' ou 'Bien-être'.",
+      "q5": "Que faire si mon enfant veut arrêter le hockey ou son sport ?",
+      "a5": "L'abandon (ou la demande d'arrêt) est souvent le symptôme d'une pression excessive, d'un blocage émotionnel ou de la comparaison aux autres. Avant de prendre une décision, notre encadrement permet d'isoler l'origine de cette perte de plaisir et travaille sur la gestion du stress en compétition jeune pour relancer sa motivation originelle."
     },
     "cta": {
       "title": "Prêt à révéler le potentiel de votre enfant ?",

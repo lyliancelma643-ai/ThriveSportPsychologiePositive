@@ -21,7 +21,7 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                         <div className="group relative overflow-hidden inline-block mb-6 pr-4">
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
                             <h1 className="text-5xl md:text-7xl font-serif text-[#1B263B] leading-tight relative z-0">
-                                <span className="font-bold italic">{t('home.hero.heading_1')}</span> 
+                                <span className="font-bold italic">{t('home.hero.heading_1')}</span>
                                 <span className="text-[#8F9779] text-4xl md:text-6xl block mt-2">{t('home.hero.heading_2')}</span>
                             </h1>
                         </div>
@@ -43,6 +43,8 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                                 {t('home.hero.diagnostic_btn', 'Diagnostic Gratuit')}
                             </button>
                         </div>
+
+
                     </div>
 
                     {/* RIGHTSIDE: Image */}
