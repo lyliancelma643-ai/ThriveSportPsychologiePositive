@@ -17,7 +17,7 @@ const Locations = () => {
                             <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#1B263B 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
 
                             <div className="relative z-10 w-full space-y-6">
-                                {/* CEPSUM Card */}
+                                {/* Centre Saint-Denis Card */}
                                 <div className="bg-white p-6 rounded-[2rem] shadow-xl flex items-start transform hover:-translate-y-1 transition-transform border border-gray-100">
                                     <div className="bg-[#1B263B]/10 p-4 rounded-full mr-4 text-[#1B263B] shrink-0"><Building2 size={28} /></div>
                                     <div>
@@ -85,7 +85,7 @@ const Locations = () => {
 
                 {/* Benefits Section */}
                 <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Benefices CEPSUM */}
+                    {/* Benefices Centre Saint-Denis */}
                     <div className="bg-[#1B263B] text-white p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform">
                         <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform duration-700"><Building2 size={160} /></div>
                         <h3 className="text-2xl md:text-3xl font-serif font-bold mb-4 relative z-10 text-white">{t('home.locations.effect1_title')}</h3>
