@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import heroImage from '../../assets/pexels-gustavo-fring-6720436.jpg';
+import { getCalApi } from "@calcom/embed-react";
 
 const Hero = ({ setBookingStep, openDiagnostic }) => {
     const navigate = useNavigate();
     const { t } = useTranslation();
+
+    useEffect(() => {
+        (async function () {
+            const cal = await getCalApi({ namespace: "30min" });
+            cal("ui", {
+                theme: "light",
+                styles: { branding: { brandColor: "#1B263B" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        })();
+    }, []);
+
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
             {/* Background Blob/Gradient for depth */}
@@ -30,7 +44,9 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
-                                onClick={() => { navigate('/evaluation'); }}
+                                data-cal-namespace="30min"
+                                data-cal-link="thrive-sport-positive/30min"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                                 className="group relative overflow-hidden bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
