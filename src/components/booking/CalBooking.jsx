@@ -38,16 +38,10 @@ const CalBooking = ({
                         console.log("Cal.com Event Fired:", e.detail);
                         
                         if (e.detail && (e.detail.type === 'bookingSuccessful' || e.detail.type === 'bookingSuccessfulV2')) {
-                            // If payment is required within Cal.com, do NOT transition to the custom success screen immediately.
-                            // Transitioning would destroy the iframe before the user can complete the Stripe payment.
-                            const paymentRequired = e.detail.data?.paymentRequired;
-                            
-                            if (!paymentRequired) {
-                                // Only transition if no payment is required right now.
-                                if (onBookingSuccessful) onBookingSuccessful(e);
-                            } else {
-                                console.log("Payment is required. Keeping iframe open for Stripe checkout.");
-                            }
+                            // TEMPORARY FIX: We completely disable the automatic React transition.
+                            // Cal.com will stay on screen indefinitely, allowing the Stripe checkout to appear.
+                            console.log("Booking event received. Allowing Cal.com to handle payment and success UI natively.");
+                            // if (onBookingSuccessful) onBookingSuccessful(e);
                         }
                     }
                 });
