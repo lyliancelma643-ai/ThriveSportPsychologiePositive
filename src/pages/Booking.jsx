@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -7,7 +7,6 @@ import SuccessView from '../components/booking/SuccessView';
 import RecommendationView from '../components/booking/RecommendationView';
 import SportSelection from '../components/booking/SportSelection';
 import CalBooking from '../components/booking/CalBooking';
-import PaymentForm from '../components/booking/PaymentForm';
 import { PROGRAMS_DATA } from '../data/programs';
 
 const Booking = ({
@@ -18,20 +17,6 @@ const Booking = ({
     handleSelectProgram // Prop from useBooking
 }) => {
     const { t, i18n } = useTranslation();
-
-    // Payment States
-    const [paymentMethod, setPaymentMethod] = useState('installments');
-    const [processingPayment, setProcessingPayment] = useState(false);
-    const [termsAccepted, setTermsAccepted] = useState(false);
-
-    const handleProcessPayment = () => {
-        setProcessingPayment(true);
-        // Simulate API call for payment processing
-        setTimeout(() => {
-            setProcessingPayment(false);
-            setBookingStep('success');
-        }, 2000);
-    };
 
     // Redirect to assessment if no program selected when entering
     useEffect(() => {
@@ -46,7 +31,6 @@ const Booking = ({
             case 'recommendation': return '40%';
             case 'sport': return '60%';
             case 'cal': return '80%';
-            case 'payment': return '90%';
             case 'success': return '100%';
             default: return '0%';
         }
@@ -123,26 +107,9 @@ const Booking = ({
                                     bookingData.program === 'Performance' ? "thrive-sport-positive/pack-3-le-peformance" :
                                     PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-sport-positive/30min"
                                 }
-                                onBookingSuccessful={() => setBookingStep('payment')}
+                                onBookingSuccessful={() => setBookingStep('success')}
                             />
                         </div>
-                    )}
-
-                    {/* Step: Payment Form */}
-                    {bookingStep === 'payment' && (
-                        <PaymentForm
-                            bookingData={bookingData}
-                            setBookingStep={setBookingStep}
-                            paymentMethod={paymentMethod}
-                            setPaymentMethod={setPaymentMethod}
-                            processingPayment={processingPayment}
-                            handleProcessPayment={handleProcessPayment}
-                            termsAccepted={termsAccepted}
-                            setTermsAccepted={setTermsAccepted}
-                            selectedDate={new Date()} 
-                            selectedTime="Planifié sur Cal.com"
-                            isRecurring={bookingData.program === 'Performance' || bookingData.program === 'Avance'}
-                        />
                     )}
 
                     {bookingStep === 'success' && (
