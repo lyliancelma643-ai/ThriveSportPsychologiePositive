@@ -33,9 +33,11 @@ const CalBooking = ({
         const checkCalAndAddListener = setInterval(() => {
             if (window.Cal && window.Cal.ns && window.Cal.ns[namespace]) {
                 window.Cal.ns[namespace]("on", {
-                    action: "bookingSuccessful",
+                    action: "*",
                     callback: (e) => {
-                        if (onBookingSuccessful) onBookingSuccessful(e);
+                        if (e.detail && (e.detail.type === 'bookingSuccessful' || e.detail.type === 'bookingSuccessfulV2')) {
+                            if (onBookingSuccessful) onBookingSuccessful(e);
+                        }
                     }
                 });
                 clearInterval(checkCalAndAddListener);
