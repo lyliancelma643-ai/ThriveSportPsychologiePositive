@@ -106,9 +106,9 @@ const Booking = ({
                             <CalBooking
                                 calLink={
                                     bookingData.program === 'Avance' ? "thrive-sport-positive/seance-l-vance" :
-                                    bookingData.program === 'Essentiel' ? "thrive-sport-positive/pack-1-l-essentiel" :
-                                    bookingData.program === 'Performance' ? "thrive-sport-positive/pack-3-le-peformance" :
-                                    PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-sport-positive/30min"
+                                        bookingData.program === 'Essentiel' ? "thrive-sport-positive/pack-1-l-essentiel" :
+                                            bookingData.program === 'Performance' ? "thrive-sport-positive/pack-3-le-peformance" :
+                                                PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-sport-positive/30min"
                                 }
                                 onBookingSuccessful={() => setBookingStep('success')}
                             />
