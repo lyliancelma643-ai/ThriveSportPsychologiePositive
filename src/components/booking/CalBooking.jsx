@@ -9,6 +9,8 @@ const CalBooking = ({
     const namespace = calLink ? calLink.split('/').pop() : 'default';
 
     useEffect(() => {
+        if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
+
         (async function () {
             const cal = await getCalApi({ namespace });
             cal("ui", {

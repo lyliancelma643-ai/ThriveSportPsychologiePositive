@@ -10,6 +10,8 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
+        if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
+
         (async function () {
             const cal = await getCalApi({ namespace: "30min" });
             cal("ui", {
