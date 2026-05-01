@@ -42,7 +42,18 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                             </h1>
                         </div>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            {t('home.hero.subtitle_1')}<span className="relative inline-block px-1">{t('home.hero.subtitle_highlight')}<span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span></span>{t('home.hero.subtitle_2')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_1')}</span>{t('home.hero.subtitle_3')}<span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_2')}</span>{t('home.hero.subtitle_4')}
+                            {t('home.hero.subtitle_1')}
+                            <span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_1')}</span>
+                            {t('home.hero.subtitle_2')}
+                            <span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_2')}</span>
+                            {t('home.hero.subtitle_3')}
+                            <span className="relative inline-block px-1">
+                                {t('home.hero.subtitle_highlight')}
+                                <span className="absolute bottom-1 left-0 w-full h-3 bg-[#C5A059]/30 -z-10 -rotate-1"></span>
+                            </span>
+                            {t('home.hero.subtitle_4')}
+                            <span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_3')}</span>
+                            {t('home.hero.subtitle_5')}
                         </p>
                         <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
                             <button
