@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, ArrowRight } from 'lucide-react';
+import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, Users, FlaskConical, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const MethodSidebar = ({ setBookingStep }) => {
@@ -9,11 +9,15 @@ const MethodSidebar = ({ setBookingStep }) => {
     const navigate = useNavigate();
 
     const SECTIONS = [
-        { id: 'intro', label: t('method.sidebar.l1'), icon: <BookOpen size={18} /> },
-        { id: 'perma', label: t('method.sidebar.l2'), icon: <Activity size={18} /> },
-        { id: 'scorecard', label: t('method.sidebar.l3'), icon: <Shield size={18} /> },
-        { id: 'science', label: t('method.sidebar.l4'), icon: <Microscope size={18} /> },
-        { id: 'dashboard', label: t('method.sidebar.l5'), icon: <BarChart3 size={18} /> },
+        { id: 'intro',         label: t('method.sidebar.l1'), icon: <BookOpen size={16} /> },
+        { id: 'probleme',      label: t('method.sidebar.l2'), icon: <Activity size={16} /> },
+        { id: 'definition',    label: t('method.sidebar.l3'), icon: <BookOpen size={16} /> },
+        { id: 'piliers',       label: t('method.sidebar.l4'), icon: <Microscope size={16} /> },
+        { id: 'interventions', label: t('method.sidebar.l5'), icon: <Wrench size={16} /> },
+        { id: '13-seances',    label: t('method.sidebar.l6'), icon: <FlaskConical size={16} /> },
+        { id: 'acteurs',       label: t('method.sidebar.l7'), icon: <Users size={16} /> },
+        { id: 'mesures',       label: t('method.sidebar.l8'), icon: <BarChart3 size={16} /> },
+        { id: 'ethique',       label: t('method.sidebar.l9'), icon: <Shield size={16} /> },
     ];
 
     useEffect(() => {

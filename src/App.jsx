@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Sport from './pages/Sport';
 import Method from './pages/Method';
 import Programs from './pages/Programs';
+import Prix from './pages/Prix';
 import Booking from './pages/Booking';
 import Evaluation from './pages/Evaluation';
 import About from './pages/About';
@@ -55,6 +56,9 @@ const App = () => {
                     } />
                     <Route path="/programmes" element={
                         <Programs handleSelectProgram={booking.handleSelectProgram} />
+                    } />
+                    <Route path="/prix" element={
+                        <Prix handleSelectProgram={booking.handleSelectProgram} />
                     } />
                     <Route path="/booking" element={
                         <Booking

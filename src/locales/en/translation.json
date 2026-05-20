@@ -4,6 +4,7 @@
     "sport": "The Sport",
     "method": "The Method",
     "programs": "Programs",
+    "pricing": "Pricing",
     "locations": "Locations",
     "about": "About"
   },
@@ -599,5 +600,148 @@
     "not_found_title": "Page Not Found",
     "not_found_desc": "Sorry, the page you are looking for does not exist.",
     "not_found_btn": "Return to Home"
+  },
+  "pricing": {
+    "seo": {
+      "title": "Pricing & Plans THRIVE | Youth Athlete Coaching Montreal",
+      "desc": "Discover 4 THRIVE Sport Positive coaching levels for young athletes 5-16 in Montreal. Scorecard, parent calls, PDF report. Starting at $397."
+    },
+    "badge_recommended": "Parents' Choice",
+    "badge_entry": "Entry Point",
+    "one_time": "One-time investment",
+    "cta_choose": "Choose this pack",
+    "cta_entry": "Start with Diagnostic",
+    "cta_recommended": "Secure my spot",
+    "hero": {
+      "tag": "One program. Four levels of support.",
+      "title_1": "What parents are really buying",
+      "title_highlight": "isn't an hour of coaching.",
+      "title_2": "",
+      "subtitle": "Every pack includes the THRIVE method and a structured 13-session journey. The difference? The depth of follow-up, measurement, and proof.",
+      "reassurance": "The right pack isn't the most expensive one — it's the one that matches the level of clarity, measurement, and closeness your family needs.",
+      "cta_primary": "View plans",
+      "cta_secondary": "Talk to THRIVE"
+    },
+    "emotional": {
+      "aria_label": "THRIVE emotional section",
+      "tag": "Our conviction",
+      "title": "THRIVE isn't here to fix a problem. It's here to reveal a strength.",
+      "body1": "Your child may not have a \"problem\". They may just need a different environment — a space where their confidence can grow without pressure, without comparison, without judgment.",
+      "body2": "THRIVE supports young athletes aged 5 to 16. Not therapy. Not ordinary training. A structured, documented, deeply human journey.",
+      "p1_title": "No \"problem\" required",
+      "p1_desc": "THRIVE isn't a fix. It's a strength revealer. Thriving children progress even faster.",
+      "p2_title": "A structured 13-session journey",
+      "p2_desc": "Every session has a precise goal. Progress is visible, measured, and shared with you at every step.",
+      "p3_title": "A dedicated mentor, not a distant coach",
+      "p3_desc": "Your child is guided by a professional trained in sport positive psychology. A trusted partner."
+    },
+    "packs": {
+      "title": "One program. Four levels of support.",
+      "subtitle": "Choose the level of clarity, measurement, and closeness that works for your family.",
+      "note": "All packs include the complete THRIVE method. What changes is the depth of follow-up and evidence."
+    },
+    "diagnostic": {
+      "label": "DIAGNOSTIC",
+      "tagline": "2 sessions · PDF Report",
+      "promise": "A smart, low-pressure first step to understand your child before committing to a full program.",
+      "f0": "2 individual 1h sessions",
+      "f1": "Complete PDF profile report",
+      "f2": "Strengths and blocks assessment",
+      "f3": "60% of amount deducted if upgrading to a program"
+    },
+    "essential": {
+      "label": "ESSENTIAL",
+      "tagline": "13 sessions · Full program",
+      "promise": "The complete THRIVE program, clear and documented — see your child's transformation from start to finish.",
+      "f0": "13 individual 1h sessions",
+      "f1": "Complete THRIVE method",
+      "f2": "Progress scorecard",
+      "f3": "End-of-program report",
+      "f4": "S13 celebration (final debrief)"
+    },
+    "advanced": {
+      "label": "ADVANCED",
+      "tagline": "13 sessions · Enhanced measures",
+      "promise": "See progress in numbers, get reassured at mid-program, and leave with tangible proof.",
+      "f0": "Everything in Essential",
+      "f1": "Enhanced psychometric measures",
+      "f2": "Parent call at session 7 (S7)",
+      "f3": "Enriched scorecard (before/after data)",
+      "f4": "BARS behavioral observations",
+      "f5": "Detailed mental toughness profile",
+      "f6": "S7 interim report",
+      "f7": "Enhanced PDF deliverables"
+    },
+    "performance": {
+      "label": "PERFORMANCE",
+      "tagline": "13 sessions · Close-proximity guidance",
+      "promise": "High-level, close, documented support oriented toward athletic development — for families who want to see everything.",
+      "f0": "Everything in Advanced",
+      "f1": "3 parent calls (S1, S7, S13)",
+      "f2": "Athlete Journal (personal notebook)",
+      "f3": "Advanced deliverables: radar, micro-victory log",
+      "f4": "Heart rate variability tracking (HRV)",
+      "f5": "Intrinsic motivation evaluation",
+      "f6": "Character strengths certificate",
+      "f7": "Elite dashboard (full visual report)",
+      "f8": "Priority access to mentor",
+      "f9": "Athlete pathway recommendations",
+      "f10": "Executive summary for coach"
+    },
+    "upgrade": {
+      "title": "The THRIVE precision staircase",
+      "subtitle": "Each level offers more clarity, measurement, and presence. No level is lesser — they match different needs.",
+      "diagnostic_title": "DIAGNOSTIC — You want to understand before committing",
+      "diagnostic_desc": "Ideal to gently assess your child first. Two sessions, a PDF report, and 60% deducted if you then upgrade to a program.",
+      "essential_title": "ESSENTIAL — You want the full, documented program",
+      "essential_desc": "13 structured sessions, a progress scorecard and a final celebration. The THRIVE foundation, nothing superfluous.",
+      "advanced_title": "ADVANCED — You want to see progress in numbers",
+      "advanced_desc": "A parent call at S7, enhanced measures, and an enriched scorecard that proves the journey. For mid-program reassurance.",
+      "performance_title": "PERFORMANCE — You want close, comprehensive guidance",
+      "performance_desc": "3 parent calls, an athlete journal, an elite dashboard. For families documenting everything and guiding their child toward elite sport.",
+      "quote": "The right pack isn't the most expensive one — it's the one that matches the level of clarity, measurement, and closeness you want."
+    },
+    "proof": {
+      "title": "What you receive. Concretely.",
+      "subtitle": "THRIVE doesn't deliver promises — it delivers proof. Every deliverable is tangible, visible, and designed to reassure you.",
+      "scorecard_title": "Progress Scorecard",
+      "scorecard_desc": "A dashboard measuring your child's evolution session by session. Confidence, focus, regulation — all quantified.",
+      "rapport_title": "PDF Profile Report",
+      "rapport_desc": "A structured document summarizing identified strengths, cleared blocks, and growth axes. Something concrete to keep.",
+      "observations_title": "Behavioral Observations",
+      "observations_desc": "Concrete behaviors noted and documented: encouraging a teammate, requesting an extra rep, staying calm after a setback.",
+      "callParent_title": "Dedicated Parent Call",
+      "callParent_desc": "A call dedicated to you, at mid-program and at the end. To exchange, understand, and leave with clear answers.",
+      "cahier_title": "Athlete Journal",
+      "cahier_desc": "A personal notebook given to your child. They track their strengths, progress, and goals. A tool they keep for life.",
+      "pilotage_title": "Close-Proximity Guidance",
+      "pilotage_desc": "3 parent calls, priority mentor access, executive summary for the coach. Your child is supported like a high-performance athlete."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "subtitle": "Direct, jargon-free answers to help you choose with confidence.",
+      "q1_q": "What's the difference between the packs?",
+      "q1_a": "All packs include the THRIVE method and 13 sessions (except Diagnostic). What changes is the depth of follow-up, the number of deliverables, and how often you hear from us. The higher the pack, the more concrete evidence and active mentor presence you get.",
+      "q2_q": "Does my child need to have a problem to start?",
+      "q2_a": "No. Most children supported by THRIVE don't have a diagnosed \"problem\". They simply need a different environment — a space to build confidence, focus, and emotional regulation without pressure.",
+      "q3_q": "Can I start with the Diagnostic?",
+      "q3_a": "Yes, and it's often the best starting point. The Diagnostic (2 sessions, $397) lets you gently assess your child with no commitment. If you then move to a program, 60% of the Diagnostic amount is deducted from your pack.",
+      "q4_q": "Why does Advanced cost more than Essential?",
+      "q4_a": "Because it includes enhanced psychometric measures, a mid-program parent call (S7), an enriched scorecard, and more complete deliverables. You're not paying for more sessions — you're paying for more depth, evidence, and closeness.",
+      "q5_q": "Is THRIVE coaching clinical or therapeutic?",
+      "q5_a": "No. THRIVE is not therapy and not a clinical service. It's a sport positive psychology coaching program, based on the PERMA method and validated psychometric tools. The mentor is not a psychologist or member of the OPQ.",
+      "q6_q": "How do I choose the right pack?",
+      "q6_a": "Want to start gently: Diagnostic. Want the full program, nothing extra: Essential. Want to see numbers and be reassured mid-way: Advanced. Want very close, documented support oriented toward athletic development: Performance.",
+      "q7_q": "Can I change packs later?",
+      "q7_a": "Yes. If you start with the Diagnostic, you can upgrade to any program with a 60% deduction. If you start with Essential and want more support, talk to your mentor — we'll find the best solution together."
+    },
+    "cta_final": {
+      "aria": "Final CTA pricing page",
+      "tag": "Ready to start?",
+      "title": "Your child has a strength to reveal. THRIVE is here for that.",
+      "desc": "Spots are limited to guarantee follow-up quality. Choose your pack today and begin a real, documented, lasting transformation.",
+      "btn_primary": "Choose my pack",
+      "btn_secondary": "Talk to THRIVE first"
+    }
   }
 }

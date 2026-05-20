@@ -14,6 +14,7 @@ const Navbar = ({ setBookingStep }) => {
         { path: '/sport', label: t('nav.sport') },
         { path: '/methode', label: t('nav.method') },
         { path: '/programmes', label: t('nav.programs') },
+        { path: '/prix', label: t('nav.pricing') },
         { path: '/zones', label: t('nav.locations') },
         { path: '/a-propos', label: t('nav.about') }
     ];

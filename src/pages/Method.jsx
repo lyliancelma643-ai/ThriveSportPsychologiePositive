@@ -1,71 +1,199 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import PermaGrid from '../components/method/PermaGrid';
-import ScientificProof from '../components/method/ScientificProof';
+import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
 
-import ScorecardLevels from '../components/method/ScorecardLevels';
-import EliteDashboard from '../components/method/EliteDashboard';
+// Existing components
 import MethodSidebar from '../components/method/MethodSidebar';
 import ContactSection from '../components/ui/ContactSection';
 
-const Method = ({ setBookingStep }) => {
+// New components
+import ScientificPillars from '../components/method/ScientificPillars';
+import InterventionGrid from '../components/method/InterventionGrid';
+import SessionTimeline from '../components/method/SessionTimeline';
+import ActorsGrid from '../components/method/ActorsGrid';
+import MeasureBattery from '../components/method/MeasureBattery';
+import EthicsSection from '../components/method/EthicsSection';
+
+const Method = ({ setBookingStep, handleSelectProgram }) => {
     const { t, i18n } = useTranslation();
+    const navigate = useNavigate();
+
+    const goBooking = () => { navigate('/booking'); window.scrollTo(0, 0); };
+    const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
+
     return (
-        <div className="py-20 bg-[#FAFAFA]">
+        <div className="bg-[#FAFAFA]">
             <Helmet>
                 <html lang={i18n.language} />
-                <title>{t('seo.method.title')}</title>
-                <meta name="description" content={t('seo.method.desc')} />
+                <title>Méthode THRIVE | Programme Psychoéducatif par le Sport — Montréal</title>
+                <meta name="description" content="THRIVE est un programme structuré de développement des compétences mentales pour jeunes athlètes 5–16 ans à Montréal. 13 séances, 8 piliers scientifiques, mesures avant/après." />
                 <link rel="canonical" href="https://thrivesportpositive.com/methode" />
             </Helmet>
-            <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
-                    {/* Left Column: Sidebar (Sticky) */}
+                    {/* Sidebar sticky */}
                     <MethodSidebar setBookingStep={setBookingStep} />
 
-                    {/* Right Column: Content */}
-                    <main className="space-y-24">
+                    {/* Main content */}
+                    <main className="space-y-0 min-w-0">
 
-                        {/* Section 1: Intro */}
-                        <section id="intro" className="text-center pt-8">
-                            <span className="text-[#8F9779] font-bold uppercase tracking-widest text-sm">{t('method.intro_tag')}</span>
+                        {/* ── 1. HERO / INTRO ─────────────────────────── */}
+                        <section id="intro" className="text-center pt-8 pb-16">
+                            {/* Pill tag */}
+                            <div className="inline-flex items-center gap-2 bg-[#C5A059]/10 border border-[#C5A059]/20 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
+                                <Sparkles size={12} fill="currentColor" />
+                                {t('method.intro_tag')}
+                            </div>
+
                             <h1 className="text-5xl md:text-6xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
-                                <span dangerouslySetInnerHTML={{ __html: t('method.intro_title') }}></span>
-                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif">{t('method.intro_title_italic')}</span>
+                                <span dangerouslySetInnerHTML={{ __html: t('method.intro_title') }} />
+                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif block mt-2">{t('method.intro_title_italic')}</span>
                             </h1>
-                            <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed">
+
+                            <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed mb-6">
                                 {t('method.intro_desc')}
                             </p>
+
+                            {/* CFR 3 lines */}
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+                                {['cfr1', 'cfr2', 'cfr3'].map((k) => (
+                                    <div key={k} className="flex items-center gap-2 bg-white border border-gray-100 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+                                        <CheckCircle2 size={14} className="text-[#C5A059] shrink-0" />
+                                        {t(`method.${k}`)}
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* CTAs */}
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <button
+                                    id="method-cta-primary"
+                                    onClick={goBooking}
+                                    className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-9 py-4 rounded-full font-bold text-base hover:bg-[#253550] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                                >
+                                    {t('method.cta_primary')} <ArrowRight size={17} />
+                                </button>
+                                <button
+                                    id="method-cta-secondary"
+                                    onClick={() => { navigate('/prix'); window.scrollTo(0,0); }}
+                                    className="inline-flex items-center justify-center border-2 border-[#1B263B]/20 text-[#1B263B] px-9 py-4 rounded-full font-bold text-base hover:border-[#1B263B] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
+                                >
+                                    {t('method.cta_secondary')}
+                                </button>
+                            </div>
                         </section>
 
-                        {/* Section 2: PERMA */}
-                        <section id="perma" className="scroll-mt-32">
-                            <PermaGrid />
+                        {/* ── 2. PROBLÈME & INSIGHT ────────────────────── */}
+                        <section id="probleme" className="scroll-mt-32 pb-16">
+                            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-12">
+                                <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.problem.tag')}</span>
+                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-5">
+                                    {t('method.problem.title')}
+                                </h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                                    <div>
+                                        <p className="text-gray-700 leading-relaxed mb-4">{t('method.problem.body1')}</p>
+                                        <p className="text-gray-700 leading-relaxed mb-4">{t('method.problem.body2')}</p>
+                                        <blockquote className="border-l-4 border-[#C5A059] pl-4 italic text-[#1B263B] font-semibold">
+                                            {t('method.problem.quote')}
+                                        </blockquote>
+                                    </div>
+                                    <div className="space-y-3">
+                                        {['gap1', 'gap2', 'gap3'].map((k, i) => (
+                                            <div key={k} className={`p-4 rounded-xl text-sm font-medium ${i === 2 ? 'bg-[#1B263B] text-white' : 'bg-gray-50 text-gray-700 border border-gray-100'}`}>
+                                                {t(`method.problem.${k}`)}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        {/* Section 3: Scorecard */}
-                        <section id="scorecard" className="scroll-mt-32">
-                            <ScorecardLevels />
+                        {/* ── 3. DÉFINITION ────────────────────────────── */}
+                        <section id="definition" className="scroll-mt-32 pb-16">
+                            <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.sidebar.l3')}</span>
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">Une intervention psychoéducative par le sport.</h2>
+                            <div className="h-1 w-14 bg-[#C5A059] rounded-full mb-8" />
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. L'aréna est le laboratoire. Chaque défi technique est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend sur la glace — gérer la pression, demander de l'aide, persévérer — il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
+                                    <div key={d.title} className="bg-white border border-gray-100 rounded-[1.5rem] p-7 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                                        <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{background:d.color+'18'}}>{d.icon}</div>
+                                        <h3 className="font-bold text-[#1B263B] text-base mb-2">{d.title}</h3>
+                                        <p className="text-gray-600 text-sm leading-relaxed">{d.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="bg-gray-50 border border-gray-100 rounded-[1.5rem] p-6 text-sm text-gray-600">
+                                <p className="font-bold text-[#1B263B] mb-3">THRIVE n'est pas :</p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants épanouis progressent encore plus vite."].map((item) => (
+                                        <div key={item} className="flex items-start gap-2"><span className="text-gray-400 mt-0.5">✕</span><span>{item}</span></div>
+                                    ))}
+                                </div>
+                            </div>
                         </section>
 
-                        {/* Section 4: Science */}
-                        <section id="science" className="scroll-mt-32">
-                            <ScientificProof />
+                        {/* ── 4. PILIERS SCIENTIFIQUES ─────────────────── */}
+                        <ScientificPillars />
+
+                        {/* ── 5. INTERVENTIONS ─────────────────────────── */}
+                        <InterventionGrid />
+
+                        {/* ── 6. 13 SÉANCES ────────────────────────────── */}
+                        <SessionTimeline />
+
+                        {/* ── 7. ACTEURS ───────────────────────────────── */}
+                        <ActorsGrid />
+
+                        <MeasureBattery />
+
+                        {/* ── 9. ÉTHIQUE ───────────────────────────────── */}
+                        <EthicsSection />
+
+                        {/* ── CTA FINAL ────────────────────────────────── */}
+                        <section id="programmes" className="scroll-mt-32 pt-16 pb-4">
+                            <div className="relative bg-[#1B263B] rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden">
+                                <div className="pointer-events-none absolute inset-0" aria-hidden>
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[260px] bg-[#C5A059]/10 rounded-full blur-3xl" />
+                                </div>
+                                <div className="relative z-10">
+                                    <div className="inline-flex items-center gap-2 bg-[#C5A059]/15 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
+                                        <Sparkles size={12} /> {t('method.final_cta.tag')}
+                                    </div>
+                                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-5">
+                                        {t('method.final_cta.title')}
+                                    </h2>
+                                    <p className="text-white/70 text-base max-w-xl mx-auto leading-relaxed mb-10">
+                                        {t('method.final_cta.desc')}
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <button
+                                            id="method-final-cta-primary"
+                                            onClick={goBooking}
+                                            className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg"
+                                        >
+                                            {t('method.final_cta.btn_primary')} <ArrowRight size={17} />
+                                        </button>
+                                        <button
+                                            id="method-final-cta-secondary"
+                                            onClick={() => navigate('/prix')}
+                                            className="inline-flex items-center justify-center border-2 border-white/25 text-white px-10 py-4 rounded-full font-bold hover:border-white/60 transition-all"
+                                        >
+                                            {t('method.final_cta.btn_secondary')}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
-
-                        {/* Section 5: Dashboard */}
-                        <section id="dashboard" className="scroll-mt-32 -mx-4 md:mx-0 rounded-[3rem] overflow-hidden">
-                            <EliteDashboard />
-                        </section>
-
-                        {/* Section 6: Tools */}
-
 
                     </main>
                 </div>
-                <ContactSection />
+
+                <ContactSection handleSelectProgram={handleSelectProgram} />
             </div>
         </div>
     );
