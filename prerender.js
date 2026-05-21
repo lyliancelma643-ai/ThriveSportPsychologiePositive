@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const routes = [
     '/',
     '/methode',
-    '/programmes',
+    '/prix',
     '/sport',
     '/evaluation',
     '/booking',

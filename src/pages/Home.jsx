@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { useTranslation } from 'react-i18next';
 import Hero from '../components/home/Hero';
 import AuthorityBar from '../components/home/AuthorityBar';
@@ -22,49 +22,35 @@ const Home = ({ setBookingStep, handleSelectProgram }) => {
 
     return (
         <>
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('seo.home.title')}</title>
-                <meta name="description" content={t('seo.home.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/" />
-                
-                {/* Open Graph */}
-                <meta property="og:title" content={t('seo.home.title')} />
-                <meta property="og:description" content={t('seo.home.desc')} />
-                <meta property="og:url" content="https://thrivesportpositive.com/" />
-                <meta property="og:type" content="website" />
-                <meta property="og:image" content="https://thrivesportpositive.com/favicon.png" />
-                
-                {/* Structured Data (JSON-LD) */}
-                <script type="application/ld+json">
-                    {`
-                    {
-                        "@context": "https://schema.org",
-                        "@type": "SportsActivityLocation",
-                        "name": "Thrive Sport Positive",
-                        "image": "https://thrivesportpositive.com/favicon.png",
-                        "description": "${t('seo.home.desc')}",
-                        "url": "https://thrivesportpositive.com/",
-                        "address": {
-                            "@type": "PostalAddress",
-                            "addressLocality": "Montréal",
-                            "addressRegion": "QC",
-                            "addressCountry": "CA"
+            <SEO 
+                title={t('seo.home.title')}
+                description={t('seo.home.desc')}
+                url="https://thrivesportpositive.com/"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "SportsActivityLocation",
+                    "name": "Thrive Sport Positive",
+                    "image": "https://thrivesportpositive.com/favicon.png",
+                    "description": t('seo.home.desc'),
+                    "url": "https://thrivesportpositive.com/",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Montréal",
+                        "addressRegion": "QC",
+                        "addressCountry": "CA"
+                    },
+                    "serviceArea": {
+                        "@type": "GeoCircle",
+                        "geoMidpoint": {
+                            "@type": "GeoCoordinates",
+                            "latitude": 45.5017,
+                            "longitude": -73.5673
                         },
-                        "serviceArea": {
-                            "@type": "GeoCircle",
-                            "geoMidpoint": {
-                                "@type": "GeoCoordinates",
-                                "latitude": 45.5017,
-                                "longitude": -73.5673
-                            },
-                            "geoRadius": "50000"
-                        },
-                        "priceRange": "$$"
-                    }
-                    `}
-                </script>
-            </Helmet>
+                        "geoRadius": "50000"
+                    },
+                    "priceRange": "$$"
+                }}
+            />
             <Hero 
                 setBookingStep={setBookingStep} 
                 openDiagnostic={() => setIsDiagnosticOpen(true)} 

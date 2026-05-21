@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { Award, BookOpen, ShieldCheck, Users, GraduationCap, Activity, Quote } from 'lucide-react';
 import { useTranslation, Trans } from 'react-i18next';
 import SectionHeader from '../components/ui/SectionHeader';
@@ -9,12 +9,11 @@ const About = () => {
     const { t, i18n } = useTranslation();
     return (
         <div className="py-20 bg-gray-50/50">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('seo.about.title')}</title>
-                <meta name="description" content={t('seo.about.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/a-propos" />
-            </Helmet>
+            <SEO 
+                title={t('seo.about.title')}
+                description={t('seo.about.desc')}
+                url="https://thrivesportpositive.com/a-propos"
+            />
             <div className="max-w-4xl mx-auto px-4 text-center mb-16">
                 <SectionHeader
                     title={t('about.header_title')}

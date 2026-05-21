@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import DiagnosticWidget from '../components/ui/DiagnosticWidget';
 import SectionHeader from '../components/ui/SectionHeader';
 import { Mail, Phone, Calendar, ArrowRight } from 'lucide-react';
@@ -24,12 +24,11 @@ const Evaluation = ({ handleSelectProgram }) => {
 
     return (
         <div className="pt-24 pb-24 bg-[#F8F9FA] min-h-screen">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('seo.evaluation.title')}</title>
-                <meta name="description" content={t('seo.evaluation.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/evaluation" />
-            </Helmet>
+            <SEO 
+                title={t('seo.evaluation.title')}
+                description={t('seo.evaluation.desc')}
+                url="https://thrivesportpositive.com/evaluation"
+            />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 <SectionHeader

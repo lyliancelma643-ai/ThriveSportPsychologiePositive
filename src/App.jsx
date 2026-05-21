@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from './components/seo/SEO';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -65,12 +65,11 @@ const App = () => {
                     {/* Reusing Locations component as a standalone page */}
                     <Route path="/zones" element={
                         <div className="pt-10">
-                            <Helmet>
-                                <html lang={i18n.language} />
-                                <title>{t('seo.zones.title')}</title>
-                                <meta name="description" content={t('seo.zones.desc')} />
-                                <link rel="canonical" href="https://thrivesportpositive.com/zones" />
-                            </Helmet>
+                            <SEO 
+                                title={t('seo.zones.title')}
+                                description={t('seo.zones.desc')}
+                                url="https://thrivesportpositive.com/zones"
+                            />
                             <Locations />
                         </div>
                     } />

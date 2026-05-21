@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
@@ -25,12 +25,21 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
 
     return (
         <div className="bg-[#FAFAFA]">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>Méthode THRIVE | Programme Psychoéducatif par le Sport — Montréal</title>
-                <meta name="description" content="THRIVE est un programme structuré de développement des compétences mentales pour jeunes athlètes 5–16 ans à Montréal. 13 séances, 8 piliers scientifiques, mesures avant/après." />
-                <link rel="canonical" href="https://thrivesportpositive.com/methode" />
-            </Helmet>
+            <SEO 
+                title={t('seo.method.title')}
+                description={t('seo.method.desc')}
+                url="https://thrivesportpositive.com/methode"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "serviceType": "Sports Coaching & Positive Psychology",
+                    "provider": {
+                        "@type": "LocalBusiness",
+                        "name": "Thrive Sport Positive"
+                    },
+                    "description": t('seo.method.desc')
+                }}
+            />
 
             <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">

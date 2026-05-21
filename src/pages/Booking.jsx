@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import BookingForm from '../components/booking/BookingForm';
@@ -37,12 +37,11 @@ const Booking = ({
 
     return (
         <section className="py-20 min-h-[80vh] bg-[#F8F9FA]">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('seo.booking.title')}</title>
-                <meta name="description" content={t('seo.booking.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/booking" />
-            </Helmet>
+            <SEO 
+                title={t('seo.booking.title')}
+                description={t('seo.booking.desc')}
+                url="https://thrivesportpositive.com/booking"
+            />
             <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100 relative overflow-hidden">
 

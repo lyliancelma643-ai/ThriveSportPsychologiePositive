@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
@@ -147,12 +147,23 @@ export default function Prix({ handleSelectProgram }) {
 
     return (
         <div className="bg-white">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('pricing.seo.title')}</title>
-                <meta name="description" content={t('pricing.seo.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/prix" />
-            </Helmet>
+            <SEO 
+                title={t('pricing.seo.title')}
+                description={t('pricing.seo.desc')}
+                url="https://thrivesportpositive.com/prix"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": FAQ_KEYS.map(k => ({
+                        "@type": "Question",
+                        "name": t(`pricing.faq.${k}_q`),
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": t(`pricing.faq.${k}_a`)
+                        }
+                    }))
+                }}
+            />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════ */}
             <section className="relative py-28 px-4 overflow-hidden bg-white" aria-labelledby="pricing-h1">

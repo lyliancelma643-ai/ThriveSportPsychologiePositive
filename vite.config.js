@@ -11,7 +11,7 @@ export default defineConfig({
             hostname: 'https://thrivesportpositive.com',
             dynamicRoutes: [
                 '/methode',
-                '/programmes',
+                '/prix',
                 '/sport',
                 '/evaluation',
                 '/booking',

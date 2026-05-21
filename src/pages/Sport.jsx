@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
 import { Activity, Brain, Heart, Zap, Target, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -31,12 +31,21 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
 
     return (
         <div className="py-20 bg-gray-50/50">
-            <Helmet>
-                <html lang={i18n.language} />
-                <title>{t('seo.sport.title')}</title>
-                <meta name="description" content={t('seo.sport.desc')} />
-                <link rel="canonical" href="https://thrivesportpositive.com/sport" />
-            </Helmet>
+            <SEO 
+                title={t('seo.sport.title')}
+                description={t('seo.sport.desc')}
+                url="https://thrivesportpositive.com/sport"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "serviceType": "Sports Coaching",
+                    "provider": {
+                        "@type": "LocalBusiness",
+                        "name": "Thrive Sport Positive"
+                    },
+                    "description": t('seo.sport.desc')
+                }}
+            />
             <div className="max-w-7xl mx-auto px-4 mb-20 text-center">
                 <SectionHeader
                     title={t('sports.page_title')}
