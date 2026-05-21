@@ -70,22 +70,24 @@
     "authority": {
       "item1": "Supervisé par l'UdeM",
       "item2": "Expertise Sportive & Académique",
-      "item3": "Approche Scientifique PERMA"
+      "item3": "Approche Scientifique UNIQUE"
     },
     "pain_points": {
-      "quote": "\"50% des enfants sont invisibles dans les clubs de masse.\"",
-      "heading_1": "Votre enfant est-il un ",
-      "heading_italic": "\"Joueur de l'Ombre\"",
-      "heading_2": " ?",
-      "desc_1": "Dans les structures traditionnelles, le focus est mis sur l'élite ou la gestion du groupe. Les enfants qui ",
-      "desc_bold_1": "manquent de confiance",
-      "desc_2": " et subissent le perfectionnisme ou les attentes démesurées se perdent. ",
-      "desc_bold_2": "Ils se retrouvent souvent seuls, face à la peur de l'échec sport enfant, sans le soutien émotionnel nécessaire pour s'épanouir.",
-      "list_1": "Peur de l'échec et blocage : pleurs, pression et peur du jugement",
-      "list_2": "Frustration, perte de plaisir et envie très fréquente d'abandon",
-      "list_3": "Enfant qui perd ses moyens en match : anxiété de performance chez le jeune sportif",
-      "list_4": "Mon enfant se dévalorise au sport : démotivation sévère et comparaison aux autres",
-      "conclusion": "Thrive n'entraîne pas les foules. Nous levons les blocages pour libérer les sportifs."
+      "quote": "Ancrer les bases, développer les forces, intégrer durablement.",
+      "heading_1": "Votre enfant mérite ",
+      "heading_italic": "plus qu’un simple entraînement.",
+      "heading_2": "",
+      "desc_1": "Dans beaucoup de parcours sportifs, on travaille la technique, mais on laisse de côté ce qui fait tenir un enfant dans la durée : ",
+      "desc_bold_1": "la confiance, la gestion des émotions, la concentration et la capacité à rebondir après l’erreur.",
+      "desc_2": "Quand ces bases ne sont pas construites, l’enfant peut progresser un temps, puis stagner, se crisper ou perdre son plaisir. Thrive aide les jeunes sportifs à développer une transformation plus profonde : ",
+      "desc_bold_2": "des compétences mentales et techniques qui s’installent dans le temps.",
+      "list_1": "Il apprend à mieux gérer la pression et l’erreur, à l’entraînement comme en match.",
+      "list_2": "Il développe des réflexes mentaux utiles à l’école, en sport et dans les moments de tension du quotidien.",
+      "list_3": "Il gagne en stabilité, en autonomie et en confiance, avec des acquis qui durent au-delà de la saison.",
+      "list_4": "Il construit des outils concrets qui l’aident aussi dans sa vie quotidienne, et pas seulement sur le terrain.",
+      "conclusion": "Thrive ne cherche pas seulement à améliorer une performance. Nous construisons des fondations durables pour que votre enfant avance avec plus de solidité, plus de clarté et plus de plaisir, maintenant et pour la suite.",
+      "btn_method": "Découvrir la Méthode",
+      "btn_booking": "Prendre RDV Coach (30 min)"
     },
     "comparison": {
       "heading": "Pourquoi choisir Thrive ?",
@@ -194,12 +196,15 @@
     "process": {
       "title": "Notre Méthode en 3 Étapes",
       "subtitle": "Un processus structuré pour transformer le potentiel en performance réelle.",
-      "step1_t": "L'Évaluation",
-      "step1_d": "Analyse complète du profil : tests psychométriques et bilan physique pour cibler les besoins.",
-      "step2_t": "L'Action",
-      "step2_d": "Séances sur le terrain : exercices techniques combinés à des défis mentaux adaptés.",
-      "step3_t": "Le Bilan",
-      "step3_d": "Validation des acquis : rapport vidéo et feedback positif. Après chaque séance, recevez un rapport de progrès quantifié et qualifié."
+      "step1_n": "S1–S2",
+      "step1_t": "Ancrer",
+      "step1_d": "Établir le lien de confiance, mesurer la baseline et poser les fondations des compétences mentales. L'enfant apprend à se connaître comme athlète.",
+      "step2_n": "S3–S10",
+      "step2_t": "Développer",
+      "step2_d": "Enseigner et pratiquer les 6 interventions. L'enfant expérimente, rate, réajuste et progresse dans un cadre sécurisant.",
+      "step3_n": "S11–S13",
+      "step3_t": "Intégrer",
+      "step3_d": "Consolider les acquis, mesurer la progression finale et préparer l'autonomie. L'enfant utilise ses outils seul — sur la glace et dans la vie."
     },
     "faq": {
       "title": "Questions Fréquentes",

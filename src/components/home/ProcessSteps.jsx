@@ -4,17 +4,17 @@ export const ProcessSteps = () => {
     const { t } = useTranslation();
     const steps = [
         {
-            number: "01",
+            number: t('home.process.step1_n', { defaultValue: '01' }),
             title: t('home.process.step1_t'),
             desc: t('home.process.step1_d')
         },
         {
-            number: "02",
+            number: t('home.process.step2_n', { defaultValue: '02' }),
             title: t('home.process.step2_t'),
             desc: t('home.process.step2_d')
         },
         {
-            number: "03",
+            number: t('home.process.step3_n', { defaultValue: '03' }),
             title: t('home.process.step3_t'),
             desc: t('home.process.step3_d')
         }

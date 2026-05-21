@@ -70,22 +70,24 @@
     "authority": {
       "item1": "Supervised by UdeM",
       "item2": "Sports & Academic Expertise",
-      "item3": "PERMA Scientific Approach"
+      "item3": "UNIQUE Scientific Approach"
     },
     "pain_points": {
-      "quote": "\"50% of children are invisible in mass clubs.\"",
-      "heading_1": "Is your child a ",
-      "heading_italic": "\"Shadow Player\"",
-      "heading_2": "?",
-      "desc_1": "In traditional structures, the focus is on the elite or group management. Children who ",
-      "desc_bold_1": "lack confidence",
-      "desc_2": ", hesitate, or are not \"naturally\" competitive get lost. ",
-      "desc_bold_2": "They often find themselves alone, isolated within their own team, without the emotional support needed to thrive.",
-      "list_1": "Hesitation in the face of failure and fear of judgment",
-      "list_2": "Loss of pleasure and frequent desire to quit",
-      "list_3": "Performance blocked by competitive anxiety",
-      "list_4": "Lack of individual benchmarks and constructive feedback",
-      "conclusion": "Thrive doesn't train crowds. We create resilient leaders."
+      "quote": "Anchor the foundations, develop strengths, integrate durably.",
+      "heading_1": "Your child deserves ",
+      "heading_italic": "more than just training.",
+      "heading_2": "",
+      "desc_1": "In many sports journeys, technique is worked on, but what makes a child persevere in the long run is left out: ",
+      "desc_bold_1": "confidence, emotion management, concentration, and the ability to bounce back after a mistake.",
+      "desc_2": "When these foundations are not built, the child may progress for a while, then stagnate, tense up, or lose their enjoyment. Thrive helps young athletes develop a deeper transformation: ",
+      "desc_bold_2": "mental and technical skills that set in over time.",
+      "list_1": "They learn to better manage pressure and mistakes, in training as well as in matches.",
+      "list_2": "They develop mental reflexes useful at school, in sports, and during daily moments of tension.",
+      "list_3": "They gain stability, autonomy, and confidence, with skills that last beyond the season.",
+      "list_4": "They build concrete tools that also help them in their daily life, not just on the field.",
+      "conclusion": "Thrive does not just seek to improve performance. We build lasting foundations so your child moves forward with more solidity, clarity, and enjoyment, now and for the future.",
+      "btn_method": "Discover the Method",
+      "btn_booking": "Book a Coach (30 min)"
     },
     "comparison": {
       "heading": "Why choose Thrive?",
@@ -194,12 +196,15 @@
     "process": {
       "title": "Our 3-Step Method",
       "subtitle": "A structured process to transform potential into real performance.",
-      "step1_t": "The Evaluation",
-      "step1_d": "Complete profile analysis: psychometric tests and physical assessment to target needs.",
-      "step2_t": "The Action",
-      "step2_d": "On-field sessions: technical exercises combined with adapted mental challenges.",
-      "step3_t": "The Assessment",
-      "step3_d": "Validation of achievements: video report and positive feedback. After each session, receive a quantified and qualified progress report."
+      "step1_n": "S1–S2",
+      "step1_t": "Anchor",
+      "step1_d": "Establish trust, measure the baseline, and lay the foundations for mental skills. The child learns to know themselves as an athlete.",
+      "step2_n": "S3–S10",
+      "step2_t": "Develop",
+      "step2_d": "Teach and practice the 6 interventions. The child experiments, fails, readjusts, and progresses in a safe environment.",
+      "step3_n": "S11–S13",
+      "step3_t": "Integrate",
+      "step3_d": "Consolidate skills, measure final progress, and prepare for autonomy. The child uses their tools alone — on the ice and in life."
     },
     "faq": {
       "title": "Frequently Asked Questions",
