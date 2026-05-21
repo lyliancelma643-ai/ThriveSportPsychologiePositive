@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PROGRAMS_DATA } from '../data/programs';
 
 const useBooking = () => {
     const navigate = useNavigate();

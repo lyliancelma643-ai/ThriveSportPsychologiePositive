@@ -19,8 +19,8 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
         if (sportName) {
             setBookingData({ ...bookingData, sport: sportName });
         }
-        // Redirect to Programs page instead of direct booking
-        navigate('/programmes');
+        // Redirect to Prix page instead of direct booking
+        navigate('/prix');
         window.scrollTo(0, 0);
     };
 
@@ -129,7 +129,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                         setBookingStep('cal');
                         navigate('/booking');
                     } else {
-                        navigate('/programmes');
+                        navigate('/prix');
                     }
                     window.scrollTo(0, 0);
                 }} />

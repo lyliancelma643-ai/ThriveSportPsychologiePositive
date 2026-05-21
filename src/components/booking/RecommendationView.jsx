@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PROGRAMS_DATA } from '../../data/programs';
+import { PRICING_DATA } from '../../data/pricing';
 
 const RecommendationView = ({ bookingData, onSelectProgram }) => {
     const { t, i18n } = useTranslation();
@@ -10,22 +10,22 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
     const getRecommendation = () => {
         const score = bookingData.wellbeing;
         if (score <= 4) return {
-            key: "Performance",
+            key: "performance",
             reason: t('booking.r_reason_perf')
         };
         if (score <= 7) return {
-            key: "Avance",
+            key: "advanced",
             reason: t('booking.r_reason_adv')
         };
         return {
-            key: "Essentiel",
+            key: "essential",
             reason: t('booking.r_reason_ess')
         };
     };
 
     const recommendation = getRecommendation();
     const recommendedKey = recommendation.key;
-    const recommendedProgram = PROGRAMS_DATA[recommendedKey];
+    const recommendedProgram = PRICING_DATA.find(p => p.id === recommendedKey);
 
     return (
         <div className="animate-in slide-in-from-right duration-500">
@@ -59,15 +59,15 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
 
                         <div className="relative overflow-hidden inline-block mb-2 px-2">
                             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
-                            <h3 className="text-2xl font-serif font-bold relative z-0">{t(`programs.${recommendedKey}.label`)}</h3>
+                            <h3 className="text-2xl font-serif font-bold relative z-0">{t(`pricing.${recommendedKey}.label`)}</h3>
                         </div>
-                        <p className="text-gray-300 italic text-sm mb-6">{t(`programs.${recommendedKey}.desc`)}</p>
+                        <p className="text-gray-300 italic text-sm mb-6">{t(`pricing.${recommendedKey}.desc`)}</p>
 
                         <div className="space-y-3 mb-8">
-                            {recommendedProgram.features.map((_, idx) => (
-                                <div key={idx} className="flex items-start text-sm text-gray-200">
+                            {recommendedProgram.featureKeys.map((k) => (
+                                <div key={k} className="flex items-start text-sm text-gray-200">
                                     <CheckCircle2 className="text-[#8F9779] mr-2 shrink-0 mt-0.5" size={16} />
-                                    <span>{t(`programs.${recommendedKey}.f${idx}`)}</span>
+                                    <span>{t(`pricing.${recommendedKey}.${k}`)}</span>
                                 </div>
                             ))}
                         </div>
@@ -98,12 +98,13 @@ const RecommendationView = ({ bookingData, onSelectProgram }) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 opacity-75 grayscale hover:grayscale-0 transition-all duration-500">
-                {Object.entries(PROGRAMS_DATA).map(([key, program]) => {
+                {PRICING_DATA.filter(p => p.id !== 'diagnostic').map((program) => {
+                    const key = program.id;
                     if (key === recommendedKey) return null;
                     return (
                         <div key={key} className="p-6 rounded-[2rem] border border-gray-200 bg-white">
-                            <h4 className="font-bold text-[#1B263B] mb-1">{t(`programs.${key}.label`)}</h4>
-                            <p className="text-xs text-gray-500 mb-4">{t(`programs.${key}.desc`)}</p>
+                            <h4 className="font-bold text-[#1B263B] mb-1">{t(`pricing.${key}.label`)}</h4>
+                            <p className="text-xs text-gray-500 mb-4 line-clamp-2">{t(`pricing.${key}.desc`)}</p>
                             <div className="flex items-center justify-between">
                                 <span className="font-bold">{i18n.language === 'en' ? `$${program.price}` : `${program.price} $`}</span>
                                 <button

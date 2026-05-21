@@ -96,15 +96,20 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
                                     <div>
-                                        <p className="text-gray-700 leading-relaxed mb-4">{t('method.problem.body1')}</p>
-                                        <p className="text-gray-700 leading-relaxed mb-4">{t('method.problem.body2')}</p>
-                                        <blockquote className="border-l-4 border-[#C5A059] pl-4 italic text-[#1B263B] font-semibold">
-                                            {t('method.problem.quote')}
-                                        </blockquote>
+                                        <p className="text-[15px] text-gray-600 leading-relaxed mb-6">{t('method.problem.body1')}</p>
+                                        <div className="space-y-3 mb-8">
+                                            {[1, 2, 3, 4, 5].map((i) => (
+                                                <div key={i} className="flex items-center gap-2.5">
+                                                    <ArrowRight size={15} className="text-[#C5A059] shrink-0" />
+                                                    <span className="text-[15px] text-gray-500">{t(`method.problem.t${i}_from`)}</span>
+                                                    <strong className="text-[15px] text-[#1B263B] font-bold">{t(`method.problem.t${i}_to`)}</strong>
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="space-y-3">
+                                    <div className="h-full flex flex-col justify-center gap-4">
                                         {['gap1', 'gap2', 'gap3'].map((k, i) => (
-                                            <div key={k} className={`p-4 rounded-xl text-sm font-medium ${i === 2 ? 'bg-[#1B263B] text-white' : 'bg-gray-50 text-gray-700 border border-gray-100'}`}>
+                                            <div key={k} className={`px-5 py-4 rounded-2xl text-sm font-medium shadow-sm transition-transform hover:-translate-y-1 ${i === 2 ? 'bg-[#1B263B] text-white ring-2 ring-[#1B263B]/10 shadow-md' : 'bg-gray-50/80 text-gray-600 border border-gray-100'}`}>
                                                 {t(`method.problem.${k}`)}
                                             </div>
                                         ))}

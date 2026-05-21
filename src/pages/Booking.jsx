@@ -7,7 +7,6 @@ import SuccessView from '../components/booking/SuccessView';
 import RecommendationView from '../components/booking/RecommendationView';
 import SportSelection from '../components/booking/SportSelection';
 import CalBooking from '../components/booking/CalBooking';
-import { PROGRAMS_DATA } from '../data/programs';
 
 const Booking = ({
     bookingStep,
@@ -97,15 +96,15 @@ const Booking = ({
                             <div className="text-center mb-10">
                                 <span className="text-[#8F9779] font-bold text-xs uppercase tracking-widest mb-2 block">{t('booking.step_4_tag')}</span>
                                 <h2 className="text-3xl font-serif text-[#1B263B]">{t('booking.step_4_title')}</h2>
-                                <p className="text-gray-500 mt-2">{t('booking.step_4_subtitle')} <span className="font-bold text-[#1B263B]">{t(`programs.${bookingData.program}.label`)}</span>.</p>
+                                <p className="text-gray-500 mt-2">{t('booking.step_4_subtitle')} <span className="font-bold text-[#1B263B]">{t(`pricing.${bookingData.program}.label`)}</span>.</p>
                             </div>
 
                             <CalBooking
                                 calLink={
-                                    bookingData.program === 'Avance' ? "thrive-sport-positive/seance-l-vance" :
-                                    bookingData.program === 'Essentiel' ? "thrive-sport-positive/pack-1-l-essentiel" :
-                                    bookingData.program === 'Performance' ? "thrive-sport-positive/pack-3-le-peformance" :
-                                    PROGRAMS_DATA[bookingData.program]?.calLink || "thrive-sport-positive/30min"
+                                    bookingData.program === 'advanced' ? "thrive-sport-positive/seance-l-vance" :
+                                    bookingData.program === 'essential' ? "thrive-sport-positive/pack-1-l-essentiel" :
+                                    bookingData.program === 'performance' ? "thrive-sport-positive/pack-3-performance-elite" :
+                                    "thrive-sport-positive/30min"
                                 }
                                 onBookingSuccessful={() => setBookingStep('success')}
                             />

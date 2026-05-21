@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Info, CheckCircle2, AlertCircle, Trophy, Heart, Zap, Brain } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { PROGRAMS_DATA } from '../../data/programs';
+import { PRICING_DATA } from '../../data/pricing';
 
 const DiagnosticWidget = ({ handleSelectProgram, onClose, isModal = false }) => {
     const { t } = useTranslation();
@@ -45,24 +45,24 @@ const DiagnosticWidget = ({ handleSelectProgram, onClose, isModal = false }) => 
         const { score, goal } = answers;
 
         // Base recommendation on score
-        let recommendation = { key: 'Essentiel', color: 'text-green-500', bg: 'bg-green-50', border: 'border-green-100', text: t('diagnostic.rec_ess_title') };
+        let recommendation = { key: 'essential', color: 'text-green-500', bg: 'bg-green-50', border: 'border-green-100', text: t('diagnostic.rec_ess_title') };
 
         if (score <= 4) {
-            recommendation = { key: 'Performance', color: 'text-red-500', bg: 'bg-red-50', border: 'border-red-100', text: t('diagnostic.rec_perf_title') };
+            recommendation = { key: 'performance', color: 'text-red-500', bg: 'bg-red-50', border: 'border-red-100', text: t('diagnostic.rec_perf_title') };
         } else if (score <= 7) {
-            recommendation = { key: 'Avance', color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-100', text: t('diagnostic.rec_adv_title') };
+            recommendation = { key: 'advanced', color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-100', text: t('diagnostic.rec_adv_title') };
         }
 
         // Adjust based on Goal (e.g. High Performance goal might bump up the need even if score is okay-ish)
-        if (goal === 'performance' && recommendation.key === 'Essentiel') {
-            recommendation = { key: 'Avance', color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-100', text: t('diagnostic.rec_adv_perf_title') };
+        if (goal === 'performance' && recommendation.key === 'essential') {
+            recommendation = { key: 'advanced', color: 'text-amber-500', bg: 'bg-amber-50', border: 'border-amber-100', text: t('diagnostic.rec_adv_perf_title') };
         }
 
         return recommendation;
     };
 
     const rec = step === 'result' ? getRecommendation() : null;
-    const program = rec ? PROGRAMS_DATA[rec.key] : null;
+    const program = rec ? PRICING_DATA.find(p => p.id === rec.key) : null;
 
     return (
         <div className={`bg-white rounded-[2rem] p-8 shadow-2xl border border-gray-100 relative overflow-hidden flex flex-col justify-center min-h-[500px] w-full max-w-lg mx-auto ${isModal ? 'animate-in zoom-in duration-300' : ''}`}>
@@ -183,22 +183,22 @@ const DiagnosticWidget = ({ handleSelectProgram, onClose, isModal = false }) => 
                         <div className={`p-4 rounded-xl border ${rec.border} ${rec.bg} mb-4`}>
                             <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${rec.color}`}>{rec.text}</p>
                             <p className="text-gray-600 text-sm leading-relaxed">
-                                {rec.key === 'Performance' && t('diagnostic.rec_perf_desc')}
-                                {rec.key === 'Avance' && t('diagnostic.rec_adv_desc')}
-                                {rec.key === 'Essentiel' && t('diagnostic.rec_ess_desc')}
+                                {rec.key === 'performance' && t('diagnostic.rec_perf_desc')}
+                                {rec.key === 'advanced' && t('diagnostic.rec_adv_desc')}
+                                {rec.key === 'essential' && t('diagnostic.rec_ess_desc')}
                             </p>
                         </div>
 
                         <div className="mb-4">
                             <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mb-1">{t('diagnostic.rec_label')}</p>
-                            <h3 className="text-xl font-bold text-[#1B263B]">{t(`programs.${rec.key}.label`)}</h3>
+                            <h3 className="text-xl font-bold text-[#1B263B]">{t(`pricing.${rec.key}.label`)}</h3>
                         </div>
 
                         <div className="bg-gray-50 rounded-lg p-3 mb-6 space-y-2 flex-grow">
-                            {program.features.slice(0, 3).map((_, i) => (
-                                <div key={i} className="flex items-start text-xs text-gray-600">
+                            {program.featureKeys.slice(0, 3).map((k) => (
+                                <div key={k} className="flex items-start text-xs text-gray-600">
                                     <CheckCircle2 size={14} className="text-[#8F9779] mr-2 shrink-0 mt-0.5" />
-                                    {t(`programs.${rec.key}.f${i}`)}
+                                    {t(`pricing.${rec.key}.${k}`)}
                                 </div>
                             ))}
                         </div>
