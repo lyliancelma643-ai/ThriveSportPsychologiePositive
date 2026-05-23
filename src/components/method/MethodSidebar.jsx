@@ -75,12 +75,17 @@ const MethodSidebar = ({ setBookingStep }) => {
             </nav>
 
             {/* CTA Mini Widget */}
-            <div className="mt-5 bg-[#1B263B] rounded-2xl p-4 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all" onClick={() => navigate('/sport')}>
-                <p className="text-white text-xs font-bold mb-3 leading-tight" dangerouslySetInnerHTML={{ __html: t('method.sidebar.cta_text') }}></p>
+            <button
+                className="mt-5 w-full block bg-[#1B263B] rounded-2xl p-4 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all text-left"
+                data-cal-namespace="30min"
+                data-cal-link="thrive-sport-positive/30min"
+                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+            >
+                <p className="text-white text-xs font-bold mb-3 leading-tight text-center" dangerouslySetInnerHTML={{ __html: t('method.sidebar.cta_text') }}></p>
                 <div className="w-full h-9 bg-[#C5A059] text-white rounded-lg text-xs font-bold flex items-center justify-center group-hover:bg-[#b08d4d] transition-colors">
                     {t('method.sidebar.cta_btn')} <ArrowRight size={14} className="ml-2" />
                 </div>
-            </div>
+            </button>
 
         </div>
     );
