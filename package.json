@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-helmet-async": "^2.0.5",
     "react-i18next": "^17.0.1",
-    "react-router-dom": "^7.13.0"
+    "react-router-dom": "^7.13.0",
+    "simplex-noise": "^4.0.3"
   },
   "devDependencies": {
     "@sparticuz/chromium": "^143.0.4",

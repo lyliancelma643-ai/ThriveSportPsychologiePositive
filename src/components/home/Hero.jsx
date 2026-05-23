@@ -4,6 +4,7 @@ import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus
 import { useTranslation } from 'react-i18next';
 import heroImage from '../../assets/pexels-gustavo-fring-6720436.jpg';
 import { getCalApi } from "@calcom/embed-react";
+import { Waves } from '../ui/Waves';
 
 const Hero = ({ setBookingStep, openDiagnostic }) => {
     const navigate = useNavigate();
@@ -25,8 +26,13 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
 
     return (
         <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-white">
+            {/* Background Waves */}
+            <div className="absolute inset-0 z-0 opacity-60">
+                <Waves strokeColor="#C5A05930" />
+            </div>
+
             {/* Background Blob/Gradient for depth */}
-            <div className="absolute top-0 right-0 w-2/3 h-full bg-[#f8f9fa] rounded-l-[10rem] z-0 transform translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-2/3 h-full bg-[#f8f9fa]/80 rounded-l-[10rem] z-0 transform translate-x-1/3 backdrop-blur-sm"></div>
 
             <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 lg:py-20">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

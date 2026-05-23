@@ -78,7 +78,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
     if (horizontal) {
         return (
             <article
-                className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:p-10 rounded-[2rem] border-2 shadow-sm hover:shadow-md transition-all duration-300 mt-6"
+                onClick={() => onSelect(pack.id)}
+                className="group relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:p-10 rounded-[2rem] border-2 shadow-sm hover:shadow-md transition-all duration-300 mt-6 cursor-pointer"
                 style={{ borderColor: theme.accent, background: getBackground(pack.id), boxShadow: `0 12px 48px ${theme.accent}20` }}
             >
                 <PixelCanvas colors={getColors(pack.id)} />
@@ -93,19 +94,21 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style={{ background: theme.iconBg }}>
                         <Icon size={22} style={{ color: theme.accent }} />
                     </div>
-                    <h3 className="font-serif font-bold text-[#1B263B] text-2xl leading-tight mb-1">
+                    <h3 className="font-serif font-bold text-[#1B263B] text-3xl md:text-4xl leading-tight mb-2">
                         {t(`pricing.${pack.id}.label`)}
                     </h3>
                     <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">
                         {t(`pricing.${pack.id}.tagline`)}
                     </p>
-                    <div className="flex items-baseline justify-center gap-1">
-                        <span className="font-bold text-[#1B263B] leading-none text-5xl">{priceStr}</span>
+                    <div className="flex flex-col items-center justify-center mt-auto">
+                        <div className="flex items-baseline justify-center gap-1">
+                            <span className="font-bold text-[#1B263B] leading-none text-4xl">{priceStr}</span>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-2">{t('pricing.one_time')}</p>
+                        <p className="text-sm font-semibold text-[#8F9779] mt-1">
+                            {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
+                        </p>
                     </div>
-                    <p className="text-xs text-gray-400 mt-2">{t('pricing.one_time')}</p>
-                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
-                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
-                    </p>
                 </div>
 
                 {/* Right side: Features & CTA */}
@@ -125,8 +128,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
 
                     <button
                         id={`cta-pack-${pack.id}`}
-                        onClick={() => onSelect(pack.id)}
-                        className="w-full sm:w-auto self-center md:self-start px-10 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
+                        onClick={(e) => { e.stopPropagation(); onSelect(pack.id); }}
+                        className="w-full sm:w-auto self-center md:self-start px-10 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md group-hover:-translate-y-0.5 group-hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
                         style={{
                             background: '#1B263B',
                             color: '#fff',
@@ -144,7 +147,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
 
     return (
         <article
-            className={`relative flex flex-col rounded-[2rem] transition-all duration-300 ${
+            onClick={() => onSelect(pack.id)}
+            className={`group relative flex flex-col rounded-[2rem] transition-all duration-300 cursor-pointer ${
                 rec
                     ? 'border-[3px] scale-[1.025] z-10 lg:-mt-4 lg:-mb-4'
                     : 'border border-gray-100 shadow-md hover:-translate-y-2 hover:shadow-xl'
@@ -174,22 +178,11 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style={{ background: theme.iconBg }}>
                         <Icon size={22} style={{ color: theme.accent }} />
                     </div>
-                    <h3 className="font-serif font-bold text-[#1B263B] text-xl leading-tight mb-0.5">
+                    <h3 className="font-serif font-bold text-[#1B263B] text-2xl md:text-3xl leading-tight mb-1.5">
                         {t(`pricing.${pack.id}.label`)}
                     </h3>
                     <p className="text-xs font-bold uppercase tracking-widest text-gray-400">
                         {t(`pricing.${pack.id}.tagline`)}
-                    </p>
-                </div>
-
-                {/* Price */}
-                <div className="text-center mb-5">
-                    <div className="flex items-baseline justify-center gap-1">
-                        <span className={`font-bold text-[#1B263B] leading-none ${rec ? 'text-5xl' : 'text-4xl'}`}>{priceStr}</span>
-                    </div>
-                    <p className="text-xs text-gray-400 mt-1">{t('pricing.one_time')}</p>
-                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
-                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
                     </p>
                 </div>
 
@@ -210,11 +203,24 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     ))}
                 </ul>
 
+                <div className="h-px bg-gray-100 mb-6" />
+
+                {/* Price */}
+                <div className="text-center mb-6 mt-auto">
+                    <div className="flex items-baseline justify-center gap-1">
+                        <span className={`font-bold text-[#1B263B] leading-none ${rec ? 'text-4xl' : 'text-3xl'}`}>{priceStr}</span>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-1">{t('pricing.one_time')}</p>
+                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
+                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
+                    </p>
+                </div>
+
                 {/* CTA */}
                 <button
                     id={`cta-pack-${pack.id}`}
-                    onClick={() => onSelect(pack.id)}
-                    className="w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
+                    onClick={(e) => { e.stopPropagation(); onSelect(pack.id); }}
+                    className="w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md group-hover:-translate-y-0.5 group-hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
                     style={{
                         background: rec ? theme.accent : '#1B263B',
                         color: '#fff',
@@ -320,54 +326,11 @@ export default function Prix({ handleSelectProgram }) {
                 </div>
             </section>
 
-            {/* ══ 2. BLOC ÉMOTIONNEL ═══════════════════════════════════ */}
-            <section className="py-14 px-4 bg-gray-50/60" aria-label={t('pricing.emotional.aria_label')}>
-                <div className="max-w-5xl mx-auto">
-                    <div className="bg-[#1B263B] rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden">
-                        <div className="pointer-events-none absolute inset-0" aria-hidden>
-                            <div className="absolute top-0 right-0 w-80 h-80 bg-[#C5A059]/8 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8F9779]/8 rounded-full blur-3xl -translate-x-1/2 translate-y-1/3" />
-                        </div>
-                        <div className="relative z-10 grid grid-cols-1 md:grid-cols-5 gap-10 items-center">
-                            <div className="md:col-span-3">
-                                <p className="text-[#C5A059] text-xs font-bold uppercase tracking-widest mb-4">{t('pricing.emotional.tag')}</p>
-                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-5">
-                                    {t('pricing.emotional.title')}
-                                </h2>
-                                <p className="text-white/75 leading-relaxed mb-4 text-base">{t('pricing.emotional.body1')}</p>
-                                <p className="text-white/60 leading-relaxed text-sm">{t('pricing.emotional.body2')}</p>
-                            </div>
-                            <div className="md:col-span-2 space-y-3">
-                                {['p1', 'p2', 'p3'].map(k => (
-                                    <div key={k} className="flex items-start gap-3 bg-white/7 backdrop-blur-sm rounded-2xl p-4 border border-white/8">
-                                        <div className="w-9 h-9 rounded-xl bg-[#C5A059]/20 flex items-center justify-center shrink-0 mt-0.5">
-                                            <CheckCircle2 size={17} className="text-[#C5A059]" />
-                                        </div>
-                                        <div>
-                                            <p className="text-white font-bold text-sm mb-0.5">{t(`pricing.emotional.${k}_title`)}</p>
-                                            <p className="text-white/60 text-xs leading-relaxed">{t(`pricing.emotional.${k}_desc`)}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* ══ 3. GRILLE DES 4 PACKS ════════════════════════════════ */}
             <section id="les-packs" className="py-20 px-4 bg-white" aria-labelledby="packs-heading">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-3">
-                        <h2 id="packs-heading" className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mb-4">
-                            {t('pricing.packs.title')}
-                        </h2>
-                        <div className="h-1 w-16 bg-[#C5A059] mx-auto mb-5 rounded-full" />
-                        <p className="text-gray-600 max-w-xl mx-auto">{t('pricing.packs.subtitle')}</p>
-                    </div>
-                    <p className="text-center text-xs text-gray-400 max-w-lg mx-auto mb-14">
-                        {t('pricing.packs.note')}
-                    </p>
+
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch pt-5">
                         {PRICING_DATA.filter(pack => pack.id !== 'diagnostic').reverse().map(pack => (
