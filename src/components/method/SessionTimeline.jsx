@@ -8,7 +8,6 @@ const PHASES = [
     { key: 'integrate',sessions: 'S11–S13', color: '#1B263B',  bg: '#1B263B12', num: '03' },
 ];
 
-const SESSION_STEPS = ['welcome', 'review', 'learn', 'apply', 'close'];
 
 const SessionTimeline = () => {
     const { t } = useTranslation();
@@ -66,30 +65,6 @@ const SessionTimeline = () => {
                 ))}
             </div>
 
-            {/* Structure invariante */}
-            <div className="bg-[#1B263B] rounded-[2rem] p-8 md:p-12 relative overflow-hidden">
-                <div className="pointer-events-none absolute top-0 right-0 w-64 h-64 bg-[#C5A059]/6 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" aria-hidden />
-                <div className="relative z-10">
-                    <p className="text-[#C5A059] text-xs font-bold uppercase tracking-widest mb-2">{t('method.timeline.structure_tag')}</p>
-                    <h3 className="text-2xl font-serif font-bold text-white mb-6">{t('method.timeline.structure_title')}</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                        {SESSION_STEPS.map((step, i) => (
-                            <div key={step} className="flex flex-col items-center sm:items-start gap-2">
-                                <div className="flex items-center gap-2 w-full">
-                                    <div className="w-8 h-8 rounded-lg bg-[#C5A059]/20 flex items-center justify-center text-[#C5A059] font-bold text-sm shrink-0">
-                                        {i + 1}
-                                    </div>
-                                    {i < SESSION_STEPS.length - 1 && (
-                                        <div className="hidden sm:block flex-1 h-px bg-white/10" />
-                                    )}
-                                </div>
-                                <p className="text-white font-bold text-sm">{t(`method.timeline.step_${step}_name`)}</p>
-                                <p className="text-white/60 text-xs">{t(`method.timeline.step_${step}_time`)}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
         </section>
     );
 };
