@@ -49,21 +49,100 @@ function FaqItem({ q, a, open, onToggle, idx }) {
 }
 
 // ── Carte de pack ──────────────────────────────────────────────
-function PriceCard({ pack, onSelect, t, lang }) {
+function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
     const theme = PACK_THEMES[pack.id];
     const Icon = PACK_ICONS[pack.id];
     const rec = pack.isRecommended;
     const entry = pack.isEntry;
     const priceStr = lang === 'en' ? `$${pack.price.toLocaleString()}` : `${pack.price.toLocaleString()} $`;
 
+    const getBackground = (id) => {
+        switch (id) {
+            case 'performance': return 'linear-gradient(135deg, #ffffff 0%, #fef3c7 100%)'; // Gold
+            case 'advanced': return 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)'; // Silver
+            case 'essential': return 'linear-gradient(135deg, #ffffff 0%, #ffedd5 100%)'; // Bronze
+            case 'diagnostic': return 'linear-gradient(135deg, #ffffff 0%, #dcfce7 100%)'; // Light green
+            default: return '#ffffff';
+        }
+    };
+
+    if (horizontal) {
+        return (
+            <article
+                className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
+                style={{ borderColor: theme.accentBorder, background: getBackground(pack.id) }}
+            >
+                {entry && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#8F9779] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full shadow whitespace-nowrap">
+                        <Sparkles size={11} /> {t('pricing.badge_entry')}
+                    </div>
+                )}
+                
+                {/* Left side: Header & Price */}
+                <div className="flex flex-col items-center text-center w-full md:w-1/3 md:border-r border-gray-100 md:pr-10">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style={{ background: theme.iconBg }}>
+                        <Icon size={22} style={{ color: theme.accent }} />
+                    </div>
+                    <h3 className="font-serif font-bold text-[#1B263B] text-2xl leading-tight mb-1">
+                        {t(`pricing.${pack.id}.label`)}
+                    </h3>
+                    <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">
+                        {t(`pricing.${pack.id}.tagline`)}
+                    </p>
+                    <div className="flex items-baseline justify-center gap-1">
+                        <span className="font-bold text-[#1B263B] leading-none text-5xl">{priceStr}</span>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-2">{t('pricing.one_time')}</p>
+                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
+                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
+                    </p>
+                </div>
+
+                {/* Right side: Features & CTA */}
+                <div className="flex flex-col w-full md:w-2/3 mt-6 md:mt-0">
+                    <p className="text-gray-500 text-sm italic leading-relaxed text-center md:text-left mb-6">
+                        « {t(`pricing.${pack.id}.promise`)} »
+                    </p>
+
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-8 flex-grow">
+                        {pack.featureKeys.map(k => (
+                            <li key={k} className="flex items-start gap-2.5 text-sm text-gray-700">
+                                <CheckCircle2 size={16} className="shrink-0 mt-0.5" style={{ color: theme.accent }} />
+                                <span>{t(`pricing.${pack.id}.${k}`)}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <button
+                        id={`cta-pack-${pack.id}`}
+                        onClick={() => onSelect(pack.id)}
+                        className="w-full sm:w-auto self-center md:self-start px-10 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
+                        style={{
+                            background: '#1B263B',
+                            color: '#fff',
+                            focusOutlineColor: theme.accent,
+                        }}
+                        aria-label={`${t('pricing.cta_choose')} — ${t(`pricing.${pack.id}.label`)}`}
+                    >
+                        {entry ? t('pricing.cta_entry') : t('pricing.cta_choose')}
+                        <ArrowRight size={16} />
+                    </button>
+                </div>
+            </article>
+        );
+    }
+
     return (
         <article
             className={`relative flex flex-col rounded-[2rem] transition-all duration-300 ${
                 rec
-                    ? 'bg-white border-2 shadow-[0_12px_48px_rgba(197,160,89,0.20)] scale-[1.025] z-10 lg:-mt-4 lg:-mb-4'
-                    : 'bg-white border border-gray-100 shadow-md hover:-translate-y-2 hover:shadow-xl'
+                    ? 'border-2 shadow-[0_12px_48px_rgba(197,160,89,0.20)] scale-[1.025] z-10 lg:-mt-4 lg:-mb-4'
+                    : 'border border-gray-100 shadow-md hover:-translate-y-2 hover:shadow-xl'
             }`}
-            style={{ borderColor: rec ? theme.accent : undefined }}
+            style={{ 
+                borderColor: rec ? theme.accent : undefined,
+                background: getBackground(pack.id)
+            }}
         >
             {/* Badge */}
             {rec && (
@@ -97,6 +176,9 @@ function PriceCard({ pack, onSelect, t, lang }) {
                         <span className={`font-bold text-[#1B263B] leading-none ${rec ? 'text-5xl' : 'text-4xl'}`}>{priceStr}</span>
                     </div>
                     <p className="text-xs text-gray-400 mt-1">{t('pricing.one_time')}</p>
+                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
+                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
+                    </p>
                 </div>
 
                 <div className="h-px bg-gray-100 mb-5" />
@@ -264,14 +346,26 @@ export default function Prix({ handleSelectProgram }) {
                         {t('pricing.packs.note')}
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch pt-5">
-                        {PRICING_DATA.map(pack => (
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch pt-5">
+                        {PRICING_DATA.filter(pack => pack.id !== 'diagnostic').reverse().map(pack => (
                             <PriceCard
                                 key={pack.id}
                                 pack={pack}
                                 onSelect={goBooking}
                                 t={t}
                                 lang={i18n.language}
+                            />
+                        ))}
+                    </div>
+                    <div className="mt-12 lg:mt-16 w-full">
+                        {PRICING_DATA.filter(pack => pack.id === 'diagnostic').map(pack => (
+                            <PriceCard
+                                key={pack.id}
+                                pack={pack}
+                                onSelect={goBooking}
+                                t={t}
+                                lang={i18n.language}
+                                horizontal={true}
                             />
                         ))}
                     </div>

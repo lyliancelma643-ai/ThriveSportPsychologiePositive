@@ -666,7 +666,7 @@
       "f0": "2 individual 1h sessions",
       "f1": "Complete PDF profile report",
       "f2": "Strengths and blocks assessment",
-      "f3": "60% of amount deducted if upgrading to a program"
+      "f3": "up to $397 deducted from the future selected pack"
     },
     "essential": {
       "label": "ESSENTIAL",
@@ -711,11 +711,11 @@
       "title": "The THRIVE precision staircase",
       "subtitle": "Each level offers more clarity, measurement, and presence. No level is lesser — they match different needs.",
       "diagnostic_title": "DIAGNOSTIC — You want to understand before committing",
-      "diagnostic_desc": "Ideal to gently assess your child first. Two sessions, a PDF report, and 60% deducted if you then upgrade to a program.",
+      "diagnostic_desc": "Ideal to gently assess your child first. Two sessions, a PDF report, and up to $397 deducted from the future selected pack.",
       "essential_title": "ESSENTIAL — You want the full, documented program",
       "essential_desc": "13 structured sessions, a progress scorecard and a final celebration. The THRIVE foundation, nothing superfluous.",
       "advanced_title": "ADVANCED — You want to see progress in numbers",
-      "advanced_desc": "A parent call at S7, enhanced measures, and an enriched scorecard that proves the journey. For mid-program reassurance.",
+      "advanced_desc": "A parent call at S7, enhanced measures, and an enriched scorecard that proves the journey.",
       "performance_title": "PERFORMANCE — You want close, comprehensive guidance",
       "performance_desc": "3 parent calls, an athlete journal, an elite dashboard. For families documenting everything and guiding their child toward elite sport.",
       "quote": "The right pack isn't the most expensive one — it's the one that matches the level of clarity, measurement, and closeness you want."
@@ -752,7 +752,7 @@
       "q6_q": "How do I choose the right pack?",
       "q6_a": "Want to start gently: Diagnostic. Want the full program, nothing extra: Essential. Want to see numbers and be reassured mid-way: Advanced. Want very close, documented support oriented toward athletic development: Performance.",
       "q7_q": "Can I change packs later?",
-      "q7_a": "Yes. If you start with the Diagnostic, you can upgrade to any program with a 60% deduction. If you start with Essential and want more support, talk to your mentor — we'll find the best solution together."
+      "q7_a": "Yes. If you start with the Diagnostic, you can upgrade to any program with up to $397 deducted from the future selected pack. If you start with Essential and want more support, talk to your mentor — we'll find the best solution together."
     },
     "cta_final": {
       "aria": "Final CTA pricing page",

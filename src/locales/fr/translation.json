@@ -755,7 +755,7 @@
       "f0": "2 séances individuelles de 1h",
       "f1": "Rapport PDF de profil complet",
       "f2": "Évaluation des forces et des blocages",
-      "f3": "60 % du montant déduit si passage au programme"
+      "f3": "jusqu'a 397 $ déduits du futur pack sélectionné"
     },
     "essential": {
       "label": "ESSENTIAL",
@@ -800,11 +800,11 @@
       "title": "L'éscalier de précision THRIVE",
       "subtitle": "Chaque niveau offre plus de clarté, de mesure et de présence. Aucun niveau n'est inférieur — ils répondent à des besoins différents.",
       "diagnostic_title": "DIAGNOSTIC — Vous voulez comprendre avant de vous engager",
-      "diagnostic_desc": "Idéal pour évaluer votre enfant en douceur. 2 séances, un rapport PDF, et 60 % déduit si vous passez ensuite au programme.",
+      "diagnostic_desc": "Idéal pour évaluer votre enfant en douceur. 2 séances, un rapport PDF, et jusqu'à 397 $ déduits du futur pack sélectionné.",
       "essential_title": "ESSENTIAL — Vous voulez le programme complet, bien documenté",
       "essential_desc": "13 séances structurées, une scorecard de progression et une célébration finale. Le fondement THRIVE, sans ajout superflu.",
       "advanced_title": "AVANCÉ — Vous voulez voir la progression en chiffres",
-      "advanced_desc": "Un call parent à S7, des mesures renforcées et une scorecard enrichie qui prouve le chemin parcouru. Pour être rassuré à mi-parcours.",
+      "advanced_desc": "Un call parent à S7, des mesures renforcées et une scorecard enrichie qui prouve le chemin parcouru.",
       "performance_title": "PERFORMANCE — Vous voulez un pilotage rapproché et complet",
       "performance_desc": "3 calls parents, un cahier de l'athlète, un dashboard élite. Pour les familles qui documentent tout et orientent leur enfant vers l'excellence sportive.",
       "quote": "Le bon pack n'est pas le plus cher — c'est celui qui correspond au niveau de clarté, de mesure et de proximité souhaité."
@@ -833,7 +833,7 @@
       "q2_q": "Mon enfant doit-il avoir un problème pour commencer ?",
       "q2_a": "Non. La majorité des enfants accompagnés par THRIVE n'ont pas de \"problème\" diagnostiqué. Ils ont juste besoin d'un cadre différent — un espace pour développer leur confiance, leur concentration et leur régulation émotionnelle, sans pression.",
       "q3_q": "Puis-je commencer par le Diagnostic ?",
-      "q3_a": "Oui, et c'est souvent le meilleur point de départ. Le Diagnostic (2 séances, 397 $) vous permet d'évaluer votre enfant en douceur, sans engagement. Si vous passez ensuite à un programme, 60 % du montant du Diagnostic est déduit de votre pack.",
+      "q3_a": "Oui, et c'est souvent le meilleur point de départ. Le Diagnostic (2 séances, 397 $) vous permet d'évaluer votre enfant en douceur, sans engagement. Si vous passez ensuite à un programme, jusqu'à 397 $ seront déduits de votre futur pack sélectionné.",
       "q4_q": "Pourquoi le pack Avancé coûte-t-il plus cher qu'Essential ?",
       "q4_a": "Parce qu'il inclut des mesures psychométriques renforcées, un call parent à mi-parcours (S7), une scorecard enrichie et des livrables plus complets. Vous ne payez pas plus de séances — vous payez plus de profondeur, de preuves et de proximité.",
       "q5_q": "Le coaching THRIVE est-il clinique ou thérapeutique ?",
@@ -841,7 +841,7 @@
       "q6_q": "Comment choisir le bon pack ?",
       "q6_a": "Si vous voulez commencer doucement : Diagnostic. Si vous voulez le programme complet sans extras : Essential. Si vous voulez voir des chiffres et être rassuré à mi-parcours : Avancé. Si vous voulez un suivi très proche, documenté et orienté parcours sportif : Performance.",
       "q7_q": "Est-ce que je peux changer de pack plus tard ?",
-      "q7_a": "Oui. Si vous commencez par le Diagnostic, vous pouvez passer au programme de votre choix avec une déduction de 60 %. Si vous commencez par Essential et souhaitez plus de suivi, parlez-en à votre mentor — nous trouverons la meilleure solution ensemble."
+      "q7_a": "Oui. Si vous commencez par le Diagnostic, vous pouvez passer au programme de votre choix avec jusqu'à 397 $ déduits du futur pack sélectionné. Si vous commencez par Essential et souhaitez plus de suivi, parlez-en à votre mentor — nous trouverons la meilleure solution ensemble."
     },
     "cta_final": {
       "aria": "CTA final page prix",
