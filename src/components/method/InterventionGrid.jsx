@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ChevronDown, Target, Heart, Star, HelpCircle, Wind, Eye } from 'lucide-react';
 
 const INTERVENTIONS = [
-    { key: 'goals', icon: Target, color: '#8F9779', sessions: 'S1–S2' },
+    { key: 'goals', icon: Target, color: '#8F9779', sessions: '' },
     { key: 'emotion', icon: Heart, color: '#C5A059', sessions: 'S3–S4' },
     { key: 'confidence', icon: Star, color: '#1B263B', sessions: 'S5–S6' },
     { key: 'help', icon: HelpCircle, color: '#8F9779', sessions: 'S7' },
@@ -29,12 +29,14 @@ const InterventionCard = ({ item, isOpen, onToggle, t }) => {
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="font-bold text-[#1B263B] text-base">{t(`method.interventions.${item.key}_name`)}</h3>
-                        <span
-                            className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
-                            style={{ background: item.color + '18', color: item.color }}
-                        >
-                            {item.sessions}
-                        </span>
+                        {item.sessions && (
+                            <span
+                                className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+                                style={{ background: item.color + '18', color: item.color }}
+                            >
+                                {item.sessions}
+                            </span>
+                        )}
                     </div>
                     <p className="text-gray-500 text-sm mt-0.5">{t(`method.interventions.${item.key}_tagline`)}</p>
                 </div>
