@@ -10,6 +10,8 @@ import Prix from './pages/Prix';
 import Booking from './pages/Booking';
 import Evaluation from './pages/Evaluation';
 import About from './pages/About';
+import PerformancePack from './pages/PerformancePack';
+import AdvancedPack from './pages/AdvancedPack';
 import Locations from './components/home/Locations';
 import useBooking from './hooks/useBooking';
 import { useTranslation } from 'react-i18next';
@@ -60,6 +62,12 @@ const App = () => {
                         <Booking
                             {...booking} // Spread all booking state and handlers props
                         />
+                    } />
+                    <Route path="/pack/performance" element={
+                        <PerformancePack setBookingStep={booking.setBookingStep} />
+                    } />
+                    <Route path="/pack/avance" element={
+                        <AdvancedPack setBookingStep={booking.setBookingStep} />
                     } />
                     <Route path="/a-propos" element={<About />} />
                     {/* Reusing Locations component as a standalone page */}

@@ -210,7 +210,7 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     }}
                     aria-label={`${t('pricing.cta_choose')} — ${t(`pricing.${pack.id}.label`)}`}
                 >
-                    {entry ? t('pricing.cta_entry') : rec ? t('pricing.cta_recommended') : t('pricing.cta_choose')}
+                    {(pack.id === 'performance' || pack.id === 'advanced') ? "En savoir plus" : (entry ? t('pricing.cta_entry') : rec ? t('pricing.cta_recommended') : t('pricing.cta_choose'))}
                     <ArrowRight size={16} />
                 </button>
             </div>
@@ -224,7 +224,16 @@ export default function Prix({ handleSelectProgram }) {
     const { t, i18n } = useTranslation();
     const [openFaq, setOpenFaq] = useState(null);
 
-    const goBooking = () => { navigate('/booking'); window.scrollTo(0, 0); };
+    const goBooking = (packId) => { 
+        if (packId === 'performance') {
+            navigate('/pack/performance');
+        } else if (packId === 'advanced') {
+            navigate('/pack/avance');
+        } else {
+            navigate('/booking'); 
+        }
+        window.scrollTo(0, 0); 
+    };
     const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
 
     return (
