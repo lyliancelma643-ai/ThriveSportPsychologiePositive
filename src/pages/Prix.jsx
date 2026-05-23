@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS } from '../data/pricing';
 import ContactSection from '../components/ui/ContactSection';
-
+import PixelCanvas from '../components/ui/PixelCanvas';
 // ── Pack icons ────────────────────────────────────────────────
 const PACK_ICONS = {
     diagnostic: Shield,
@@ -66,20 +66,30 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
         }
     };
 
+    const getColors = (id) => {
+        switch (id) {
+            case 'performance': return ['#C5A059', '#D4AF37', '#FFDF00', '#B8860B']; // Gold
+            case 'advanced': return ['#94A3B8', '#CBD5E1', '#E2E8F0', '#64748B']; // Silver
+            case 'essential': return ['#B07D4B', '#C19A6B', '#9C6644', '#7F4F24']; // Bronze
+            default: return ['#cbd5e1', '#94a3b8'];
+        }
+    };
+
     if (horizontal) {
         return (
             <article
-                className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:p-10 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
-                style={{ borderColor: theme.accentBorder, background: getBackground(pack.id) }}
+                className="relative flex flex-col md:flex-row items-center gap-6 md:gap-10 p-8 md:p-10 rounded-[2rem] border-2 shadow-sm hover:shadow-md transition-all duration-300 mt-6"
+                style={{ borderColor: theme.accent, background: getBackground(pack.id), boxShadow: `0 12px 48px ${theme.accent}20` }}
             >
+                <PixelCanvas colors={getColors(pack.id)} />
                 {entry && (
-                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#8F9779] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full shadow whitespace-nowrap">
-                        <Sparkles size={11} /> {t('pricing.badge_entry')}
+                    <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest px-6 py-2 rounded-full shadow-lg whitespace-nowrap z-10 border border-white/10" style={{ backgroundColor: theme.accent }}>
+                        <Sparkles size={13} /> {t('pricing.badge_entry')}
                     </div>
                 )}
                 
                 {/* Left side: Header & Price */}
-                <div className="flex flex-col items-center text-center w-full md:w-1/3 md:border-r border-gray-100 md:pr-10">
+                <div className="flex flex-col items-center text-center w-full md:w-1/3 md:border-r border-gray-100 md:pr-10 relative z-10">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style={{ background: theme.iconBg }}>
                         <Icon size={22} style={{ color: theme.accent }} />
                     </div>
@@ -99,7 +109,7 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                 </div>
 
                 {/* Right side: Features & CTA */}
-                <div className="flex flex-col w-full md:w-2/3 mt-6 md:mt-0">
+                <div className="flex flex-col w-full md:w-2/3 mt-6 md:mt-0 relative z-10">
                     <p className="text-gray-500 text-sm italic leading-relaxed text-center md:text-left mb-6">
                         « {t(`pricing.${pack.id}.promise`)} »
                     </p>
@@ -136,27 +146,29 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
         <article
             className={`relative flex flex-col rounded-[2rem] transition-all duration-300 ${
                 rec
-                    ? 'border-2 shadow-[0_12px_48px_rgba(197,160,89,0.20)] scale-[1.025] z-10 lg:-mt-4 lg:-mb-4'
+                    ? 'border-[3px] scale-[1.025] z-10 lg:-mt-4 lg:-mb-4'
                     : 'border border-gray-100 shadow-md hover:-translate-y-2 hover:shadow-xl'
             }`}
             style={{ 
-                borderColor: rec ? theme.accent : undefined,
-                background: getBackground(pack.id)
+                borderColor: rec ? '#C5A059' : undefined,
+                background: getBackground(pack.id),
+                boxShadow: rec ? `0 12px 48px rgba(197, 160, 89, 0.25)` : undefined,
             }}
         >
+            <PixelCanvas colors={getColors(pack.id)} />
             {/* Badge */}
             {rec && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#C5A059] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full shadow-md whitespace-nowrap">
-                    <Star size={11} fill="currentColor" /> {t('pricing.badge_recommended')}
+                <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest px-6 py-2 rounded-full shadow-lg whitespace-nowrap z-10 border border-white/10" style={{ backgroundColor: '#C5A059' }}>
+                    <Star size={13} fill="currentColor" /> {t('pricing.badge_recommended')}
                 </div>
             )}
             {entry && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 bg-[#8F9779] text-white text-xs font-bold uppercase tracking-widest px-5 py-1.5 rounded-full shadow whitespace-nowrap">
-                    <Sparkles size={11} /> {t('pricing.badge_entry')}
+                <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest px-6 py-2 rounded-full shadow-lg whitespace-nowrap z-10 border border-white/10" style={{ backgroundColor: theme.accent }}>
+                    <Sparkles size={13} /> {t('pricing.badge_entry')}
                 </div>
             )}
 
-            <div className="p-7 flex flex-col h-full pt-8">
+            <div className="p-7 flex flex-col h-full pt-8 relative z-10">
                 {/* Header */}
                 <div className="flex flex-col items-center text-center mb-5">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-3" style={{ background: theme.iconBg }}>

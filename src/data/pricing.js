@@ -11,28 +11,28 @@
 //    Toutes héritent du design system #1B263B / #C5A059 / #8F9779
 export const PACK_THEMES = {
     diagnostic: {
-        accent: '#8F9779',         // vert sage
+        accent: '#8F9779',         // Vert sage
         accentLight: '#8F977915',
         accentBorder: '#8F977940',
         iconBg: '#8F977918',
     },
     essential: {
-        accent: '#1B263B',         // bleu marine
-        accentLight: '#1B263B0D',
-        accentBorder: '#1B263B30',
-        iconBg: '#1B263B12',
+        accent: '#B07D4B',         // Véritable Bronze premium
+        accentLight: '#B07D4B0D',
+        accentBorder: '#B07D4B30',
+        iconBg: '#B07D4B12',
     },
     advanced: {
-        accent: '#C5A059',         // or — pack recommandé
-        accentLight: '#C5A05912',
-        accentBorder: '#C5A05970',
-        iconBg: '#C5A05918',
+        accent: '#94A3B8',         // Argent — pack recommandé
+        accentLight: '#94A3B812',
+        accentBorder: '#94A3B870',
+        iconBg: '#94A3B818',
     },
     performance: {
-        accent: '#1B263B',         // bleu marine profond
-        accentLight: '#1B263B0D',
-        accentBorder: '#1B263B40',
-        iconBg: '#1B263B12',
+        accent: '#C5A059',         // Or
+        accentLight: '#C5A0590D',
+        accentBorder: '#C5A05940',
+        iconBg: '#C5A05912',
     },
 };
 
