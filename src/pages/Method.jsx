@@ -143,7 +143,12 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                             ref={problemRef}
                             className={`scroll-mt-32 pb-16 transition-all duration-1000 ease-out transform ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                         >
-                            <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-12">
+                            <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl rounded-[2rem] border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-8 md:p-12">
+                                {/* Premium glowing orbs */}
+                                <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#C5A059]/30 to-[#C5A059]/5 rounded-full blur-[60px] pointer-events-none" />
+                                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-[#1B263B]/15 to-transparent rounded-full blur-[60px] pointer-events-none" />
+                                
+                                <div className="relative z-10">
                                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.problem.tag')}</span>
                                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-5">
                                     {t('method.problem.title')}
@@ -152,13 +157,29 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                     <div>
                                         <p className="text-[15px] text-gray-600 leading-relaxed mb-6">{t('method.problem.body1')}</p>
                                         <div className="space-y-3 mb-8">
-                                            {[1, 2, 3, 4, 5].map((i) => (
-                                                <div key={i} className="flex items-center gap-2.5">
-                                                    <ArrowRight size={15} className="text-[#C5A059] shrink-0" />
-                                                    <span className="text-[15px] text-gray-500">{t(`method.problem.t${i}_from`)}</span>
-                                                    <strong className="text-[15px] text-[#1B263B] font-bold">{t(`method.problem.t${i}_to`)}</strong>
-                                                </div>
-                                            ))}
+                                            {[1, 2, 3, 4, 5].map((i, idx) => {
+                                                const colors = [
+                                                    { text: '#C5A059', bg: '#C5A05915' }, // Gold
+                                                    { text: '#8F9779', bg: '#8F977915' }, // Sage
+                                                    { text: '#4A6FA5', bg: '#4A6FA515' }, // Blue
+                                                    { text: '#C5A059', bg: '#C5A05915' }, // Gold
+                                                    { text: '#8F9779', bg: '#8F977915' }, // Sage
+                                                ][idx];
+                                                return (
+                                                    <div key={i} className="flex items-center gap-2.5">
+                                                        <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: colors.bg }}>
+                                                            <ArrowRight size={12} style={{ color: colors.text }} />
+                                                        </div>
+                                                        <span className="text-[15px] text-gray-500">{t(`method.problem.t${i}_from`)}</span>
+                                                        <strong 
+                                                            className="text-[15px] px-2.5 py-1 rounded-lg font-bold shadow-sm"
+                                                            style={{ color: colors.text, background: colors.bg }}
+                                                        >
+                                                            {t(`method.problem.t${i}_to`)}
+                                                        </strong>
+                                                    </div>
+                                                );
+                                            })}
                                         </div>
                                     </div>
                                     <div className="h-full flex flex-col justify-center gap-4">
@@ -168,6 +189,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                             </div>
                                         ))}
                                     </div>
+                                </div>
                                 </div>
                             </div>
                         </section>

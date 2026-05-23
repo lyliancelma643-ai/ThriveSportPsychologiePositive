@@ -99,62 +99,70 @@ const ScientificPillars = () => {
             ref={sectionRef}
             className="scroll-mt-32 py-16"
         >
-            {/* Header */}
-            <div className={`text-center mb-4 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-                <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.pillars.tag')}</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
-                    {t('method.pillars.title')}
-                </h2>
-                <div className="h-1 w-14 bg-[#C5A059] mx-auto rounded-full mb-4" />
-                <p className="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
-                    {t('method.pillars.subtitle')}
-                </p>
-            </div>
+            <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl rounded-[2rem] border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-8 md:p-12">
+                {/* Premium glowing orbs - Green theme */}
+                <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-[#8F9779]/20 to-transparent rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] bg-gradient-to-tl from-[#8F9779]/15 to-[#1B263B]/5 rounded-full blur-[80px] pointer-events-none" />
+                
+                <div className="relative z-10">
+                    {/* Header */}
+                    <div className={`text-center mb-4 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+                        <span className="text-[#8F9779] font-bold uppercase tracking-widest text-xs">{t('method.pillars.tag')}</span>
+                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                            {t('method.pillars.title')}
+                        </h2>
+                        <div className="h-1 w-14 bg-[#8F9779] mx-auto rounded-full mb-4" />
+                        <p className="text-gray-600 max-w-2xl mx-auto text-base leading-relaxed">
+                            {t('method.pillars.subtitle')}
+                        </p>
+                    </div>
 
-            {/* Note épistémique */}
-            <div className={`max-w-3xl mx-auto mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
-                <div className="flex items-start gap-3 bg-blue-50/60 border border-blue-100 rounded-2xl p-4 text-sm text-blue-800">
-                    <span className="text-lg shrink-0">🔬</span>
-                    <div>
-                        <strong>{t('method.pillars.note_title')}</strong>
-                        {' '}{t('method.pillars.note_body')}
+                    {/* Note épistémique */}
+                    <div className={`max-w-3xl mx-auto mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
+                        <div className="flex items-start gap-3 bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-4 text-sm text-[#8F9779] shadow-sm">
+                            <span className="text-lg shrink-0">🔬</span>
+                            <div className="text-gray-700">
+                                <strong className="text-[#8F9779]">{t('method.pillars.note_title')}</strong>
+                                {' '}{t('method.pillars.note_body')}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+                        {PILLARS.map((p, i) => (
+                            <div
+                                key={p.key}
+                                className={`bg-white/90 backdrop-blur-sm border border-white rounded-[1.5rem] p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-700 ease-out flex flex-col gap-3 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                                style={{ transitionDelay: `${800 + i * 150}ms` }}
+                            >
+                                <div className="flex items-center justify-between">
+                                    <div
+                                        className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-sm"
+                                        style={{ background: p.color + '18' }}
+                                    >
+                                        {p.icon}
+                                    </div>
+                                    <LevelBadge level={p.level} />
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-[#1B263B] text-base leading-snug mb-0.5">
+                                        {t(`method.pillars.${p.key}_name`)}
+                                    </h3>
+                                    <p className="text-xs text-gray-400 mb-2">{p.authors}</p>
+                                    <p className="text-gray-600 text-sm leading-relaxed">
+                                        {t(`method.pillars.${p.key}_benefit`)}
+                                    </p>
+                                </div>
+                                <div className="mt-auto pt-3 border-t border-gray-100">
+                                    <p className="text-[11px] text-gray-400 italic">
+                                        {t(`method.pillars.${p.key}_mechanism`)}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div>
-
-            {/* Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-                {PILLARS.map((p, i) => (
-                    <div
-                        key={p.key}
-                        className={`bg-white border border-gray-100 rounded-[1.5rem] p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-700 ease-out flex flex-col gap-3 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                        style={{ transitionDelay: `${800 + i * 150}ms` }}
-                    >
-                        <div className="flex items-center justify-between">
-                            <div
-                                className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl shadow-sm"
-                                style={{ background: p.color + '18' }}
-                            >
-                                {p.icon}
-                            </div>
-                            <LevelBadge level={p.level} />
-                        </div>
-                        <div>
-                            <h3 className="font-bold text-[#1B263B] text-base leading-snug mb-0.5">
-                                {t(`method.pillars.${p.key}_name`)}
-                            </h3>
-                            <p className="text-xs text-gray-400 mb-2">{p.authors}</p>
-                            <p className="text-gray-600 text-sm leading-relaxed">
-                                {t(`method.pillars.${p.key}_benefit`)}
-                            </p>
-                        </div>
-                        <div className="mt-auto pt-3 border-t border-gray-100">
-                            <p className="text-[11px] text-gray-400 italic">
-                                {t(`method.pillars.${p.key}_mechanism`)}
-                            </p>
-                        </div>
-                    </div>
-                ))}
             </div>
         </section>
     );
