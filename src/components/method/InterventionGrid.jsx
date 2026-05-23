@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown, Target, Heart, Star, HelpCircle, Wind, Eye } from 'lucide-react';
 
@@ -11,10 +11,13 @@ const INTERVENTIONS = [
     { key: 'focus', icon: Eye, color: '#1B263B', sessions: '' },
 ];
 
-const InterventionCard = ({ item, isOpen, onToggle, t }) => {
+const InterventionCard = ({ item, isOpen, onToggle, t, isVisible, index }) => {
     const Icon = item.icon;
     return (
-        <div className="bg-white border border-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-md transition-all duration-200">
+        <div 
+            className={`bg-white border border-gray-100 rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-md transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            style={{ transitionDelay: `${800 + index * 150}ms` }}
+        >
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}
@@ -68,10 +71,26 @@ const InterventionCard = ({ item, isOpen, onToggle, t }) => {
 const InterventionGrid = () => {
     const { t } = useTranslation();
     const [open, setOpen] = useState(null);
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     return (
-        <section id="interventions" className="scroll-mt-32 py-16">
-            <div className="text-center mb-10">
+        <section id="interventions" ref={sectionRef} className="scroll-mt-32 py-16">
+            <div className={`text-center mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.interventions.tag')}</span>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
                     {t('method.interventions.title')}
@@ -81,10 +100,12 @@ const InterventionGrid = () => {
             </div>
 
             <div className="space-y-3">
-                {INTERVENTIONS.map((item) => (
+                {INTERVENTIONS.map((item, index) => (
                     <InterventionCard
                         key={item.key}
                         item={item}
+                        index={index}
+                        isVisible={isVisible}
                         isOpen={open === item.key}
                         onToggle={() => setOpen(open === item.key ? null : item.key)}
                         t={t}

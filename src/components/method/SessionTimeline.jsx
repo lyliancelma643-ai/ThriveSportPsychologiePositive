@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -11,9 +11,26 @@ const PHASES = [
 
 const SessionTimeline = () => {
     const { t } = useTranslation();
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="13-seances" className="scroll-mt-32 py-16">
-            <div className="text-center mb-10">
+        <section id="13-seances" ref={sectionRef} className="scroll-mt-32 py-16">
+            <div className={`text-center mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.timeline.tag')}</span>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
                     {t('method.timeline.title')}
@@ -24,10 +41,11 @@ const SessionTimeline = () => {
 
             {/* 3 phases */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-                {PHASES.map((phase) => (
+                {PHASES.map((phase, index) => (
                     <div
                         key={phase.key}
-                        className="rounded-[1.5rem] p-7 border border-gray-100 bg-white shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1"
+                        className={`rounded-[1.5rem] p-7 border border-gray-100 bg-white shadow-sm hover:shadow-md transition-all duration-700 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                        style={{ transitionDelay: `${800 + index * 150}ms` }}
                     >
                         <div className="flex items-center gap-3 mb-4">
                             <div
