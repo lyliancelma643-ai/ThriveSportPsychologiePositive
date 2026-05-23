@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const ProcessSteps = () => {
     const { t } = useTranslation();
     const sectionRef = useRef(null);
-    const [scrollProgress, setScrollProgress] = useState(0);
+    const arrowGroupRef = useRef(null);
+    const rafId = useRef(null);
 
     const steps = [
         {
@@ -26,30 +27,45 @@ export const ProcessSteps = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (!sectionRef.current) return;
-            const rect = sectionRef.current.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const isDesktop = window.innerWidth >= 768;
+            if (rafId.current) cancelAnimationFrame(rafId.current);
             
-            if (isDesktop) {
-                // The section has height 250vh.
-                // It becomes sticky when rect.top reaches 0.
-                // We have 150vh of scroll distance to fill the arrow (250vh - 100vh).
-                const scrollableDistance = rect.height - windowHeight;
-                let progress = -rect.top / scrollableDistance;
-                setScrollProgress(Math.max(0, Math.min(1, progress)));
-            } else {
-                // Normal scroll behavior (mobile)
-                const start = windowHeight * 0.75;
-                const end = -rect.height + windowHeight * 0.25;
-                let progress = (start - rect.top) / (start - end);
-                setScrollProgress(Math.max(0, Math.min(1, progress)));
-            }
+            rafId.current = requestAnimationFrame(() => {
+                if (!sectionRef.current || !arrowGroupRef.current) return;
+                
+                const rect = sectionRef.current.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                const isDesktop = window.innerWidth >= 768;
+                
+                let progress = 0;
+                
+                if (isDesktop) {
+                    // The section has height 250vh.
+                    // It becomes sticky when rect.top reaches 0.
+                    // We have 150vh of scroll distance to fill the arrow (250vh - 100vh).
+                    const scrollableDistance = rect.height - windowHeight;
+                    progress = -rect.top / scrollableDistance;
+                } else {
+                    // Normal scroll behavior (mobile)
+                    const start = windowHeight * 0.75;
+                    const end = -rect.height + windowHeight * 0.25;
+                    progress = (start - rect.top) / (start - end);
+                }
+                
+                // Clamp progress between 0 and 1
+                progress = Math.max(0, Math.min(1, progress));
+                
+                // Apply directly to the DOM for 60fps fluidity (bypassing React state)
+                arrowGroupRef.current.style.clipPath = `inset(0 ${100 - progress * 100}% 0 0)`;
+            });
         };
 
         window.addEventListener('scroll', handleScroll, { passive: true });
-        handleScroll();
-        return () => window.removeEventListener('scroll', handleScroll);
+        handleScroll(); // Initial position
+        
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (rafId.current) cancelAnimationFrame(rafId.current);
+        };
     }, []);
 
     return (
@@ -74,11 +90,8 @@ export const ProcessSteps = () => {
                         <path d="M 50 390 C 300 380, 500 270, 650 110 L 600 60 L 800 0 L 740 200 L 690 150 C 550 320, 300 395, 50 390 Z" fill="#F3F4F6" />
                         
                         {/* Green filling arrow (Faceted Group) */}
-                        <g filter="url(#glow)" 
-                           style={{
-                               clipPath: `inset(0 ${100 - scrollProgress * 100}% 0 0)`,
-                               transition: 'clip-path 0.1s ease-out'
-                           }}>
+                        {/* Hardware acceleration enabled with will-change */}
+                        <g ref={arrowGroupRef} filter="url(#glow)" style={{ clipPath: 'inset(0 100% 0 0)', willChange: 'clip-path' }}>
                             
                             {/* Plane 2: Main Shaft (Base Gradient) */}
                             <path d="M 50 390 C 320 385, 520 280, 670 130 L 690 150 C 550 320, 300 395, 50 390 Z" fill="url(#arrowGradient)" />
