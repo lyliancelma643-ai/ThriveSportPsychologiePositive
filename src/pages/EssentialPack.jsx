@@ -74,7 +74,7 @@ export default function EssentialPack({ setBookingStep }) {
     const goAdv = () => { navigate('/pack/avance'); window.scrollTo(0, 0); };
 
     return (
-        <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#8F9779]/20">
+        <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#B07D4B]/20">
             <SEO 
                 title="THRIVE Essential | Le programme complet"
                 description="Le programme complet, clair et documenté. 13 séances individuelles pour retrouver confiance et sérénité avec des repères simples et solides."
@@ -85,14 +85,14 @@ export default function EssentialPack({ setBookingStep }) {
             <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-32 pb-20 overflow-hidden bg-[#1B263B]">
                 {/* Background effects (Sage Green theme) */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#8F9779]/30 via-[#1B263B]/0 to-transparent" />
-                    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#8F9779]/15 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#B07D4B]/30 via-[#1B263B]/0 to-transparent" />
+                    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#B07D4B]/15 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
                 </div>
 
                 <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
-                            <Sun size={14} className="text-[#8F9779]" fill="currentColor" />
+                            <Sun size={14} className="text-[#B07D4B]" fill="currentColor" />
                             Le point de départ THRIVE
                         </div>
                     </Reveal>
@@ -100,7 +100,7 @@ export default function EssentialPack({ setBookingStep }) {
                     <Reveal delay={200}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-8">
                             THRIVE <br className="hidden md:block" />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D0E2C8] to-[#8F9779]">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D0E2C8] to-[#B07D4B]">
                                 Essential
                             </span>
                         </h1>
@@ -121,7 +121,7 @@ export default function EssentialPack({ setBookingStep }) {
                     <Reveal delay={500} className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24">
                         <button
                             onClick={goEval}
-                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#8F9779] text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-[#7a8166] transition-all hover:scale-105 shadow-[0_0_40px_rgba(143,151,121,0.3)]"
+                            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B07D4B] text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-[#8e653c] transition-all hover:scale-105 shadow-[0_0_40px_rgba(143,151,121,0.3)]"
                         >
                             Réserver un appel <ArrowRight size={20} />
                         </button>
@@ -154,7 +154,7 @@ export default function EssentialPack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white relative">
                 <div className="max-w-6xl mx-auto">
                     <Reveal>
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#8F9779] mb-4 text-center">Reconnaissance immédiate</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#B07D4B] mb-4 text-center">Reconnaissance immédiate</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-4xl mx-auto leading-tight">
                             À qui s'adresse le pack Essential ?
                         </p>
@@ -203,7 +203,7 @@ export default function EssentialPack({ setBookingStep }) {
 
             {/* 3. SECTION "UN PROGRAMME COMPLET EN 13 SÉANCES" */}
             <section className="py-32 px-4 bg-[#1B263B] text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#8F9779]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#B07D4B]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
                 
                 <div className="max-w-6xl mx-auto relative z-10">
                     <Reveal className="text-center mb-20">
@@ -243,7 +243,7 @@ export default function EssentialPack({ setBookingStep }) {
                             }
                         ].map((p, i) => (
                             <Reveal key={i} delay={i * 150} className="bg-white/5 border border-white/10 p-10 rounded-[2rem] backdrop-blur-sm">
-                                <div className="text-[#8F9779] font-bold text-sm uppercase tracking-widest mb-2">{p.phase} — {p.s}</div>
+                                <div className="text-[#B07D4B] font-bold text-sm uppercase tracking-widest mb-2">{p.phase} — {p.s}</div>
                                 <h3 className="text-3xl font-serif font-bold mb-6">{p.title}</h3>
                                 <div className="space-y-4 text-white/80 leading-relaxed text-sm">
                                     <p><strong className="text-white font-medium">Rôle :</strong> {p.role}</p>
@@ -279,7 +279,7 @@ export default function EssentialPack({ setBookingStep }) {
                         ].map((tool, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm">
                                 <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-10 h-10 rounded-full bg-[#8F9779]/10 text-[#8F9779] flex items-center justify-center font-bold">
+                                    <div className="w-10 h-10 rounded-full bg-[#B07D4B]/10 text-[#B07D4B] flex items-center justify-center font-bold">
                                         {i + 1}
                                     </div>
                                     <h3 className="font-serif font-bold text-[#1B263B] text-xl">{tool.name}</h3>
@@ -295,7 +295,7 @@ export default function EssentialPack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white relative">
                 <div className="max-w-5xl mx-auto">
                     <Reveal className="text-center mb-16">
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#8F9779] mb-4">La place du parent</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#B07D4B] mb-4">La place du parent</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] leading-tight max-w-3xl mx-auto">
                             Une implication claire, positive et sans lourdeur.
                         </p>
@@ -320,7 +320,7 @@ export default function EssentialPack({ setBookingStep }) {
                             }
                         ].map((item, i) => (
                             <Reveal key={i} delay={i * 150} className="flex-1 bg-[#fafafa] border border-gray-100 p-8 rounded-[2rem] text-center hover:-translate-y-1 transition-transform">
-                                <div className="text-[#8F9779] font-bold text-sm uppercase tracking-widest mb-3">{item.step}</div>
+                                <div className="text-[#B07D4B] font-bold text-sm uppercase tracking-widest mb-3">{item.step}</div>
                                 <h3 className="text-xl font-bold text-[#1B263B] mb-4">{item.title}</h3>
                                 <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
                             </Reveal>
@@ -334,10 +334,10 @@ export default function EssentialPack({ setBookingStep }) {
                 <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-16">
                     <Reveal className="lg:w-1/2">
                         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">
-                            Une progression que vous pouvez <span className="text-[#8F9779]">lire et comprendre.</span>
+                            Une progression que vous pouvez <span className="text-[#B07D4B]">lire et comprendre.</span>
                         </h2>
                         <p className="text-white/70 text-lg leading-relaxed mb-8">
-                            Essential inclut une mesure simplifiée (LSSS 10 items) pour documenter la progression des Life Skills. En fin de programme, vous recevez une **Scorecard claire (2 à 3 pages)**.
+                            Essential inclut une mesure simplifiée (LSSS 10 items) pour documenter la progression des Life Skills. En fin de programme, vous recevez une **Scorecard claire**.
                         </p>
                         <ul className="space-y-4">
                             {[
@@ -348,7 +348,7 @@ export default function EssentialPack({ setBookingStep }) {
                                 "Recommandations pratiques et faciles pour la maison"
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-4 text-white/90">
-                                    <CheckCircle2 size={24} className="text-[#8F9779] shrink-0" />
+                                    <CheckCircle2 size={24} className="text-[#B07D4B] shrink-0" />
                                     <span>{item}</span>
                                 </li>
                             ))}
@@ -356,14 +356,14 @@ export default function EssentialPack({ setBookingStep }) {
                     </Reveal>
                     <Reveal delay={200} className="lg:w-1/2 w-full">
                         <div className="bg-white/5 border border-white/10 p-8 rounded-[2rem] backdrop-blur-md relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#8F9779]/30 rounded-full blur-[60px]" />
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#B07D4B]/30 rounded-full blur-[60px]" />
                             <div className="space-y-6">
                                 <div className="flex justify-between items-end border-b border-white/10 pb-4">
                                     <div>
                                         <div className="text-white/50 text-xs uppercase mb-1">Scorecard THRIVE</div>
                                         <div className="text-xl font-serif font-bold">Progression des Life Skills</div>
                                     </div>
-                                    <div className="text-[#8F9779] font-bold">+24%</div>
+                                    <div className="text-[#B07D4B] font-bold">+24%</div>
                                 </div>
                                 <div className="space-y-4">
                                     {['Confiance globale', 'Gestion émotionnelle', 'Capacité à demander de l\'aide'].map((skill, i) => (
@@ -373,7 +373,7 @@ export default function EssentialPack({ setBookingStep }) {
                                                 <span className="text-white/60">Évolution positive</span>
                                             </div>
                                             <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                                                <div className="bg-[#8F9779] h-full rounded-full" style={{ width: `${60 + (i * 15)}%` }} />
+                                                <div className="bg-[#B07D4B] h-full rounded-full" style={{ width: `${60 + (i * 15)}%` }} />
                                             </div>
                                         </div>
                                     ))}
@@ -407,8 +407,8 @@ export default function EssentialPack({ setBookingStep }) {
                             { name: "Lettre à soi-même dans 1 an", icon: <MessageCircle size={20} /> },
                             { name: "Certificat personnalisé", icon: <FileText size={20} /> }
                         ].map((item, i) => (
-                            <Reveal key={i} delay={i * 50} className="bg-[#fafafa] border border-gray-100 p-6 rounded-2xl flex flex-col gap-4 group hover:bg-[#8F9779] hover:border-[#8F9779] transition-all duration-300">
-                                <div className="text-[#8F9779] group-hover:text-white transition-colors">{item.icon}</div>
+                            <Reveal key={i} delay={i * 50} className="bg-[#fafafa] border border-gray-100 p-6 rounded-2xl flex flex-col gap-4 group hover:bg-[#B07D4B] hover:border-[#B07D4B] transition-all duration-300">
+                                <div className="text-[#B07D4B] group-hover:text-white transition-colors">{item.icon}</div>
                                 <div className="font-bold text-sm text-[#1B263B] group-hover:text-white transition-colors">{item.name}</div>
                             </Reveal>
                         ))}
@@ -468,7 +468,7 @@ export default function EssentialPack({ setBookingStep }) {
                         
                         <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-8">
                             <p className="text-gray-600 leading-relaxed text-base">
-                                Vous avez déjà un programme complet avec Essential. Si, pour la prochaine saison, vous voulez aussi voir la progression mentale de votre enfant en chiffres poussés et prendre un temps de débrief structuré au milieu du programme, le <button onClick={goAdv} className="text-[#8F9779] font-bold hover:underline transition-all">pack Avancé</button> vous donnera exactement cette couche de précision.
+                                Vous avez déjà un programme complet avec Essential. Si, pour la prochaine saison, vous voulez aussi voir la progression mentale de votre enfant en chiffres poussés et prendre un temps de débrief structuré au milieu du programme, le <button onClick={goAdv} className="text-[#B07D4B] font-bold hover:underline transition-all">pack Avancé</button> vous donnera exactement cette couche de précision.
                             </p>
                         </div>
                     </Reveal>
@@ -479,7 +479,7 @@ export default function EssentialPack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white text-center">
                 <div className="max-w-3xl mx-auto">
                     <Reveal>
-                        <p className="text-[#8F9779] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
+                        <p className="text-[#B07D4B] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
                             <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">1 697</span>
                             <span className="text-3xl font-bold text-gray-400">CAD</span>
@@ -553,14 +553,14 @@ export default function EssentialPack({ setBookingStep }) {
             {/* 12. CTA FINAL */}
             <section className="py-32 px-4 bg-[#1B263B] text-white text-center relative overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#8F9779] to-transparent blur-[80px]" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#B07D4B] to-transparent blur-[80px]" />
                 </div>
                 
                 <div className="max-w-4xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
                             Une base claire pour <br />
-                            <span className="text-[#8F9779]">repartir dans le bon sens.</span>
+                            <span className="text-[#B07D4B]">repartir dans le bon sens.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-16">
                             THRIVE Essential aide votre enfant à retrouver des repères, développer ses outils mentaux et avancer dans un cadre sérieux, positif et documenté.
@@ -568,7 +568,7 @@ export default function EssentialPack({ setBookingStep }) {
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                             <button
                                 onClick={goEval}
-                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#8F9779] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#7a8166] transition-all hover:scale-105 shadow-xl"
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#B07D4B] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#8e653c] transition-all hover:scale-105 shadow-xl"
                             >
                                 Réserver un appel <ArrowRight size={20} />
                             </button>

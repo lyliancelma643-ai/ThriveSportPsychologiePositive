@@ -336,8 +336,7 @@ export default function AdvancedPack({ setBookingStep }) {
                             <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-12 backdrop-blur-md relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#94A3B8]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                                 <FileText size={48} className="text-[#94A3B8] mb-8 relative z-10" />
-                                <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Livrable Premium (3 à 4 pages)</h3>
-                                <p className="text-white/60 text-lg mb-8 relative z-10">Un document structuré, intelligent et rassurant pour matérialiser la progression.</p>
+                                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8 relative z-10 leading-snug">Un document structuré, intelligent et rassurant pour matérialiser la progression.</h3>
                                 <ul className="space-y-4 relative z-10">
                                     {[
                                         "Tableau SMTQ pré / post : « robustesse mentale en hausse de X points »",

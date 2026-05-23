@@ -249,6 +249,8 @@ export default function Prix({ handleSelectProgram }) {
             navigate('/pack/avance');
         } else if (packId === 'essential') {
             navigate('/pack/essential');
+        } else if (packId === 'diagnostic') {
+            navigate('/pack/diagnostic');
         } else {
             navigate('/booking'); 
         }
@@ -478,13 +480,13 @@ export default function Prix({ handleSelectProgram }) {
                                 {t('pricing.cta_final.desc')}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button
+                                <a
                                     id="final-cta-primary"
-                                    onClick={goBooking}
+                                    href="#les-packs"
                                     className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-base hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >
                                     {t('pricing.cta_final.btn_primary')} <ArrowRight size={17} />
-                                </button>
+                                </a>
                                 <button
                                     id="final-cta-secondary"
                                     onClick={goContact}
