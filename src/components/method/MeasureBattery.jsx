@@ -39,10 +39,9 @@ const MeasureBattery = () => {
                 <table className="w-full text-sm bg-white">
                     <thead>
                         <tr className="bg-[#1B263B] text-white">
-                            <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-widest rounded-tl-[1.5rem]">Instrument</th>
-                            <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-widest">Ce que ça mesure</th>
-                            <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-widest">Disponible</th>
-                            <th className="px-5 py-4 text-left font-bold text-xs uppercase tracking-widest rounded-tr-[1.5rem]">Ce que ça dit au parent</th>
+                            <th className="px-4 py-2.5 text-left font-bold text-xs uppercase tracking-widest rounded-tl-[1.5rem]">Ce que ça mesure</th>
+                            <th className="px-4 py-2.5 text-left font-bold text-xs uppercase tracking-widest">Disponible</th>
+                            <th className="px-4 py-2.5 text-left font-bold text-xs uppercase tracking-widest rounded-tr-[1.5rem]">Ce que ça dit au parent</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,13 +50,10 @@ const MeasureBattery = () => {
                                 key={inst.key}
                                 className={`border-t border-gray-100 hover:bg-gray-50/60 transition-colors ${i === INSTRUMENTS.length - 1 ? 'rounded-b-[1.5rem]' : ''}`}
                             >
-                                <td className="px-5 py-4 font-bold text-[#1B263B]">
-                                    {t(`method.measure.${inst.key}_name`)}
-                                </td>
-                                <td className="px-5 py-4 text-gray-600">
+                                <td className="px-4 py-2.5 font-bold text-[#1B263B]">
                                     {t(`method.measure.${inst.key}_measures`)}
                                 </td>
-                                <td className="px-5 py-4">
+                                <td className="px-4 py-2.5">
                                     <div className="flex flex-wrap gap-1">
                                         {inst.packs.map((p) => (
                                             <span
@@ -73,7 +69,7 @@ const MeasureBattery = () => {
                                         ))}
                                     </div>
                                 </td>
-                                <td className="px-5 py-4 text-gray-500 italic text-xs">
+                                <td className="px-4 py-2.5 text-gray-500 italic text-xs">
                                     {t(`method.measure.${inst.key}_parent`)}
                                 </td>
                             </tr>
