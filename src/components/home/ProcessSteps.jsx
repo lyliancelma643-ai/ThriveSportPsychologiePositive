@@ -80,18 +80,14 @@ export const ProcessSteps = () => {
                                 <stop offset="40%" stopColor="#8F9779" stopOpacity="0.4" />
                                 <stop offset="100%" stopColor="#8F9779" stopOpacity="0.9" />
                             </linearGradient>
-                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                                <feGaussianBlur stdDeviation="8" result="blur" />
-                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                            </filter>
                         </defs>
                         
                         {/* Gray track (Silhouette) */}
                         <path d="M 50 390 C 300 380, 500 270, 650 110 L 600 60 L 800 0 L 740 200 L 690 150 C 550 320, 300 395, 50 390 Z" fill="#F3F4F6" />
                         
                         {/* Green filling arrow (Faceted Group) */}
-                        {/* Hardware acceleration enabled with will-change */}
-                        <g ref={arrowGroupRef} filter="url(#glow)" style={{ clipPath: 'inset(0 100% 0 0)', willChange: 'clip-path' }}>
+                        {/* Hardware acceleration enabled with will-change. Removed SVG filter for massive performance boost. */}
+                        <g ref={arrowGroupRef} style={{ clipPath: 'inset(0 100% 0 0)', willChange: 'clip-path' }}>
                             
                             {/* Plane 2: Main Shaft (Base Gradient) */}
                             <path d="M 50 390 C 320 385, 520 280, 670 130 L 690 150 C 550 320, 300 395, 50 390 Z" fill="url(#arrowGradient)" />
