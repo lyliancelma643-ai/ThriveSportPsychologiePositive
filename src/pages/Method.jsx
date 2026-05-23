@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +20,23 @@ import EthicsSection from '../components/method/EthicsSection';
 const Method = ({ setBookingStep, handleSelectProgram }) => {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
+    
+    const problemRef = useRef(null);
+    const [problemVisible, setProblemVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setProblemVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (problemRef.current) observer.observe(problemRef.current);
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
@@ -121,7 +138,11 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                         </section>
 
                         {/* ── 2. PROBLÈME & INSIGHT ────────────────────── */}
-                        <section id="probleme" className="scroll-mt-32 pb-16">
+                        <section 
+                            id="probleme" 
+                            ref={problemRef}
+                            className={`scroll-mt-32 pb-16 transition-all duration-1000 ease-out transform ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                        >
                             <div className="bg-white rounded-[2rem] border border-gray-100 shadow-sm p-8 md:p-12">
                                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.problem.tag')}</span>
                                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-5">
