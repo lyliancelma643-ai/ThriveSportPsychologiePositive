@@ -39,7 +39,14 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
     const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
 
     return (
-        <div className="bg-[#FAFAFA]">
+        <div className="bg-[#FAFAFA] relative">
+            {/* Ambient Background */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-b from-[#C5A059]/10 to-transparent rounded-full blur-[120px] opacity-60" />
+                <div className="absolute top-[20%] -left-64 w-[800px] h-[800px] bg-[#1B263B]/5 rounded-full blur-[100px] opacity-70" />
+                <div className="absolute top-[60%] -right-64 w-[800px] h-[800px] bg-[#8F9779]/10 rounded-full blur-[100px] opacity-50" />
+            </div>
+
             <SEO 
                 title={t('seo.method.title')}
                 description={t('seo.method.desc')}
@@ -56,7 +63,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                 }}
             />
 
-            <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
                     {/* Sidebar sticky */}
