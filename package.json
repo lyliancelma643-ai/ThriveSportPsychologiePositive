@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
-    "@stripe/react-stripe-js": "^5.4.1",
-    "@stripe/stripe-js": "^8.6.3",
     "i18next": "^26.0.1",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.292.0",
