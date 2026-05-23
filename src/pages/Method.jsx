@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { getCalApi } from "@calcom/embed-react";
 
 // Existing components
 import MethodSidebar from '../components/method/MethodSidebar';
@@ -19,6 +20,20 @@ import EthicsSection from '../components/method/EthicsSection';
 const Method = ({ setBookingStep, handleSelectProgram }) => {
     const { t, i18n } = useTranslation();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
+
+        (async function () {
+            const cal = await getCalApi({ namespace: "30min" });
+            cal("ui", {
+                theme: "light",
+                styles: { branding: { brandColor: "#1B263B" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        })();
+    }, []);
 
     const goBooking = () => { navigate('/booking'); window.scrollTo(0, 0); };
     const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
@@ -81,10 +96,12 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <button
                                     id="method-cta-primary"
-                                    onClick={goBooking}
+                                    data-cal-namespace="30min"
+                                    data-cal-link="thrive-sport-positive/30min"
+                                    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                                     className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-9 py-4 rounded-full font-bold text-base hover:bg-[#253550] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
                                 >
-                                    {t('method.cta_primary')} <ArrowRight size={17} />
+                                    {t('home.hero.cta')} <ArrowRight size={17} />
                                 </button>
                                 <button
                                     id="method-cta-secondary"
