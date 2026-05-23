@@ -97,10 +97,10 @@ const ScientificPillars = () => {
         <section 
             id="piliers" 
             ref={sectionRef}
-            className={`scroll-mt-32 py-16 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+            className="scroll-mt-32 py-16"
         >
             {/* Header */}
-            <div className="text-center mb-4">
+            <div className={`text-center mb-4 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.pillars.tag')}</span>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
                     {t('method.pillars.title')}
@@ -112,7 +112,7 @@ const ScientificPillars = () => {
             </div>
 
             {/* Note épistémique */}
-            <div className="max-w-3xl mx-auto mb-10">
+            <div className={`max-w-3xl mx-auto mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '200ms' }}>
                 <div className="flex items-start gap-3 bg-blue-50/60 border border-blue-100 rounded-2xl p-4 text-sm text-blue-800">
                     <span className="text-lg shrink-0">🔬</span>
                     <div>
@@ -124,10 +124,11 @@ const ScientificPillars = () => {
 
             {/* Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-                {PILLARS.map((p) => (
+                {PILLARS.map((p, i) => (
                     <div
                         key={p.key}
-                        className="bg-white border border-gray-100 rounded-[1.5rem] p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200 flex flex-col gap-3"
+                        className={`bg-white border border-gray-100 rounded-[1.5rem] p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-700 ease-out flex flex-col gap-3 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                        style={{ transitionDelay: `${300 + i * 150}ms` }}
                     >
                         <div className="flex items-center justify-between">
                             <div
