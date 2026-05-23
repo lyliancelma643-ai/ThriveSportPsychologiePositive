@@ -49,7 +49,7 @@ export const PRICING_DATA = [
     },
     {
         id: 'essential',
-        price: 1497,
+        price: 1697,
         sessions: 13,
         isRecommended: false,
         isEntry: false,
