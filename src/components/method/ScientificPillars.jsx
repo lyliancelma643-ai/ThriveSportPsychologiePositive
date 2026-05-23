@@ -128,7 +128,7 @@ const ScientificPillars = () => {
                     <div
                         key={p.key}
                         className={`bg-white border border-gray-100 rounded-[1.5rem] p-6 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-700 ease-out flex flex-col gap-3 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
-                        style={{ transitionDelay: `${300 + i * 150}ms` }}
+                        style={{ transitionDelay: `${800 + i * 150}ms` }}
                     >
                         <div className="flex items-center justify-between">
                             <div
