@@ -204,10 +204,12 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <button
                                             id="method-final-cta-primary"
-                                            onClick={goBooking}
+                                            data-cal-namespace="30min"
+                                            data-cal-link="thrive-sport-positive/30min"
+                                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                                             className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg"
                                         >
-                                            {t('method.final_cta.btn_primary')} <ArrowRight size={17} />
+                                            {t('home.hero.cta')} <ArrowRight size={17} />
                                         </button>
                                         <button
                                             id="method-final-cta-secondary"
