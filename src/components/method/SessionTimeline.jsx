@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { CheckCircle2 } from 'lucide-react';
 
 const PHASES = [
-    { key: 'anchor',   sessions: 'S1–S4',   color: '#8F9779',  bg: '#8F977918', num: '01' },
-    { key: 'develop',  sessions: 'S5–S10',  color: '#C5A059',  bg: '#C5A05918', num: '02' },
+    { key: 'anchor',   sessions: 'S1–S2',   color: '#8F9779',  bg: '#8F977918', num: '01' },
+    { key: 'develop',  sessions: 'S3–S10',  color: '#C5A059',  bg: '#C5A05918', num: '02' },
     { key: 'integrate',sessions: 'S11–S13', color: '#1B263B',  bg: '#1B263B12', num: '03' },
 ];
 
