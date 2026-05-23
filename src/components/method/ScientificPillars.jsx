@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Niveau de preuve badge
@@ -76,8 +76,29 @@ const PILLARS = [
 
 const ScientificPillars = () => {
     const { t } = useTranslation();
+    const sectionRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="piliers" className="scroll-mt-32 py-16">
+        <section 
+            id="piliers" 
+            ref={sectionRef}
+            className={`scroll-mt-32 py-16 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+        >
             {/* Header */}
             <div className="text-center mb-4">
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.pillars.tag')}</span>
