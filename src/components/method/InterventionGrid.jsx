@@ -4,11 +4,11 @@ import { ChevronDown, Target, Heart, Star, HelpCircle, Wind, Eye } from 'lucide-
 
 const INTERVENTIONS = [
     { key: 'goals', icon: Target, color: '#8F9779', sessions: '' },
-    { key: 'emotion', icon: Heart, color: '#C5A059', sessions: 'S3–S4' },
-    { key: 'confidence', icon: Star, color: '#1B263B', sessions: 'S5–S6' },
-    { key: 'help', icon: HelpCircle, color: '#8F9779', sessions: 'S7' },
-    { key: 'relax', icon: Wind, color: '#687153', sessions: 'S8–S9' },
-    { key: 'focus', icon: Eye, color: '#1B263B', sessions: 'S10–S12' },
+    { key: 'emotion', icon: Heart, color: '#C5A059', sessions: '' },
+    { key: 'confidence', icon: Star, color: '#1B263B', sessions: '' },
+    { key: 'help', icon: HelpCircle, color: '#8F9779', sessions: '' },
+    { key: 'relax', icon: Wind, color: '#687153', sessions: '' },
+    { key: 'focus', icon: Eye, color: '#1B263B', sessions: '' },
 ];
 
 const InterventionCard = ({ item, isOpen, onToggle, t }) => {
