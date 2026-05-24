@@ -76,8 +76,8 @@ export default function AdvancedPack({ setBookingStep }) {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#94A3B8]/20">
             <SEO 
-                title="THRIVE Avancé | Le pack recommandé"
-                description="Le programme complet avec preuves chiffrées et call parent. Un accompagnement structuré, mesuré et rassurant pour les familles d'athlètes investis."
+                title="Pack Avancé | Suivi Mental et Preuves d'Évolution — THRIVE"
+                description="Notre pack recommandé : le programme complet avec des preuves chiffrées de progression et un suivi parent rapproché."
                 url="https://thrivesportpositive.com/pack/avance"
             />
 

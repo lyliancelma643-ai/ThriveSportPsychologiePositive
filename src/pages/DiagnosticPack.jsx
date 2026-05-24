@@ -74,8 +74,8 @@ export default function DiagnosticPack() {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#94A3B8]/20">
             <SEO 
-                title="THRIVE Diagnostic | La première étape sans pression"
-                description="Le Diagnostic THRIVE : une première rencontre intelligente pour comprendre votre enfant avant de s'engager. 2 séances, un rapport PDF, aucune pression."
+                title="Pack Diagnostic | Évaluation Mentale Sans Pression — THRIVE"
+                description="Une première rencontre intelligente pour comprendre votre jeune athlète avant de s'engager. 2 séances, un rapport PDF clair, et aucune pression."
                 url="https://thrivesportpositive.com/pack/diagnostic"
             />
 

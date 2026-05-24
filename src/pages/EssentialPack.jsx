@@ -76,8 +76,8 @@ export default function EssentialPack({ setBookingStep }) {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#B07D4B]/20">
             <SEO 
-                title="THRIVE Essential | Le programme complet"
-                description="Le programme complet, clair et documenté. 13 séances individuelles pour retrouver confiance et sérénité avec des repères simples et solides."
+                title="Pack Essential | Base de Psychologie Sportive — THRIVE"
+                description="Le programme complet (13 séances) pour retrouver confiance et sérénité avec des repères simples et solides. Idéal pour débuter le travail mental."
                 url="https://thrivesportpositive.com/pack/essential"
             />
 

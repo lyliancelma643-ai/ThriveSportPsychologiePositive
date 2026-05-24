@@ -75,8 +75,8 @@ export default function PerformancePack({ setBookingStep }) {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#C5A059]/20">
             <SEO 
-                title="THRIVE Performance | L'accompagnement complet"
-                description="Le programme complet avec suivi d'athlète de haut niveau. Un cadre clair, des mesures solides et un accompagnement de confiance sur toute la saison."
+                title="Pack Performance | Accompagnement Mental Haut Niveau — THRIVE"
+                description="Pour les jeunes athlètes élite : un cadre sur-mesure, des mesures solides et un accompagnement de proximité avec la famille sur toute la saison."
                 url="https://thrivesportpositive.com/pack/performance"
             />
 
