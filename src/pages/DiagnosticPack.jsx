@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
+import Cal, { getCalApi } from "@calcom/embed-react";
 import { 
     ArrowRight, CheckCircle2, Shield, Search, Lightbulb, 
     FileText, Crosshair, ChevronDown, Compass, Target, 
@@ -66,6 +67,13 @@ export default function DiagnosticPack() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        (async function () {
+            const cal = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
+            cal("ui", {
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        })();
     }, []);
 
     const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
@@ -125,12 +133,14 @@ export default function DiagnosticPack() {
                         >
                             Commencer par le Diagnostic <ArrowRight size={20} />
                         </button>
-                        <a
-                            href="#inclus"
+                        <button
+                            data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                            data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                         >
-                            Voir ce que comprend le Diagnostic
-                        </a>
+                            reserver ma place
+                        </button>
                     </Reveal>
 
                     {/* Quick proofs */}
@@ -473,12 +483,20 @@ export default function DiagnosticPack() {
                             <span className="text-gray-500 ml-2">du futur pack sélectionné</span>
                         </div>
 
-                        <div>
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
                                 onClick={goEval}
-                                className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
                                 Commencer par le Diagnostic <ArrowRight size={20} />
+                            </button>
+                            <button
+                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-[#1B263B] text-[#1B263B] px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
+                            >
+                                reserver ma place gratuitement
                             </button>
                         </div>
                     </Reveal>

@@ -8,6 +8,7 @@ import {
     TrendingUp, Plus
 } from 'lucide-react';
 import ContactSection from '../components/ui/ContactSection';
+import Cal, { getCalApi } from "@calcom/embed-react";
 
 // --- Scroll Reveal Utility Component ---
 const Reveal = ({ children, delay = 0, className = "" }) => {
@@ -68,6 +69,13 @@ export default function AdvancedPack({ setBookingStep }) {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        (async function () {
+            const cal = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
+            cal("ui", {
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+        })();
     }, []);
 
     const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
@@ -125,12 +133,14 @@ export default function AdvancedPack({ setBookingStep }) {
                         >
                             Réserver un appel <ArrowRight size={20} />
                         </button>
-                        <a
-                            href="#inclus"
+                        <button
+                            data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                            data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                         >
-                            Découvrir le contenu du pack
-                        </a>
+                            reserver ma place
+                        </button>
                     </Reveal>
 
                     {/* Quick proofs */}
@@ -469,12 +479,22 @@ export default function AdvancedPack({ setBookingStep }) {
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
                             Le bon niveau d’accompagnement pour les familles qui veulent des preuves tangibles, un point structuré à mi-parcours et une lecture claire de la progression.
                         </p>
-                        <button
-                            onClick={goEval}
-                            className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl mb-6"
-                        >
-                            Planifier un appel découverte <ArrowRight size={20} />
-                        </button>
+                        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+                            <button
+                                onClick={goEval}
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
+                            >
+                                Planifier un appel découverte <ArrowRight size={20} />
+                            </button>
+                            <button
+                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-[#1B263B] text-[#1B263B] px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
+                            >
+                                reserver ma place gratuitement
+                            </button>
+                        </div>
                         <p className="text-sm text-gray-400 font-medium">
                             Places limitées selon la capacité d'accompagnement.
                         </p>
