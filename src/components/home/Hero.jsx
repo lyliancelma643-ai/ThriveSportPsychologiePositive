@@ -14,10 +14,15 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
         if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
 
         (async function () {
-            const cal = await getCalApi({ namespace: "30min" });
-            cal("ui", {
+            const cal30 = await getCalApi({ namespace: "30min" });
+            cal30("ui", {
                 theme: "light",
                 styles: { branding: { brandColor: "#1B263B" } },
+                hideEventTypeDetails: false,
+                layout: "month_view"
+            });
+            const calThrive = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
+            calThrive("ui", {
                 hideEventTypeDetails: false,
                 layout: "month_view"
             });
@@ -61,21 +66,23 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                             <span className="font-bold text-[#1B263B]">{t('home.hero.subtitle_bold_3')}</span>
                             {t('home.hero.subtitle_5')}
                         </p>
-                        <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <div className="flex flex-col space-y-4 w-full sm:max-w-[320px]">
+                            <button
+                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                className="group relative overflow-hidden bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full scale-105"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
+                                <span className="relative z-20 flex items-center">Réserver ma place gratuitement <ChevronRight className="ml-2" size={20} /></span>
+                            </button>
                             <button
                                 data-cal-namespace="30min"
                                 data-cal-link="thrive-sport-positive/30min"
                                 data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                                className="group relative overflow-hidden bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1"
+                                className="bg-transparent text-[#1B263B] border-2 border-[#1B263B] px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-50 transition-all flex items-center justify-center shadow-sm hover:shadow-md hover:-translate-y-1 w-full"
                             >
-                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
-                                <span className="relative z-20 flex items-center">{t('home.hero.cta')} <ChevronRight className="ml-2" size={20} /></span>
-                            </button>
-                            <button
-                                onClick={openDiagnostic}
-                                className="bg-transparent text-[#1B263B] border-2 border-[#1B263B] px-8 py-4 rounded-full text-lg font-medium hover:bg-[#1B263B] hover:text-white transition-all flex items-center justify-center shadow-sm hover:shadow-xl hover:-translate-y-1"
-                            >
-                                {t('home.hero.diagnostic_btn', 'Diagnostic Gratuit')}
+                                {t('home.hero.cta')}
                             </button>
                         </div>
 
