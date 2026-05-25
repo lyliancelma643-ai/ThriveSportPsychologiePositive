@@ -42,6 +42,7 @@ const Booking = ({
                 description={t('seo.booking.desc')}
                 url="https://thrivesportpositive.com/booking"
             />
+            <h1 className="sr-only">Réservation</h1>
             <div className="max-w-5xl mx-auto px-4">
                 <div className="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-gray-100 relative overflow-hidden">
 

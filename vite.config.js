@@ -16,7 +16,11 @@ export default defineConfig({
                 '/evaluation',
                 '/booking',
                 '/zones',
-                '/a-propos'
+                '/a-propos',
+                '/pack/performance',
+                '/pack/avance',
+                '/pack/essential',
+                '/pack/diagnostic'
             ],
             changefreq: 'monthly',
             priority: 0.8,

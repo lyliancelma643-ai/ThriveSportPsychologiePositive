@@ -34,6 +34,7 @@ const Evaluation = ({ handleSelectProgram }) => {
                 <SectionHeader
                     title={t('evaluation.title')}
                     subtitle={t('evaluation.subtitle')}
+                    isH1={true}
                 />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
@@ -41,10 +42,10 @@ const Evaluation = ({ handleSelectProgram }) => {
                     {/* Left Column: Diagnostic Tool */}
                     <div>
                         <div className="mb-6">
-                            <h3 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
+                            <h2 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
                                 <span className="w-8 h-8 rounded-full bg-[#1B263B] text-white flex items-center justify-center mr-3 text-sm">1</span>
                                 {t('evaluation.step_1_title')}
-                            </h3>
+                            </h2>
                             <p className="text-gray-600 text-sm">{t('evaluation.step_1_desc')}</p>
                         </div>
                         <DiagnosticWidget handleSelectProgram={handleSelectProgram} />
@@ -53,10 +54,10 @@ const Evaluation = ({ handleSelectProgram }) => {
                     {/* Right Column: Contact & Next Steps */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
+                            <h2 className="text-xl font-bold text-[#1B263B] mb-2 flex items-center">
                                 <span className="w-8 h-8 rounded-full bg-[#1B263B] text-white flex items-center justify-center mr-3 text-sm">2</span>
                                 {t('evaluation.step_2_title')}
-                            </h3>
+                            </h2>
                             <p className="text-gray-600 text-sm mb-6">{t('evaluation.step_2_desc')}</p>
 
                             <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
@@ -67,7 +68,7 @@ const Evaluation = ({ handleSelectProgram }) => {
 
                         {/* Contact Direct */}
                         <div className="bg-[#1B263B] text-white p-8 rounded-[2rem] shadow-lg">
-                            <h4 className="font-serif font-bold text-xl mb-4">{t('evaluation.contact_title')}</h4>
+                            <h3 className="font-serif font-bold text-xl mb-4">{t('evaluation.contact_title')}</h3>
                             <div className="space-y-4 text-sm">
                                 <a href="mailto:info@thrivesportpositive.com" className="flex items-center hover:text-[#C5A059] transition-colors">
                                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4"><Mail size={18} /></div>

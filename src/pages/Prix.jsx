@@ -331,6 +331,7 @@ export default function Prix({ handleSelectProgram }) {
 
             {/* ══ 3. GRILLE DES 4 PACKS ════════════════════════════════ */}
             <section id="les-packs" className="py-20 px-4 bg-white" aria-labelledby="packs-heading">
+                <h2 id="packs-heading" className="sr-only">Nos Packs</h2>
                 <div className="max-w-7xl mx-auto">
 
 

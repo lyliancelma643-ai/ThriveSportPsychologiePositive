@@ -53,6 +53,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                 <SectionHeader
                     title={t('sports.page_title')}
                     subtitle={t('sports.page_subtitle')}
+                    isH1={true}
                 />
             </div>
 
@@ -73,7 +74,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                                     <div className="text-6xl mb-5 transform group-hover:scale-110 group-hover:-translate-y-2 transition-all duration-500 flex justify-center" role="img" aria-label={sport.name}>
                                         {sport.icon}
                                     </div>
-                                    <h3 className="text-3xl font-serif font-bold text-[#1B263B] mb-3 tracking-tight">{t(`sports.${sport.id}.name`)}</h3>
+                                    <h2 className="text-3xl font-serif font-bold text-[#1B263B] mb-3 tracking-tight">{t(`sports.${sport.id}.name`)}</h2>
                                     <div className="w-8 h-1 bg-[#C5A059] mx-auto rounded-full mb-6 opacity-60"></div>
                                 </div>
 
@@ -101,7 +102,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                                     <div className="bg-white/10 p-4 rounded-2xl mb-6 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.1)]">
                                         <Heart size={32} className="text-white drop-shadow-md" />
                                     </div>
-                                    <h4 className="text-2xl font-serif font-bold mb-3 tracking-wide">{t(`sports.${sport.id}.perma_title`)}</h4>
+                                    <h3 className="text-2xl font-serif font-bold mb-3 tracking-wide">{t(`sports.${sport.id}.perma_title`)}</h3>
                                     <div className="w-8 h-1 bg-white/40 mx-auto rounded-full mb-5"></div>
                                     <p className="text-white/95 leading-relaxed text-[17px] font-light px-2">
                                         "{t(`sports.${sport.id}.perma_desc`)}"
@@ -130,7 +131,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                     <Activity size={160} className="absolute text-white/5 -top-10 -right-10 transform transition-transform duration-1000 group-hover:scale-110 group-hover:rotate-12 pointer-events-none" />
                     <Activity size={100} className="absolute text-white/5 -bottom-10 -left-10 transform transition-transform duration-1000 group-hover:scale-110 group-hover:-rotate-12 pointer-events-none" />
                     
-                    <h3 className="text-4xl font-serif font-bold mb-6 tracking-tight relative z-10" dangerouslySetInnerHTML={{ __html: t('sports.summary_title') }}></h3>
+                    <h2 className="text-4xl font-serif font-bold mb-6 tracking-tight relative z-10" dangerouslySetInnerHTML={{ __html: t('sports.summary_title') }}></h2>
                     <p className="text-white/70 mb-10 leading-relaxed max-w-lg relative z-10 text-lg">
                         {t('sports.summary_desc')}
                     </p>

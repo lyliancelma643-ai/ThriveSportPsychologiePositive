@@ -18,6 +18,7 @@ const About = () => {
                 <SectionHeader
                     title={t('about.header_title')}
                     subtitle={t('about.header_subtitle')}
+                    isH1={true}
                 />
                 <p className="text-xl text-gray-600 leading-relaxed">
                     {t('about.intro_p')}
@@ -29,7 +30,7 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#1B263B]/10 rounded-full flex items-center justify-center text-[#1B263B] mb-6">
                         <Users size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col1_title')}</h3>
+                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col1_title')}</h2>
                     <p className="text-gray-600 text-sm leading-relaxed">
                         <Trans i18nKey="about.col1_desc">
                             {t('about.col1_desc_1')}<strong>{t('about.col1_desc_b1')}</strong>{t('about.col1_desc_2')}<strong>{t('about.col1_desc_b2')}</strong>{t('about.col1_desc_3')}
@@ -42,7 +43,7 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#8F9779]/10 rounded-full flex items-center justify-center text-[#8F9779] mb-6">
                         <BookOpen size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col2_title')}</h3>
+                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col2_title')}</h2>
                     <p className="text-gray-600 text-sm leading-relaxed">
                         <Trans i18nKey="about.col2_desc">
                             {t('about.col2_desc_1')}<strong>{t('about.col2_desc_b1')}</strong>{t('about.col2_desc_2')}
@@ -54,7 +55,7 @@ const About = () => {
                     <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mb-6">
                         <ShieldCheck size={32} />
                     </div>
-                    <h3 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col3_title')}</h3>
+                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col3_title')}</h2>
                     <p className="text-gray-600 text-sm leading-relaxed">
                         <Trans i18nKey="about.col3_desc">
                             {t('about.col3_desc_1')}<strong>{t('about.col3_desc_b1')}</strong>{t('about.col3_desc_2')}
