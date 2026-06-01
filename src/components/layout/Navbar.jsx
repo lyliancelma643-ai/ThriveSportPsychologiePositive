@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Menu, X, Mail, Phone } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import logo from '../../assets/logo court sans fond.png';
+import logo from '../../assets/logo.png';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 const Navbar = ({ setBookingStep }) => {

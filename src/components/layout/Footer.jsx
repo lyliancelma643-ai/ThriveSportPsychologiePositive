@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck, Mail, Phone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import logo from '../../assets/logo court sans fond.png';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
     const { t } = useTranslation();
