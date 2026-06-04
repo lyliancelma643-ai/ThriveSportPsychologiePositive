@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '../components/seo/SEO';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -26,18 +26,47 @@ const FAQItem = ({ question, answer }) => {
 
 const Evaluation = () => {
     const { t } = useTranslation();
-    const [isSubmitted, setIsSubmitted] = useState(false);
-    const [formData, setFormData] = useState({
-        parentName: '', email: '', phone: '', childName: '', childAge: '', ageGroup: '', mainNeed: ''
-    });
 
-    const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+    useEffect(() => {
+        (function (C, A, L) { 
+            let p = function (a, ar) { a.q.push(ar); }; 
+            let d = C.document; 
+            C.Cal = C.Cal || function () { 
+                let cal = C.Cal; 
+                let ar = arguments; 
+                if (!cal.loaded) { 
+                    cal.ns = {}; 
+                    cal.q = cal.q || []; 
+                    let script = d.createElement("script");
+                    script.src = A;
+                    d.head.appendChild(script); 
+                    cal.loaded = true; 
+                } 
+                if (ar[0] === L) { 
+                    const api = function () { p(api, arguments); }; 
+                    const namespace = ar[1]; 
+                    api.q = api.q || []; 
+                    if(typeof namespace === "string"){
+                        cal.ns[namespace] = cal.ns[namespace] || api;
+                        p(cal.ns[namespace], ar);
+                        p(cal, ["initNamespace", namespace]);
+                    } else p(cal, ar); 
+                    return;
+                } 
+                p(cal, ar); 
+            }; 
+        })(window, "https://app.cal.com/embed/embed.js", "init");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Waitlist form submitted:", formData);
-        setIsSubmitted(true);
-    };
+        window.Cal("init", "thrive-performance-13-seances-du-dimanche", {origin:"https://app.cal.com"});
+        window.Cal.ns["thrive-performance-13-seances-du-dimanche"]("ui", {
+            "hideEventTypeDetails":false,
+            "layout":"month_view",
+            "cssVarsPerTheme":{
+                "light":{"cal-brand":"#1F2A44"},
+                "dark":{"cal-brand":"#C9A14A"}
+            }
+        });
+    }, []);
 
     const faqs = [
         { q: t('waitlist.faq.q1_q'), a: t('waitlist.faq.q1_a') },
@@ -56,17 +85,28 @@ const Evaluation = () => {
                     
                     {/* Left Column: Value Proposition (Condensed) */}
                     <div className="w-full lg:w-1/2 flex flex-col pt-4">
-                        <span className="text-[#C9A14A] font-semibold tracking-wider uppercase text-xs mb-2">
-                            {t('waitlist.rarity.spots')} — {t('waitlist.rarity.date')}
+                        <span className="text-[#C9A14A] font-semibold tracking-wider uppercase text-xs mb-2 block leading-relaxed">
+                            {t('waitlist.rarity.spots').split('20 places').map((part, i, arr) => (
+                                <React.Fragment key={i}>
+                                    {part}
+                                    {i !== arr.length - 1 && (
+                                        <span className="bg-[#C9A14A] text-white px-2 py-0.5 rounded shadow-sm font-bold mx-0.5 inline-block">
+                                            20 places
+                                        </span>
+                                    )}
+                                </React.Fragment>
+                            ))}
+                            {' '}{t('waitlist.rarity.date')}
                         </span>
                         
                         <h1 className="font-serif text-[28px] sm:text-4xl lg:text-5xl text-[#1F2A44] font-bold tracking-tight mb-4 leading-tight">
                             {t('waitlist.hero.headline')}
                         </h1>
                         
-                        <p className="text-sm sm:text-lg text-[#5F6472] mb-6 leading-relaxed">
-                            {t('waitlist.hero.subheadline')} {t('waitlist.what_is.desc_1')}
-                        </p>
+                        <div className="text-sm sm:text-lg text-[#5F6472] mb-6 leading-relaxed space-y-3">
+                            <p>{t('waitlist.hero.subheadline')}</p>
+                            <p>{t('waitlist.what_is.desc_1')}</p>
+                        </div>
 
                         <div className="flex flex-col gap-3 mb-6 lg:mb-8">
                             <div className="flex items-start lg:items-center gap-3 text-[13px] lg:text-sm text-[#1F2A44] font-medium bg-white p-3 lg:p-4 rounded-xl shadow-sm border border-gray-100">
@@ -91,86 +131,39 @@ const Evaluation = () => {
                         </div>
                     </div>
 
-                    {/* Right Column: Form */}
-                    <div className="w-full lg:w-1/2 mt-2 lg:mt-0">
-                        <div className="bg-white p-5 sm:p-8 rounded-[1.5rem] lg:rounded-[2rem] shadow-2xl border border-gray-100 sticky top-24">
-                            {!isSubmitted ? (
-                                <>
-                                    <div className="text-center mb-6">
-                                        <h2 className="font-serif text-2xl text-[#1F2A44] font-bold mb-2">{t('waitlist.form.title')}</h2>
-                                        <p className="text-sm text-[#5F6472]">{t('waitlist.form.subtitle')}</p>
-                                    </div>
-                                    <form onSubmit={handleSubmit} className="space-y-4">
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_prenom_parent')} *</label>
-                                                <input required type="text" name="parentName" value={formData.parentName} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none" />
-                                            </div>
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_email')} *</label>
-                                                <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none" />
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_telephone')} *</label>
-                                                <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none" />
-                                            </div>
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_prenom_enfant')}</label>
-                                                <input type="text" name="childName" value={formData.childName} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none" />
-                                            </div>
-                                        </div>
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_age_enfant')} *</label>
-                                                <input required type="number" min="8" max="17" name="childAge" value={formData.childAge} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none" />
-                                            </div>
-                                            <div className="space-y-1">
-                                                <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_tranche_age')} *</label>
-                                                <select required name="ageGroup" value={formData.ageGroup} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none bg-white">
-                                                    <option value="">---</option>
-                                                    <option value="8-11">8-11</option>
-                                                    <option value="12-14">12-14</option>
-                                                    <option value="15-17">15-17</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="space-y-1">
-                                            <label className="text-xs font-medium text-[#1F2A44]">{t('waitlist.form.lbl_besoin')}</label>
-                                            <select name="mainNeed" value={formData.mainNeed} onChange={handleChange} className="w-full px-3 py-2 text-sm rounded-lg border border-gray-200 focus:ring-1 focus:ring-[#A7C4BC] outline-none bg-white">
-                                                <option value="">{t('waitlist.form.opt_besoin_default')}</option>
-                                                <option value="Confiance en soi">{t('waitlist.form.opt_besoin_1')}</option>
-                                                <option value="Leadership">{t('waitlist.form.opt_besoin_2')}</option>
-                                                <option value="Résilience">{t('waitlist.form.opt_besoin_3')}</option>
-                                                <option value="Lien parent-enfant">{t('waitlist.form.opt_besoin_4')}</option>
-                                                <option value="Cadre structuré">{t('waitlist.form.opt_besoin_5')}</option>
-                                            </select>
-                                        </div>
-                                        <div className="pt-2">
-                                            <button type="submit" className="w-full bg-[#1F2A44] text-white py-3 rounded-xl font-bold text-sm hover:bg-[#C9A14A] transition-colors shadow-lg">
-                                                {t('waitlist.form.btn_submit')}
-                                            </button>
-                                            <div className="flex items-center justify-center mt-3 text-[10px] text-[#5F6472]">
-                                                <Lock className="w-3 h-3 mr-1" />
-                                                {t('waitlist.form.trust')}
-                                            </div>
-                                        </div>
-                                    </form>
-                                </>
-                            ) : (
-                                <div className="text-center py-10">
-                                    <div className="w-16 h-16 bg-[#A7C4BC]/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <CheckCircle className="w-8 h-8 text-[#A7C4BC]" />
-                                    </div>
-                                    <h3 className="text-xl font-serif font-bold text-[#1F2A44] mb-2">
-                                        {t('waitlist.form.success_msg').split('—')[0]}
-                                    </h3>
-                                    <p className="text-[#5F6472] text-sm">
-                                        {t('waitlist.form.success_msg').split('—')[1]}
-                                    </p>
-                                </div>
-                            )}
+                    {/* Right Column: Clickable Zone for Cal.com */}
+                    <div className="w-full lg:w-1/2 mt-2 lg:mt-0 flex flex-col justify-center">
+                        <div className="bg-white p-6 sm:p-10 rounded-[1.5rem] lg:rounded-[2rem] shadow-2xl border border-gray-100 lg:sticky lg:top-32 text-center flex flex-col items-center justify-center min-h-[400px]">
+                            
+                            {/* Premium Banner for Dates */}
+                            <div className="inline-flex items-center text-left sm:text-center gap-3 bg-gradient-to-r from-[#1F2A44] to-[#2A3754] text-white px-5 py-3 sm:px-6 sm:py-3 rounded-2xl sm:rounded-full mb-8 shadow-md border border-[#C9A14A]/20 max-w-[90%]">
+                                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#C9A14A] flex-shrink-0" />
+                                <span className="font-serif text-xs sm:text-sm tracking-wide font-medium">
+                                    {t('waitlist.hero.booking_dates')}
+                                </span>
+                            </div>
+                            
+                            <h2 className="font-serif text-2xl lg:text-3xl text-[#1F2A44] font-bold mb-4">
+                                {t('waitlist.form.title')}
+                            </h2>
+                            
+                            <p className="text-sm lg:text-base text-[#5F6472] mb-8 max-w-sm">
+                                {t('waitlist.form.subtitle')}
+                            </p>
+
+                            <button 
+                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
+                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                className="w-full max-w-sm bg-[#1F2A44] text-white py-4 px-6 rounded-xl font-bold text-base hover:bg-[#C9A14A] transition-colors shadow-lg flex justify-center items-center gap-3"
+                            >
+                                Choisir un créneau <ArrowRight className="w-5 h-5" />
+                            </button>
+                            
+                            <div className="flex items-center justify-center mt-5 text-xs text-[#5F6472]">
+                                <Lock className="w-3 h-3 mr-1" />
+                                {t('waitlist.form.trust')}
+                            </div>
                         </div>
                     </div>
                 </div>

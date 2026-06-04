@@ -12,7 +12,8 @@
   "waitlist": {
     "hero": {
       "headline": "Réservez votre place gratuitement",
-      "subheadline": "La première étape pour faire grandir la confiance de votre enfant — sans engagement.",
+      "subheadline": "La première étape pour faire grandir la confiance de votre enfant, sans engagement !",
+      "booking_dates": "Réservez votre place de 13 seances pour la session du 6 septembre jusqu'au 29 novembre !",
       "microproof_1": "20 places seulement pour le lancement d'août 2026",
       "microproof_2": "Protocole structuré en 13 séances",
       "microproof_3": "Fondé sur 8 piliers de psychologie positive"
@@ -25,6 +26,7 @@
     },
     "benefits": {
       "title": "Pourquoi Thrive ?",
+      "subtitle": "Une méthode claire pour des résultats profonds et durables.",
       "b1_title": "Progression Mesurable",
       "b1_desc": "Des indicateurs clairs de l'évolution de la confiance et du bien-être de votre enfant.",
       "b2_title": "Confiance Solide",
@@ -48,7 +50,7 @@
     },
     "rarity": {
       "title": "Une opportunité exclusive",
-      "date": "Lancement : 20 août 2026",
+      "date": "Lancement à Montréal : 20 août 2026",
       "spots": "Seulement 20 places disponibles pour cette cohorte."
     },
     "form": {
