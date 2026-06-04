@@ -2,11 +2,110 @@
   "nav": {
     "home": "Home",
     "sport": "The Sport",
+    "booking": "Booking",
     "method": "The Method",
     "programs": "Programs",
     "pricing": "Pricing",
     "locations": "Locations",
     "about": "About"
+  },
+  "waitlist": {
+    "hero": {
+      "headline": "Book your spot for free",
+      "subheadline": "The first step to growing your child's confidence — no commitment.",
+      "microproof_1": "Only 20 spots for the August 2026 launch",
+      "microproof_2": "Structured 13-session protocol",
+      "microproof_3": "Based on 8 pillars of positive psychology"
+    },
+    "what_is": {
+      "title": "More than a sports class",
+      "subtitle": "Thrive isn't a traditional training program. It's a global development protocol.",
+      "desc_1": "Athletic performance is just a tool. Our true goal is human progression: self-confidence, resilience, and autonomy.",
+      "desc_2": "We build strong bonds between parent and child through a structured and measurable framework."
+    },
+    "benefits": {
+      "title": "Why Thrive?",
+      "b1_title": "Measurable Progress",
+      "b1_desc": "Clear indicators of the evolution of your child's confidence and well-being.",
+      "b2_title": "Solid Confidence",
+      "b2_desc": "Development of self-efficacy in the face of sports and life challenges.",
+      "b3_title": "Strengthened Bond",
+      "b3_desc": "Unique moments of connection to reunite with your child.",
+      "b4_title": "Structured Framework",
+      "b4_desc": "A clear method, in 13 sessions, with no uncertainty."
+    },
+    "science": {
+      "title": "The science behind Thrive",
+      "subtitle": "A protocol validated by university research",
+      "pill_1": "Self-Determination Theory (SDT)",
+      "pill_2": "Self-Efficacy",
+      "pill_3": "Positive Youth Development (PYD)",
+      "pill_4": "Life Skills through sports",
+      "pill_5": "PERMA Model",
+      "pill_6": "VIA Strengths",
+      "pill_7": "Achievement Goal Theory",
+      "pill_8": "DMSP Model"
+    },
+    "rarity": {
+      "title": "An exclusive opportunity",
+      "date": "Launch: August 20, 2026",
+      "spots": "Only 20 spots available for this cohort."
+    },
+    "form": {
+      "title": "Join the waitlist",
+      "subtitle": "No commitment. Free 20-minute qualification call.",
+      "lbl_prenom_parent": "Parent's First Name",
+      "lbl_email": "Email",
+      "lbl_telephone": "Phone Number",
+      "lbl_prenom_enfant": "Child's First Name (optional)",
+      "lbl_age_enfant": "Child's Age",
+      "lbl_tranche_age": "Age Group",
+      "lbl_besoin": "Main Need (optional)",
+      "opt_besoin_default": "Select a need",
+      "opt_besoin_1": "Self-confidence",
+      "opt_besoin_2": "Leadership",
+      "opt_besoin_3": "Resilience",
+      "opt_besoin_4": "Parent-child bond",
+      "opt_besoin_5": "Structured framework",
+      "opt_besoin_6": "I don't know yet",
+      "btn_submit": "Join the waitlist",
+      "trust": "Your data remains confidential.",
+      "success_msg": "Thank you — you are on the priority waitlist. We will contact you within 48h for the next step."
+    },
+    "how_it_works": {
+      "title": "How it works?",
+      "step_1": "1. You join the waitlist",
+      "step_2": "2. We contact you for a free qualification call",
+      "step_3": "3. You receive the details of the next cycle"
+    },
+    "pricing": {
+      "title": "The Thrive Program",
+      "subtitle": "13 structured sessions to transform confidence.",
+      "tier_1_name": "Essential",
+      "tier_1_price": "$1697",
+      "tier_2_name": "Advanced",
+      "tier_2_price": "$1997",
+      "tier_2_badge": "Most popular",
+      "tier_3_name": "Premium",
+      "tier_3_price": "$2497"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "q1_q": "Is it a classic sports class?",
+      "q1_a": "No. It's a global development protocol using sports as leverage.",
+      "q2_q": "What is the level of commitment?",
+      "q2_a": "The full program lasts 13 structured sessions to guarantee measurable results.",
+      "q3_q": "Where do the sessions take place?",
+      "q3_a": "In Montreal, at 5115 Rivard street.",
+      "q4_q": "Is it suitable for my child?",
+      "q4_a": "We support youth from 8 to 17 years old, with programs tailored by age group."
+    },
+    "contact": {
+      "title": "Talk to an advisor",
+      "subtitle": "We are here to guide you",
+      "email": "info@thrivesportpositive.com",
+      "phone": "(263) 362-2030"
+    }
   },
   "seo": {
     "home": {
@@ -517,7 +616,7 @@
     "success_btn": "Return to home"
   },
   "evaluation": {
-    "title": "Your Free Assessment Session",
+    "title": "Book your spot for free",
     "subtitle": "The first step to transforming your child's potential. No commitment required.",
     "step_1_title": "Quick Assessment",
     "step_1_desc": "Answer these 3 questions to help us prepare for the session.",

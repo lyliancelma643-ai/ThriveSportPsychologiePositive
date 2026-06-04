@@ -2,11 +2,110 @@
   "nav": {
     "home": "Accueil",
     "sport": "Le Sport",
+    "booking": "Réservation",
     "method": "La Méthode",
     "programs": "Programmes",
     "pricing": "Prix",
     "locations": "Zones",
     "about": "À Propos"
+  },
+  "waitlist": {
+    "hero": {
+      "headline": "Réservez votre place gratuitement",
+      "subheadline": "La première étape pour faire grandir la confiance de votre enfant — sans engagement.",
+      "microproof_1": "20 places seulement pour le lancement d'août 2026",
+      "microproof_2": "Protocole structuré en 13 séances",
+      "microproof_3": "Fondé sur 8 piliers de psychologie positive"
+    },
+    "what_is": {
+      "title": "Plus qu'un cours de sport",
+      "subtitle": "Thrive n'est pas un entraînement classique. C'est un protocole de développement global.",
+      "desc_1": "La performance sportive n'est qu'un outil. Notre véritable objectif est la progression humaine : confiance en soi, résilience et autonomie.",
+      "desc_2": "Nous construisons des liens forts entre parent et enfant à travers un cadre structuré et mesurable."
+    },
+    "benefits": {
+      "title": "Pourquoi Thrive ?",
+      "b1_title": "Progression Mesurable",
+      "b1_desc": "Des indicateurs clairs de l'évolution de la confiance et du bien-être de votre enfant.",
+      "b2_title": "Confiance Solide",
+      "b2_desc": "Développement de l'auto-efficacité face aux défis du sport et de la vie.",
+      "b3_title": "Lien Renforcé",
+      "b3_desc": "Des moments de connexion uniques pour vous retrouver avec votre enfant.",
+      "b4_title": "Cadre Structuré",
+      "b4_desc": "Une méthode claire, en 13 séances, sans incertitude."
+    },
+    "science": {
+      "title": "La science derrière Thrive",
+      "subtitle": "Un protocole validé par la recherche universitaire",
+      "pill_1": "Théorie de l'Autodétermination (SDT)",
+      "pill_2": "Auto-Efficacité",
+      "pill_3": "Développement Positif (PYD)",
+      "pill_4": "Life Skills par le sport",
+      "pill_5": "Modèle PERMA",
+      "pill_6": "Forces VIA",
+      "pill_7": "Théorie des Buts d'Accomplissement",
+      "pill_8": "Modèle DMSP"
+    },
+    "rarity": {
+      "title": "Une opportunité exclusive",
+      "date": "Lancement : 20 août 2026",
+      "spots": "Seulement 20 places disponibles pour cette cohorte."
+    },
+    "form": {
+      "title": "Rejoindre la liste d'attente",
+      "subtitle": "Sans engagement. Appel de qualification gratuit de 20 minutes.",
+      "lbl_prenom_parent": "Prénom du parent",
+      "lbl_email": "Email",
+      "lbl_telephone": "Téléphone",
+      "lbl_prenom_enfant": "Prénom de l'enfant (optionnel)",
+      "lbl_age_enfant": "Âge de l'enfant",
+      "lbl_tranche_age": "Tranche d'âge",
+      "lbl_besoin": "Besoin principal (optionnel)",
+      "opt_besoin_default": "Sélectionnez un besoin",
+      "opt_besoin_1": "Confiance en soi",
+      "opt_besoin_2": "Leadership",
+      "opt_besoin_3": "Résilience",
+      "opt_besoin_4": "Lien parent-enfant",
+      "opt_besoin_5": "Cadre structuré",
+      "opt_besoin_6": "Je ne sais pas encore",
+      "btn_submit": "Rejoindre la liste d'attente",
+      "trust": "Vos données restent confidentielles.",
+      "success_msg": "Merci — vous êtes sur la liste d'attente prioritaire. Nous vous contacterons dans les 48h pour la prochaine étape."
+    },
+    "how_it_works": {
+      "title": "Comment ça fonctionne ?",
+      "step_1": "1. Vous rejoignez la liste d'attente",
+      "step_2": "2. Nous vous contactons pour un appel de qualification gratuit",
+      "step_3": "3. Vous recevez les détails du prochain cycle"
+    },
+    "pricing": {
+      "title": "Le Programme Thrive",
+      "subtitle": "13 séances structurées pour transformer la confiance.",
+      "tier_1_name": "Essentiel",
+      "tier_1_price": "1697 $",
+      "tier_2_name": "Avancé",
+      "tier_2_price": "1997 $",
+      "tier_2_badge": "Le plus choisi",
+      "tier_3_name": "Premium",
+      "tier_3_price": "2497 $"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "q1_q": "Est-ce un cours de sport classique ?",
+      "q1_a": "Non. C'est un protocole de développement global utilisant le sport comme levier.",
+      "q2_q": "Quel est le niveau d'engagement ?",
+      "q2_a": "Le programme complet dure 13 séances structurées pour garantir des résultats mesurables.",
+      "q3_q": "Où se déroulent les séances ?",
+      "q3_a": "À Montréal, au 5115 rue Rivard.",
+      "q4_q": "Est-ce adapté à mon enfant ?",
+      "q4_a": "Nous accompagnons les jeunes de 8 à 17 ans, avec des programmes adaptés par tranche d'âge."
+    },
+    "contact": {
+      "title": "Parler à un conseiller",
+      "subtitle": "Nous sommes là pour vous guider",
+      "email": "info@thrivesportpositive.com",
+      "phone": "(263) 362-2030"
+    }
   },
   "seo": {
     "home": {
@@ -606,7 +705,7 @@
     "success_btn": "Retour à l'accueil"
   },
   "evaluation": {
-    "title": "Votre Séance d'Évaluation Offerte",
+    "title": "Réservez votre place gratuitement",
     "subtitle": "La première étape pour transformer le potentiel de votre enfant. Sans engagement.",
     "step_1_title": "Le Bilan Rapide",
     "step_1_desc": "Répondez à ces 3 questions pour nous aider à préparer la séance.",
