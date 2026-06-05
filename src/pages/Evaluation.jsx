@@ -127,10 +127,18 @@ const Evaluation = () => {
                             </p>
 
                             <button 
+                                onClick={() => {
+                                    if(window.Cal) {
+                                        window.Cal("modal", {
+                                            calLink: "thrive-sport-positive/thrive-performance-13-seances-du-dimanche",
+                                            config: { layout: "month_view", useSlotsViewOnSmallScreen: true }
+                                        });
+                                    }
+                                }}
                                 data-cal-namespace="thrive-performance-13-seances-du-dimanche"
                                 data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                                className="w-full max-w-sm bg-[#1F2A44] text-white py-4 px-6 rounded-xl font-bold text-base hover:bg-[#C9A14A] transition-colors shadow-lg flex justify-center items-center gap-3"
+                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":true}'
+                                className="w-full max-w-sm bg-[#1F2A44] text-white py-4 px-6 rounded-xl font-bold text-base hover:bg-[#C9A14A] transition-colors shadow-lg flex justify-center items-center gap-3 cursor-pointer select-none active:scale-95 touch-manipulation"
                             >
                                 Choisir un créneau <ArrowRight className="w-5 h-5" />
                             </button>
