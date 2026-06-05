@@ -79,7 +79,7 @@ const Evaluation = () => {
             <SEO title={t('waitlist.hero.headline')} description={t('waitlist.hero.subheadline')} url="https://thrivesportpositive.com/evaluation" />
             
             {/* Split-Screen Hero Condensed */}
-            <section className="bg-[#F7F5F2] pt-20 pb-12 lg:pt-32 lg:pb-24">
+            <section className="bg-[#F7F5F2] pt-6 pb-12 lg:pt-12 lg:pb-24">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
                     
