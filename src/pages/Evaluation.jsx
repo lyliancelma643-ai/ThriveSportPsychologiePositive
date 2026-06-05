@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SEO from '../components/seo/SEO';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { getCalApi } from "@calcom/embed-react";
 import { CheckCircle, Lock, Star, Activity, ShieldCheck, Mail, Phone, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 import WaitlistWhatIs from '../components/waitlist/WaitlistWhatIs';
@@ -28,44 +29,18 @@ const Evaluation = () => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        (function (C, A, L) { 
-            let p = function (a, ar) { a.q.push(ar); }; 
-            let d = C.document; 
-            C.Cal = C.Cal || function () { 
-                let cal = C.Cal; 
-                let ar = arguments; 
-                if (!cal.loaded) { 
-                    cal.ns = {}; 
-                    cal.q = cal.q || []; 
-                    let script = d.createElement("script");
-                    script.src = A;
-                    d.head.appendChild(script); 
-                    cal.loaded = true; 
-                } 
-                if (ar[0] === L) { 
-                    const api = function () { p(api, arguments); }; 
-                    const namespace = ar[1]; 
-                    api.q = api.q || []; 
-                    if(typeof namespace === "string"){
-                        cal.ns[namespace] = cal.ns[namespace] || api;
-                        p(cal.ns[namespace], ar);
-                        p(cal, ["initNamespace", namespace]);
-                    } else p(cal, ar); 
-                    return;
-                } 
-                p(cal, ar); 
-            }; 
-        })(window, "https://app.cal.com/embed/embed.js", "init");
-
-        window.Cal("init", "thrive-performance-13-seances-du-dimanche", {origin:"https://app.cal.com"});
-        window.Cal.ns["thrive-performance-13-seances-du-dimanche"]("ui", {
-            "hideEventTypeDetails":false,
-            "layout":"month_view",
-            "cssVarsPerTheme":{
-                "light":{"cal-brand":"#1F2A44"},
-                "dark":{"cal-brand":"#C9A14A"}
+        (async function () {
+            try {
+                const cal = await getCalApi({"namespace":"thrive-performance-13-seances-du-dimanche"});
+                cal("ui", {
+                    "styles":{"branding":{"brandColor":"#1F2A44"}},
+                    "hideEventTypeDetails":false,
+                    "layout":"month_view"
+                });
+            } catch (error) {
+                console.error("Failed to initialize Cal.com:", error);
             }
-        });
+        })();
     }, []);
 
     const faqs = [

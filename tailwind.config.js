@@ -7,8 +7,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                serif: ['"Playfair Display"', 'serif'],
+                sans: ['"Times New Roman MT Condensed"', 'sans-serif'],
+                serif: ['"TAN Vivre Libre"', 'serif'],
+                accent: ['"loubag"', 'sans-serif'],
             },
             animation: {
                 'pulse-slow': 'pulse-slow 10s infinite alternate ease-in-out',

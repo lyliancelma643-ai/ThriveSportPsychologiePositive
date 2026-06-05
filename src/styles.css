@@ -8,7 +8,7 @@
     }
 
     body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Times New Roman MT Condensed', sans-serif;
         overflow-x: hidden;
     }
 
@@ -17,7 +17,12 @@
     h3,
     h4,
     .font-serif {
-        font-family: 'Playfair Display', serif;
+        font-family: 'TAN Vivre Libre', serif;
+    }
+
+    strong, b {
+        font-family: 'loubag', sans-serif;
+        font-weight: normal; /* Often custom display fonts have their own heavy weight inherently */
     }
 }
 
