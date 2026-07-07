@@ -50,8 +50,9 @@ const Navbar = ({ setBookingStep }) => {
                     </div>
                     <a
                         href={APP_LOGIN_URL}
-                        className="inline-flex items-center gap-2 bg-[#1B263B] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm"
+                        className="inline-flex items-center gap-2 bg-[#1B263B] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2"
                         title={t('nav.login')}
+                        aria-label={t('nav.loginAria')}
                     >
                         <LogIn size={16} />
                         {t('nav.login')}
@@ -74,7 +75,8 @@ const Navbar = ({ setBookingStep }) => {
                     <a
                         href={APP_LOGIN_URL}
                         onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center justify-center gap-2 w-full bg-[#1B263B] text-white font-semibold px-4 py-3 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm"
+                        className="flex items-center justify-center gap-2 w-full bg-[#1B263B] text-white font-semibold px-4 py-3 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2"
+                        aria-label={t('nav.loginAria')}
                     >
                         <LogIn size={18} />
                         {t('nav.login')}
