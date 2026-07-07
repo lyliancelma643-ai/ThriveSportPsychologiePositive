@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import { Menu, X, Mail, Phone } from 'lucide-react';
+import { Menu, X, Mail, Phone, LogIn } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/logo.png';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
+
+// URL de l'application THRIVE (espace membre / connexion).
+// Configurable via la variable d'env Vite VITE_APP_URL ; par défaut = app locale (port 3001).
+const APP_LOGIN_URL = `${import.meta.env.VITE_APP_URL || 'http://localhost:3001'}/login`;
 
 const Navbar = ({ setBookingStep }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,6 +48,14 @@ const Navbar = ({ setBookingStep }) => {
                         </a>
                         <LanguageSwitcher />
                     </div>
+                    <a
+                        href={APP_LOGIN_URL}
+                        className="inline-flex items-center gap-2 bg-[#1B263B] text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm"
+                        title={t('nav.login')}
+                    >
+                        <LogIn size={16} />
+                        {t('nav.login')}
+                    </a>
                 </div>
                 <button className="md:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>{isMenuOpen ? <X size={24} /> : <Menu size={24} />}</button>
             </div>
@@ -59,6 +71,14 @@ const Navbar = ({ setBookingStep }) => {
                             {link.label}
                         </NavLink>
                     ))}
+                    <a
+                        href={APP_LOGIN_URL}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center justify-center gap-2 w-full bg-[#1B263B] text-white font-semibold px-4 py-3 rounded-full hover:bg-[#C5A059] transition-colors shadow-sm"
+                    >
+                        <LogIn size={18} />
+                        {t('nav.login')}
+                    </a>
                     <div className="pt-4 pb-4 border-t border-gray-100 flex items-center justify-center space-x-6">
                         <div className="flex space-x-4">
                             <a href="mailto:info@thrivesportpositive.com" className="flex items-center text-[#1B263B] hover:text-[#C5A059] transition-colors p-2" title="Envoyer un email">
