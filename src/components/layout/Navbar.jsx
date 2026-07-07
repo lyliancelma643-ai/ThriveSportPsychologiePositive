@@ -6,8 +6,11 @@ import logo from '../../assets/logo.png';
 import LanguageSwitcher from '../ui/LanguageSwitcher';
 
 // URL de l'application THRIVE (espace membre / connexion).
-// Configurable via la variable d'env Vite VITE_APP_URL ; par défaut = app locale (port 3001).
-const APP_LOGIN_URL = `${import.meta.env.VITE_APP_URL || 'http://localhost:3001'}/login`;
+// Configurable via la variable d'env Vite VITE_APP_URL ; sinon app locale en dev,
+// app déployée sur Vercel en production.
+const APP_URL = import.meta.env.VITE_APP_URL
+    || (import.meta.env.PROD ? 'https://thrive-app-inky.vercel.app' : 'http://localhost:3001');
+const APP_LOGIN_URL = `${APP_URL}/login`;
 
 const Navbar = ({ setBookingStep }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
