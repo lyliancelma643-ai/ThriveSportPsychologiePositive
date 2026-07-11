@@ -116,7 +116,7 @@ export default function AdvancedPack({ setBookingStep }) {
 
                     <Reveal delay={300}>
                         <p className="text-xl md:text-3xl text-white/90 font-serif font-medium mb-8 max-w-3xl mx-auto leading-tight">
-                            Le programme complet, avec preuves chiffrées et call parent.
+                            Le programme complet, avec preuves chiffrées aux moments clés.
                         </p>
                     </Reveal>
 
@@ -147,9 +147,9 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
                             { label: "13 séances", sub: "sur la saison" },
-                            { label: "Données", sub: "LSSS + SMTQ + RPE" },
-                            { label: "Stratégie", sub: "Call parent S7" },
-                            { label: "Livrable", sub: "Scorecard enrichie" }
+                            { label: "Bilans détaillés", sub: "Séances 3 · 7 · 13" },
+                            { label: "Mesures", sub: "LSSS + par compétence" },
+                            { label: "Livrable", sub: "Lettre du coach" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -267,20 +267,20 @@ export default function AdvancedPack({ setBookingStep }) {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            { 
-                                name: "LSSS (3 temps)", 
+                            {
+                                name: "LSSS (3 temps)",
                                 time: "S1, S7, S13",
-                                desc: "Life Skills Scale for Sport. Mesure l'évolution des compétences de vie (10 items) en début, milieu et fin de programme pour visualiser la courbe d'apprentissage." 
+                                desc: "Life Skills Scale for Sport. Mesure l'évolution des compétences de vie (10 items) en début, milieu et fin de programme pour visualiser la courbe d'apprentissage."
                             },
-                            { 
-                                name: "SMTQ (Robustesse)", 
-                                time: "Pré / Post",
-                                desc: "Sports Mental Toughness Questionnaire. Mesure la capacité à rester solide sous la pression. Compare l'état initial à l'état final." 
+                            {
+                                name: "Jauge par compétence",
+                                time: "En continu",
+                                desc: "Le détail de chaque compétence de vie — confiance, régulation, concentration… — et son évolution depuis le départ, visible dans votre espace parent."
                             },
-                            { 
-                                name: "RPE (Charge perçue)", 
-                                time: "Séances clés (ex: S3, S6, S9)",
-                                desc: "Suivi de l'effort perçu pour s'assurer que le développement mental reste assimilable et ne crée pas de surcharge cognitive." 
+                            {
+                                name: "Observations chiffrées",
+                                time: "S3, S7, S13",
+                                desc: "Des indicateurs concrets notés sur 5 par le coach à chaque bilan d'étape : mesurables, comparables dans le temps et expliqués simplement."
                             }
                         ].map((metric, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-10 rounded-[2rem] hover:shadow-lg transition-shadow duration-300">
@@ -299,7 +299,7 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal className="text-center mb-16">
                         <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4">Phase Stratégique</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] leading-tight">
-                            Un point clair à mi-parcours (Séance 7).
+                            Des points clairs aux moments clés (S3 · S7 · S13).
                         </p>
                     </Reveal>
 
@@ -311,15 +311,15 @@ export default function AdvancedPack({ setBookingStep }) {
                             </div>
                         </div>
                         <div className="md:w-2/3">
-                            <h3 className="text-2xl font-bold text-[#1B263B] mb-6">Call Parent structuré de 20 à 30 minutes</h3>
+                            <h3 className="text-2xl font-bold text-[#1B263B] mb-6">Un bilan détaillé structuré à chaque séance-étape</h3>
                             <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                                Plus qu'un simple rapport, c'est un vrai moment de clarification stratégique pour s'assurer que nous ramons dans la même direction.
+                                Plus qu'un simple message, c'est un vrai moment de clarification pour s'assurer que nous ramons dans la même direction — lisible directement dans votre espace parent.
                             </p>
                             <ul className="space-y-4">
                                 {[
-                                    "Retour sur les premiers résultats : LSSS et SMTQ initial.",
-                                    "Exemples concrets observés sur la glace et dans les retours de l'enfant.",
-                                    "Ajustement des objectifs pour les phases suivantes (DÉVELOPPER & INTÉGRER)."
+                                    "Résumé de performance et objectif de compétence de vie de la période.",
+                                    "Observations chiffrées, avec des exemples concrets vus sur la glace.",
+                                    "Recommandations pour la maison et ajustement des phases suivantes (DÉVELOPPER & INTÉGRER)."
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-4 text-gray-700">
                                         <CheckCircle2 size={24} className="text-[#94A3B8] shrink-0" />
@@ -337,7 +337,7 @@ export default function AdvancedPack({ setBookingStep }) {
                 <div className="max-w-6xl mx-auto">
                     <Reveal className="mb-20 text-center">
                         <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
-                            Une Scorecard que les parents comprennent vraiment.
+                            Un bilan que les parents comprennent vraiment.
                         </h2>
                     </Reveal>
 
@@ -349,10 +349,10 @@ export default function AdvancedPack({ setBookingStep }) {
                                 <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8 relative z-10 leading-snug">Un document structuré, intelligent et rassurant pour matérialiser la progression.</h3>
                                 <ul className="space-y-4 relative z-10">
                                     {[
-                                        "Tableau SMTQ pré / post : « robustesse mentale en hausse de X points »",
-                                        "Synthèse RPE : lecture de la charge perçue vs sentiment de maîtrise",
+                                        "Jauge par compétence : « la confiance a progressé de X points depuis le départ »",
+                                        "Courbe LSSS en 3 mesures : la preuve longitudinale de la progression",
                                         "Explication simple des données (aucun jargon clinique)",
-                                        "Section « Comment lire ces données » dédiée aux parents"
+                                        "Des fiches « Comment lire ces données » intégrées à chaque carte de votre espace"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4 text-white/80">
                                             <CheckCircle2 size={20} className="text-[#94A3B8] shrink-0 mt-0.5" />
@@ -392,14 +392,14 @@ export default function AdvancedPack({ setBookingStep }) {
                             Entre les séances, une présence cadrée.
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Bénéficiez d'un accès léger mais réel au coach pour ne jamais rester avec une incertitude.
+                            Un suivi écrit régulier dans votre espace, pour ne jamais rester avec une incertitude.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
-                                "1 message parent par semaine", 
-                                "Canal dédié (WhatsApp/SMS)", 
-                                "Clarifications sur les outils", 
-                                "Délai de réponse 48-72h"
+                                "Message du coach à chaque séance",
+                                "Bilans détaillés S3 · S7 · S13",
+                                "Fiches d'explication sur chaque mesure",
+                                "Messagerie directe : pack Performance"
                             ].map((badge, i) => (
                                 <span key={i} className="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-full text-sm shadow-sm hover:border-[#94A3B8] transition-colors cursor-default">
                                     {badge}
@@ -419,13 +419,13 @@ export default function AdvancedPack({ setBookingStep }) {
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Base solide", desc: "13 séances complètes, supports enfants, jalons parents standards." },
-                            { title: "LSSS (Compétences de vie)", desc: "Mesuré en S1, S7 et S13." },
-                            { title: "SMTQ (Robustesse mentale)", desc: "Mesuré en S1 (pré) et S13 (post)." },
-                            { title: "RPE (Charge perçue)", desc: "Suivi ciblé sur les séances clés (ex: S3, S6, S9)." },
-                            { title: "Call Parent Stratégique", desc: "Un point de 20-30 min à mi-parcours (S7)." },
-                            { title: "Scorecard Avancée", desc: "Livrable de 3 à 4 pages avec interprétation simple des données." },
-                            { title: "Soutien hebdomadaire", desc: "1 message parent par semaine (réponse 48-72h hors urgences)." }
+                            { title: "Tout le pack Essentiel", desc: "13 séances complètes, bibliothèque vidéo, carte d'identité de l'athlète, message du coach à chaque séance." },
+                            { title: "Bilan détaillé + observations", desc: "Aux séances-étapes 3 · 7 · 13 : bilan structuré du coach avec indicateurs notés sur 5." },
+                            { title: "Jauge par compétence", desc: "Le détail de chaque compétence de vie et son évolution depuis le départ, dans votre espace." },
+                            { title: "Courbe LSSS", desc: "L'échelle scientifique « Life Skills Scale for Sport » mesurée en S1, S7 et S13." },
+                            { title: "Roue des émotions + journal", desc: "Le suivi affectif séance après séance et le journal de progression de votre enfant." },
+                            { title: "Lettre personnalisée du coach", desc: "Un livrable émotionnel fort, rédigé pour votre enfant, en plus du certificat." },
+                            { title: "Famille élargie", desc: "Jusqu'à 2 profils enfants et 2 comptes parents · historique conservé 12 mois." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -447,9 +447,9 @@ export default function AdvancedPack({ setBookingStep }) {
                         <h3 className="text-2xl font-serif font-bold text-[#1B263B] mb-6">Les limites de ce pack</h3>
                         <ul className="space-y-4 mb-10">
                             {[
-                                "Pas de calls parent exclusifs en début et fin de programme.",
-                                "Pas de batterie psychométrique élargie (WHO-5, GSE, LSSS 30).",
-                                "Pas de rapport détaillé orienté spécifiquement sur le « parcours sportif » futur."
+                                "Le bilan détaillé s'ouvre aux séances-étapes (3 · 7 · 13), pas aux 13 séances.",
+                                "Pas de messagerie directe avec le coach entre les séances.",
+                                "Pas d'export CSV / PDF du parcours ni de gabarits de rapport premium."
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-gray-500">
                                     <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 shrink-0" />
@@ -460,7 +460,7 @@ export default function AdvancedPack({ setBookingStep }) {
                         
                         <div className="bg-[#1B263B] rounded-2xl p-8 text-white">
                             <p className="text-white/80 leading-relaxed text-lg">
-                                Avec Avancé, vous voyez la progression mentale et vous avez un call au milieu. Si vous voulez, en plus, un accompagnement rapproché coach-parent, une batterie de mesure complète et un rapport final orienté parcours sportif, le <button onClick={goPerf} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">pack Performance</button> est conçu pour ce niveau d’engagement.
+                                Avec Avancé, vous voyez la progression mentale en chiffres aux moments clés. Si vous voulez, en plus, le bilan détaillé à chacune des 13 séances, la messagerie directe avec le coach et l'export complet du parcours, le <button onClick={goPerf} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">pack Performance</button> est conçu pour ce niveau d’engagement.
                             </p>
                         </div>
                     </Reveal>
@@ -473,7 +473,7 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal>
                         <p className="text-[#94A3B8] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">1 997</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 000</span>
                             <span className="text-3xl font-bold text-gray-400">CAD</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
@@ -512,20 +512,20 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal delay={200} className="bg-white border border-gray-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
                         {[
                             {
-                                q: "Quelle est la différence entre Essential et Avancé ?",
-                                a: "Essential offre les séances avec un suivi minimal. Avancé y ajoute l'intégration de mesures psychométriques concrètes, une Scorecard enrichie de données, et surtout un point stratégique de vive voix (Call S7) avec le coach."
+                                q: "Quelle est la différence entre Essentiel et Avancé ?",
+                                a: "Essentiel offre le parcours complet avec le message du coach à chaque séance. Avancé y ajoute la couche de mesure : bilans détaillés avec observations chiffrées aux séances 3, 7 et 13, jauge par compétence, courbe LSSS et lettre personnalisée du coach."
                             },
                             {
-                                q: "À quoi servent les mesures comme le SMTQ ou le RPE ?",
-                                a: "Elles transforment des ressentis (la confiance, l'effort) en données chiffrées. Le SMTQ évalue la robustesse mentale sous pression. Le RPE vérifie que l'enfant assimile bien les séances sans surcharge."
+                                q: "À quoi sert la mesure LSSS ?",
+                                a: "LSSS signifie « Life Skills Scale for Sport » : une échelle scientifique validée (Cronin & Allen, 2017). Mesurée 3 fois (S1, S7, S13), elle transforme des ressentis — confiance, régulation, concentration — en une courbe de progression concrète et comparable."
                             },
                             {
                                 q: "Est-ce que les données sont expliquées simplement ?",
-                                a: "Oui, absolument. Nous ne fournissons pas un bilan clinique indigeste. La Scorecard traduit ces données en langage clair et indique précisément ce qu'elles signifient pour l'évolution de votre enfant."
+                                a: "Oui, absolument. Rien d'indigeste : la jauge par compétence, la courbe LSSS et les observations du coach sont présentées visuellement dans votre espace, avec des fiches d'explication en langage clair sur chaque carte."
                             },
                             {
-                                q: "Comment se déroule le call parent ?",
-                                a: "Il a lieu en milieu de parcours (Séance 7). C'est un échange de 20-30 minutes en visio pour partager les premières observations, décrypter les scores initiaux et ajuster le tir si nécessaire pour la suite."
+                                q: "À quoi ressemble un bilan détaillé ?",
+                                a: "Aux séances-étapes (3, 7 et 13), le coach rédige un bilan structuré : résumé de la séance, objectif de compétence de vie, recommandations pour la maison, et des indicateurs concrets notés sur 5. Vous le lisez directement dans votre espace parent."
                             },
                             {
                                 q: "Est-ce que ce pack est déjà suffisant pour un enfant très investi ?",
@@ -533,7 +533,7 @@ export default function AdvancedPack({ setBookingStep }) {
                             },
                             {
                                 q: "Quelle est la différence avec Performance ?",
-                                a: "Performance va plus loin dans l'encadrement : accompagnement parental rapproché, 3 calls complets, plus de mesures, accès WhatsApp prioritaire et un cahier athlète sur-mesure pour planifier la suite de sa carrière."
+                                a: "Performance va plus loin dans l'encadrement : le bilan détaillé à chacune des 13 séances (au lieu de 3), la messagerie directe avec le coach, les exports CSV/PDF du parcours, des profils illimités et l'historique illimité."
                             },
                             {
                                 q: "Est-ce que ce pack remplace un psychologue du sport ?",

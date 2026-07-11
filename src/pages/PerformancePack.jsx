@@ -146,9 +146,9 @@ export default function PerformancePack({ setBookingStep }) {
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
                             { label: "13 séances", sub: "sur la saison" },
-                            { label: "3 calls parents", sub: "+ micro-bilans" },
-                            { label: "Mesures", sub: "Pré / Post" },
-                            { label: "Livrables", sub: "Scorecard + Cahier" }
+                            { label: "13 bilans détaillés", sub: "un à chaque séance" },
+                            { label: "Messagerie", sub: "coach en direct" },
+                            { label: "Exports", sub: "CSV + PDF" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -263,24 +263,24 @@ export default function PerformancePack({ setBookingStep }) {
 
                         {[
                             {
-                                time: "Fin S2",
-                                title: "Call #1 : Alliance & Cadrage",
-                                items: ["Bilan d'alliance et d'engagement de l’enfant", "Explication simple de la suite du programme", "Ajustement des attentes de la famille"]
+                                time: "Dès S1",
+                                title: "Bilan détaillé à chaque séance",
+                                items: ["Le bilan structuré du coach après chacune des 13 séances", "Observations chiffrées (indicateurs notés sur 5) à chaque étape", "Lecture directe dans votre espace parent, en temps réel"]
                             },
                             {
-                                time: "Saison",
-                                title: "Micro-bilans réguliers",
-                                items: ["3 retours (écrits ou vocaux) après les S3, S8 et S12", "Centrés sur des observations concrètes de terrain"]
+                                time: "En continu",
+                                title: "Messagerie directe avec le coach",
+                                items: ["Un fil privé parent ↔ coach, directement dans l'application", "Posez vos questions sans attendre la prochaine séance"]
                             },
                             {
-                                time: "S7",
-                                title: "Call #2 : Mi-parcours",
-                                items: ["Lecture plus profonde des données", "Ajustement des leviers d'intervention"]
+                                time: "S1 · S7 · S13",
+                                title: "Mesures scientifiques complètes",
+                                items: ["Courbe LSSS et jauge par compétence avec évolution", "Roue des émotions et journal de progression"]
                             },
                             {
                                 time: "S13",
-                                title: "Call #3 : Débrief final",
-                                items: ["Débrief complet des résultats", "Recommandations de parcours (environnement, niveau)", "Leviers mentaux à continuer de nourrir"]
+                                title: "Le dossier complet, à garder",
+                                items: ["Export CSV / PDF du parcours entier", "Lettre personnalisée du coach + certificat THRIVE", "Historique illimité, pour toute la famille"]
                             }
                         ].map((step, i) => (
                             <Reveal key={i} delay={i * 150} className={`relative flex flex-col md:flex-row items-start md:items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
@@ -323,11 +323,11 @@ export default function PerformancePack({ setBookingStep }) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { name: "LSSS 30", desc: "Profil détaillé des Life Skills (30 items) en début et fin de parcours. Permet de voir l'évolution précise de ses compétences transversales." },
-                            { name: "SMTQ", desc: "Mesure de la ténacité mentale (Sports Mental Toughness). Évalue la confiance, la constance et le contrôle sous pression." },
-                            { name: "WHO-5", desc: "Indice global de bien-être. Assure que la performance sportive ne se fait jamais au détriment de l'équilibre personnel de l'enfant." },
-                            { name: "GSE", desc: "Score d'auto-efficacité générale. Indique le niveau de croyance de l'athlète en ses propres capacités à surmonter les obstacles." },
-                            { name: "RPE", desc: "Évaluation de la charge perçue. Mesure systématique sur les séances clés pour aligner l'intensité vécue et l'intensité réelle." }
+                            { name: "Courbe LSSS", desc: "Life Skills Scale for Sport en 3 mesures (S1 · S7 · S13). La preuve longitudinale que les compétences de vie de votre enfant progressent." },
+                            { name: "Jauge par compétence", desc: "Le détail de chaque compétence — confiance, régulation, concentration… — et son évolution depuis le départ, en continu dans votre espace." },
+                            { name: "Observations 13/13", desc: "Les indicateurs chiffrés du coach à chacune des 13 séances : la granularité maximale pour suivre les progrès semaine après semaine." },
+                            { name: "Roue des émotions", desc: "Le suivi affectif de séance en séance, avec le journal de progression. Comprendre ce que vit votre enfant, pas seulement ce qu'il fait." },
+                            { name: "RPE", desc: "Évaluation de l'effort perçu, recueillie dans les séances vidéo interactives et intégrée aux rapports de niveau maximal." }
                         ].map((metric, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-8 rounded-[2rem]">
                                 <div className="text-[#1B263B] font-serif font-bold text-2xl mb-4">{metric.name}</div>
@@ -352,10 +352,10 @@ export default function PerformancePack({ setBookingStep }) {
                         <Reveal delay={100} className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 md:p-14 backdrop-blur-md relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5A059]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                             <FileText size={48} className="text-[#C5A059] mb-8 relative z-10" />
-                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Scorecard Performance</h3>
-                            <p className="text-white/60 text-lg mb-8 relative z-10">Un rapport de 4 à 6 pages qui synthétise tout le parcours.</p>
+                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Le dossier complet du parcours</h3>
+                            <p className="text-white/60 text-lg mb-8 relative z-10">Tout l'historique, exportable et à garder — au-delà des 13 séances.</p>
                             <ul className="space-y-4 relative z-10">
-                                {["Graphique détaillé LSSS 30", "Résultats WHO-5 et GSE en langage simple", "Commentaire narratif : \"Ce que ça signifie pour la suite de sa carrière sportive\""].map((item, i) => (
+                                {["Export CSV / PDF du parcours entier", "Courbe LSSS et jauge par compétence en langage simple", "La lettre personnalisée du coach et le certificat THRIVE"].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80">
                                         <CheckCircle2 size={20} className="text-[#C5A059] shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -368,10 +368,10 @@ export default function PerformancePack({ setBookingStep }) {
                         <Reveal delay={200} className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 md:p-14 backdrop-blur-md relative overflow-hidden group">
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8F9779]/20 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                             <BookOpen size={48} className="text-[#8F9779] mb-8 relative z-10" />
-                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Cahier Athlète Personnalisé</h3>
-                            <p className="text-white/60 text-lg mb-8 relative z-10">Un objet concret qui l'accompagne au quotidien sur le terrain.</p>
+                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">La carte d'identité de l'athlète</h3>
+                            <p className="text-white/60 text-lg mb-8 relative z-10">Le compagnon numérique que votre enfant construit séance après séance.</p>
                             <ul className="space-y-4 relative z-10">
-                                {["Objectifs, forces et routine d'avant-match", "Focus word et outils pratiques", "Auto-évaluations", "Pages de réflexion stratégique pour la saison suivante"].map((item, i) => (
+                                {["Passeport, forces et rêve de saison", "Focus word, routine d'avant-match et boîte à outils mentaux", "Objectifs SMART et prochaines étapes", "Accessible sans limite dans votre espace famille"].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80">
                                         <CheckCircle2 size={20} className="text-[#8F9779] shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -394,14 +394,14 @@ export default function PerformancePack({ setBookingStep }) {
                             Entre les séances, vous n'êtes pas seuls.
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-12">
-                            L'accompagnement haut niveau ne s'arrête pas à la fin de la séance. En tant que parent, vous bénéficiez d'un accès prioritaire via un canal dédié (WhatsApp).
+                            L'accompagnement haut niveau ne s'arrête pas à la fin de la séance. En tant que parent, vous bénéficiez de la messagerie directe avec le coach, dans votre espace sécurisé.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
-                                "Délai de réponse 24-48h", 
-                                "Aide sur les outils", 
-                                "Ajustements pré-compétition", 
-                                "Coordination possible avec le club"
+                                "Fil privé dans l'application",
+                                "Aide sur les outils",
+                                "Ajustements pré-compétition",
+                                "Réponse entre les séances"
                             ].map((badge, i) => (
                                 <span key={i} className="px-5 py-2.5 bg-[#fafafa] border border-gray-200 text-gray-700 font-medium rounded-full text-sm">
                                     {badge}
@@ -421,13 +421,13 @@ export default function PerformancePack({ setBookingStep }) {
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Pack Avancé complet", desc: "13 séances, contenu Essential, mesures initiales." },
-                            { title: "3 Calls Parents stratégiques", desc: "Fin S2 (Alliance), S7 (Mi-parcours), S13 (Débrief complet)." },
-                            { title: "3 Micro-bilans", desc: "Retours ciblés pendant la saison après S3, S8, S12." },
-                            { title: "Mesures élargies (Pré/Post)", desc: "LSSS 30 items, SMTQ, WHO-5, GSE, RPE systématique." },
-                            { title: "Scorecard Performance", desc: "Rapport de 4 à 6 pages avec narratif orienté avenir." },
-                            { title: "Cahier athlète personnalisé", desc: "Objectifs, routines, focus word, réflexion future." },
-                            { title: "Accès prioritaire Coach", desc: "Canal dédié parent (WhatsApp), réponse 24-48h." }
+                            { title: "Pack Avancé complet", desc: "13 séances, bibliothèque vidéo, jauge par compétence, courbe LSSS, roue des émotions, lettre du coach." },
+                            { title: "Bilan détaillé aux 13 séances", desc: "Le bilan structuré + observations chiffrées après chaque séance — pas seulement aux étapes." },
+                            { title: "Messagerie directe coach", desc: "Un fil privé parent ↔ coach dans l'application, en continu pendant toute la saison." },
+                            { title: "Rapports à la profondeur maximale", desc: "Niveau de détail 3 (transfert hors-sport, réussites, effort perçu) + gabarits premium." },
+                            { title: "Export CSV / PDF", desc: "Le parcours complet téléchargeable, à garder ou partager avec l'entraîneur." },
+                            { title: "Famille illimitée", desc: "Profils enfants et comptes parents illimités · historique illimité · stockage maximal." },
+                            { title: "Synthèse IA de fin de parcours", desc: "À venir — incluse dans le pack dès sa sortie, sans supplément." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -448,7 +448,7 @@ export default function PerformancePack({ setBookingStep }) {
                     <Reveal>
                         <p className="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 497</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 500</span>
                             <span className="text-3xl font-bold text-gray-400">CAD</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16">
@@ -492,19 +492,19 @@ export default function PerformancePack({ setBookingStep }) {
                             },
                             {
                                 q: "Quelle est la différence avec le pack Avancé ?",
-                                a: "Le pack Avancé se concentre sur l'athlète avec des bilans de début et fin. Le pack Performance intègre complètement les parents dans la boucle : 3 calls dédiés, des micro-bilans réguliers, des mesures beaucoup plus poussées et un canal WhatsApp direct pour naviguer ensemble sur la saison."
+                                a: "Le pack Avancé ouvre les bilans détaillés aux séances-étapes (3, 7 et 13). Le pack Performance intègre complètement les parents dans la boucle : le bilan détaillé à chacune des 13 séances, la messagerie directe avec le coach dans l'application, les exports CSV/PDF du parcours et des profils illimités pour toute la famille."
                             },
                             {
                                 q: "Mon enfant doit-il déjà être au très haut niveau ?",
                                 a: "Pas nécessairement au niveau élite national, mais il doit évoluer dans un environnement compétitif engagé (sport-études, sélection, club interrégional exigeant) où la pression et les attentes justifient un encadrement renforcé."
                             },
                             {
-                                q: "Comment les bilans parents se déroulent-ils ?",
-                                a: "Les calls se font en visioconférence. Ils visent à faire le point sur la progression, ajuster les attentes et vous donner les clés pour soutenir votre enfant à la maison. L'enfant n'y participe pas afin de préserver son espace de confiance."
+                                q: "Comment fonctionne la messagerie avec le coach ?",
+                                a: "Directement dans votre espace parent : un fil privé et sécurisé entre vous et le coach de votre enfant. Vous écrivez quand vous voulez, il vous répond entre les séances — sans passer par un numéro personnel ni une application tierce."
                             },
                             {
                                 q: "Est-ce que les résultats sont expliqués simplement ?",
-                                a: "Oui, c'est notre engagement. La Scorecard et les débriefs sont conçus pour être clairs, concrets et actionnables. Aucun jargon inutile, seulement des données traduites en recommandations pratiques."
+                                a: "Oui, c'est notre engagement. Les bilans, la jauge par compétence et la courbe LSSS sont présentés visuellement dans votre espace, avec des fiches d'explication en langage clair. Aucun jargon inutile, seulement des données traduites en recommandations pratiques."
                             },
                             {
                                 q: "Est-ce que vous échangez avec le club ?",
@@ -512,7 +512,7 @@ export default function PerformancePack({ setBookingStep }) {
                             },
                             {
                                 q: "Que reste-t-il à la fin du programme ?",
-                                a: "Vous repartez avec la Scorecard Performance (un vrai bilan chiffré et narratif de son profil) et l'enfant conserve son Cahier Athlète Personnalisé, contenant ses outils, ses routines et ses axes pour la saison suivante."
+                                a: "Tout. L'historique complet du parcours reste accessible sans limite dans votre espace, et vous pouvez l'exporter en CSV ou PDF : les 13 bilans, la courbe LSSS, la jauge par compétence, la lettre personnalisée du coach et le certificat THRIVE de votre enfant."
                             }
                         ].map((faq, i) => (
                             <FaqItem

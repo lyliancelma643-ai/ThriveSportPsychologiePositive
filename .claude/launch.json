@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
       "port": 5173
+    },
+    {
+      "name": "thrive-member-app",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm", "--dir", "/Users/lyliancelma/Desktop/THRIVE/thrive APP/apps/web", "dev"],
+      "port": 3001
     }
   ]
 }

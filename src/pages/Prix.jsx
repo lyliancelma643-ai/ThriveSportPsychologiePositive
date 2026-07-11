@@ -5,14 +5,13 @@ import { useTranslation } from 'react-i18next';
 import {
     CheckCircle2, Star, ChevronDown, ArrowRight, Sparkles,
     BarChart2, FileText, Phone, BookOpen, Eye, Compass,
-    Shield, TrendingUp, Award, Zap
+    TrendingUp, Award, Zap
 } from 'lucide-react';
 import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS } from '../data/pricing';
 import ContactSection from '../components/ui/ContactSection';
 import PixelCanvas from '../components/ui/PixelCanvas';
 // ── Pack icons ────────────────────────────────────────────────
 const PACK_ICONS = {
-    diagnostic: Shield,
     essential: TrendingUp,
     advanced: Star,
     performance: Award,
@@ -61,7 +60,6 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
             case 'performance': return 'linear-gradient(135deg, #ffffff 0%, #fef3c7 100%)'; // Gold
             case 'advanced': return 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)'; // Silver
             case 'essential': return 'linear-gradient(135deg, #ffffff 0%, #ffedd5 100%)'; // Bronze
-            case 'diagnostic': return 'linear-gradient(135deg, #ffffff 0%, #dcfce7 100%)'; // Light green
             default: return '#ffffff';
         }
     };
@@ -242,19 +240,17 @@ export default function Prix({ handleSelectProgram }) {
     const { t, i18n } = useTranslation();
     const [openFaq, setOpenFaq] = useState(null);
 
-    const goBooking = (packId) => { 
+    const goBooking = (packId) => {
         if (packId === 'performance') {
             navigate('/pack/performance');
         } else if (packId === 'advanced') {
             navigate('/pack/avance');
         } else if (packId === 'essential') {
             navigate('/pack/essential');
-        } else if (packId === 'diagnostic') {
-            navigate('/pack/diagnostic');
         } else {
-            navigate('/booking'); 
+            navigate('/booking');
         }
-        window.scrollTo(0, 0); 
+        window.scrollTo(0, 0);
     };
     const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
 
@@ -329,32 +325,20 @@ export default function Prix({ handleSelectProgram }) {
             </section>
 
 
-            {/* ══ 3. GRILLE DES 4 PACKS ════════════════════════════════ */}
+            {/* ══ 3. GRILLE DES 3 FORFAITS ═════════════════════════════ */}
             <section id="les-packs" className="py-20 px-4 bg-white" aria-labelledby="packs-heading">
                 <h2 id="packs-heading" className="sr-only">Nos Packs</h2>
                 <div className="max-w-7xl mx-auto">
 
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch pt-5">
-                        {PRICING_DATA.filter(pack => pack.id !== 'diagnostic').reverse().map(pack => (
+                        {[...PRICING_DATA].reverse().map(pack => (
                             <PriceCard
                                 key={pack.id}
                                 pack={pack}
                                 onSelect={goBooking}
                                 t={t}
                                 lang={i18n.language}
-                            />
-                        ))}
-                    </div>
-                    <div className="mt-12 lg:mt-16 w-full">
-                        {PRICING_DATA.filter(pack => pack.id === 'diagnostic').map(pack => (
-                            <PriceCard
-                                key={pack.id}
-                                pack={pack}
-                                onSelect={goBooking}
-                                t={t}
-                                lang={i18n.language}
-                                horizontal={true}
                             />
                         ))}
                     </div>

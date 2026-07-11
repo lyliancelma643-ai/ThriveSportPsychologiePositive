@@ -13,7 +13,6 @@ import About from './pages/About';
 import PerformancePack from './pages/PerformancePack';
 import AdvancedPack from './pages/AdvancedPack';
 import EssentialPack from './pages/EssentialPack';
-import DiagnosticPack from './pages/DiagnosticPack';
 import Locations from './components/home/Locations';
 import useBooking from './hooks/useBooking';
 import { useTranslation } from 'react-i18next';
@@ -74,9 +73,8 @@ const App = () => {
                     <Route path="/pack/essential" element={
                         <EssentialPack setBookingStep={booking.setBookingStep} />
                     } />
-                    <Route path="/pack/diagnostic" element={
-                        <DiagnosticPack setBookingStep={booking.setBookingStep} />
-                    } />
+                    {/* Pack Diagnostic retiré de l'offre : on redirige vers la page prix */}
+                    <Route path="/pack/diagnostic" element={<Navigate to="/prix" replace />} />
                     <Route path="/a-propos" element={<About />} />
                     {/* Reusing Locations component as a standalone page */}
                     <Route path="/zones" element={

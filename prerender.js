@@ -18,8 +18,7 @@ const routes = [
     '/a-propos',
     '/pack/performance',
     '/pack/avance',
-    '/pack/essential',
-    '/pack/diagnostic'
+    '/pack/essential'
 ];
 
 async function prerender() {

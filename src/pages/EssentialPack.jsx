@@ -148,7 +148,7 @@ export default function EssentialPack({ setBookingStep }) {
                         {[
                             { label: "13 séances", sub: "1:1 avec le coach" },
                             { label: "6 outils", sub: "Mentaux concrets" },
-                            { label: "Scorecard", sub: "Claire et lisible" },
+                            { label: "Suivi app", sub: "Après chaque séance" },
                             { label: "Supports", sub: "Enfants inclus" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
@@ -347,7 +347,7 @@ export default function EssentialPack({ setBookingStep }) {
                             Une progression que vous pouvez <span className="text-[#B07D4B]">lire et comprendre.</span>
                         </h2>
                         <p className="text-white/70 text-lg leading-relaxed mb-8">
-                            Essential inclut une mesure simplifiée (LSSS 10 items) pour documenter la progression des Life Skills. En fin de programme, vous recevez une **Scorecard claire**.
+                            Essentiel inclut la jauge de compétences de vie (score global) pour documenter la progression, mise à jour dans votre espace parent. Et après chaque séance, le coach vous écrit.
                         </p>
                         <ul className="space-y-4">
                             {[
@@ -370,7 +370,7 @@ export default function EssentialPack({ setBookingStep }) {
                             <div className="space-y-6">
                                 <div className="flex justify-between items-end border-b border-white/10 pb-4">
                                     <div>
-                                        <div className="text-white/50 text-xs uppercase mb-1">Scorecard THRIVE</div>
+                                        <div className="text-white/50 text-xs uppercase mb-1">Espace parent THRIVE</div>
                                         <div className="text-xl font-serif font-bold">Progression des Life Skills</div>
                                     </div>
                                     <div className="text-[#B07D4B] font-bold">+24%</div>
@@ -437,10 +437,10 @@ export default function EssentialPack({ setBookingStep }) {
                         {[
                             { title: "Parcours 13 séances", desc: "Individuelles (60-75 min). Méthode complète (Ancrer, Développer, Intégrer)." },
                             { title: "6 Outils Mentaux", desc: "Objectifs, Confiance, Émotions, Routine, Demande d'aide, Focus." },
-                            { title: "Implication Parent", desc: "Jalons S1 (présence 5m), S7 (message), S13 (Célébration)." },
-                            { title: "Mesure Simplifiée", desc: "LSSS (Life Skills) évalué en S1, S7 et S13." },
-                            { title: "Scorecard Essential", desc: "Rapport clair de 2 à 3 pages avec observations et recommandations." },
-                            { title: "8 Supports Enfants", desc: "De la Fiche Identité au Certificat THRIVE, que l'enfant garde." }
+                            { title: "Bibliothèque vidéo interactive", desc: "13 séances vidéo par tranche d'âge avec quiz et suivi de progression, dans votre espace en ligne." },
+                            { title: "Carte d'identité de l'athlète", desc: "Passeport, boîte à outils, focus word et parcours visuel des 13 séances — mis à jour en continu." },
+                            { title: "Suivi dans l'application", desc: "Message du coach après chaque séance + jauge de compétences de vie (score global)." },
+                            { title: "Certificat THRIVE", desc: "Certificat de fin de parcours remis à l'enfant, et 8 supports qu'il garde." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -465,9 +465,10 @@ export default function EssentialPack({ setBookingStep }) {
                         </p>
                         <ul className="space-y-4 mb-10">
                             {[
-                                "Pas d'appel parent formel à mi-parcours.",
-                                "Pas de mesures avancées de robustesse (SMTQ) ni d'analyse chiffrée complexe.",
-                                "Pas d'accès régulier au coach entre les séances hors logistique."
+                                "Pas de bilan détaillé ni d'observations chiffrées (réservés aux packs Avancé et Performance).",
+                                "Pas de jauge par compétence ni de courbe LSSS détaillée — le score global reste visible.",
+                                "Pas de messagerie directe avec le coach entre les séances (exclusivité Performance).",
+                                "1 profil enfant · 1 compte parent · historique conservé 3 mois."
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-gray-500 text-sm">
                                     <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 shrink-0" />
@@ -491,7 +492,7 @@ export default function EssentialPack({ setBookingStep }) {
                     <Reveal>
                         <p className="text-[#B07D4B] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">1 697</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">1 700</span>
                             <span className="text-3xl font-bold text-gray-400">CAD</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
@@ -530,8 +531,8 @@ export default function EssentialPack({ setBookingStep }) {
                     <Reveal delay={200} className="bg-white border border-gray-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
                         {[
                             {
-                                q: "Quelle est la différence entre Essential et Avancé ?",
-                                a: "Essential est l'expérience cœur de THRIVE : 13 séances et l'apprentissage de la méthode avec une documentation claire. Avancé y ajoute des mesures chiffrées poussées et un call parent complet pour analyser ces données."
+                                q: "Quelle est la différence entre Essentiel et Avancé ?",
+                                a: "Essentiel est l'expérience cœur de THRIVE : 13 séances, la méthode complète et le message du coach après chaque séance. Avancé y ajoute la couche de mesure : bilans détaillés avec observations chiffrées aux séances 3, 7 et 13, jauge par compétence, courbe LSSS et lettre personnalisée du coach."
                             },
                             {
                                 q: "Est-ce que ce programme est déjà complet ?",
@@ -547,7 +548,7 @@ export default function EssentialPack({ setBookingStep }) {
                             },
                             {
                                 q: "Qu’est-ce qu’on reçoit à la fin du programme ?",
-                                a: "En tant que parent, vous recevez la Scorecard Essential (un rapport écrit de sa progression). L'enfant repart avec 8 supports physiques, dont sa routine, ses fiches objectifs et son Certificat."
+                                a: "En tant que parent, vous gardez l'accès à l'espace THRIVE : la jauge de compétences de vie, la carte d'identité de l'athlète et tous les messages du coach. L'enfant repart avec 8 supports physiques, dont sa routine, ses fiches objectifs et son Certificat."
                             },
                             {
                                 q: "Comment les parents sont-ils impliqués ?",

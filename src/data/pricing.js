@@ -5,17 +5,16 @@
 //  → Modifiez UNIQUEMENT ce fichier.
 //  → Les textes sont dans src/locales/fr/translation.json (clés "pricing.*")
 //  → Le composant src/pages/Prix.jsx lit automatiquement ces valeurs.
+//
+//  Source de vérité produit : la matrice de droits de l'app
+//  (docs/segmentation-forfaits.md du monorepo) — 3 forfaits, prix one-shot
+//  pour le parcours de 13 séances : Essentiel 1 700 $ · Avancé 2 000 $ ·
+//  Performance 2 500 $. Le pack Diagnostic est retiré de l'offre.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ── Palettes de couleurs par pack ─────────────────────────────────────────────
 //    Toutes héritent du design system #1B263B / #C5A059 / #8F9779
 export const PACK_THEMES = {
-    diagnostic: {
-        accent: '#8F9779',         // Vert sage
-        accentLight: '#8F977915',
-        accentBorder: '#8F977940',
-        iconBg: '#8F977918',
-    },
     essential: {
         accent: '#B07D4B',         // Véritable Bronze premium
         accentLight: '#B07D4B0D',
@@ -39,25 +38,16 @@ export const PACK_THEMES = {
 // ── Données des packs ──────────────────────────────────────────────────────────
 export const PRICING_DATA = [
     {
-        id: 'diagnostic',
-        price: 397,
-        sessions: 2,
-        isRecommended: false,
-        isEntry: true,
-        // Clés i18n des features (src/locales/.../translation.json → pricing.diagnostic.*)
-        featureKeys: ['f0', 'f1', 'f2', 'f3'],
-    },
-    {
         id: 'essential',
-        price: 1697,
+        price: 1700,
         sessions: 13,
         isRecommended: false,
         isEntry: false,
-        featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4'],
+        featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7'],
     },
     {
         id: 'advanced',
-        price: 1997,
+        price: 2000,
         sessions: 13,
         isRecommended: true,   // ← pack mis en avant visuellement
         isEntry: false,
@@ -65,11 +55,11 @@ export const PRICING_DATA = [
     },
     {
         id: 'performance',
-        price: 2497,
+        price: 2500,
         sessions: 13,
         isRecommended: false,
         isEntry: false,
-        featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 'f9', 'f10'],
+        featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7'],
     },
 ];
 
@@ -78,10 +68,10 @@ export const PRICING_DATA = [
 export const PROOF_ITEMS = [
     { id: 'scorecard',    icon: 'BarChart2', packs: 'Tous les packs' },
     { id: 'rapport',      icon: 'FileText',  packs: 'Tous les packs' },
-    { id: 'observations', icon: 'Eye',       packs: 'Essential → Performance' },
-    { id: 'callParent',   icon: 'Phone',     packs: 'Avancé & Performance' },
-    { id: 'cahier',       icon: 'BookOpen',  packs: 'Performance' },
-    { id: 'pilotage',     icon: 'Compass',   packs: 'Performance' },
+    { id: 'observations', icon: 'Eye',       packs: 'Avancé & Performance' },
+    { id: 'lsss',         icon: 'Compass',   packs: 'Avancé & Performance' },
+    { id: 'messagerie',   icon: 'Phone',     packs: 'Performance' },
+    { id: 'export',       icon: 'BookOpen',  packs: 'Performance' },
 ];
 
 // ── Questions FAQ ─────────────────────────────────────────────────────────────
@@ -90,7 +80,6 @@ export const FAQ_KEYS = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6', 'q7'];
 
 // ── Étapes de montée en gamme ──────────────────────────────────────────────────
 export const UPGRADE_STEPS = [
-    { id: 'diagnostic', color: '#8F9779' },
     { id: 'essential',  color: '#1B263B' },
     { id: 'advanced',   color: '#C5A059' },
     { id: 'performance',color: '#1B263B' },

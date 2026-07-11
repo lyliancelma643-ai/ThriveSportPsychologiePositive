@@ -19,8 +19,7 @@ export default defineConfig({
                 '/a-propos',
                 '/pack/performance',
                 '/pack/avance',
-                '/pack/essential',
-                '/pack/diagnostic'
+                '/pack/essential'
             ],
             changefreq: 'monthly',
             priority: 0.8,
