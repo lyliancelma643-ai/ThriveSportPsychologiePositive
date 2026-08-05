@@ -18,7 +18,11 @@ const routes = [
     '/a-propos',
     '/pack/performance',
     '/pack/avance',
-    '/pack/essential'
+    '/pack/essential',
+    // Landing de campagne : c'est la page vers laquelle pointent le QR code et
+    // la bio Instagram. Sans prérendu, elle est partagée avec le titre et la
+    // description génériques du site.
+    '/liste-attente'
 ];
 
 async function prerender() {
