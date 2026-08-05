@@ -14,6 +14,7 @@ import PerformancePack from './pages/PerformancePack';
 import AdvancedPack from './pages/AdvancedPack';
 import EssentialPack from './pages/EssentialPack';
 import Locations from './components/home/Locations';
+import ListeAttente from './pages/ListeAttente';
 import useBooking from './hooks/useBooking';
 import { useTranslation } from 'react-i18next';
 import './styles.css';
@@ -29,6 +30,18 @@ const App = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location.pathname]);
+
+    // Landing autonome : la liste d'attente apporte son propre en-tête et son
+    // propre pied de page, et ne doit RIEN mettre entre le visiteur et le
+    // formulaire — donc pas de Navbar, pas de Footer, pas de `pt-20`.
+    // Placé après tous les hooks : leur ordre d'appel reste stable.
+    if (location.pathname === '/liste-attente') {
+        return (
+            <Routes>
+                <Route path="/liste-attente" element={<ListeAttente />} />
+            </Routes>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-white font-sans text-gray-900">
