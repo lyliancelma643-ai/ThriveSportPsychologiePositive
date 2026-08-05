@@ -73,7 +73,8 @@
       "opt_besoin_6": "I don't know yet",
       "btn_submit": "Join the waitlist",
       "trust": "Your data remains confidential.",
-      "success_msg": "Thank you — you are on the priority waitlist. We will contact you within 48h for the next step."
+      "success_msg": "Thank you — you are on the priority waitlist. We will contact you within 48h for the next step.",
+      "btn_waitlist": "Save my spot for free"
     },
     "how_it_works": {
       "title": "How it works?",

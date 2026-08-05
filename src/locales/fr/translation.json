@@ -74,7 +74,8 @@
       "opt_besoin_6": "Je ne sais pas encore",
       "btn_submit": "Rejoindre la liste d'attente",
       "trust": "Vos données restent confidentielles.",
-      "success_msg": "Merci — vous êtes sur la liste d'attente prioritaire. Nous vous contacterons dans les 48h pour la prochaine étape."
+      "success_msg": "Merci — vous êtes sur la liste d'attente prioritaire. Nous vous contacterons dans les 48h pour la prochaine étape.",
+      "btn_waitlist": "Réserver ma place gratuitement"
     },
     "how_it_works": {
       "title": "Comment ça fonctionne ?",

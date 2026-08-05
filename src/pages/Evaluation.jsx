@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { getCalApi } from "@calcom/embed-react";
 import { CheckCircle, Lock, Star, Activity, ShieldCheck, Mail, Phone, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 
 import WaitlistWhatIs from '../components/waitlist/WaitlistWhatIs';
@@ -27,21 +26,6 @@ const FAQItem = ({ question, answer }) => {
 
 const Evaluation = () => {
     const { t } = useTranslation();
-
-    useEffect(() => {
-        (async function () {
-            try {
-                const cal = await getCalApi({"namespace":"thrive-performance-13-seances-du-dimanche"});
-                cal("ui", {
-                    "styles":{"branding":{"brandColor":"#1F2A44"}},
-                    "hideEventTypeDetails":false,
-                    "layout":"month_view"
-                });
-            } catch (error) {
-                console.error("Failed to initialize Cal.com:", error);
-            }
-        })();
-    }, []);
 
     const faqs = [
         { q: t('waitlist.faq.q1_q'), a: t('waitlist.faq.q1_a') },
@@ -126,17 +110,15 @@ const Evaluation = () => {
                                 {t('waitlist.form.subtitle')}
                             </p>
 
-                            <a 
-                                href="https://cal.com/thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":true}'
+                            {/* Le parcours ne passe plus par un créneau Cal.com : on
+                                recueille d'abord les coordonnées, et c'est THRIVE qui
+                                rappelle. Le CTA mène donc à la liste d'attente. */}
+                            <Link
+                                to="/liste-attente?source=site"
                                 className="w-full max-w-sm bg-[#1F2A44] text-white py-4 px-6 rounded-xl font-bold text-base hover:bg-[#C9A14A] transition-colors shadow-lg flex justify-center items-center gap-3 cursor-pointer select-none active:scale-95 touch-manipulation"
                             >
-                                Choisir un créneau <ArrowRight className="w-5 h-5" />
-                            </a>
+                                {t('waitlist.form.btn_waitlist')} <ArrowRight className="w-5 h-5" />
+                            </Link>
                             
                             <div className="flex items-center justify-center mt-5 text-xs text-[#5F6472]">
                                 <Lock className="w-3 h-3 mr-1" />
