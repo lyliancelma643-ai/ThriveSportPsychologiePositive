@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import SEO from '../components/seo/SEO';
 import logo from '../assets/logo.png';
@@ -52,6 +52,7 @@ const fieldWrap = { display: 'flex', flexDirection: 'column', gap: 6 };
 export default function ListeAttente() {
     const { t, i18n } = useTranslation();
     const location = useLocation();
+    const navigate = useNavigate();
 
     const [values, setValues] = useState(EMPTY);
     const [errors, setErrors] = useState({});
@@ -65,6 +66,17 @@ export default function ListeAttente() {
 
     const currentLang = i18n.resolvedLanguage || i18n.language || 'fr';
     const isFr = currentLang.startsWith('fr');
+
+    // `location.key` vaut 'default' pour la toute première entrée de la session
+    // de navigation : QR code scanné, lien collé, ouverture dans un nouvel
+    // onglet. Il n'y a alors rien derrière NOUS — un `back()` ferait sortir du
+    // site (ou reviendrait sur about:blank). On renvoie à l'accueil.
+    // `window.history.length` ne convient pas ici : un onglet neuf compte déjà
+    // son entrée vierge, et le test passerait à tort.
+    const goBack = () => {
+        if (location.key === 'default') navigate('/');
+        else navigate(-1);
+    };
 
     const setField = (name, value) => {
         setValues((prev) => ({ ...prev, [name]: value }));
@@ -144,6 +156,7 @@ export default function ListeAttente() {
                 .wl-submit:hover:not(:disabled) { background:#2c3e5a; }
                 .wl-submit:disabled { opacity:.6; cursor:default; }
                 .wl-link:hover { color:${GOLD}; }
+                .wl-back:hover { color:${NAVY}; }
                 .wl-lang { background:none; border:none; padding:0; cursor:pointer; font:inherit; color:inherit; }
             `}</style>
 
@@ -157,11 +170,19 @@ export default function ListeAttente() {
                     background: CREAM,
                 }}
             >
-                <img
-                    src={logo}
-                    alt="Thrive Sport Positive"
-                    style={{ height: 'clamp(32px,6vw,44px)', width: 'auto', objectFit: 'contain' }}
-                />
+                {/* Le logo ramène à l'accueil du site : c'est le geste attendu
+                    partout, et cette landing n'a pas de Navbar pour le faire. */}
+                <Link
+                    to="/"
+                    aria-label={t('waitlist_page.home_aria')}
+                    style={{ display: 'inline-flex', alignItems: 'center', minHeight: 44 }}
+                >
+                    <img
+                        src={logo}
+                        alt="Thrive Sport Positive"
+                        style={{ height: 'clamp(32px,6vw,44px)', width: 'auto', objectFit: 'contain' }}
+                    />
+                </Link>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(12px,3vw,24px)' }}>
                     <div
                         style={{
@@ -225,6 +246,31 @@ export default function ListeAttente() {
                     padding: 'clamp(16px,3vw,40px) clamp(20px,5vw,48px) 0',
                 }}
             >
+                {/* Retour discret. On revient d'où l'on vient quand il y a un
+                    « d'où » ; arrivé par QR code ou par lien direct, l'historique
+                    est vide et `back()` ne ferait rien — on renvoie à l'accueil. */}
+                <button
+                    type="button"
+                    onClick={goBack}
+                    className="wl-back"
+                    style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: 6,
+                        minHeight: 44,
+                        marginBottom: 4,
+                        padding: 0,
+                        border: 'none',
+                        background: 'none',
+                        cursor: 'pointer',
+                        font: "500 13px 'Plus Jakarta Sans', sans-serif",
+                        color: GREY,
+                    }}
+                >
+                    <span aria-hidden="true">←</span>
+                    {t('waitlist_page.back')}
+                </button>
+
                 <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 'clamp(28px,4vw,56px)' }}>
                     {/* Colonne gauche : la promesse */}
                     <div

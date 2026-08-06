@@ -896,6 +896,8 @@
     "cohort_proof": "{{spots}} spots left · {{families}} families already registered",
     "footer": "© 2026 Thrive Sport Positive · Montreal, 5115 rue Rivard",
     "seo_title": "Waitlist — Thrive Sport Positive",
-    "seo_desc": "Join the waitlist for the September 6, 2026 cohort. Free 20-minute qualification call."
+    "seo_desc": "Join the waitlist for the September 6, 2026 cohort. Free 20-minute qualification call.",
+    "back": "Back",
+    "home_aria": "Back to the Thrive Sport Positive home page"
   }
 }

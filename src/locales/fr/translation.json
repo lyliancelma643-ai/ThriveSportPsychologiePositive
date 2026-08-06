@@ -986,6 +986,8 @@
     "cohort_proof": "{{spots}} places restantes · {{families}} familles déjà inscrites",
     "footer": "© 2026 Thrive Sport Positive · Montréal, 5115 rue Rivard",
     "seo_title": "Liste d'attente — Thrive Sport Positive",
-    "seo_desc": "Rejoignez la liste d’attente de la cohorte du 6 septembre 2026. Appel de qualification gratuit de 20 minutes."
+    "seo_desc": "Rejoignez la liste d’attente de la cohorte du 6 septembre 2026. Appel de qualification gratuit de 20 minutes.",
+    "back": "Retour",
+    "home_aria": "Retour à l'accueil de Thrive Sport Positive"
   }
 }
