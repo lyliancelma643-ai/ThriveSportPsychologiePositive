@@ -19,7 +19,9 @@ const Navbar = ({ setBookingStep }) => {
     const navLinks = [
         { path: '/', label: t('nav.home') },
         { path: '/sport', label: t('nav.sport') },
-        { path: '/evaluation', label: t('nav.booking') },
+        // « Réservation » ouvre la liste d'attente : c'est elle qui a remplacé
+        // l'ancienne landing /evaluation (laquelle y redirige désormais).
+        { path: '/liste-attente', label: t('nav.booking') },
         { path: '/methode', label: t('nav.method') },
         { path: '/prix', label: t('nav.pricing') },
         { path: '/zones', label: t('nav.locations') },

@@ -12,7 +12,8 @@ const routes = [
     '/methode',
     '/prix',
     '/sport',
-    '/evaluation',
+    // '/evaluation' retiré : la route redirige vers /liste-attente, la
+    // prérendre produirait une page en double dans l'index.
     '/booking',
     '/zones',
     '/a-propos',

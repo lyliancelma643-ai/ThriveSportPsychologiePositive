@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ChevronRight, TrendingUp, Lightbulb, BookOpen, GraduationCap, SmilePlus } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import heroImage from '../../assets/pexels-gustavo-fring-6720436.jpg';
@@ -18,11 +18,6 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
             cal30("ui", {
                 theme: "light",
                 styles: { branding: { brandColor: "#1B263B" } },
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-            const calThrive = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
-            calThrive("ui", {
                 hideEventTypeDetails: false,
                 layout: "month_view"
             });
@@ -67,15 +62,15 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                             {t('home.hero.subtitle_5')}
                         </p>
                         <div className="flex flex-col space-y-4 w-full sm:max-w-[320px]">
-                            <button
-                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            {/* CTA principal : plus de créneau Cal.com, on recueille
+                                d'abord les coordonnées et c'est THRIVE qui rappelle. */}
+                            <Link
+                                to="/liste-attente?source=site"
                                 className="group relative overflow-hidden bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full scale-105"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
                                 <span className="relative z-20 flex items-center">Réserver ma place gratuitement <ChevronRight className="ml-2" size={20} /></span>
-                            </button>
+                            </Link>
                             <button
                                 data-cal-namespace="30min"
                                 data-cal-link="thrive-sport-positive/30min"
