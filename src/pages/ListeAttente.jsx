@@ -158,6 +158,24 @@ export default function ListeAttente() {
                 .wl-link:hover { color:${GOLD}; }
                 .wl-back:hover { color:${NAVY}; }
                 .wl-lang { background:none; border:none; padding:0; cursor:pointer; font:inherit; color:inherit; }
+
+                /* Mobile : le formulaire monte JUSTE sous le H1. Quelqu'un qui
+                   arrive du QR code ou d'Instagram doit voir le champ à
+                   remplir sans un seul geste de défilement — l'intro, la photo
+                   et les chiffres passent après, ils ne servent qu'à ceux qui
+                   hésitent encore. Les deux colonnes deviennent transparentes
+                   (display:contents) pour que leurs enfants se réordonnent
+                   dans la même pile. Le desktop, lui, ne bouge pas d'un pixel. */
+                @media (max-width: 899px) {
+                    .wl-hero { flex-direction: column; align-items: stretch; gap: clamp(22px,5vw,28px); }
+                    /* !important : les colonnes portent display:flex en style
+                       inline, qui l'emporterait sur cette regle. */
+                    .wl-col { display: contents !important; }
+                    .wl-promise  { order: 1; }
+                    #formulaire  { order: 2; }
+                    .wl-figures  { order: 3; }
+                    .wl-support  { order: 4; }
+                }
             `}</style>
 
             <header
@@ -271,9 +289,13 @@ export default function ListeAttente() {
                     {t('waitlist_page.back')}
                 </button>
 
-                <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 'clamp(28px,4vw,56px)' }}>
+                <div
+                    className="wl-hero"
+                    style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: 'clamp(28px,4vw,56px)' }}
+                >
                     {/* Colonne gauche : la promesse */}
                     <div
+                        className="wl-col"
                         style={{
                             flex: '1 1 420px',
                             minWidth: 'min(100%,320px)',
@@ -284,57 +306,69 @@ export default function ListeAttente() {
                         }}
                     >
                         <div
-                            style={{
-                                font: "600 clamp(11px,1.2vw,12px) 'Plus Jakarta Sans', sans-serif",
-                                letterSpacing: '.16em',
-                                textTransform: 'uppercase',
-                                color: SAGE,
-                            }}
+                            className="wl-promise"
+                            style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(14px,2.2vw,24px)' }}
                         >
-                            {t('waitlist_page.eyebrow')}
+                            <div
+                                style={{
+                                    font: "600 clamp(11px,1.2vw,12px) 'Plus Jakarta Sans', sans-serif",
+                                    letterSpacing: '.16em',
+                                    textTransform: 'uppercase',
+                                    color: SAGE,
+                                }}
+                            >
+                                {t('waitlist_page.eyebrow')}
+                            </div>
+                            <h1
+                                style={{
+                                    margin: 0,
+                                    font: "400 clamp(32px,5.2vw,52px)/1.16 'Playfair Display', serif",
+                                    color: NAVY,
+                                    maxWidth: '16ch',
+                                    textWrap: 'pretty',
+                                }}
+                            >
+                                {t('waitlist_page.title_before')}
+                                <em style={{ fontStyle: 'italic', color: SAGE }}>
+                                    {t('waitlist_page.title_accent')}
+                                </em>
+                                {t('waitlist_page.title_after')}
+                            </h1>
                         </div>
-                        <h1
-                            style={{
-                                margin: 0,
-                                font: "400 clamp(32px,5.2vw,52px)/1.16 'Playfair Display', serif",
-                                color: NAVY,
-                                maxWidth: '16ch',
-                                textWrap: 'pretty',
-                            }}
+
+                        <div
+                            className="wl-support"
+                            style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(14px,2.2vw,24px)' }}
                         >
-                            {t('waitlist_page.title_before')}
-                            <em style={{ fontStyle: 'italic', color: SAGE }}>
-                                {t('waitlist_page.title_accent')}
-                            </em>
-                            {t('waitlist_page.title_after')}
-                        </h1>
-                        <p
-                            style={{
-                                margin: 0,
-                                font: "400 clamp(15px,1.6vw,18px)/1.65 'Plus Jakarta Sans', sans-serif",
-                                color: GREY,
-                                maxWidth: '46ch',
-                            }}
-                        >
-                            {t('waitlist_page.intro')}
-                        </p>
-                        <img
-                            src={hero}
-                            alt={t('waitlist_page.hero_alt')}
-                            style={{
-                                width: '100%',
-                                height: 'clamp(170px,24vw,230px)',
-                                objectFit: 'cover',
-                                objectPosition: 'center 25%',
-                                borderRadius: 'clamp(20px,2.5vw,24px)',
-                                border: 'clamp(4px,.6vw,6px) solid #fff',
-                                boxShadow: '0 16px 36px rgba(27,38,59,.14)',
-                            }}
-                        />
+                            <p
+                                style={{
+                                    margin: 0,
+                                    font: "400 clamp(15px,1.6vw,18px)/1.65 'Plus Jakarta Sans', sans-serif",
+                                    color: GREY,
+                                    maxWidth: '46ch',
+                                }}
+                            >
+                                {t('waitlist_page.intro')}
+                            </p>
+                            <img
+                                src={hero}
+                                alt={t('waitlist_page.hero_alt')}
+                                style={{
+                                    width: '100%',
+                                    height: 'clamp(170px,24vw,230px)',
+                                    objectFit: 'cover',
+                                    objectPosition: 'center 25%',
+                                    borderRadius: 'clamp(20px,2.5vw,24px)',
+                                    border: 'clamp(4px,.6vw,6px) solid #fff',
+                                    boxShadow: '0 16px 36px rgba(27,38,59,.14)',
+                                }}
+                            />
+                        </div>
                     </div>
 
                     {/* Colonne droite : le formulaire */}
                     <div
+                        className="wl-col"
                         style={{
                             flex: '1 1 400px',
                             minWidth: 'min(100%,320px)',
@@ -346,7 +380,9 @@ export default function ListeAttente() {
                         {/* Chiffres clés au-dessus du formulaire : ils répondent
                             au « c'est quoi, au juste ? » avant qu'on demande
                             ses coordonnées au visiteur. */}
-                        <KeyFigures t={t} />
+                        <div className="wl-figures">
+                            <KeyFigures t={t} />
+                        </div>
 
                         <div
                             id="formulaire"
