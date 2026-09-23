@@ -9,9 +9,9 @@ import Method from './pages/Method';
 import Prix from './pages/Prix';
 import Booking from './pages/Booking';
 import About from './pages/About';
-import PerformancePack from './pages/PerformancePack';
-import AdvancedPack from './pages/AdvancedPack';
-import EssentialPack from './pages/EssentialPack';
+import OserEssayer from './pages/OserEssayer';
+import AllerVersLesAutres from './pages/AllerVersLesAutres';
+import MomentQuiCompte from './pages/MomentQuiCompte';
 import Locations from './components/home/Locations';
 import ListeAttente from './pages/ListeAttente';
 import useBooking from './hooks/useBooking';
@@ -82,16 +82,16 @@ const App = () => {
                         {...booking} // Spread all booking state and handlers props
                     />
                 } />
-                <Route path="/pack/performance" element={
-                    <PerformancePack setBookingStep={booking.setBookingStep} />
-                } />
-                <Route path="/pack/avance" element={
-                    <AdvancedPack setBookingStep={booking.setBookingStep} />
-                } />
-                <Route path="/pack/essential" element={
-                    <EssentialPack setBookingStep={booking.setBookingStep} />
-                } />
-                {/* Pack Diagnostic retiré de l'offre : on redirige vers la page prix */}
+                {/* Les trois programmes (fiches produit du 20 septembre 2026) */}
+                <Route path="/programmes/oser-essayer" element={<OserEssayer />} />
+                <Route path="/programmes/aller-vers-les-autres" element={<AllerVersLesAutres />} />
+                <Route path="/programmes/le-moment-qui-compte" element={<MomentQuiCompte />} />
+                {/* Anciens packs retirés de l'offre : les URL indexées redirigent.
+                    Essentiel (13 séances 1:1) a pour successeur direct Oser
+                    essayer ; les autres n'ont pas d'équivalent, ils vont à /prix. */}
+                <Route path="/pack/essential" element={<Navigate to="/programmes/oser-essayer" replace />} />
+                <Route path="/pack/avance" element={<Navigate to="/prix" replace />} />
+                <Route path="/pack/performance" element={<Navigate to="/prix" replace />} />
                 <Route path="/pack/diagnostic" element={<Navigate to="/prix" replace />} />
                 <Route path="/a-propos" element={<About />} />
                 {/* Reusing Locations component as a standalone page */}

@@ -17,9 +17,9 @@ export default defineConfig({
                 '/booking',
                 '/zones',
                 '/a-propos',
-                '/pack/performance',
-                '/pack/avance',
-                '/pack/essential'
+                '/programmes/oser-essayer',
+                '/programmes/aller-vers-les-autres',
+                '/programmes/le-moment-qui-compte'
             ],
             changefreq: 'monthly',
             priority: 0.8,

@@ -17,9 +17,9 @@ const routes = [
     '/booking',
     '/zones',
     '/a-propos',
-    '/pack/performance',
-    '/pack/avance',
-    '/pack/essential',
+    '/programmes/oser-essayer',
+    '/programmes/aller-vers-les-autres',
+    '/programmes/le-moment-qui-compte',
     // Landing de campagne : c'est la page vers laquelle pointent le QR code et
     // la bio Instagram. Sans prérendu, elle est partagée avec le titre et la
     // description génériques du site.

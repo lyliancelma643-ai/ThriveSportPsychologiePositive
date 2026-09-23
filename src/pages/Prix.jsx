@@ -4,20 +4,20 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
     CheckCircle2, Star, ChevronDown, ArrowRight, Sparkles,
-    BarChart2, FileText, Phone, BookOpen, Eye, Compass,
-    TrendingUp, Award, Zap
+    BarChart2, FileText, BookOpen, Compass, Shield, Wallet, Clock,
+    TrendingUp, Users, Heart, Zap
 } from 'lucide-react';
 import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS } from '../data/pricing';
 import ContactSection from '../components/ui/ContactSection';
 import PixelCanvas from '../components/ui/PixelCanvas';
 // ── Pack icons ────────────────────────────────────────────────
 const PACK_ICONS = {
-    essential: TrendingUp,
-    advanced: Star,
-    performance: Award,
+    essayer: TrendingUp,
+    autres: Users,
+    moment: Heart,
 };
 
-const PROOF_ICONS = { BarChart2, FileText, Eye, Phone, BookOpen, Compass };
+const PROOF_ICONS = { BarChart2, FileText, BookOpen, Compass, Shield, Wallet, Clock };
 
 // ── Accordéon FAQ ─────────────────────────────────────────────
 function FaqItem({ q, a, open, onToggle, idx }) {
@@ -53,22 +53,25 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
     const Icon = PACK_ICONS[pack.id];
     const rec = pack.isRecommended;
     const entry = pack.isEntry;
-    const priceStr = lang === 'en' ? `$${pack.price.toLocaleString()}` : `${pack.price.toLocaleString()} $`;
+    // Prix affichés « + tx » : c'est la règle de toute la gamme.
+    const priceStr = lang?.startsWith('en')
+        ? `$${pack.price.toLocaleString('en-CA')} ${t('pricing.tax')}`
+        : `${pack.price.toLocaleString('fr-CA')} $ ${t('pricing.tax')}`;
 
     const getBackground = (id) => {
         switch (id) {
-            case 'performance': return 'linear-gradient(135deg, #ffffff 0%, #fef3c7 100%)'; // Gold
-            case 'advanced': return 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)'; // Silver
-            case 'essential': return 'linear-gradient(135deg, #ffffff 0%, #ffedd5 100%)'; // Bronze
+            case 'moment': return 'linear-gradient(135deg, #ffffff 0%, #fef3c7 100%)'; // Gold
+            case 'autres': return 'linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%)'; // Silver
+            case 'essayer': return 'linear-gradient(135deg, #ffffff 0%, #ffedd5 100%)'; // Bronze
             default: return '#ffffff';
         }
     };
 
     const getColors = (id) => {
         switch (id) {
-            case 'performance': return ['#C5A059', '#D4AF37', '#FFDF00', '#B8860B']; // Gold
-            case 'advanced': return ['#94A3B8', '#CBD5E1', '#E2E8F0', '#64748B']; // Silver
-            case 'essential': return ['#B07D4B', '#C19A6B', '#9C6644', '#7F4F24']; // Bronze
+            case 'moment': return ['#C5A059', '#D4AF37', '#FFDF00', '#B8860B']; // Gold
+            case 'autres': return ['#94A3B8', '#CBD5E1', '#E2E8F0', '#64748B']; // Silver
+            case 'essayer': return ['#B07D4B', '#C19A6B', '#9C6644', '#7F4F24']; // Bronze
             default: return ['#cbd5e1', '#94a3b8'];
         }
     };
@@ -102,10 +105,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                         <div className="flex items-baseline justify-center gap-1">
                             <span className="font-bold text-[#1B263B] leading-none text-4xl">{priceStr}</span>
                         </div>
-                        <p className="text-xs text-gray-400 mt-2">{t('pricing.one_time')}</p>
-                        <p className="text-sm font-semibold text-[#8F9779] mt-1">
-                            {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
-                        </p>
+                        <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.price_note`)}</p>
+                        <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.billing`)}</p>
                     </div>
                 </div>
 
@@ -208,10 +209,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     <div className="flex items-baseline justify-center gap-1">
                         <span className={`font-bold text-[#1B263B] leading-none ${rec ? 'text-4xl' : 'text-3xl'}`}>{priceStr}</span>
                     </div>
-                    <p className="text-xs text-gray-400 mt-1">{t('pricing.one_time')}</p>
-                    <p className="text-sm font-semibold text-[#8F9779] mt-1">
-                        {lang === 'en' ? `($${Math.round(pack.price / pack.sessions)}/hour)` : `(soit ${Math.round(pack.price / pack.sessions)}$/heure)`}
-                    </p>
+                    <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.price_note`)}</p>
+                    <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.billing`)}</p>
                 </div>
 
                 {/* CTA */}
@@ -226,7 +225,7 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     }}
                     aria-label={`${t('pricing.cta_choose')} — ${t(`pricing.${pack.id}.label`)}`}
                 >
-                    {(pack.id === 'performance' || pack.id === 'advanced' || pack.id === 'essential') ? "En savoir plus" : (entry ? t('pricing.cta_entry') : rec ? t('pricing.cta_recommended') : t('pricing.cta_choose'))}
+                    {t('pricing.cta_more')}
                     <ArrowRight size={16} />
                 </button>
             </div>
@@ -241,15 +240,8 @@ export default function Prix({ handleSelectProgram }) {
     const [openFaq, setOpenFaq] = useState(null);
 
     const goBooking = (packId) => {
-        if (packId === 'performance') {
-            navigate('/pack/performance');
-        } else if (packId === 'advanced') {
-            navigate('/pack/avance');
-        } else if (packId === 'essential') {
-            navigate('/pack/essential');
-        } else {
-            navigate('/booking');
-        }
+        const pack = PRICING_DATA.find(p => p.id === packId);
+        navigate(pack ? pack.path : '/booking');
         window.scrollTo(0, 0);
     };
     const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
@@ -327,12 +319,12 @@ export default function Prix({ handleSelectProgram }) {
 
             {/* ══ 3. GRILLE DES 3 FORFAITS ═════════════════════════════ */}
             <section id="les-packs" className="py-20 px-4 bg-white" aria-labelledby="packs-heading">
-                <h2 id="packs-heading" className="sr-only">Nos Packs</h2>
+                <h2 id="packs-heading" className="sr-only">{t('pricing.packs.title')}</h2>
                 <div className="max-w-7xl mx-auto">
 
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch pt-5">
-                        {[...PRICING_DATA].reverse().map(pack => (
+                        {PRICING_DATA.map(pack => (
                             <PriceCard
                                 key={pack.id}
                                 pack={pack}
@@ -411,7 +403,7 @@ export default function Prix({ handleSelectProgram }) {
                                         <h3 className="font-bold text-[#1B263B] text-base mb-2">{t(`pricing.proof.${item.id}_title`)}</h3>
                                         <p className="text-gray-600 text-sm leading-relaxed">{t(`pricing.proof.${item.id}_desc`)}</p>
                                         <span className="inline-block mt-3 text-[11px] font-bold uppercase tracking-widest text-[#8F9779]">
-                                            {item.packs}
+                                            {t(`pricing.proof.${item.id}_pack`)}
                                         </span>
                                     </div>
                                 </div>

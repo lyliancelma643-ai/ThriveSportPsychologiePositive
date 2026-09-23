@@ -1,13 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
-import { 
-    ChevronDown, ArrowRight, CheckCircle2, Shield,
-    BarChart2, BookOpen, MessageCircle, Star, Phone,
-    Compass, Target, Zap, Clock, Activity, FileText
+import {
+    ChevronDown, ArrowRight, CheckCircle2, Star,
+    MessageCircle, FileText, BookOpen,
+    Clock, Moon, Heart
 } from 'lucide-react';
-import ContactSection from '../components/ui/ContactSection';
-import Cal, { getCalApi } from "@calcom/embed-react";
 
 // --- Scroll Reveal Utility Component ---
 const Reveal = ({ children, delay = 0, className = "" }) => {
@@ -62,35 +60,28 @@ const FaqItem = ({ q, a, open, onToggle }) => (
 );
 
 // --- Main Page Component ---
-export default function PerformancePack({ setBookingStep }) {
+export default function MomentQuiCompte() {
     const navigate = useNavigate();
     const [openFaq, setOpenFaq] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        (async function () {
-            const cal = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
-            cal("ui", {
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        })();
     }, []);
 
-    const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
-    const goPacks = () => { navigate('/prix'); window.scrollTo(0, 0); };
+    const goWaitlist = () => { navigate('/liste-attente?source=site'); window.scrollTo(0, 0); };
+    const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
+    const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };
 
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#C5A059]/20">
-            <SEO 
-                title="Pack Performance | Accompagnement Mental Haut Niveau — THRIVE"
-                description="Pour les jeunes athlètes élite : un cadre sur-mesure, des mesures solides et un accompagnement de proximité avec la famille sur toute la saison."
-                url="https://thrivesportpositive.com/pack/performance"
+            <SEO
+                title="Le moment qui compte | 10 minutes par jour avec votre enfant — THRIVE"
+                description="Chaque jour, une activité de 10 minutes à faire avec votre enfant, sans rien préparer, avec l'explication du pourquoi. 1 mois d'essai gratuit, puis 15 $ + tx toutes les 2 semaines, sans engagement."
+                url="https://thrivesportpositive.com/programmes/le-moment-qui-compte"
             />
 
             {/* 1. HERO CINÉMATIQUE */}
             <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-32 pb-20 overflow-hidden bg-[#1B263B]">
-                {/* Background effects */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-30 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#C5A059]/40 via-[#1B263B]/0 to-transparent" />
                     <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-[#8F9779]/10 rounded-full blur-[120px] -translate-x-1/2 translate-y-1/2" />
@@ -100,55 +91,53 @@ export default function PerformancePack({ setBookingStep }) {
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
                             <Star size={14} className="text-[#C5A059]" fill="currentColor" />
-                            Niveau Premium
+                            L'abonnement famille THRIVE
                         </div>
                     </Reveal>
 
                     <Reveal delay={200}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-8">
-                            THRIVE <br className="hidden md:block" />
+                            Le moment <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C5A059] to-[#E3C687]">
-                                Performance
+                                qui compte
                             </span>
                         </h1>
                     </Reveal>
 
                     <Reveal delay={300}>
                         <p className="text-xl md:text-3xl text-white/90 font-serif font-medium mb-8 max-w-3xl mx-auto leading-tight">
-                            Le programme complet, avec un suivi d’athlète de haut niveau.
+                            10 minutes ce soir. Rien à préparer. Et il s’en souviendra.
                         </p>
                     </Reveal>
 
                     <Reveal delay={400}>
                         <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-14">
-                            Pour les familles qui veulent plus qu’un programme : un cadre clair, des mesures solides et un accompagnement de confiance sur toute la saison.
+                            Chaque jour, une activité de 10 minutes à faire avec votre enfant, conçue à partir de la recherche sur le lien parent–enfant, avec l’explication du pourquoi. Parce que ce n’est pas le nombre d’heures qui compte, c’est la qualité du moment.
                         </p>
                     </Reveal>
 
                     <Reveal delay={500} className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24">
                         <button
-                            onClick={goEval}
+                            onClick={goWaitlist}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-[0_0_40px_rgba(197,160,89,0.3)]"
                         >
-                            Réserver un appel <ArrowRight size={20} />
+                            Être prévenu du lancement <ArrowRight size={20} />
                         </button>
                         <button
-                            data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                            data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            onClick={goInclus}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                         >
-                            reserver ma place
+                            Voir ce qui est inclus
                         </button>
                     </Reveal>
 
                     {/* Quick proofs */}
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
-                            { label: "13 séances", sub: "sur la saison" },
-                            { label: "13 bilans détaillés", sub: "un à chaque séance" },
-                            { label: "Messagerie", sub: "coach en direct" },
-                            { label: "Exports", sub: "CSV + PDF" }
+                            { label: "10 minutes", sub: "par jour" },
+                            { label: "0 préparation", sub: "0 matériel" },
+                            { label: "1 mois", sub: "d'essai gratuit" },
+                            { label: "Sans engagement", sub: "résiliable à tout moment" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -163,28 +152,28 @@ export default function PerformancePack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white relative">
                 <div className="max-w-6xl mx-auto">
                     <Reveal>
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4 text-center">Profils cibles</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4 text-center">Vous vous reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-3xl mx-auto leading-tight">
-                            À qui s'adresse le niveau Performance ?
+                            À qui s'adresse Le moment qui compte ?
                         </p>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mb-20">
                         {[
                             {
-                                icon: <Target size={28} />,
-                                title: "Enfant en compétition",
-                                text: "Familles dont l'enfant évolue déjà dans un environnement exigeant (sélection, sport-études, club interrégional)."
+                                icon: <Moon size={28} />,
+                                title: "Il est déjà en pyjama",
+                                text: "Vous rentrez à 19 h, il est déjà prêt pour le lit, et vous vous sentez coupable de ne pas l'avoir vu de la journée."
                             },
                             {
-                                icon: <Compass size={28} />,
-                                title: "Besoin de pilotage",
-                                text: "Parents qui veulent un pilote fiable sur toute la saison, avec des recommandations claires pour la suite."
+                                icon: <Clock size={28} />,
+                                title: "Vous ne le voyez pas grandir",
+                                text: "Entre le travail, la fatigue et la pression, les semaines filent. Vous avez l'impression de passer à côté."
                             },
                             {
-                                icon: <Zap size={28} />,
-                                title: "Clarté de progression",
-                                text: "Familles qui veulent comprendre précisément quoi renforcer, sans surcharger l'enfant d'injonctions inutiles."
+                                icon: <Heart size={28} />,
+                                title: "Pas le temps de préparer",
+                                text: "Vous voulez un vrai moment avec lui, mais vous n'avez ni le temps ni l'énergie de chercher quoi faire."
                             }
                         ].map((block, i) => (
                             <Reveal key={i} delay={i * 150} className="bg-[#fafafa] border border-gray-100 p-10 rounded-[2rem] flex flex-col">
@@ -199,40 +188,40 @@ export default function PerformancePack({ setBookingStep }) {
 
                     <Reveal delay={400} className="text-center">
                         <p className="inline-block bg-[#1B263B] text-white px-8 py-4 rounded-full font-serif text-xl md:text-2xl shadow-xl">
-                            Ce pack s’adresse aux familles qui ne veulent plus avancer à l’intuition.
+                            Pour les parents qui manquent de temps, pas d’amour.
                         </p>
                     </Reveal>
                 </div>
             </section>
 
-            {/* 3. SECTION "CE QUE CE PACK CHANGE" */}
+            {/* 3. SECTION "POURQUOI 10 MINUTES SUFFISENT" */}
             <section className="py-32 px-4 bg-[#1B263B] text-white relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#C5A059]/10 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                
+
                 <div className="max-w-6xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-20 max-w-3xl leading-tight">
-                            La transformation au-delà des séances.
+                            Pourquoi 10 minutes suffisent.
                         </h2>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
                         {[
                             {
-                                title: "Plus de clarté sur la progression réelle",
-                                desc: "Des mesures objectives remplacent les impressions subjectives. Vous savez exactement où l'athlète progresse et ce qui reste à développer."
+                                title: "La qualité avant la quantité",
+                                desc: "Chez les enfants de 3 à 11 ans, la recherche trouve que le nombre d'heures passées avec leur mère n'est presque pas lié à leur développement. Ce qui compte, c'est ce qui se passe pendant ce temps."
                             },
                             {
-                                title: "Plus de recul dans les moments clés",
-                                desc: "Pendant les périodes de haute pression (sélections, phases finales), vous bénéficiez d'un regard extérieur neutre et expert pour naviguer sans panique."
+                                title: "Moins de culpabilité, plus de présence",
+                                desc: "Le stress et la culpabilité du parent peuvent peser davantage que les heures manquées. Dix minutes vraiment présentes valent mieux qu'une soirée à s'en vouloir."
                             },
                             {
-                                title: "Une cohérence parent-enfant",
-                                desc: "Alignement total entre ce que l’enfant vit sur le terrain, ce qu’il ressent intérieurement, et l'attitude à adopter à la maison pour le nourrir."
+                                title: "Un format court et reconnu",
+                                desc: "Quelques minutes par jour d'un « moment spécial » parent–enfant : c'est un format utilisé par des programmes reconnus d'accompagnement des familles."
                             },
                             {
-                                title: "Une base sérieuse pour l'avenir",
-                                desc: "Vous repartez avec une compréhension profonde de son profil, permettant de choisir les bons environnements et les bons entraîneurs pour la suite."
+                                title: "La pratique à la maison, c'est le programme",
+                                desc: "Les programmes parentaux les plus efficaces font pratiquer le parent avec son propre enfant. Pas de théorie à lire : un geste à faire, ce soir."
                             }
                         ].map((b, i) => (
                             <Reveal key={i} delay={i * 100} className="flex gap-6">
@@ -247,13 +236,13 @@ export default function PerformancePack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 4. SECTION "UN SUIVI PARENT-COACH RARE" */}
+            {/* 4. SECTION "AU QUOTIDIEN" */}
             <section className="py-32 px-4 bg-[#fafafa]">
                 <div className="max-w-4xl mx-auto">
                     <Reveal className="text-center mb-24">
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#8F9779] mb-4">Pilotage haut niveau</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#8F9779] mb-4">Au quotidien</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] leading-tight">
-                            Un suivi Parent-Coach rare.
+                            Comment ça marche, concrètement.
                         </p>
                     </Reveal>
 
@@ -263,30 +252,30 @@ export default function PerformancePack({ setBookingStep }) {
 
                         {[
                             {
-                                time: "Dès S1",
-                                title: "Bilan détaillé à chaque séance",
-                                items: ["Le bilan structuré du coach après chacune des 13 séances", "Observations chiffrées (indicateurs notés sur 5) à chaque étape", "Lecture directe dans votre espace parent, en temps réel"]
+                                time: "À l'heure choisie",
+                                title: "Une notification",
+                                items: ["Vous choisissez le moment de la journée qui vous convient", "L'activité du jour se lit en 20 secondes"]
                             },
                             {
-                                time: "En continu",
-                                title: "Messagerie directe avec le coach",
-                                items: ["Un fil privé parent ↔ coach, directement dans l'application", "Posez vos questions sans attendre la prochaine séance"]
+                                time: "10 minutes",
+                                title: "Le moment ensemble",
+                                items: ["Zéro préparation, zéro matériel : ce que vous avez déjà à la maison", "Une activité tirée de la Méthode THRIVE, selon l'âge de votre enfant"]
                             },
                             {
-                                time: "S1 · S7 · S13",
-                                title: "Mesures scientifiques complètes",
-                                items: ["Courbe LSSS et jauge par compétence avec évolution", "Roue des émotions et journal de progression"]
+                                time: "Une ligne",
+                                title: "Le pourquoi",
+                                items: ["Chaque activité explique en une phrase ce qu'elle développe chez votre enfant", "Vous comprenez ce que vous faites, et pourquoi ça compte"]
                             },
                             {
-                                time: "S13",
-                                title: "Le dossier complet, à garder",
-                                items: ["Export CSV / PDF du parcours entier", "Lettre personnalisée du coach + certificat THRIVE", "Historique illimité, pour toute la famille"]
+                                time: "Semaine 4",
+                                title: "Le bilan",
+                                items: ["Combien de moments vous avez partagés", "Et le signe qui ne trompe pas : votre enfant réclame-t-il le moment ?"]
                             }
                         ].map((step, i) => (
                             <Reveal key={i} delay={i * 150} className={`relative flex flex-col md:flex-row items-start md:items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
                                 {/* Node marker */}
                                 <div className="absolute left-0 md:left-1/2 w-4 h-4 bg-[#1B263B] border-4 border-[#fafafa] rounded-full -translate-x-1.5 md:-translate-x-1/2 mt-6 md:mt-0 z-10 box-content shadow-sm" />
-                                
+
                                 {/* Content Box */}
                                 <div className="w-full md:w-[45%] pl-8 md:pl-0">
                                     <div className="bg-white border border-gray-100 p-8 rounded-[2rem] shadow-sm hover:shadow-md transition-shadow">
@@ -309,25 +298,23 @@ export default function PerformancePack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 5. SECTION "UNE LECTURE PLUS FINE DE L’ATHLÈTE" */}
+            {/* 5. SECTION "CE QUE VOUS VERREZ CHANGER" */}
             <section className="py-32 px-4 bg-white relative">
                 <div className="max-w-7xl mx-auto">
                     <Reveal className="text-center mb-20">
                         <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-6 leading-tight">
-                            Une lecture plus fine de l'athlète.
+                            Ce que vous verrez changer.
                         </h2>
                         <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                            Des outils de mesure élargis, expliqués en langage simple. Aucun jargon, aucune médicalisation. Seulement des repères fiables pour mieux le comprendre.
+                            Trois repères simples, suivis dans l’app. Aucun jargon, aucune note clinique : seulement ce qui se passe chez vous.
                         </p>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { name: "Courbe LSSS", desc: "Life Skills Scale for Sport en 3 mesures (S1 · S7 · S13). La preuve longitudinale que les compétences de vie de votre enfant progressent." },
-                            { name: "Jauge par compétence", desc: "Le détail de chaque compétence — confiance, régulation, concentration… — et son évolution depuis le départ, en continu dans votre espace." },
-                            { name: "Observations 13/13", desc: "Les indicateurs chiffrés du coach à chacune des 13 séances : la granularité maximale pour suivre les progrès semaine après semaine." },
-                            { name: "Roue des émotions", desc: "Le suivi affectif de séance en séance, avec le journal de progression. Comprendre ce que vit votre enfant, pas seulement ce qu'il fait." },
-                            { name: "RPE", desc: "Évaluation de l'effort perçu, recueillie dans les séances vidéo interactives et intégrée aux rapports de niveau maximal." }
+                            { name: "Les moments partagés", desc: "Le nombre de moments réalisés chaque semaine. L'objectif : au moins 3 par semaine, 4 semaines de suite." },
+                            { name: "Il réclame le moment", desc: "Le signe le plus parlant : c'est votre enfant qui vous demande « on fait notre moment ce soir ? »." },
+                            { name: "Votre ressenti", desc: "Une question par semaine sur votre culpabilité, de 0 à 10. C'est votre ressenti de parent, pas un score." }
                         ].map((metric, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-8 rounded-[2rem]">
                                 <div className="text-[#1B263B] font-serif font-bold text-2xl mb-4">{metric.name}</div>
@@ -338,24 +325,23 @@ export default function PerformancePack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 6. SECTION "LES LIVRABLES QUI RESTENT" */}
+            {/* 6. SECTION "DEUX FAÇONS D'EN PROFITER" */}
             <section className="py-32 px-4 bg-[#1B263B] text-white">
                 <div className="max-w-6xl mx-auto">
                     <Reveal className="mb-20 text-center">
                         <h2 className="text-3xl md:text-5xl font-serif font-bold leading-tight">
-                            Les livrables qui restent.
+                            La Méthode THRIVE, à la maison.
                         </h2>
                     </Reveal>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                        {/* Scorecard */}
                         <Reveal delay={100} className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 md:p-14 backdrop-blur-md relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[#C5A059]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                             <FileText size={48} className="text-[#C5A059] mb-8 relative z-10" />
-                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Le dossier complet du parcours</h3>
-                            <p className="text-white/60 text-lg mb-8 relative z-10">Tout l'historique, exportable et à garder — au-delà des 13 séances.</p>
+                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Pour commencer en douceur</h3>
+                            <p className="text-white/60 text-lg mb-8 relative z-10">La façon la plus simple de découvrir la méthode, sans vous engager.</p>
                             <ul className="space-y-4 relative z-10">
-                                {["Export CSV / PDF du parcours entier", "Courbe LSSS et jauge par compétence en langage simple", "La lettre personnalisée du coach et le certificat THRIVE"].map((item, i) => (
+                                {["Un mois d'essai gratuit pour voir si ça vous ressemble", "Dix minutes par jour, à votre rythme", "Le pourquoi de chaque activité, pour comprendre ce que vous faites"].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80">
                                         <CheckCircle2 size={20} className="text-[#C5A059] shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -364,14 +350,13 @@ export default function PerformancePack({ setBookingStep }) {
                             </ul>
                         </Reveal>
 
-                        {/* Cahier */}
                         <Reveal delay={200} className="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 md:p-14 backdrop-blur-md relative overflow-hidden group">
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8F9779]/20 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                             <BookOpen size={48} className="text-[#8F9779] mb-8 relative z-10" />
-                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">La carte d'identité de l'athlète</h3>
-                            <p className="text-white/60 text-lg mb-8 relative z-10">Le compagnon numérique que votre enfant construit séance après séance.</p>
+                            <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Pour prolonger un programme</h3>
+                            <p className="text-white/60 text-lg mb-8 relative z-10">Les activités viennent de la même méthode que nos programmes en séance.</p>
                             <ul className="space-y-4 relative z-10">
-                                {["Passeport, forces et rêve de saison", "Focus word, routine d'avant-match et boîte à outils mentaux", "Objectifs SMART et prochaines étapes", "Accessible sans limite dans votre espace famille"].map((item, i) => (
+                                {["Après Oser essayer ou Aller vers les autres, le lien continue à la maison", "Ce que votre enfant a appris en séance se prolonge au quotidien", "Vous restez acteur de sa progression"].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80">
                                         <CheckCircle2 size={20} className="text-[#8F9779] shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -383,7 +368,7 @@ export default function PerformancePack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 7. SECTION "ENTRE LES SÉANCES" */}
+            {/* 7. SECTION "SANS ENGAGEMENT" */}
             <section className="py-32 px-4 bg-white">
                 <div className="max-w-4xl mx-auto text-center">
                     <Reveal>
@@ -391,17 +376,17 @@ export default function PerformancePack({ setBookingStep }) {
                             <MessageCircle size={36} />
                         </div>
                         <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-8 leading-tight">
-                            Entre les séances, vous n'êtes pas seuls.
+                            Sans engagement, pour de vrai.
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-12">
-                            L'accompagnement haut niveau ne s'arrête pas à la fin de la séance. En tant que parent, vous bénéficiez de la messagerie directe avec le coach, dans votre espace sécurisé.
+                            Vous restez parce que ça vous apporte quelque chose, jamais parce qu’il est compliqué de partir. L’annulation reste simple et visible, à tout moment.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
-                                "Fil privé dans l'application",
-                                "Aide sur les outils",
-                                "Ajustements pré-compétition",
-                                "Réponse entre les séances"
+                                "1 mois d'essai gratuit",
+                                "Rappel avant la fin de l'essai",
+                                "Annulation simple, à tout moment",
+                                "Prélèvement toutes les 2 semaines"
                             ].map((badge, i) => (
                                 <span key={i} className="px-5 py-2.5 bg-[#fafafa] border border-gray-200 text-gray-700 font-medium rounded-full text-sm">
                                     {badge}
@@ -413,21 +398,20 @@ export default function PerformancePack({ setBookingStep }) {
             </section>
 
             {/* 8. SECTION "TOUT CE QUI EST INCLUS" (Grille) */}
-            <section id="inclus" className="py-32 px-4 bg-[#fafafa] border-y border-gray-100">
+            <section id="inclus" className="scroll-mt-24 py-32 px-4 bg-[#fafafa] border-y border-gray-100">
                 <div className="max-w-4xl mx-auto">
                     <Reveal className="text-center mb-16">
-                        <h2 className="text-3xl font-serif font-bold text-[#1B263B]">Synthèse du pack Performance</h2>
+                        <h2 className="text-3xl font-serif font-bold text-[#1B263B]">Tout ce qui est inclus</h2>
                     </Reveal>
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Pack Avancé complet", desc: "13 séances, bibliothèque vidéo, jauge par compétence, courbe LSSS, roue des émotions, lettre du coach." },
-                            { title: "Bilan détaillé aux 13 séances", desc: "Le bilan structuré + observations chiffrées après chaque séance — pas seulement aux étapes." },
-                            { title: "Messagerie directe coach", desc: "Un fil privé parent ↔ coach dans l'application, en continu pendant toute la saison." },
-                            { title: "Rapports à la profondeur maximale", desc: "Niveau de détail 3 (transfert hors-sport, réussites, effort perçu) + gabarits premium." },
-                            { title: "Export CSV / PDF", desc: "Le parcours complet téléchargeable, à garder ou partager avec l'entraîneur." },
-                            { title: "Famille illimitée", desc: "Profils enfants et comptes parents illimités · historique illimité · stockage maximal." },
-                            { title: "Synthèse IA de fin de parcours", desc: "À venir — incluse dans le pack dès sa sortie, sans supplément." }
+                            { title: "1 activité par jour", desc: "10 minutes, dans l'app, à faire avec votre enfant." },
+                            { title: "Le pourquoi", desc: "Une ligne d'explication psychologique pour chaque activité." },
+                            { title: "Zéro préparation", desc: "Aucun matériel à acheter, une activité lisible en 20 secondes." },
+                            { title: "Une notification", desc: "À l'heure que vous choisissez, pour ne pas y penser." },
+                            { title: "Un bilan à 4 semaines", desc: "Les moments réalisés, et si votre enfant réclame le moment." },
+                            { title: "1 mois d'essai gratuit", desc: "Avec un rappel avant la fin de l'essai. Annulation simple, à tout moment." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -446,32 +430,31 @@ export default function PerformancePack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white text-center">
                 <div className="max-w-3xl mx-auto">
                     <Reveal>
-                        <p className="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
-                        <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 500</span>
-                            <span className="text-3xl font-bold text-gray-400">CAD</span>
+                        <p className="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-6">Abonnement</p>
+                        <div className="flex justify-center items-baseline gap-3 mb-4">
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">15 $</span>
+                            <span className="text-3xl font-bold text-gray-400">+ tx</span>
                         </div>
+                        <p className="text-lg font-bold text-[#8F9779] mb-10">toutes les 2 semaines</p>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16">
-                            Un accompagnement complet pour les familles qui veulent un cadre fiable, des repères mesurés et des recommandations solides sur toute la saison.
+                            Un premier mois d’essai gratuit. Un prélèvement toutes les deux semaines, au rythme de la paie. Sans engagement : vous arrêtez quand vous voulez.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
-                                onClick={goEval}
+                                onClick={goWaitlist}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
-                                Planifier un appel découverte <ArrowRight size={20} />
+                                Être prévenu du lancement <ArrowRight size={20} />
                             </button>
                             <button
-                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                onClick={goPrix}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-[#1B263B] text-[#1B263B] px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
                             >
-                                reserver ma place gratuitement
+                                Comparer les programmes
                             </button>
                         </div>
                         <p className="text-sm text-gray-400 font-medium">
-                            Places limitées selon la capacité d'accompagnement du coach.
+                            L’application ouvre bientôt : inscrivez-vous pour être parmi les premières familles prévenues.
                         </p>
                     </Reveal>
                 </div>
@@ -487,32 +470,32 @@ export default function PerformancePack({ setBookingStep }) {
                     <Reveal delay={200} className="bg-white border border-gray-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
                         {[
                             {
-                                q: "Est-ce que ce pack remplace un psychologue du sport ?",
-                                a: "Non. THRIVE n'est pas une démarche clinique ou thérapeutique. C'est un accompagnement en psychologie positive axé sur l'optimisation, la clarté et l'acquisition de compétences de vie. Si nous détectons un besoin clinique, nous vous réorienterons vers le bon professionnel de santé."
+                                q: "10 minutes par jour, ça suffit vraiment ?",
+                                a: "Oui, si ces 10 minutes sont vraiment consacrées à votre enfant. Chez les 3–11 ans, la recherche montre que la qualité du moment compte bien plus que le nombre d'heures. L'objectif n'est pas de tout faire, mais de le faire bien, régulièrement."
                             },
                             {
-                                q: "Quelle est la différence avec le pack Avancé ?",
-                                a: "Le pack Avancé ouvre les bilans détaillés aux séances-étapes (3, 7 et 13). Le pack Performance intègre complètement les parents dans la boucle : le bilan détaillé à chacune des 13 séances, la messagerie directe avec le coach dans l'application, les exports CSV/PDF du parcours et des profils illimités pour toute la famille."
+                                q: "Et quand il devient adolescent ?",
+                                a: "À l'adolescence, le temps partagé compte davantage. Raison de plus pour installer tôt l'habitude d'un vrai moment ensemble, court et régulier."
                             },
                             {
-                                q: "Mon enfant doit-il déjà être au très haut niveau ?",
-                                a: "Pas nécessairement au niveau élite national, mais il doit évoluer dans un environnement compétitif engagé (sport-études, sélection, club interrégional exigeant) où la pression et les attentes justifient un encadrement renforcé."
+                                q: "Faut-il préparer quelque chose ?",
+                                a: "Non. Aucun matériel à acheter, aucune préparation : l'activité se lit en 20 secondes et se fait avec ce que vous avez déjà à la maison."
                             },
                             {
-                                q: "Comment fonctionne la messagerie avec le coach ?",
-                                a: "Directement dans votre espace parent : un fil privé et sécurisé entre vous et le coach de votre enfant. Vous écrivez quand vous voulez, il vous répond entre les séances — sans passer par un numéro personnel ni une application tierce."
+                                q: "Comment fonctionne l'essai gratuit ?",
+                                a: "Vous profitez d'un mois complet gratuitement. Nous vous envoyons un rappel avant la fin de l'essai, et vous pouvez annuler simplement, à tout moment."
                             },
                             {
-                                q: "Est-ce que les résultats sont expliqués simplement ?",
-                                a: "Oui, c'est notre engagement. Les bilans, la jauge par compétence et la courbe LSSS sont présentés visuellement dans votre espace, avec des fiches d'explication en langage clair. Aucun jargon inutile, seulement des données traduites en recommandations pratiques."
+                                q: "Pourquoi un prélèvement toutes les 2 semaines ?",
+                                a: "Parce que la plupart des familles sont payées toutes les deux semaines : le prélèvement tombe au même rythme que la paie. C'est 15 $ + tx à chaque fois, sans engagement."
                             },
                             {
-                                q: "Est-ce que vous échangez avec le club ?",
-                                a: "Si la situation l'exige et avec votre accord, nous pouvons nous coordonner avec l'entraîneur (pour éviter les injonctions contradictoires). Toutefois, nous ne nous substituons jamais à son rôle d'entraîneur technique."
+                                q: "Est-ce une thérapie ?",
+                                a: "Non. Le moment qui compte propose des activités parent–enfant tirées de la Méthode THRIVE. Il ne remplace pas un suivi psychologique. Si votre enfant vit une détresse importante, nous vous orienterons vers un professionnel."
                             },
                             {
-                                q: "Que reste-t-il à la fin du programme ?",
-                                a: "Tout. L'historique complet du parcours reste accessible sans limite dans votre espace, et vous pouvez l'exporter en CSV ou PDF : les 13 bilans, la courbe LSSS, la jauge par compétence, la lettre personnalisée du coach et le certificat THRIVE de votre enfant."
+                                q: "Quel lien avec les programmes THRIVE ?",
+                                a: "Les activités viennent de la même Méthode THRIVE que nos programmes Oser essayer et Aller vers les autres. Vous pouvez commencer par Le moment qui compte pour découvrir la méthode, ou l'utiliser pour prolonger un programme à la maison."
                             }
                         ].map((faq, i) => (
                             <FaqItem
@@ -532,28 +515,28 @@ export default function PerformancePack({ setBookingStep }) {
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#C5A059] to-transparent blur-[80px]" />
                 </div>
-                
+
                 <div className="max-w-4xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
-                            Un cadre plus clair pour lui. <br />
-                            <span className="text-[#C5A059]">Plus de sérénité pour vous.</span>
+                            Dix minutes ce soir. <br />
+                            <span className="text-[#C5A059]">Un souvenir pour lui.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-16">
-                            THRIVE Performance est conçu pour les familles qui veulent accompagner une ambition sportive avec méthode, recul et confiance.
+                            Ce n’est pas le nombre d’heures qui compte. C’est la qualité du moment.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                             <button
-                                onClick={goEval}
+                                onClick={goWaitlist}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-xl"
                             >
-                                Réserver un appel <ArrowRight size={20} />
+                                Être prévenu du lancement <ArrowRight size={20} />
                             </button>
                             <button
-                                onClick={goPacks}
+                                onClick={goPrix}
                                 className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-white/20 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
                             >
-                                Découvrir les autres packs
+                                Découvrir les programmes
                             </button>
                         </div>
                     </Reveal>

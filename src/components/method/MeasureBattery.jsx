@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 const INSTRUMENTS = [
-    { key: 'lsss10',  packs: ['Essential', 'Avancé', 'Performance'], accent: '#8F9779' },
-    { key: 'lsss30',  packs: ['Avancé', 'Performance'],              accent: '#C5A059' },
-    { key: 'smtq',    packs: ['Avancé', 'Performance'],              accent: '#C5A059' },
-    { key: 'rpe',     packs: ['Essential', 'Avancé', 'Performance'], accent: '#8F9779' },
-    { key: 'who5',    packs: ['Avancé', 'Performance'],              accent: '#C5A059' },
-    { key: 'gse',     packs: ['Avancé', 'Performance'],              accent: '#C5A059' },
+    { key: 'lsss10',  packs: ['Oser essayer', 'Aller vers les autres'], accent: '#8F9779' },
+    { key: 'lsss30',  packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
+    { key: 'smtq',    packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
+    { key: 'rpe',     packs: ['Oser essayer', 'Aller vers les autres'], accent: '#8F9779' },
+    { key: 'who5',    packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
+    { key: 'gse',     packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
 ];
 
 const MeasureBattery = () => {

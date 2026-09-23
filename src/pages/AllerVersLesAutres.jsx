@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
-import { 
-    ChevronDown, ArrowRight, CheckCircle2, Shield,
-    BarChart2, BookOpen, MessageCircle, Star, Phone,
-    Compass, Target, Zap, Clock, Activity, FileText,
-    TrendingUp, Plus
+import {
+    ChevronDown, ArrowRight, CheckCircle2, Star,
+    MessageCircle, FileText, CalendarCheck,
+    Users, Gift, UserX, Home
 } from 'lucide-react';
-import ContactSection from '../components/ui/ContactSection';
-import Cal, { getCalApi } from "@calcom/embed-react";
 
 // --- Scroll Reveal Utility Component ---
 const Reveal = ({ children, delay = 0, className = "" }) => {
@@ -63,35 +60,29 @@ const FaqItem = ({ q, a, open, onToggle }) => (
 );
 
 // --- Main Page Component ---
-export default function AdvancedPack({ setBookingStep }) {
+export default function AllerVersLesAutres() {
     const navigate = useNavigate();
     const [openFaq, setOpenFaq] = useState(null);
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        (async function () {
-            const cal = await getCalApi({ namespace: "thrive-performance-13-seances-du-dimanche" });
-            cal("ui", {
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        })();
     }, []);
 
-    const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
-    const goPerf = () => { navigate('/pack/performance'); window.scrollTo(0, 0); };
+    const goCall = () => { navigate('/liste-attente?source=site'); window.scrollTo(0, 0); };
+    const goEssayer = () => { navigate('/programmes/oser-essayer'); window.scrollTo(0, 0); };
+    const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
+    const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };
 
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#94A3B8]/20">
-            <SEO 
-                title="Pack Avancé | Suivi Mental et Preuves d'Évolution — THRIVE"
-                description="Notre pack recommandé : le programme complet avec des preuves chiffrées de progression et un suivi parent rapproché."
-                url="https://thrivesportpositive.com/pack/avance"
+            <SEO
+                title="Aller vers les autres | Programme habiletés sociales pour enfants — THRIVE"
+                description="Votre enfant passe souvent la récré seul ? 13 semaines à Montréal pour apprendre à aborder les autres, proposer une activité et entretenir une amitié : 1:1, petit groupe et défi social. 2 000 $ + tx."
+                url="https://thrivesportpositive.com/programmes/aller-vers-les-autres"
             />
 
             {/* 1. HERO CINÉMATIQUE */}
             <section className="relative min-h-[90vh] flex flex-col justify-center items-center px-4 pt-32 pb-20 overflow-hidden bg-[#1B263B]">
-                {/* Background effects (Silver/Slate theme) */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full opacity-40 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#CBD5E1]/30 via-[#1B263B]/0 to-transparent" />
                     <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#94A3B8]/10 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3" />
@@ -101,55 +92,53 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
                             <Star size={14} className="text-[#94A3B8]" fill="currentColor" />
-                            Pack Recommandé
+                            Le programme habiletés sociales
                         </div>
                     </Reveal>
 
                     <Reveal delay={200}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-8">
-                            THRIVE <br className="hidden md:block" />
+                            Aller vers <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F1F5F9] to-[#94A3B8]">
-                                Avancé
+                                les autres
                             </span>
                         </h1>
                     </Reveal>
 
                     <Reveal delay={300}>
                         <p className="text-xl md:text-3xl text-white/90 font-serif font-medium mb-8 max-w-3xl mx-auto leading-tight">
-                            Le programme complet, avec preuves chiffrées aux moments clés.
+                            Il passe souvent la récré seul et n’ose pas inviter un ami ?
                         </p>
                     </Reveal>
 
                     <Reveal delay={400}>
                         <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-14">
-                            Pour les parents qui veulent voir la progression, la comprendre et l’ajuster avec des repères concrets, pas seulement des impressions.
+                            En 13 semaines, votre enfant apprend concrètement à aborder les autres, à proposer une activité et à entretenir une amitié. Il pratique d’abord en 1:1, puis en petit groupe, puis dans sa vraie vie, avec votre soutien.
                         </p>
                     </Reveal>
 
                     <Reveal delay={500} className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24">
                         <button
-                            onClick={goEval}
+                            onClick={goCall}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F1F5F9] text-[#1B263B] px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white transition-all hover:scale-105 shadow-[0_0_40px_rgba(241,245,249,0.15)]"
                         >
-                            Réserver un appel <ArrowRight size={20} />
+                            Réserver un appel gratuit <ArrowRight size={20} />
                         </button>
                         <button
-                            data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                            data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            onClick={goInclus}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                         >
-                            reserver ma place
+                            Voir ce qui est inclus
                         </button>
                     </Reveal>
 
                     {/* Quick proofs */}
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
-                            { label: "13 séances", sub: "sur la saison" },
-                            { label: "Bilans détaillés", sub: "Séances 3 · 7 · 13" },
-                            { label: "Mesures", sub: "LSSS + par compétence" },
-                            { label: "Livrable", sub: "Lettre du coach" }
+                            { label: "26 séances", sub: "13 en 1:1 + 13 en groupe" },
+                            { label: "1 déplacement", sub: "par semaine" },
+                            { label: "1 défi social", sub: "par semaine, dans sa vie" },
+                            { label: "8 à 11 ans", sub: "premiers groupes" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -164,33 +153,33 @@ export default function AdvancedPack({ setBookingStep }) {
             <section className="py-32 px-4 bg-white relative">
                 <div className="max-w-6xl mx-auto">
                     <Reveal>
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4 text-center">Reconnaissance immédiate</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4 text-center">Vous le reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-4xl mx-auto leading-tight">
-                            À qui s'adresse le pack Avancé ?
+                            À qui s'adresse Aller vers les autres ?
                         </p>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 mb-20">
                         {[
                             {
-                                icon: <BarChart2 size={28} />,
-                                title: "Besoin de données tangibles",
-                                text: "Parents qui veulent être rassurés sur l'impact réel du programme et ont besoin de courbes, de scores et de preuves visuelles de la progression."
+                                icon: <UserX size={28} />,
+                                title: "Il a encore joué seul",
+                                text: "Il rentre de la récré et vous raconte qu'il est resté dans son coin. Encore une fois."
                             },
                             {
-                                icon: <Target size={28} />,
-                                title: "Enfant déjà investi",
-                                text: "Familles avec un jeune athlète sérieux dans sa pratique, pour qui on veut documenter la progression mentale autant que la progression technique."
+                                icon: <Users size={28} />,
+                                title: "Dans son équipe, il est là… mais à côté",
+                                text: "Il fait partie du groupe sur le papier, mais personne ne lui passe la balle et il n'ose pas la demander."
                             },
                             {
-                                icon: <Activity size={28} />,
-                                title: "Compréhension de l'évolution",
-                                text: "Parents qui veulent comprendre précisément ce qui évolue pendant la saison : gestion de la pression, robustesse, leadership."
+                                icon: <Gift size={28} />,
+                                title: "Il n'est jamais invité",
+                                text: "Les anniversaires, les sorties, les après-midi chez un ami : ça se passe souvent sans lui."
                             },
                             {
-                                icon: <Compass size={28} />,
-                                title: "Ajustement stratégique",
-                                text: "Familles désirant un point d'étape structuré à mi-parcours pour ajuster intelligemment les attentes et l'environnement autour du jeune."
+                                icon: <Home size={28} />,
+                                title: "Il n'ose pas faire le premier pas",
+                                text: "Il aimerait avoir un ami, mais il ne sait pas comment aborder les autres ni proposer une activité."
                             }
                         ].map((block, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-10 rounded-[2rem] flex flex-col">
@@ -205,40 +194,40 @@ export default function AdvancedPack({ setBookingStep }) {
 
                     <Reveal delay={400} className="text-center">
                         <p className="inline-block bg-[#1B263B] text-white px-8 py-4 rounded-full font-serif text-xl md:text-2xl shadow-xl">
-                            Ce pack s’adresse aux familles qui veulent des repères concrets, pas un suivi à l’aveugle.
+                            Pour les parents qui ont le cœur serré de voir leur enfant seul.
                         </p>
                     </Reveal>
                 </div>
             </section>
 
-            {/* 3. SECTION "CE QUE CE PACK APPORTE" */}
+            {/* 3. SECTION "COMMENT ÇA MARCHE" */}
             <section className="py-32 px-4 bg-[#1B263B] text-white relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#94A3B8]/10 rounded-full blur-[100px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                
+
                 <div className="max-w-6xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-20 max-w-3xl leading-tight">
-                            Une transformation visible et documentée.
+                            Pratiquer à l’abri, puis dans la vraie vie.
                         </h2>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
                         {[
                             {
-                                title: "Rendre la progression visible",
-                                desc: "Ce qui se passe dans la tête de l'athlète devient lisible sur papier. Vous voyez noir sur blanc les compétences qui se développent."
+                                title: "D'abord le 1:1, sans public",
+                                desc: "Chaque semaine commence par une séance individuelle de la Méthode THRIVE : un espace protégé, sans le regard des autres, pour préparer ce qui sera pratiqué ensuite."
                             },
                             {
-                                title: "Des ressentis aux repères",
-                                desc: "On ne se contente plus de dire « il semble plus confiant ». On transforme les impressions du bord du terrain en repères objectifs."
+                                title: "Puis le petit groupe, pour s'entraîner",
+                                desc: "Juste après, une séance avec quelques enfants qui apprennent la même méthode. Le groupe est un terrain d'entraînement : on y essaie ce qu'on vient de préparer."
                             },
                             {
-                                title: "Comprendre sa réaction à la pression",
-                                desc: "Mesurer spécifiquement comment il réagit à l'effort et aux attentes pour éviter l'épuisement silencieux."
+                                title: "Un défi social dans sa vraie vie",
+                                desc: "Inviter un camarade, proposer un jeu : un défi par semaine hors programme, préparé avec vous. C'est l'ingrédient clé des programmes de référence en habiletés sociales : l'amitié se construit dehors."
                             },
                             {
-                                title: "Ajuster intelligemment la suite",
-                                desc: "Les données récoltées permettent de prendre de meilleures décisions pour la fin de saison et le choix des environnements futurs."
+                                title: "Vous, outillé pour l'aider",
+                                desc: "Un court point parent chaque semaine pour préparer et soutenir le défi. Vous savez enfin comment l'aider concrètement."
                             }
                         ].map((b, i) => (
                             <Reveal key={i} delay={i * 100} className="flex gap-6">
@@ -261,26 +250,26 @@ export default function AdvancedPack({ setBookingStep }) {
                             Des preuves, pas seulement des impressions.
                         </h2>
                         <p className="text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                            La mesure est au cœur de la valeur de ce pack. Nous utilisons des outils scientifiques pour éclairer le chemin, pas pour enfermer l'enfant dans des cases.
+                            On compte ce qui se voit, de la même façon au début et à la fin. Pas pour mettre votre enfant dans une case, mais pour que vous voyiez le chemin parcouru.
                         </p>
                     </Reveal>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
                             {
-                                name: "LSSS (3 temps)",
-                                time: "S1, S7, S13",
-                                desc: "Life Skills Scale for Sport. Mesure l'évolution des compétences de vie (10 items) en début, milieu et fin de programme pour visualiser la courbe d'apprentissage."
+                                name: "En groupe",
+                                time: "Semaine 1 vs semaine 13",
+                                desc: "Le nombre d'échanges que votre enfant lance lui-même, sans être poussé par le coach. Et s'il reste en retrait ou non pendant les exercices à deux."
                             },
                             {
-                                name: "Jauge par compétence",
-                                time: "En continu",
-                                desc: "Le détail de chaque compétence de vie — confiance, régulation, concentration… — et son évolution depuis le départ, visible dans votre espace parent."
+                                name: "Dans sa vraie vie",
+                                time: "Le dernier mois",
+                                desc: "Au moins une invitation ou une activité proposée à un camarade, en dehors du programme. C'est l'indicateur retenu par les programmes de référence."
                             },
                             {
-                                name: "Observations chiffrées",
-                                time: "S3, S7, S13",
-                                desc: "Des indicateurs concrets notés sur 5 par le coach à chaque bilan d'étape : mesurables, comparables dans le temps et expliqués simplement."
+                                name: "Avant / après",
+                                time: "Début et fin",
+                                desc: "Le même questionnaire au début et à la fin du programme, et des bilans courts en cours de route."
                             }
                         ].map((metric, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-10 rounded-[2rem] hover:shadow-lg transition-shadow duration-300">
@@ -293,13 +282,13 @@ export default function AdvancedPack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 5. SECTION "UN POINT CLAIR À MI-PARCOURS" */}
+            {/* 5. SECTION "DES POINTS CLAIRS AUX MOMENTS CLÉS" */}
             <section className="py-32 px-4 bg-[#fafafa]">
                 <div className="max-w-5xl mx-auto">
                     <Reveal className="text-center mb-16">
-                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4">Phase Stratégique</h2>
+                        <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4">Les jalons</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] leading-tight">
-                            Des points clairs aux moments clés (S3 · S7 · S13).
+                            Des points clairs aux moments clés.
                         </p>
                     </Reveal>
 
@@ -307,19 +296,19 @@ export default function AdvancedPack({ setBookingStep }) {
                         <div className="md:w-1/3 flex justify-center">
                             <div className="relative w-40 h-40 bg-[#1B263B] rounded-full flex items-center justify-center text-white shadow-2xl">
                                 <div className="absolute inset-0 bg-[#94A3B8]/20 rounded-full animate-ping opacity-20" />
-                                <Phone size={48} />
+                                <CalendarCheck size={48} />
                             </div>
                         </div>
                         <div className="md:w-2/3">
-                            <h3 className="text-2xl font-bold text-[#1B263B] mb-6">Un bilan détaillé structuré à chaque séance-étape</h3>
+                            <h3 className="text-2xl font-bold text-[#1B263B] mb-6">Vous voyez les progrès avant la fin du programme</h3>
                             <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                                Plus qu'un simple message, c'est un vrai moment de clarification pour s'assurer que nous ramons dans la même direction — lisible directement dans votre espace parent.
+                                Un bilan court à chaque étape, pour savoir où en est votre enfant et ajuster si besoin.
                             </p>
                             <ul className="space-y-4">
                                 {[
-                                    "Résumé de performance et objectif de compétence de vie de la période.",
-                                    "Observations chiffrées, avec des exemples concrets vus sur la glace.",
-                                    "Recommandations pour la maison et ajustement des phases suivantes (DÉVELOPPER & INTÉGRER)."
+                                    "Semaine 4 : ses premiers échanges lancés en groupe, mesurés.",
+                                    "Semaine 8 : son premier défi social réalisé dans sa vraie vie.",
+                                    "Semaine 13 : la séance de remise, avec le bilan avant / après et le Book THRIVE."
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-4 text-gray-700">
                                         <CheckCircle2 size={24} className="text-[#94A3B8] shrink-0" />
@@ -332,7 +321,7 @@ export default function AdvancedPack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 6. SECTION "UNE SCORECARD QUE LES PARENTS COMPRENNENT" */}
+            {/* 6. SECTION "UN BILAN QUE LES PARENTS COMPRENNENT" */}
             <section className="py-32 px-4 bg-[#1B263B] text-white">
                 <div className="max-w-6xl mx-auto">
                     <Reveal className="mb-20 text-center">
@@ -346,13 +335,13 @@ export default function AdvancedPack({ setBookingStep }) {
                             <div className="bg-white/5 border border-white/10 rounded-[2.5rem] p-12 backdrop-blur-md relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#94A3B8]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 transition-transform duration-1000 group-hover:scale-150" />
                                 <FileText size={48} className="text-[#94A3B8] mb-8 relative z-10" />
-                                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8 relative z-10 leading-snug">Un document structuré, intelligent et rassurant pour matérialiser la progression.</h3>
+                                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-8 relative z-10 leading-snug">Des situations du quotidien, pas du jargon.</h3>
                                 <ul className="space-y-4 relative z-10">
                                     {[
-                                        "Jauge par compétence : « la confiance a progressé de X points depuis le départ »",
-                                        "Courbe LSSS en 3 mesures : la preuve longitudinale de la progression",
-                                        "Explication simple des données (aucun jargon clinique)",
-                                        "Des fiches « Comment lire ces données » intégrées à chaque carte de votre espace"
+                                        "Ce que votre enfant ose faire aujourd'hui, comparé au départ",
+                                        "Les défis sociaux réalisés, semaine après semaine",
+                                        "Ce qui a bien marché, et ce qui reste à pratiquer",
+                                        "Ce qu'on vous recommande pour la suite"
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-4 text-white/80">
                                             <CheckCircle2 size={20} className="text-[#94A3B8] shrink-0 mt-0.5" />
@@ -389,17 +378,17 @@ export default function AdvancedPack({ setBookingStep }) {
                             <MessageCircle size={36} />
                         </div>
                         <h2 className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-8 leading-tight">
-                            Entre les séances, une présence cadrée.
+                            Entre les séances, vous n’êtes pas seul.
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-12 max-w-2xl mx-auto">
-                            Un suivi écrit régulier dans votre espace, pour ne jamais rester avec une incertitude.
+                            L’amitié se construit en dehors du programme. Chaque semaine, on prépare avec vous ce que votre enfant va essayer dans sa vraie vie.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
-                                "Message du coach à chaque séance",
-                                "Bilans détaillés S3 · S7 · S13",
-                                "Fiches d'explication sur chaque mesure",
-                                "Messagerie directe : pack Performance"
+                                "Point parent chaque semaine",
+                                "Défi social préparé ensemble",
+                                "Suivi dans l'app",
+                                "Bilans semaines 4 et 8"
                             ].map((badge, i) => (
                                 <span key={i} className="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-full text-sm shadow-sm hover:border-[#94A3B8] transition-colors cursor-default">
                                     {badge}
@@ -411,21 +400,21 @@ export default function AdvancedPack({ setBookingStep }) {
             </section>
 
             {/* 8. SECTION "TOUT CE QUI EST INCLUS" (Grille) */}
-            <section id="inclus" className="py-32 px-4 bg-[#fafafa] border-t border-gray-100">
+            <section id="inclus" className="scroll-mt-24 py-32 px-4 bg-[#fafafa] border-t border-gray-100">
                 <div className="max-w-4xl mx-auto">
                     <Reveal className="text-center mb-16">
-                        <h2 className="text-3xl font-serif font-bold text-[#1B263B]">Synthèse du pack Avancé</h2>
+                        <h2 className="text-3xl font-serif font-bold text-[#1B263B]">Tout ce qui est inclus</h2>
                     </Reveal>
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Tout le pack Essentiel", desc: "13 séances complètes, bibliothèque vidéo, carte d'identité de l'athlète, message du coach à chaque séance." },
-                            { title: "Bilan détaillé + observations", desc: "Aux séances-étapes 3 · 7 · 13 : bilan structuré du coach avec indicateurs notés sur 5." },
-                            { title: "Jauge par compétence", desc: "Le détail de chaque compétence de vie et son évolution depuis le départ, dans votre espace." },
-                            { title: "Courbe LSSS", desc: "L'échelle scientifique « Life Skills Scale for Sport » mesurée en S1, S7 et S13." },
-                            { title: "Roue des émotions + journal", desc: "Le suivi affectif séance après séance et le journal de progression de votre enfant." },
-                            { title: "Lettre personnalisée du coach", desc: "Un livrable émotionnel fort, rédigé pour votre enfant, en plus du certificat." },
-                            { title: "Famille élargie", desc: "Jusqu'à 2 profils enfants et 2 comptes parents · historique conservé 12 mois." }
+                            { title: "Séance découverte", desc: "Une séance complète qui pose le point de départ de votre enfant. 97 $ + tx, déduits de votre premier versement si vous continuez." },
+                            { title: "13 séances individuelles", desc: "La Méthode THRIVE en 1:1, une par semaine : l'espace protégé pour préparer." },
+                            { title: "13 séances en petit groupe", desc: "Le même jour, juste après le 1:1 : un seul déplacement par semaine. 6 enfants maximum pour un coach." },
+                            { title: "1 défi social par semaine", desc: "Inviter un camarade, proposer un jeu : à vivre hors programme, préparé avec vous." },
+                            { title: "Point parent hebdomadaire", desc: "Un court échange chaque semaine pour préparer et soutenir le défi." },
+                            { title: "Mesure avant / après", desc: "Le même questionnaire au début et à la fin, et des bilans courts aux semaines 4 et 8." },
+                            { title: "Séance de remise + Book THRIVE", desc: "En semaine 13 : le bilan avant / après, la synthèse de ce qu'il a appris et la suite possible." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -440,16 +429,17 @@ export default function AdvancedPack({ setBookingStep }) {
                 </div>
             </section>
 
-            {/* 9. SECTION "CE QUE CE PACK NE COMPREND PAS" (Upsell doux) */}
+            {/* 9. SECTION "CE QU'IL FAUT SAVOIR" */}
             <section className="py-24 px-4 bg-white border-b border-gray-100">
                 <div className="max-w-4xl mx-auto bg-[#fafafa] border border-gray-200 rounded-[2rem] p-10 md:p-14">
                     <Reveal>
-                        <h3 className="text-2xl font-serif font-bold text-[#1B263B] mb-6">Les limites de ce pack</h3>
+                        <h3 className="text-2xl font-serif font-bold text-[#1B263B] mb-6">Ce qu'il faut savoir avant de choisir</h3>
                         <ul className="space-y-4 mb-10">
                             {[
-                                "Le bilan détaillé s'ouvre aux séances-étapes (3 · 7 · 13), pas aux 13 séances.",
-                                "Pas de messagerie directe avec le coach entre les séances.",
-                                "Pas d'export CSV / PDF du parcours ni de gabarits de rapport premium."
+                                "Les groupes démarrent à dates fixes, pour que tous les enfants commencent ensemble. Les premiers groupes sont ouverts aux enfants de 8 à 11 ans.",
+                                "Nous ne promettons pas un groupe d'amis : nous travaillons chaque semaine les gestes qui permettent d'en créer et d'en garder un, et nous mesurons les progrès.",
+                                "L'approche s'inspire des programmes de référence en habiletés sociales (PEERS®, UCLA). Ils ont surtout été validés auprès d'adolescents autistes ; leur efficacité chez des enfants simplement timides ou isolés est plausible, mais moins démontrée.",
+                                "Ce n'est pas une psychothérapie : THRIVE ne remplace pas un suivi psychologique. Si votre enfant vit une détresse importante ou a reçu un diagnostic, nous vous orienterons vers un professionnel."
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-gray-500">
                                     <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 shrink-0" />
@@ -457,10 +447,10 @@ export default function AdvancedPack({ setBookingStep }) {
                                 </li>
                             ))}
                         </ul>
-                        
+
                         <div className="bg-[#1B263B] rounded-2xl p-8 text-white">
                             <p className="text-white/80 leading-relaxed text-lg">
-                                Avec Avancé, vous voyez la progression mentale en chiffres aux moments clés. Si vous voulez, en plus, le bilan détaillé à chacune des 13 séances, la messagerie directe avec le coach et l'export complet du parcours, le <button onClick={goPerf} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">pack Performance</button> est conçu pour ce niveau d’engagement.
+                                Le regard des autres lui fait peur ? On commence souvent par <button onClick={goEssayer} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">Oser essayer</button> : 13 séances en 1:1 pour reprendre confiance, avant de passer au groupe.
                             </p>
                         </div>
                     </Reveal>
@@ -473,30 +463,28 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal>
                         <p className="text-[#94A3B8] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 000</span>
-                            <span className="text-3xl font-bold text-gray-400">CAD</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 000 $</span>
+                            <span className="text-3xl font-bold text-gray-400">+ tx</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
-                            Le bon niveau d’accompagnement pour les familles qui veulent des preuves tangibles, un point structuré à mi-parcours et une lecture claire de la progression.
+                            26 séances sur 13 semaines. Rien à payer à l’inscription : 2 versements de 1 000 $ + tx, le premier en semaine 3, le second en semaine 7.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
-                                onClick={goEval}
+                                onClick={goCall}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
-                                Planifier un appel découverte <ArrowRight size={20} />
+                                Réserver un appel gratuit <ArrowRight size={20} />
                             </button>
                             <button
-                                data-cal-namespace="thrive-performance-13-seances-du-dimanche"
-                                data-cal-link="thrive-sport-positive/thrive-performance-13-seances-du-dimanche"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                onClick={goPrix}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-[#1B263B] text-[#1B263B] px-12 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-all hover:-translate-y-1"
                             >
-                                reserver ma place gratuitement
+                                Comparer les programmes
                             </button>
                         </div>
-                        <p className="text-sm text-gray-400 font-medium">
-                            Places limitées selon la capacité d'accompagnement.
+                        <p className="text-sm text-gray-400 font-medium max-w-xl mx-auto">
+                            Les 2 premières séances sont à l’essai : si vous n’êtes pas convaincu, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment.
                         </p>
                     </Reveal>
                 </div>
@@ -512,32 +500,32 @@ export default function AdvancedPack({ setBookingStep }) {
                     <Reveal delay={200} className="bg-white border border-gray-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
                         {[
                             {
-                                q: "Quelle est la différence entre Essentiel et Avancé ?",
-                                a: "Essentiel offre le parcours complet avec le message du coach à chaque séance. Avancé y ajoute la couche de mesure : bilans détaillés avec observations chiffrées aux séances 3, 7 et 13, jauge par compétence, courbe LSSS et lettre personnalisée du coach."
+                                q: "Mon enfant est très timide : le groupe ne va-t-il pas lui faire peur ?",
+                                a: "C'est pour ça que chaque semaine commence en 1:1, sans public : on prépare ensemble ce qu'il va essayer en groupe. On en parle avec vous dès la séance découverte, et si le groupe arrive trop tôt pour lui, on commence par Oser essayer."
                             },
                             {
-                                q: "À quoi sert la mesure LSSS ?",
-                                a: "LSSS signifie « Life Skills Scale for Sport » : une échelle scientifique validée (Cronin & Allen, 2017). Mesurée 3 fois (S1, S7, S13), elle transforme des ressentis — confiance, régulation, concentration — en une courbe de progression concrète et comparable."
+                                q: "Vous promettez qu'il aura des amis ?",
+                                a: "Non, et personne ne peut honnêtement le promettre. Nous promettons le travail : chaque semaine, votre enfant apprend et pratique concrètement à aborder les autres, à proposer une activité et à entretenir une relation. Et nous mesurons ce qui change, au début et à la fin."
                             },
                             {
-                                q: "Est-ce que les données sont expliquées simplement ?",
-                                a: "Oui, absolument. Rien d'indigeste : la jauge par compétence, la courbe LSSS et les observations du coach sont présentées visuellement dans votre espace, avec des fiches d'explication en langage clair sur chaque carte."
+                                q: "Pourquoi le 1:1 et le groupe le même jour ?",
+                                a: "Pour vous simplifier la vie : un seul déplacement par semaine. Et parce que le 1:1 prépare directement ce qui sera pratiqué en groupe juste après."
                             },
                             {
-                                q: "À quoi ressemble un bilan détaillé ?",
-                                a: "Aux séances-étapes (3, 7 et 13), le coach rédige un bilan structuré : résumé de la séance, objectif de compétence de vie, recommandations pour la maison, et des indicateurs concrets notés sur 5. Vous le lisez directement dans votre espace parent."
+                                q: "Pour quel âge ?",
+                                a: "Les premiers groupes sont ouverts aux enfants de 8 à 11 ans, pour que les enfants d'un même groupe aient des défis comparables."
                             },
                             {
-                                q: "Est-ce que ce pack est déjà suffisant pour un enfant très investi ?",
-                                a: "Oui, c'est notre pack recommandé. Il offre le parfait équilibre entre intervention sur le terrain et documentation sérieuse de la progression pour rassurer les parents."
+                                q: "Quand commencent les groupes ?",
+                                a: "Les groupes démarrent à dates fixes, pour que tous les enfants commencent ensemble. Réservez un appel : on vous indique la prochaine date de départ."
                             },
                             {
-                                q: "Quelle est la différence avec Performance ?",
-                                a: "Performance va plus loin dans l'encadrement : le bilan détaillé à chacune des 13 séances (au lieu de 3), la messagerie directe avec le coach, les exports CSV/PDF du parcours, des profils illimités et l'historique illimité."
+                                q: "Et si ça ne convient pas à mon enfant ?",
+                                a: "Les deux premières semaines sont une période d'essai : si vous n'êtes pas convaincu, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment : vous ne payez que les séances suivies."
                             },
                             {
-                                q: "Est-ce que ce pack remplace un psychologue du sport ?",
-                                a: "Non. L'approche THRIVE se concentre sur l'optimisation mentale et l'acquisition de compétences de vie, pas sur la thérapie clinique. En cas de besoin de santé mentale, nous réorientons vers des professionnels certifiés."
+                                q: "Est-ce une thérapie ?",
+                                a: "Non. THRIVE est un programme de coaching et de développement des habiletés. Il ne remplace pas un suivi psychologique. Si votre enfant vit une détresse importante ou a reçu un diagnostic, nous vous orienterons vers un professionnel."
                             }
                         ].map((faq, i) => (
                             <FaqItem
@@ -555,30 +543,30 @@ export default function AdvancedPack({ setBookingStep }) {
             {/* 12. CTA FINAL */}
             <section className="py-32 px-4 bg-[#1B263B] text-white text-center relative overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-30 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#94A3B8] to-transparent blur-[80px]" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-full opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#94A3B8] to-transparent blur-[80px]" />
                 </div>
-                
+
                 <div className="max-w-4xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
-                            Voir plus clair <br />
-                            <span className="text-[#94A3B8]">pendant la saison.</span>
+                            Qu’il fasse le premier pas. <br />
+                            <span className="text-[#94A3B8]">Et qu’il garde un ami.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-16">
-                            THRIVE Avancé est conçu pour les familles qui veulent suivre la progression avec plus de précision, plus de recul et plus de confiance.
+                            13 semaines pour apprendre à aller vers les autres : à l’abri en 1:1, en petit groupe, puis dans sa vraie vie, avec vous.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                             <button
-                                onClick={goEval}
+                                onClick={goCall}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F1F5F9] text-[#1B263B] px-10 py-5 rounded-full font-bold text-lg hover:bg-white transition-all hover:scale-105 shadow-xl"
                             >
-                                Réserver un appel <ArrowRight size={20} />
+                                Réserver un appel gratuit <ArrowRight size={20} />
                             </button>
                             <button
-                                onClick={goPerf}
+                                onClick={goEssayer}
                                 className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-white/20 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
                             >
-                                Découvrir le pack Performance
+                                Découvrir Oser essayer
                             </button>
                         </div>
                     </Reveal>
