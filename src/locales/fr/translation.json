@@ -820,7 +820,7 @@
     },
     "tax": "+ tx",
     "badge_recommended": "Programme principal",
-    "badge_entry": "Pour commencer",
+    "badge_entry": "À la maison !",
     "cta_more": "En savoir plus",
     "cta_choose": "Découvrir ce programme",
     "cta_entry": "Découvrir",
@@ -852,7 +852,8 @@
       "f5": "Mesure avant / après + Book THRIVE",
       "price_note": "Soit ≈ 115 $ la séance",
       "billing": "2 versements · le 1er à la séance 3",
-      "desc": "Le programme principal THRIVE : apprendre à se lancer, persévérer et rebondir."
+      "desc": "Le programme principal THRIVE : apprendre à se lancer, persévérer et rebondir.",
+      "sessions_detail": "1:1, une par semaine"
     },
     "autres": {
       "label": "ALLER VERS LES AUTRES",
@@ -866,7 +867,8 @@
       "f5": "Mesure avant / après + Book THRIVE",
       "price_note": "1 seul déplacement par semaine",
       "billing": "2 versements · le 1er en semaine 3",
-      "desc": "Pratiquer à l'abri en 1:1, puis en petit groupe, puis dans sa vraie vie."
+      "desc": "Pratiquer à l'abri en 1:1, puis en petit groupe, puis dans sa vraie vie.",
+      "sessions_detail": "13 en 1:1 + 13 en groupe"
     },
     "moment": {
       "label": "LE MOMENT QUI COMPTE",
@@ -940,7 +942,10 @@
       "desc": "On écoute ce que vit votre enfant, et on vous dit honnêtement quel programme lui convient. Rien à payer, aucun engagement.",
       "btn_primary": "Voir les programmes",
       "btn_secondary": "Réserver un appel"
-    }
+    },
+    "sessions_label": "séances",
+    "cta_booking": "Réserver ma place",
+    "cta_signup": "Créer mon compte"
   },
   "waitlist_page": {
     "eyebrow": "Liste d'attente · Cohorte du 6 septembre 2026",

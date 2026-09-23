@@ -730,7 +730,7 @@
     },
     "tax": "+ tax",
     "badge_recommended": "Core program",
-    "badge_entry": "Start here",
+    "badge_entry": "At home!",
     "cta_more": "Learn more",
     "cta_choose": "Discover this program",
     "cta_entry": "Discover",
@@ -762,7 +762,8 @@
       "f5": "Before / after measure + THRIVE Book",
       "price_note": "About $115 per session",
       "billing": "2 payments · the 1st at session 3",
-      "desc": "The core THRIVE program: learning to take the leap, persevere and bounce back."
+      "desc": "The core THRIVE program: learning to take the leap, persevere and bounce back.",
+      "sessions_detail": "one-on-one, one a week"
     },
     "autres": {
       "label": "REACHING OUT",
@@ -776,7 +777,8 @@
       "f5": "Before / after measure + THRIVE Book",
       "price_note": "Only 1 trip per week",
       "billing": "2 payments · the 1st in week 3",
-      "desc": "Practise safely one-on-one, then in a small group, then in real life."
+      "desc": "Practise safely one-on-one, then in a small group, then in real life.",
+      "sessions_detail": "13 one-on-one + 13 in a group"
     },
     "moment": {
       "label": "THE MOMENT THAT COUNTS",
@@ -850,7 +852,10 @@
       "desc": "We listen to what your child is going through, and tell you honestly which program fits. Nothing to pay, no commitment.",
       "btn_primary": "See the programs",
       "btn_secondary": "Book a call"
-    }
+    },
+    "sessions_label": "sessions",
+    "cta_booking": "Book my spot",
+    "cta_signup": "Create my account"
   },
   "waitlist_page": {
     "eyebrow": "Waitlist · September 6, 2026 cohort",

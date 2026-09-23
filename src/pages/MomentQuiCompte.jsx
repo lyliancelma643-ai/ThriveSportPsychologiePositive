@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
+import { APP_SIGNUP_URL } from '../lib/appUrl';
 import {
     ChevronDown, ArrowRight, CheckCircle2, Star,
     MessageCircle, FileText, BookOpen,
@@ -68,7 +69,7 @@ export default function MomentQuiCompte() {
         window.scrollTo(0, 0);
     }, []);
 
-    const goWaitlist = () => { navigate('/liste-attente?source=site'); window.scrollTo(0, 0); };
+    const goSignup = () => { window.location.href = APP_SIGNUP_URL; };
     const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
     const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };
 
@@ -118,10 +119,10 @@ export default function MomentQuiCompte() {
 
                     <Reveal delay={500} className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-24">
                         <button
-                            onClick={goWaitlist}
+                            onClick={goSignup}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-[0_0_40px_rgba(197,160,89,0.3)]"
                         >
-                            Être prévenu du lancement <ArrowRight size={20} />
+                            Créer mon compte <ArrowRight size={20} />
                         </button>
                         <button
                             onClick={goInclus}
@@ -441,10 +442,10 @@ export default function MomentQuiCompte() {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
-                                onClick={goWaitlist}
+                                onClick={goSignup}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
-                                Être prévenu du lancement <ArrowRight size={20} />
+                                Créer mon compte <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goPrix}
@@ -454,7 +455,7 @@ export default function MomentQuiCompte() {
                             </button>
                         </div>
                         <p className="text-sm text-gray-400 font-medium">
-                            L’application ouvre bientôt : inscrivez-vous pour être parmi les premières familles prévenues.
+                            Votre compte est actif tout de suite, dans l’app web THRIVE.
                         </p>
                     </Reveal>
                 </div>
@@ -527,10 +528,10 @@ export default function MomentQuiCompte() {
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                             <button
-                                onClick={goWaitlist}
+                                onClick={goSignup}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-xl"
                             >
-                                Être prévenu du lancement <ArrowRight size={20} />
+                                Créer mon compte <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goPrix}

@@ -5,11 +5,12 @@ import { useTranslation } from 'react-i18next';
 import {
     CheckCircle2, Star, ChevronDown, ArrowRight, Sparkles,
     BarChart2, FileText, BookOpen, Compass, Shield, Wallet, Clock,
-    TrendingUp, Users, Heart, Zap
+    TrendingUp, Users, Heart, Zap, Home, CalendarCheck, UserPlus
 } from 'lucide-react';
 import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS } from '../data/pricing';
 import ContactSection from '../components/ui/ContactSection';
 import PixelCanvas from '../components/ui/PixelCanvas';
+import { APP_SIGNUP_URL } from '../lib/appUrl';
 // ── Pack icons ────────────────────────────────────────────────
 const PACK_ICONS = {
     essayer: TrendingUp,
@@ -48,7 +49,7 @@ function FaqItem({ q, a, open, onToggle, idx }) {
 }
 
 // ── Carte de pack ──────────────────────────────────────────────
-function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
+function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
     const theme = PACK_THEMES[pack.id];
     const Icon = PACK_ICONS[pack.id];
     const rec = pack.isRecommended;
@@ -166,8 +167,8 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                 </div>
             )}
             {entry && (
-                <div className="absolute -top-[18px] left-1/2 -translate-x-1/2 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest px-6 py-2 rounded-full shadow-lg whitespace-nowrap z-10 border border-white/10" style={{ backgroundColor: theme.accent }}>
-                    <Sparkles size={13} /> {t('pricing.badge_entry')}
+                <div className="absolute -top-[22px] left-1/2 -translate-x-1/2 flex items-center gap-2 text-white text-base font-extrabold tracking-wide px-7 py-2.5 rounded-full shadow-xl whitespace-nowrap z-10 ring-4 ring-white" style={{ backgroundColor: '#8F9779' }}>
+                    <Home size={18} strokeWidth={2.5} /> {t('pricing.badge_entry')}
                 </div>
             )}
 
@@ -184,6 +185,20 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                         {t(`pricing.${pack.id}.tagline`)}
                     </p>
                 </div>
+
+                {/* Nombre de séances, mis en valeur */}
+                {pack.sessions && (
+                    <div
+                        className="flex items-center justify-center gap-3 rounded-2xl border px-4 py-3 mb-5"
+                        style={{ borderColor: theme.accentBorder, background: theme.accentLight }}
+                    >
+                        <span className="font-serif font-bold text-[#1B263B] text-5xl leading-none">{pack.sessions}</span>
+                        <span className="text-left leading-tight">
+                            <span className="block font-bold text-[#1B263B] uppercase tracking-wider text-sm">{t('pricing.sessions_label')}</span>
+                            <span className="block text-xs text-gray-500">{t(`pricing.${pack.id}.sessions_detail`)}</span>
+                        </span>
+                    </div>
+                )}
 
                 <div className="h-px bg-gray-100 mb-5" />
 
@@ -213,17 +228,22 @@ function PriceCard({ pack, onSelect, t, lang, horizontal = false }) {
                     <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.billing`)}</p>
                 </div>
 
-                {/* CTA */}
+                {/* CTA — l'action d'abord, la page produit ensuite */}
+                <button
+                    id={`cta-action-${pack.id}`}
+                    onClick={(e) => { e.stopPropagation(); onAction(pack); }}
+                    className="w-full py-4 rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all duration-200 shadow-md hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 mb-3"
+                    style={{ background: rec ? theme.accent : '#1B263B', color: '#fff' }}
+                    aria-label={`${t(`pricing.cta_${pack.action}`)} — ${t(`pricing.${pack.id}.label`)}`}
+                >
+                    {pack.action === 'signup' ? <UserPlus size={18} /> : <CalendarCheck size={18} />}
+                    {t(`pricing.cta_${pack.action}`)}
+                </button>
                 <button
                     id={`cta-pack-${pack.id}`}
                     onClick={(e) => { e.stopPropagation(); onSelect(pack.id); }}
-                    className="w-full py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md group-hover:-translate-y-0.5 group-hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
-                    style={{
-                        background: rec ? theme.accent : '#1B263B',
-                        color: '#fff',
-                        focusOutlineColor: theme.accent,
-                    }}
-                    aria-label={`${t('pricing.cta_choose')} — ${t(`pricing.${pack.id}.label`)}`}
+                    className="w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 border-2 border-[#1B263B]/15 text-[#1B263B] bg-white/70 transition-all duration-200 hover:border-[#1B263B]/40 focus-visible:outline-2 focus-visible:outline-offset-2"
+                    aria-label={`${t('pricing.cta_more')} — ${t(`pricing.${pack.id}.label`)}`}
                 >
                     {t('pricing.cta_more')}
                     <ArrowRight size={16} />
@@ -242,6 +262,16 @@ export default function Prix({ handleSelectProgram }) {
     const goBooking = (packId) => {
         const pack = PRICING_DATA.find(p => p.id === packId);
         navigate(pack ? pack.path : '/booking');
+        window.scrollTo(0, 0);
+    };
+    // Bouton d'action de chaque carte : réservation pour les programmes en
+    // séance, création de compte dans l'app pour l'abonnement.
+    const goAction = (pack) => {
+        if (pack.action === 'signup') {
+            window.location.href = APP_SIGNUP_URL;
+            return;
+        }
+        navigate('/liste-attente?source=site');
         window.scrollTo(0, 0);
     };
     const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
@@ -329,6 +359,7 @@ export default function Prix({ handleSelectProgram }) {
                                 key={pack.id}
                                 pack={pack}
                                 onSelect={goBooking}
+                                onAction={goAction}
                                 t={t}
                                 lang={i18n.language}
                             />

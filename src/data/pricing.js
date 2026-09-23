@@ -38,31 +38,40 @@ export const PACK_THEMES = {
 };
 
 // ── Données des programmes ─────────────────────────────────────────────────────
-//    Ordre d'affichage = l'escalier de la gamme : porte d'entrée → programme
-//    principal → programme approfondi.
+//    Ordre d'affichage : programme approfondi à gauche, programme principal au
+//    centre (mis en avant), l'abonnement « à la maison » à droite.
+//    sessions : nombre mis en valeur sur la carte (absent pour l'abonnement).
+//    action   : où mène le bouton d'action principal de la carte.
+//      'booking' → la réservation (liste d'attente, comme l'onglet Réservation)
+//      'signup'  → la création de compte dans l'app web
 export const PRICING_DATA = [
     {
-        id: 'moment',
-        path: '/programmes/le-moment-qui-compte',
-        price: 15,
+        id: 'autres',
+        path: '/programmes/aller-vers-les-autres',
+        price: 2000,
+        sessions: 26,
+        action: 'booking',
         isRecommended: false,
-        isEntry: true,
+        isEntry: false,
         featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5'],
     },
     {
         id: 'essayer',
         path: '/programmes/oser-essayer',
         price: 1500,
+        sessions: 13,
+        action: 'booking',
         isRecommended: true,   // ← programme principal, mis en avant visuellement
         isEntry: false,
         featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5'],
     },
     {
-        id: 'autres',
-        path: '/programmes/aller-vers-les-autres',
-        price: 2000,
+        id: 'moment',
+        path: '/programmes/le-moment-qui-compte',
+        price: 15,
+        action: 'signup',
         isRecommended: false,
-        isEntry: false,
+        isEntry: true,         // ← badge « À la maison ! »
         featureKeys: ['f0', 'f1', 'f2', 'f3', 'f4', 'f5'],
     },
 ];
