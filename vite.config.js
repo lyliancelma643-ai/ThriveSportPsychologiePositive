@@ -4,7 +4,9 @@ import Sitemap from 'vite-plugin-sitemap';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base: './',
+    // Racine absolue : avec './', une URL à deux niveaux (/programmes/…)
+    // chargeait /programmes/assets/… et recevait du HTML à la place du CSS/JS.
+    base: '/',
     plugins: [
         react(),
         Sitemap({
