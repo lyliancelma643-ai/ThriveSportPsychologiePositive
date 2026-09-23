@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import SEO from '../components/seo/SEO';
 import logo from '../assets/logo.png';
 import hero from '../assets/waitlist-hero.jpg';
-import { joinWaitlist, readSource, validate } from '../lib/waitlist';
+import { joinWaitlist, readProgramme, readSource, validate } from '../lib/waitlist';
 
 // Page publique de liste d'attente — rendue HORS de la coquille du site
 // (Navbar/Footer), voir App.jsx : la maquette apporte son propre en-tête et son
@@ -64,6 +64,10 @@ export default function ListeAttente() {
     // (bio Instagram), ?source=site. Lu une fois, figé pour la visite.
     const source = useMemo(() => readSource(location.search), [location.search]);
 
+    // Programme choisi : présélectionné quand le parent arrive d'un bouton
+    // « Réserver ma place » (?programme=essayer|autres), modifiable ici.
+    const [programme, setProgramme] = useState(() => readProgramme(location.search));
+
     const currentLang = i18n.resolvedLanguage || i18n.language || 'fr';
     const isFr = currentLang.startsWith('fr');
 
@@ -99,7 +103,7 @@ export default function ListeAttente() {
         }
 
         setSubmitting(true);
-        const { ok } = await joinWaitlist({ ...values, source });
+        const { ok } = await joinWaitlist({ ...values, source, programme });
         setSubmitting(false);
 
         if (!ok) {
@@ -420,6 +424,38 @@ export default function ListeAttente() {
                                         noValidate
                                         style={{ display: 'flex', flexDirection: 'column', gap: 15 }}
                                     >
+                                        <fieldset style={{ border: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: 8 }}>
+                                            <legend style={{ ...labelStyle, padding: 0, marginBottom: 8 }}>
+                                                {t('waitlist_page.lbl_programme')}
+                                            </legend>
+                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                                {[['essayer', 'prog_essayer'], ['autres', 'prog_autres'], [null, 'prog_unsure']].map(([id, key]) => {
+                                                    const on = programme === id;
+                                                    return (
+                                                        <button
+                                                            key={key}
+                                                            type="button"
+                                                            aria-pressed={on}
+                                                            onClick={() => setProgramme(id)}
+                                                            style={{
+                                                                padding: '10px 14px',
+                                                                borderRadius: 999,
+                                                                borderWidth: 1.5,
+                                                                borderStyle: 'solid',
+                                                                borderColor: on ? NAVY : BORDER,
+                                                                background: on ? NAVY : '#fff',
+                                                                color: on ? '#fff' : NAVY,
+                                                                font: "600 14px 'Plus Jakarta Sans', sans-serif",
+                                                                cursor: 'pointer',
+                                                                minHeight: 44,
+                                                            }}
+                                                        >
+                                                            {on ? '✓ ' : ''}{t(`waitlist_page.${key}`)}
+                                                        </button>
+                                                    );
+                                                })}
+                                            </div>
+                                        </fieldset>
                                         {field('prenom', { type: 'text', autoComplete: 'given-name' })}
                                         {field('email', {
                                             type: 'email',

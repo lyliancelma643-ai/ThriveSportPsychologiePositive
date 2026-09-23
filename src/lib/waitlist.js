@@ -25,6 +25,22 @@ export function readSource(search) {
     return normalizeSource(params.get('source') ?? params.get('utm_source'));
 }
 
+// ── Programme choisi ────────────────────────────────────────────────────────
+//
+// Les boutons « Réserver ma place » des programmes ajoutent ?programme=… à
+// l'URL. La valeur préremplit le choix du formulaire et s'enregistre dans la
+// colonne `pack`, que l'admin affiche (colonne « Pack » et fiche prospect).
+
+export const PROGRAMMES = {
+    essayer: 'OSER_ESSAYER',
+    autres: 'ALLER_VERS_LES_AUTRES',
+};
+
+export function readProgramme(search) {
+    const v = new URLSearchParams(search || '').get('programme');
+    return v && PROGRAMMES[v] ? v : null;
+}
+
 // ── Validation ──────────────────────────────────────────────────────────────
 //
 // Volontairement permissive : on refuse ce qui est manifestement faux, pas ce
@@ -56,12 +72,13 @@ export function validate({ prenom, email, telephone }) {
  * Dépose une inscription. Renvoie { ok: true } quand la personne est sur la
  * liste — y compris si elle y était déjà.
  */
-export async function joinWaitlist({ prenom, email, telephone, source }) {
+export async function joinWaitlist({ prenom, email, telephone, source, programme }) {
     const { error } = await supabase.from('waitlist').insert({
         first_name: prenom.trim(),
         email: email.trim().toLowerCase(),
         phone: telephone.trim(),
         source,
+        pack: PROGRAMMES[programme] ?? null,
         // Consentement recueilli par la mention affichée sous le bouton
         // d'envoi : en réservant sa place, la personne accepte d'être
         // recontactée à ce sujet (Loi 25).

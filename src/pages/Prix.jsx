@@ -271,7 +271,7 @@ export default function Prix({ handleSelectProgram }) {
             window.location.href = APP_SIGNUP_URL;
             return;
         }
-        navigate('/liste-attente?source=site');
+        navigate(`/liste-attente?source=site&programme=${pack.id}`);
         window.scrollTo(0, 0);
     };
     const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };

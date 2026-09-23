@@ -68,7 +68,7 @@ export default function OserEssayer() {
         window.scrollTo(0, 0);
     }, []);
 
-    const goCall = () => { navigate('/liste-attente?source=site'); window.scrollTo(0, 0); };
+    const goCall = () => { navigate('/liste-attente?source=site&programme=essayer'); window.scrollTo(0, 0); };
     const goAutres = () => { navigate('/programmes/aller-vers-les-autres'); window.scrollTo(0, 0); };
     const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
     const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };

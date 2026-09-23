@@ -897,6 +897,10 @@
     "seo_title": "Waitlist — Thrive Sport Positive",
     "seo_desc": "Join the waitlist for the September 6, 2026 cohort. Free 20-minute qualification call.",
     "back": "Back",
-    "home_aria": "Back to the Thrive Sport Positive home page"
+    "home_aria": "Back to the Thrive Sport Positive home page",
+    "lbl_programme": "The program you're interested in",
+    "prog_essayer": "Dare to Try",
+    "prog_autres": "Reaching Out",
+    "prog_unsure": "Not sure yet"
   }
 }

@@ -68,7 +68,7 @@ export default function AllerVersLesAutres() {
         window.scrollTo(0, 0);
     }, []);
 
-    const goCall = () => { navigate('/liste-attente?source=site'); window.scrollTo(0, 0); };
+    const goCall = () => { navigate('/liste-attente?source=site&programme=autres'); window.scrollTo(0, 0); };
     const goEssayer = () => { navigate('/programmes/oser-essayer'); window.scrollTo(0, 0); };
     const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
     const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };
