@@ -34,6 +34,10 @@ const Footer = () => {
                         </a>
                     </div>
                 </div>
+                <nav aria-label="Liens légaux" className="flex justify-center gap-6 mb-4 text-[11px]">
+                    <a href="/conditions" className="text-white/50 hover:text-white transition-colors">Conditions d'utilisation</a>
+                    <a href="/confidentialite" className="text-white/50 hover:text-white transition-colors">Politique de confidentialité</a>
+                </nav>
                 <p className="text-center text-white/30 text-[10px]">&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
             </div>
         </footer>

@@ -20,6 +20,8 @@ const routes = [
     '/programmes/oser-essayer',
     '/programmes/aller-vers-les-autres',
     '/programmes/le-moment-qui-compte',
+    '/conditions',
+    '/confidentialite',
     // Landing de campagne : c'est la page vers laquelle pointent le QR code et
     // la bio Instagram. Sans prérendu, elle est partagée avec le titre et la
     // description génériques du site.
