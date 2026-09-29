@@ -14,6 +14,8 @@ import AllerVersLesAutres from './pages/AllerVersLesAutres';
 import MomentQuiCompte from './pages/MomentQuiCompte';
 import Locations from './components/home/Locations';
 import ListeAttente from './pages/ListeAttente';
+import Conditions from './pages/legal/Conditions';
+import Confidentialite from './pages/legal/Confidentialite';
 import useBooking from './hooks/useBooking';
 import { useTranslation } from 'react-i18next';
 import './styles.css';
@@ -94,6 +96,10 @@ const App = () => {
                 <Route path="/pack/performance" element={<Navigate to="/prix" replace />} />
                 <Route path="/pack/diagnostic" element={<Navigate to="/prix" replace />} />
                 <Route path="/a-propos" element={<About />} />
+                {/* Pages légales : liées depuis le pied de page, le portail client
+                    Stripe, la page d'abonnement de l'app et le paywall mobile. */}
+                <Route path="/conditions" element={<Conditions />} />
+                <Route path="/confidentialite" element={<Confidentialite />} />
                 {/* Reusing Locations component as a standalone page */}
                 <Route path="/zones" element={
                     <div className="pt-10">
