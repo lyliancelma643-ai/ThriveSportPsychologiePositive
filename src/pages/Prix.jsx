@@ -7,12 +7,12 @@ import {
     BarChart2, FileText, BookOpen, Compass, Shield, Wallet, Clock,
     TrendingUp, Users, Heart, Zap, Home, CalendarCheck, UserPlus
 } from 'lucide-react';
-import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS } from '../data/pricing';
+import { PRICING_DATA, PROOF_ITEMS, FAQ_KEYS, PACK_THEMES, UPGRADE_STEPS, URL_MAISON, formatPrix, prixVars } from '../data/pricing';
 import ContactSection from '../components/ui/ContactSection';
 import PixelCanvas from '../components/ui/PixelCanvas';
-import { APP_SIGNUP_URL } from '../lib/appUrl';
 // ── Pack icons ────────────────────────────────────────────────
 const PACK_ICONS = {
+    groupe: Star,
     essayer: TrendingUp,
     autres: Users,
     moment: Heart,
@@ -54,10 +54,8 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
     const Icon = PACK_ICONS[pack.id];
     const rec = pack.isRecommended;
     const entry = pack.isEntry;
-    // Prix affichés « + tx » : c'est la règle de toute la gamme.
-    const priceStr = lang?.startsWith('en')
-        ? `$${pack.price.toLocaleString('en-CA')} ${t('pricing.tax')}`
-        : `${pack.price.toLocaleString('fr-CA')} $ ${t('pricing.tax')}`;
+    // THRIVE n'est pas inscrit à la TPS/TVQ : aucun prix n'affiche de taxe.
+    const priceStr = formatPrix(pack.price, lang);
 
     const getBackground = (id) => {
         switch (id) {
@@ -106,8 +104,8 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
                         <div className="flex items-baseline justify-center gap-1">
                             <span className="font-bold text-[#1B263B] leading-none text-4xl">{priceStr}</span>
                         </div>
-                        <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.price_note`)}</p>
-                        <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.billing`)}</p>
+                        <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.${pack.noteKey}`)}</p>
+                        <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.${pack.billingKey}`)}</p>
                     </div>
                 </div>
 
@@ -128,16 +126,16 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
 
                     <button
                         id={`cta-pack-${pack.id}`}
-                        onClick={(e) => { e.stopPropagation(); onSelect(pack.id); }}
+                        onClick={(e) => { e.stopPropagation(); onAction(pack); }}
                         className="w-full sm:w-auto self-center md:self-start px-10 py-4 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-200 shadow-sm hover:-translate-y-0.5 hover:shadow-md group-hover:-translate-y-0.5 group-hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2"
                         style={{
                             background: '#1B263B',
                             color: '#fff',
                             focusOutlineColor: theme.accent,
                         }}
-                        aria-label={`${t('pricing.cta_choose')} — ${t(`pricing.${pack.id}.label`)}`}
+                        aria-label={`${t(`pricing.cta_${pack.action}`)} — ${t(`pricing.${pack.id}.label`)}`}
                     >
-                        {entry ? t('pricing.cta_entry') : t('pricing.cta_choose')}
+                        {t(`pricing.cta_${pack.action}`)}
                         <ArrowRight size={16} />
                     </button>
                 </div>
@@ -224,8 +222,8 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
                     <div className="flex items-baseline justify-center gap-1">
                         <span className={`font-bold text-[#1B263B] leading-none ${rec ? 'text-4xl' : 'text-3xl'}`}>{priceStr}</span>
                     </div>
-                    <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.price_note`)}</p>
-                    <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.billing`)}</p>
+                    <p className="text-sm font-semibold text-[#8F9779] mt-2">{t(`pricing.${pack.id}.${pack.noteKey}`)}</p>
+                    <p className="text-xs text-gray-400 mt-1">{t(`pricing.${pack.id}.${pack.billingKey}`)}</p>
                 </div>
 
                 {/* CTA — l'action d'abord, la page produit ensuite */}
@@ -256,7 +254,11 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
 // ── Page principale ────────────────────────────────────────────
 export default function Prix({ handleSelectProgram }) {
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation();
+    const { t: tRaw, i18n } = useTranslation();
+    // Les montants viennent de src/data/pricing.js : chaque texte peut les
+    // citer par interpolation ({{groupeFondateur}}, {{placesRestantes}}…).
+    const vars = prixVars(i18n.language);
+    const t = (key, options) => tRaw(key, { ...vars, ...options });
     const [openFaq, setOpenFaq] = useState(null);
 
     const goBooking = (packId) => {
@@ -264,17 +266,18 @@ export default function Prix({ handleSelectProgram }) {
         navigate(pack ? pack.path : '/booking');
         window.scrollTo(0, 0);
     };
-    // Bouton d'action de chaque carte : réservation pour les programmes en
-    // séance, création de compte dans l'app pour l'abonnement.
+    // Bouton d'action de chaque carte : réservation de l'appel pour les
+    // programmes, essai gratuit dans l'app (ou liste d'attente avant le
+    // lancement) pour THRIVE Maison. Aucun bouton n'encaisse.
     const goAction = (pack) => {
         if (pack.action === 'signup') {
-            window.location.href = APP_SIGNUP_URL;
+            window.location.href = URL_MAISON;
             return;
         }
-        navigate(`/liste-attente?source=site&programme=${pack.id}`);
+        navigate(`/liste-attente?source=site${pack.programme ? `&programme=${pack.programme}` : ''}`);
         window.scrollTo(0, 0);
     };
-    const goContact = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
+    const goMaison = () => { navigate('/programmes/le-moment-qui-compte'); window.scrollTo(0, 0); };
 
     return (
         <div className="bg-white">
@@ -329,7 +332,7 @@ export default function Prix({ handleSelectProgram }) {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="#les-packs"
+                            href="/liste-attente?source=site"
                             id="hero-cta-packs"
                             className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-9 py-4 rounded-full font-bold text-base hover:bg-[#253550] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
                         >
@@ -337,7 +340,7 @@ export default function Prix({ handleSelectProgram }) {
                         </a>
                         <button
                             id="hero-cta-talk"
-                            onClick={goContact}
+                            onClick={goMaison}
                             className="inline-flex items-center justify-center gap-2 border-2 border-[#1B263B]/20 text-[#1B263B] px-9 py-4 rounded-full font-bold text-base hover:border-[#1B263B] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
                         >
                             {t('pricing.hero.cta_secondary')}
@@ -354,7 +357,7 @@ export default function Prix({ handleSelectProgram }) {
 
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch pt-5">
-                        {PRICING_DATA.map(pack => (
+                        {PRICING_DATA.filter(pack => !pack.isEntry).map(pack => (
                             <PriceCard
                                 key={pack.id}
                                 pack={pack}
@@ -365,6 +368,18 @@ export default function Prix({ handleSelectProgram }) {
                             />
                         ))}
                     </div>
+                    {/* THRIVE Maison : l'encart horizontal sous les trois cartes */}
+                    {PRICING_DATA.filter(pack => pack.isEntry).map(pack => (
+                        <PriceCard
+                            key={pack.id}
+                            pack={pack}
+                            onSelect={goBooking}
+                            onAction={goAction}
+                            t={t}
+                            lang={i18n.language}
+                            horizontal
+                        />
+                    ))}
                 </div>
             </section>
 
@@ -490,14 +505,14 @@ export default function Prix({ handleSelectProgram }) {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
                                     id="final-cta-primary"
-                                    href="#les-packs"
+                                    href="/liste-attente?source=site"
                                     className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold text-base hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >
                                     {t('pricing.cta_final.btn_primary')} <ArrowRight size={17} />
                                 </a>
                                 <button
                                     id="final-cta-secondary"
-                                    onClick={goContact}
+                                    onClick={goMaison}
                                     className="inline-flex items-center justify-center border-2 border-white/25 text-white px-10 py-4 rounded-full font-bold text-base hover:border-white/60 hover:bg-white/8 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                                 >
                                     {t('pricing.cta_final.btn_secondary')}

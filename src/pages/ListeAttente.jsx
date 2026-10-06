@@ -5,16 +5,16 @@ import SEO from '../components/seo/SEO';
 import logo from '../assets/logo.png';
 import hero from '../assets/waitlist-hero.jpg';
 import { joinWaitlist, readProgramme, readSource, validate } from '../lib/waitlist';
+import { PLACES_FONDATRICES, VAGUE_FONDATRICE } from '../data/pricing';
 
 // Page publique de liste d'attente — rendue HORS de la coquille du site
 // (Navbar/Footer), voir App.jsx : la maquette apporte son propre en-tête et son
 // propre pied de page, volontairement minimaux pour ne rien mettre entre le
 // visiteur et le formulaire.
 
-// Preuve sociale. Deux valeurs à tenir à jour à la main : elles créent
-// l'urgence, donc elles doivent rester vraies.
-const SPOTS_LEFT = 2;
-const FAMILIES = 47;
+// Places fondatrices et date de la vague fondatrice : tenues à jour dans
+// src/data/pricing.js. Aucun compteur d'inscrits : THRIVE n'affiche que des
+// chiffres vrais.
 
 const PHONE_DISPLAY = '(263) 362-2030';
 const PHONE_HREF = 'tel:+12633622030';
@@ -666,7 +666,11 @@ export default function ListeAttente() {
                             color: GREY,
                         }}
                     >
-                        {t('waitlist_page.cohort_proof', { spots: SPOTS_LEFT, families: FAMILIES })}
+                        {t('waitlist_page.cohort_proof', {
+                            restantes: PLACES_FONDATRICES.restantes,
+                            total: PLACES_FONDATRICES.total,
+                            date: i18n.language?.startsWith('en') ? VAGUE_FONDATRICE.dateDepartEn : VAGUE_FONDATRICE.dateDepart,
+                        })}
                     </span>
                 </div>
             </main>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
 import { useNavigate } from 'react-router-dom';
-import { APP_SIGNUP_URL } from '../lib/appUrl';
+import { PRIX, URL_MAISON, MAISON_EN_VENTE, MAISON_LANCEMENT, AFFICHAGE, formatPrix } from '../data/pricing';
 import {
     ChevronDown, ArrowRight, CheckCircle2, Star,
     MessageCircle, FileText, BookOpen,
@@ -69,15 +69,22 @@ export default function MomentQuiCompte() {
         window.scrollTo(0, 0);
     }, []);
 
-    const goSignup = () => { window.location.href = APP_SIGNUP_URL; };
+    // Avant le lancement, le bouton inscrit à la liste d'attente ; ensuite il
+    // ouvre l'essai gratuit dans l'app web. Aucun paiement sur le site.
+    const goSignup = () => {
+        if (MAISON_EN_VENTE) { window.location.href = URL_MAISON; return; }
+        navigate('/liste-attente?source=site'); window.scrollTo(0, 0);
+    };
+    const ctaLabel = MAISON_EN_VENTE ? "Commencer l'essai gratuit" : 'Être prévenu du lancement';
+    const economie = Math.round(PRIX.maison.mensuel * 12 - PRIX.maison.annuel);
     const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
     const goInclus = () => { document.getElementById('inclus')?.scrollIntoView({ behavior: 'smooth' }); };
 
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#C5A059]/20">
             <SEO
-                title="Le moment qui compte | 10 minutes par jour avec votre enfant — THRIVE"
-                description="Chaque jour, une activité de 10 minutes à faire avec votre enfant, sans rien préparer, avec l'explication du pourquoi. 1 mois d'essai gratuit, puis 15 $ + tx toutes les 2 semaines, sans engagement."
+                title="THRIVE Maison · Le moment qui compte | Un vrai moment avec votre enfant — THRIVE"
+                description={`Chaque jour, un moment de 10 à 30 minutes à faire avec votre enfant, avec l'explication du pourquoi. 1 mois d'essai gratuit, puis ${formatPrix(PRIX.maison.mensuel)} par mois ou ${formatPrix(PRIX.maison.annuel)} par an, annulable en ligne.`}
                 url="https://thrivesportpositive.com/programmes/le-moment-qui-compte"
             />
 
@@ -92,7 +99,7 @@ export default function MomentQuiCompte() {
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
                             <Star size={14} className="text-[#C5A059]" fill="currentColor" />
-                            L'abonnement famille THRIVE
+                            THRIVE Maison
                         </div>
                     </Reveal>
 
@@ -107,13 +114,13 @@ export default function MomentQuiCompte() {
 
                     <Reveal delay={300}>
                         <p className="text-xl md:text-3xl text-white/90 font-serif font-medium mb-8 max-w-3xl mx-auto leading-tight">
-                            10 minutes ce soir. Rien à préparer. Et il s’en souviendra.
+                            Un vrai moment ce soir. Rien à préparer. Et il s’en souviendra.
                         </p>
                     </Reveal>
 
                     <Reveal delay={400}>
                         <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-14">
-                            Chaque jour, une activité de 10 minutes à faire avec votre enfant, conçue à partir de la recherche sur le lien parent–enfant, avec l’explication du pourquoi. Parce que ce n’est pas le nombre d’heures qui compte, c’est la qualité du moment.
+                            Chaque jour, un moment de 10 à 30 minutes à faire avec votre enfant, adapté à son âge, conçu à partir de la recherche sur le lien parent–enfant, avec l’explication du pourquoi. La méthode THRIVE en version maison, menée par vous.
                         </p>
                     </Reveal>
 
@@ -122,7 +129,7 @@ export default function MomentQuiCompte() {
                             onClick={goSignup}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4.5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-[0_0_40px_rgba(197,160,89,0.3)]"
                         >
-                            Créer mon compte <ArrowRight size={20} />
+                            {ctaLabel} <ArrowRight size={20} />
                         </button>
                         <button
                             onClick={goInclus}
@@ -135,10 +142,10 @@ export default function MomentQuiCompte() {
                     {/* Quick proofs */}
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
-                            { label: "10 minutes", sub: "par jour" },
+                            { label: "10 à 30 min", sub: "par jour" },
                             { label: "0 préparation", sub: "0 matériel" },
                             { label: "1 mois", sub: "d'essai gratuit" },
-                            { label: "Sans engagement", sub: "résiliable à tout moment" }
+                            { label: "Annulable", sub: "en ligne, à tout moment" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -155,7 +162,7 @@ export default function MomentQuiCompte() {
                     <Reveal>
                         <h2 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4 text-center">Vous vous reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-3xl mx-auto leading-tight">
-                            À qui s'adresse Le moment qui compte ?
+                            À qui s'adresse THRIVE Maison ?
                         </p>
                     </Reveal>
 
@@ -202,7 +209,7 @@ export default function MomentQuiCompte() {
                 <div className="max-w-6xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-3xl md:text-5xl font-serif font-bold mb-20 max-w-3xl leading-tight">
-                            Pourquoi 10 minutes suffisent.
+                            Pourquoi un moment court suffit.
                         </h2>
                     </Reveal>
 
@@ -210,11 +217,11 @@ export default function MomentQuiCompte() {
                         {[
                             {
                                 title: "La qualité avant la quantité",
-                                desc: "Chez les enfants de 3 à 11 ans, la recherche trouve que le nombre d'heures passées avec leur mère n'est presque pas lié à leur développement. Ce qui compte, c'est ce qui se passe pendant ce temps."
+                                desc: "Chez l'enfant, la qualité du moment compte davantage que le nombre d'heures. À l'adolescence, le temps partagé pèse un peu plus : raison de plus pour installer tôt l'habitude d'un vrai moment."
                             },
                             {
                                 title: "Moins de culpabilité, plus de présence",
-                                desc: "Le stress et la culpabilité du parent peuvent peser davantage que les heures manquées. Dix minutes vraiment présentes valent mieux qu'une soirée à s'en vouloir."
+                                desc: "Le stress et la culpabilité du parent peuvent peser davantage que les heures manquées. Un moment vraiment présent vaut mieux qu'une soirée à s'en vouloir."
                             },
                             {
                                 title: "Un format court et reconnu",
@@ -258,7 +265,7 @@ export default function MomentQuiCompte() {
                                 items: ["Vous choisissez le moment de la journée qui vous convient", "L'activité du jour se lit en 20 secondes"]
                             },
                             {
-                                time: "10 minutes",
+                                time: "10 à 30 minutes",
                                 title: "Le moment ensemble",
                                 items: ["Zéro préparation, zéro matériel : ce que vous avez déjà à la maison", "Une activité tirée de la Méthode THRIVE, selon l'âge de votre enfant"]
                             },
@@ -268,9 +275,9 @@ export default function MomentQuiCompte() {
                                 items: ["Chaque activité explique en une phrase ce qu'elle développe chez votre enfant", "Vous comprenez ce que vous faites, et pourquoi ça compte"]
                             },
                             {
-                                time: "Semaine 4",
-                                title: "Le bilan",
-                                items: ["Combien de moments vous avez partagés", "Et le signe qui ne trompe pas : votre enfant réclame-t-il le moment ?"]
+                                time: "Chaque jour",
+                                title: "Le carnet des moments",
+                                items: ["Chaque moment vécu se garde dans le carnet", "Un jour manqué ? Rien ne se perd : vous reprenez simplement le lendemain"]
                             }
                         ].map((step, i) => (
                             <Reveal key={i} delay={i * 150} className={`relative flex flex-col md:flex-row items-start md:items-center justify-between mb-16 last:mb-0 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
@@ -357,7 +364,7 @@ export default function MomentQuiCompte() {
                             <h3 className="text-3xl font-serif font-bold mb-6 relative z-10">Pour prolonger un programme</h3>
                             <p className="text-white/60 text-lg mb-8 relative z-10">Les activités viennent de la même méthode que nos programmes en séance.</p>
                             <ul className="space-y-4 relative z-10">
-                                {["Après Oser essayer ou Aller vers les autres, le lien continue à la maison", "Ce que votre enfant a appris en séance se prolonge au quotidien", "Vous restez acteur de sa progression"].map((item, i) => (
+                                {["Inclus pendant THRIVE Groupe, Individuel et Complet, et 3 mois après", "Ce que votre enfant a appris en séance se prolonge au quotidien", "Vous restez acteur de sa progression"].map((item, i) => (
                                     <li key={i} className="flex items-start gap-4 text-white/80">
                                         <CheckCircle2 size={20} className="text-[#8F9779] shrink-0 mt-0.5" />
                                         <span>{item}</span>
@@ -380,14 +387,14 @@ export default function MomentQuiCompte() {
                             Sans engagement, pour de vrai.
                         </h2>
                         <p className="text-xl text-gray-600 leading-relaxed mb-12">
-                            Vous restez parce que ça vous apporte quelque chose, jamais parce qu’il est compliqué de partir. L’annulation reste simple et visible, à tout moment.
+                            Vous restez parce que ça vous apporte quelque chose, jamais parce qu’il est compliqué de partir. Vous annulez en ligne, depuis votre compte, à tout moment : l’abonnement reste actif jusqu’à la fin de la période payée.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
                                 "1 mois d'essai gratuit",
-                                "Rappel avant la fin de l'essai",
-                                "Annulation simple, à tout moment",
-                                "Prélèvement toutes les 2 semaines"
+                                "Rien n'est prélevé avant la fin de l'essai",
+                                "Annulation en ligne, à tout moment",
+                                "Au mois ou à l'année"
                             ].map((badge, i) => (
                                 <span key={i} className="px-5 py-2.5 bg-[#fafafa] border border-gray-200 text-gray-700 font-medium rounded-full text-sm">
                                     {badge}
@@ -407,12 +414,12 @@ export default function MomentQuiCompte() {
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "1 activité par jour", desc: "10 minutes, dans l'app, à faire avec votre enfant." },
+                            { title: "1 moment par jour", desc: "De 10 à 30 minutes, adapté à son âge, à faire avec votre enfant." },
                             { title: "Le pourquoi", desc: "Une ligne d'explication psychologique pour chaque activité." },
                             { title: "Zéro préparation", desc: "Aucun matériel à acheter, une activité lisible en 20 secondes." },
                             { title: "Une notification", desc: "À l'heure que vous choisissez, pour ne pas y penser." },
-                            { title: "Un bilan à 4 semaines", desc: "Les moments réalisés, et si votre enfant réclame le moment." },
-                            { title: "1 mois d'essai gratuit", desc: "Avec un rappel avant la fin de l'essai. Annulation simple, à tout moment." }
+                            { title: "Le carnet des moments", desc: "Chaque moment vécu se garde, pour vous et pour lui." },
+                            { title: "1 mois d'essai gratuit", desc: "Une fois par compte. Votre carte est demandée à l'inscription, mais rien n'est prélevé avant la fin de l'essai." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -433,19 +440,18 @@ export default function MomentQuiCompte() {
                     <Reveal>
                         <p className="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-6">Abonnement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-4">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">15 $</span>
-                            <span className="text-3xl font-bold text-gray-400">+ tx</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">{formatPrix(PRIX.maison.mensuel)}</span>
                         </div>
-                        <p className="text-lg font-bold text-[#8F9779] mb-10">toutes les 2 semaines</p>
+                        <p className="text-lg font-bold text-[#8F9779] mb-10">par mois · ou {formatPrix(PRIX.maison.annuel)} par an ({formatPrix(economie)} d’économie)</p>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16">
-                            Un premier mois d’essai gratuit. Un prélèvement toutes les deux semaines, au rythme de la paie. Sans engagement : vous arrêtez quand vous voulez.
+                            1 mois gratuit, une fois par compte : votre carte est demandée à l’inscription, mais rien n’est prélevé avant la fin de l’essai. Vous annulez en ligne, à tout moment. Déjà inclus si votre enfant suit un programme THRIVE.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
                                 onClick={goSignup}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
-                                Créer mon compte <ArrowRight size={20} />
+                                {ctaLabel} <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goPrix}
@@ -455,7 +461,9 @@ export default function MomentQuiCompte() {
                             </button>
                         </div>
                         <p className="text-sm text-gray-400 font-medium">
-                            Votre compte est actif tout de suite, dans l’app web THRIVE.
+                            {MAISON_EN_VENTE
+                                ? `Sur le web dès maintenant${AFFICHAGE.maisonMobileDispo ? ', sur iPhone et Android aussi' : ' ; iPhone et Android ensuite'}.`
+                                : `Disponible sur le web le ${MAISON_LANCEMENT.date} ; iPhone et Android ensuite.`}
                         </p>
                     </Reveal>
                 </div>
@@ -471,8 +479,8 @@ export default function MomentQuiCompte() {
                     <Reveal delay={200} className="bg-white border border-gray-200 rounded-[2rem] p-8 md:p-12 shadow-sm">
                         {[
                             {
-                                q: "10 minutes par jour, ça suffit vraiment ?",
-                                a: "Oui, si ces 10 minutes sont vraiment consacrées à votre enfant. Chez les 3–11 ans, la recherche montre que la qualité du moment compte bien plus que le nombre d'heures. L'objectif n'est pas de tout faire, mais de le faire bien, régulièrement."
+                                q: "Un moment court par jour, ça suffit vraiment ?",
+                                a: "Oui, si ce moment est vraiment consacré à votre enfant. Chez l'enfant, la qualité du moment compte davantage que le nombre d'heures. L'objectif n'est pas de tout faire, mais de le faire bien, régulièrement."
                             },
                             {
                                 q: "Et quand il devient adolescent ?",
@@ -480,23 +488,23 @@ export default function MomentQuiCompte() {
                             },
                             {
                                 q: "Faut-il préparer quelque chose ?",
-                                a: "Non. Aucun matériel à acheter, aucune préparation : l'activité se lit en 20 secondes et se fait avec ce que vous avez déjà à la maison."
+                                a: "Non. Aucun matériel à acheter, aucune préparation : l'activité se lit en 20 secondes et se fait avec ce que vous avez déjà à la maison. Pour commencer, une phrase suffit : « Pendant dix minutes, je suis à toi, et c'est toi qui décides ce qu'on fait. »"
                             },
                             {
                                 q: "Comment fonctionne l'essai gratuit ?",
-                                a: "Vous profitez d'un mois complet gratuitement. Nous vous envoyons un rappel avant la fin de l'essai, et vous pouvez annuler simplement, à tout moment."
+                                a: "Vous créez votre compte et vous essayez gratuitement pendant 1 mois. Votre carte est demandée à l'inscription, mais rien n'est prélevé avant la fin de l'essai. Vous pouvez annuler en ligne à tout moment, depuis votre compte."
                             },
                             {
-                                q: "Pourquoi un prélèvement toutes les 2 semaines ?",
-                                a: "Parce que la plupart des familles sont payées toutes les deux semaines : le prélèvement tombe au même rythme que la paie. C'est 15 $ + tx à chaque fois, sans engagement."
+                                q: "Au mois ou à l'année ?",
+                                a: `Comme vous préférez : ${formatPrix(PRIX.maison.mensuel)} par mois, ou ${formatPrix(PRIX.maison.annuel)} par an, soit ${formatPrix(economie)} d'économie sur l'année. Dans les deux cas, vous annulez en ligne à tout moment, et l'abonnement reste actif jusqu'à la fin de la période payée.`
                             },
                             {
                                 q: "Est-ce une thérapie ?",
-                                a: "Non. Le moment qui compte propose des activités parent–enfant tirées de la Méthode THRIVE. Il ne remplace pas un suivi psychologique. Si votre enfant vit une détresse importante, nous vous orienterons vers un professionnel."
+                                a: "Non. THRIVE Maison propose des activités parent–enfant tirées de la Méthode THRIVE. Il ne remplace pas un suivi psychologique. Si votre enfant vit une détresse importante, nous vous orienterons vers un professionnel."
                             },
                             {
                                 q: "Quel lien avec les programmes THRIVE ?",
-                                a: "Les activités viennent de la même Méthode THRIVE que nos programmes Oser essayer et Aller vers les autres. Vous pouvez commencer par Le moment qui compte pour découvrir la méthode, ou l'utiliser pour prolonger un programme à la maison."
+                                a: "Les activités viennent de la même Méthode THRIVE que nos programmes Groupe, Individuel et Complet. THRIVE Maison y est inclus pendant tout le programme, et 3 mois après : vous n'avez rien à payer de plus. Vous pouvez aussi commencer par THRIVE Maison pour découvrir la méthode."
                             }
                         ].map((faq, i) => (
                             <FaqItem
@@ -520,7 +528,7 @@ export default function MomentQuiCompte() {
                 <div className="max-w-4xl mx-auto relative z-10">
                     <Reveal>
                         <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">
-                            Dix minutes ce soir. <br />
+                            Un moment ce soir. <br />
                             <span className="text-[#C5A059]">Un souvenir pour lui.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-16">
@@ -531,7 +539,7 @@ export default function MomentQuiCompte() {
                                 onClick={goSignup}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#B08D45] transition-all hover:scale-105 shadow-xl"
                             >
-                                Créer mon compte <ArrowRight size={20} />
+                                {ctaLabel} <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goPrix}

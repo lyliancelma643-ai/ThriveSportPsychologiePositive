@@ -6,6 +6,7 @@ import {
     MessageCircle, FileText, CalendarCheck,
     Users, Gift, UserX, Home
 } from 'lucide-react';
+import { PRIX, PLACES_FONDATRICES_OUVERTES, formatPrix } from '../data/pricing';
 
 // --- Scroll Reveal Utility Component ---
 const Reveal = ({ children, delay = 0, className = "" }) => {
@@ -68,6 +69,13 @@ export default function AllerVersLesAutres() {
         window.scrollTo(0, 0);
     }, []);
 
+    // Prix en vigueur (pricing.js) : fondateur tant que des places restent.
+    const prix = PLACES_FONDATRICES_OUVERTES ? PRIX.complet.fondateur : PRIX.complet.regulier;
+    const versements = PLACES_FONDATRICES_OUVERTES ? PRIX.complet.versementsFondateur : PRIX.complet.versementsRegulier;
+    const prixSepares = PLACES_FONDATRICES_OUVERTES
+        ? PRIX.individuel.fondateur + PRIX.groupe.fondateur
+        : PRIX.individuel.regulier + PRIX.groupe.regulier;
+
     const goCall = () => { navigate('/liste-attente?source=site&programme=autres'); window.scrollTo(0, 0); };
     const goEssayer = () => { navigate('/programmes/oser-essayer'); window.scrollTo(0, 0); };
     const goPrix = () => { navigate('/prix'); window.scrollTo(0, 0); };
@@ -76,8 +84,8 @@ export default function AllerVersLesAutres() {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#94A3B8]/20">
             <SEO
-                title="Aller vers les autres | Programme habiletés sociales pour enfants — THRIVE"
-                description="Votre enfant passe souvent la récré seul ? 13 semaines à Montréal pour apprendre à aborder les autres, proposer une activité et entretenir une amitié : 1:1, petit groupe et défi social. 2 000 $ + tx."
+                title="THRIVE Complet | Seul d'abord, puis avec les autres — THRIVE"
+                description={`Votre enfant passe souvent la récré seul ? À Montréal, il commence seul avec un coach, puis rejoint un petit groupe : 13 séances individuelles + 13 en groupe. ${formatPrix(prix)}, aucun paiement avant la 1re séance.`}
                 url="https://thrivesportpositive.com/programmes/aller-vers-les-autres"
             />
 
@@ -92,15 +100,15 @@ export default function AllerVersLesAutres() {
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
                             <Star size={14} className="text-[#94A3B8]" fill="currentColor" />
-                            Le programme habiletés sociales
+                            THRIVE Complet · le parcours complet
                         </div>
                     </Reveal>
 
                     <Reveal delay={200}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-8">
-                            Aller vers <br className="hidden md:block" />
+                            THRIVE <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F1F5F9] to-[#94A3B8]">
-                                les autres
+                                Complet
                             </span>
                         </h1>
                     </Reveal>
@@ -113,7 +121,7 @@ export default function AllerVersLesAutres() {
 
                     <Reveal delay={400}>
                         <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-14">
-                            En 13 semaines, votre enfant apprend concrètement à aborder les autres, à proposer une activité et à entretenir une amitié. Il pratique d’abord en 1:1, puis en petit groupe, puis dans sa vraie vie, avec votre soutien.
+                            Il commence seul, en confiance. Il continue avec les autres. Votre enfant apprend concrètement à aborder les autres, à proposer une activité et à entretenir une amitié : d’abord en 1:1, puis en petit groupe, puis dans sa vraie vie, avec votre soutien.
                         </p>
                     </Reveal>
 
@@ -122,7 +130,7 @@ export default function AllerVersLesAutres() {
                             onClick={goCall}
                             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F1F5F9] text-[#1B263B] px-10 py-4.5 rounded-full font-bold text-lg hover:bg-white transition-all hover:scale-105 shadow-[0_0_40px_rgba(241,245,249,0.15)]"
                         >
-                            Réserver un appel gratuit <ArrowRight size={20} />
+                            Réserver un appel de 15 min <ArrowRight size={20} />
                         </button>
                         <button
                             onClick={goInclus}
@@ -136,8 +144,8 @@ export default function AllerVersLesAutres() {
                     <Reveal delay={700} className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 border-t border-white/10 pt-10">
                         {[
                             { label: "26 séances", sub: "13 en 1:1 + 13 en groupe" },
-                            { label: "1 déplacement", sub: "par semaine" },
-                            { label: "1 défi social", sub: "par semaine, dans sa vie" },
+                            { label: "17 à 26", sub: "semaines" },
+                            { label: "1 défi", sub: "par semaine, pour aller vers les autres" },
                             { label: "8 à 11 ans", sub: "premiers groupes" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
@@ -155,7 +163,7 @@ export default function AllerVersLesAutres() {
                     <Reveal>
                         <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4 text-center">Vous le reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-4xl mx-auto leading-tight">
-                            À qui s'adresse Aller vers les autres ?
+                            À qui s'adresse THRIVE Complet ?
                         </p>
                     </Reveal>
 
@@ -214,20 +222,20 @@ export default function AllerVersLesAutres() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
                         {[
                             {
-                                title: "D'abord le 1:1, sans public",
-                                desc: "Chaque semaine commence par une séance individuelle de la Méthode THRIVE : un espace protégé, sans le regard des autres, pour préparer ce qui sera pratiqué ensuite."
+                                title: "Temps 1 : seul, en confiance",
+                                desc: "Le parcours commence par les séances individuelles de la Méthode THRIVE : un espace protégé, sans le regard des autres, où la confiance se construit sans public."
                             },
                             {
-                                title: "Puis le petit groupe, pour s'entraîner",
-                                desc: "Juste après, une séance avec quelques enfants qui apprennent la même méthode. Le groupe est un terrain d'entraînement : on y essaie ce qu'on vient de préparer."
+                                title: "Temps 2 : avec les autres",
+                                desc: "Après sa 4e séance individuelle, il rejoint la première vague de Groupe qui démarre. Les deux continuent en parallèle, le même jour quand c'est possible : le groupe devient son terrain d'entraînement."
                             },
                             {
-                                title: "Un défi social dans sa vraie vie",
-                                desc: "Inviter un camarade, proposer un jeu : un défi par semaine hors programme, préparé avec vous. C'est l'ingrédient clé des programmes de référence en habiletés sociales : l'amitié se construit dehors."
+                                title: "Un défi par semaine dans sa vraie vie",
+                                desc: "Inviter un camarade, proposer un jeu : chaque semaine, un défi pour aller vers les autres, préparé avec vous. C'est l'ingrédient clé des programmes de référence en habiletés sociales : l'amitié se construit dehors."
                             },
                             {
                                 title: "Vous, outillé pour l'aider",
-                                desc: "Un court point parent chaque semaine pour préparer et soutenir le défi. Vous savez enfin comment l'aider concrètement."
+                                desc: "Une messagerie avec le coach, qui vous répond sous 24 à 48 h en semaine, pour préparer et soutenir le défi. Et THRIVE Maison, inclus."
                             }
                         ].map((b, i) => (
                             <Reveal key={i} delay={i * 100} className="flex gap-6">
@@ -258,7 +266,7 @@ export default function AllerVersLesAutres() {
                         {[
                             {
                                 name: "En groupe",
-                                time: "Semaine 1 vs semaine 13",
+                                time: "1re vs 13e séance de groupe",
                                 desc: "Le nombre d'échanges que votre enfant lance lui-même, sans être poussé par le coach. Et s'il reste en retrait ou non pendant les exercices à deux."
                             },
                             {
@@ -269,7 +277,7 @@ export default function AllerVersLesAutres() {
                             {
                                 name: "Avant / après",
                                 time: "Début et fin",
-                                desc: "Le même questionnaire au début et à la fin du programme, et des bilans courts en cours de route."
+                                desc: "La mesure de l'Individuel, plus un questionnaire sur la qualité de ses amitiés au début, à la fin et 3 mois après."
                             }
                         ].map((metric, i) => (
                             <Reveal key={i} delay={i * 100} className="bg-[#fafafa] border border-gray-100 p-10 rounded-[2rem] hover:shadow-lg transition-shadow duration-300">
@@ -306,9 +314,9 @@ export default function AllerVersLesAutres() {
                             </p>
                             <ul className="space-y-4">
                                 {[
-                                    "Semaine 4 : ses premiers échanges lancés en groupe, mesurés.",
-                                    "Semaine 8 : son premier défi social réalisé dans sa vraie vie.",
-                                    "Semaine 13 : la séance de remise, avec le bilan avant / après et le Book THRIVE."
+                                    "Après la 4e séance individuelle : il rejoint la prochaine vague de Groupe.",
+                                    "7e séance : on fait le point à mi-parcours, avec vous.",
+                                    "Fin du parcours : le tableau de progression et le Book THRIVE, puis une mesure 3 mois après."
                                 ].map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-4 text-gray-700">
                                         <CheckCircle2 size={24} className="text-[#94A3B8] shrink-0" />
@@ -385,10 +393,10 @@ export default function AllerVersLesAutres() {
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             {[
-                                "Point parent chaque semaine",
-                                "Défi social préparé ensemble",
-                                "Suivi dans l'app",
-                                "Bilans semaines 4 et 8"
+                                "Messagerie avec le coach",
+                                "Défi préparé ensemble",
+                                "THRIVE Maison inclus",
+                                "Point à mi-parcours"
                             ].map((badge, i) => (
                                 <span key={i} className="px-6 py-3 bg-white border border-gray-200 text-gray-700 font-bold rounded-full text-sm shadow-sm hover:border-[#94A3B8] transition-colors cursor-default">
                                     {badge}
@@ -408,13 +416,14 @@ export default function AllerVersLesAutres() {
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Séance découverte", desc: "Une séance complète qui pose le point de départ de votre enfant. 97 $ + tx, déduits de votre premier versement si vous continuez." },
+                            { title: "Un appel de 15 minutes", desc: "Gratuit et sans engagement : on vous dit si THRIVE Complet convient, ou si un autre programme répond mieux." },
                             { title: "13 séances individuelles", desc: "La Méthode THRIVE en 1:1, une par semaine : l'espace protégé pour préparer." },
-                            { title: "13 séances en petit groupe", desc: "Le même jour, juste après le 1:1 : un seul déplacement par semaine. 6 enfants maximum pour un coach." },
-                            { title: "1 défi social par semaine", desc: "Inviter un camarade, proposer un jeu : à vivre hors programme, préparé avec vous." },
-                            { title: "Point parent hebdomadaire", desc: "Un court échange chaque semaine pour préparer et soutenir le défi." },
-                            { title: "Mesure avant / après", desc: "Le même questionnaire au début et à la fin, et des bilans courts aux semaines 4 et 8." },
-                            { title: "Séance de remise + Book THRIVE", desc: "En semaine 13 : le bilan avant / après, la synthèse de ce qu'il a appris et la suite possible." }
+                            { title: "13 séances en petit groupe", desc: "Dans la première vague de Groupe qui démarre après sa 4e séance individuelle. 4 à 6 jeunes, 6 au maximum." },
+                            { title: "1 défi par semaine", desc: "Inviter un camarade, proposer un jeu : à vivre hors programme, préparé avec vous." },
+                            { title: "Messagerie avec le coach", desc: "Une réponse sous 24 à 48 h en semaine, pour préparer et soutenir le défi." },
+                            { title: "Tableau de progression", desc: "La mesure de l'Individuel, plus un questionnaire sur ses amitiés au début, à la fin et 3 mois après." },
+                            { title: "Book THRIVE et supports", desc: "En fin de parcours : le livret de son parcours, son tableau de progression et les supports utilisés." },
+                            { title: "THRIVE Maison inclus", desc: "L'application du moment qui compte, pendant le programme et 3 mois après." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
                                 <div className="sm:w-1/3 font-bold text-[#1B263B] mb-2 sm:mb-0 pr-4">
@@ -450,7 +459,7 @@ export default function AllerVersLesAutres() {
 
                         <div className="bg-[#1B263B] rounded-2xl p-8 text-white">
                             <p className="text-white/80 leading-relaxed text-lg">
-                                Le regard des autres lui fait peur ? On commence souvent par <button onClick={goEssayer} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">Oser essayer</button> : 13 séances en 1:1 pour reprendre confiance, avant de passer au groupe.
+                                Le groupe n’est pas encore pour lui ? <button onClick={goEssayer} className="text-[#C5A059] font-bold underline decoration-[#C5A059]/30 hover:decoration-[#C5A059] transition-all">THRIVE Individuel</button> : 13 séances seul avec le coach. Le passage au Complet reste possible ensuite.
                             </p>
                         </div>
                     </Reveal>
@@ -463,18 +472,18 @@ export default function AllerVersLesAutres() {
                     <Reveal>
                         <p className="text-[#94A3B8] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
-                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">2 000 $</span>
-                            <span className="text-3xl font-bold text-gray-400">+ tx</span>
+                            <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">{formatPrix(prix)}</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
-                            26 séances sur 13 semaines. Rien à payer à l’inscription : 2 versements de 1 000 $ + tx, le premier en semaine 3, le second en semaine 7.
+                            {PLACES_FONDATRICES_OUVERTES ? `Prix fondateur, puis ${formatPrix(PRIX.complet.regulier)}. ` : ''}
+                            26 séances sur 17 à 26 semaines, moins cher que les deux programmes pris séparément ({formatPrix(prixSepares)}). Aucun paiement avant la 1re séance : {formatPrix(versements[0])} + {formatPrix(versements[1])} (séances individuelles 1 et 7) et {formatPrix(versements[2])} + {formatPrix(versements[3])} (séances de groupe 1 et 7).
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
                                 onClick={goCall}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-12 py-5 rounded-full font-bold text-lg hover:bg-[#2c3e5a] transition-all hover:-translate-y-1 shadow-2xl"
                             >
-                                Réserver un appel gratuit <ArrowRight size={20} />
+                                Réserver un appel de 15 min <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goPrix}
@@ -484,7 +493,7 @@ export default function AllerVersLesAutres() {
                             </button>
                         </div>
                         <p className="text-sm text-gray-400 font-medium max-w-xl mx-auto">
-                            Les 2 premières séances sont à l’essai : si vous n’êtes pas convaincu, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment.
+                            Si, après la 2e séance, vous décidez d’arrêter, le premier versement vous est remboursé en entier. Vous pouvez arrêter à tout moment : vous ne payez que les séances reçues.
                         </p>
                     </Reveal>
                 </div>
@@ -501,15 +510,15 @@ export default function AllerVersLesAutres() {
                         {[
                             {
                                 q: "Mon enfant est très timide : le groupe ne va-t-il pas lui faire peur ?",
-                                a: "C'est pour ça que chaque semaine commence en 1:1, sans public : on prépare ensemble ce qu'il va essayer en groupe. On en parle avec vous dès la séance découverte, et si le groupe arrive trop tôt pour lui, on commence par Oser essayer."
+                                a: "C'est pour ça que le Complet commence seul, sans public : il ne rejoint le groupe qu'après sa 4e séance individuelle, et chaque séance individuelle prépare ce qu'il va essayer en groupe. On en parle avec vous dès l'appel."
                             },
                             {
                                 q: "Vous promettez qu'il aura des amis ?",
                                 a: "Non, et personne ne peut honnêtement le promettre. Nous promettons le travail : chaque semaine, votre enfant apprend et pratique concrètement à aborder les autres, à proposer une activité et à entretenir une relation. Et nous mesurons ce qui change, au début et à la fin."
                             },
                             {
-                                q: "Pourquoi le 1:1 et le groupe le même jour ?",
-                                a: "Pour vous simplifier la vie : un seul déplacement par semaine. Et parce que le 1:1 prépare directement ce qui sera pratiqué en groupe juste après."
+                                q: "Le 1:1 et le groupe, en même temps ?",
+                                a: "Après sa 4e séance individuelle, les deux continuent en parallèle, le même jour quand c'est possible, pour limiter les déplacements. Le 1:1 prépare directement ce qui sera pratiqué en groupe."
                             },
                             {
                                 q: "Pour quel âge ?",
@@ -517,11 +526,11 @@ export default function AllerVersLesAutres() {
                             },
                             {
                                 q: "Quand commencent les groupes ?",
-                                a: "Les groupes démarrent à dates fixes, pour que tous les enfants commencent ensemble. Réservez un appel : on vous indique la prochaine date de départ."
+                                a: "Les vagues de Groupe démarrent à dates fixes, pour que tous les enfants commencent ensemble. Votre enfant rejoint la première vague qui démarre après sa 4e séance individuelle : selon la date, le parcours dure de 17 à 26 semaines."
                             },
                             {
                                 q: "Et si ça ne convient pas à mon enfant ?",
-                                a: "Les deux premières semaines sont une période d'essai : si vous n'êtes pas convaincu, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment : vous ne payez que les séances suivies."
+                                a: "Si, après la 2e séance, vous décidez d'arrêter, le premier versement vous est remboursé en entier, pour chacun des deux contrats. Vous pouvez arrêter à tout moment : vous ne payez que les séances reçues."
                             },
                             {
                                 q: "Est-ce une thérapie ?",
@@ -553,20 +562,20 @@ export default function AllerVersLesAutres() {
                             <span className="text-[#94A3B8]">Et qu’il garde un ami.</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-white/70 max-w-2xl mx-auto leading-relaxed mb-16">
-                            13 semaines pour apprendre à aller vers les autres : à l’abri en 1:1, en petit groupe, puis dans sa vraie vie, avec vous.
+                            17 à 26 semaines pour apprendre à aller vers les autres : à l’abri en 1:1, en petit groupe, puis dans sa vraie vie, avec vous.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                             <button
                                 onClick={goCall}
                                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#F1F5F9] text-[#1B263B] px-10 py-5 rounded-full font-bold text-lg hover:bg-white transition-all hover:scale-105 shadow-xl"
                             >
-                                Réserver un appel gratuit <ArrowRight size={20} />
+                                Réserver un appel de 15 min <ArrowRight size={20} />
                             </button>
                             <button
                                 onClick={goEssayer}
                                 className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-white/20 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
                             >
-                                Découvrir Oser essayer
+                                Découvrir THRIVE Individuel
                             </button>
                         </div>
                     </Reveal>
