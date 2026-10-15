@@ -10,7 +10,7 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center justify-center mb-12">
                     <div className="flex items-center justify-center bg-white p-6 sm:px-12 sm:py-8 rounded-[2rem] shadow-xl">
-                        <img src={logo} alt="Thrive Sport Positive" className="h-14 sm:h-[5.5rem] w-auto object-contain" />
+                        <img src={logo} alt="THRIVE Sport Positive" className="h-14 sm:h-[5.5rem] w-auto object-contain" />
                     </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">

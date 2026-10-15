@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 export default function SEO({ 
     title, 
     description, 
-    name = "Thrive Sport Positive", 
+    name = "THRIVE Sport Positive", 
     type = "website", 
     url = "https://thrivesportpositive.com",
     schema = null,

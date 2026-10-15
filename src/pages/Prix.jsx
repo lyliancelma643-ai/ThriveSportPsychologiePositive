@@ -54,10 +54,14 @@ function PriceCard({ pack, onSelect, onAction, t, lang, horizontal = false }) {
     const Icon = PACK_ICONS[pack.id];
     const rec = pack.isRecommended;
     const entry = pack.isEntry;
-    // Prix affichés « + tx » : c'est la règle de toute la gamme.
+    // THRIVE n'est pas inscrit aux taxes : aucune mention « + tx » nulle part.
+    // Un prix à décimales (32,50 $) s'écrit avec ses deux décimales, un prix
+    // rond sans aucune (600 $) — sinon l'abonnement s'afficherait « 32,5 $ ».
+    const cents = pack.price % 1 !== 0;
+    const digits = cents ? { minimumFractionDigits: 2, maximumFractionDigits: 2 } : {};
     const priceStr = lang?.startsWith('en')
-        ? `$${pack.price.toLocaleString('en-CA')} ${t('pricing.tax')}`
-        : `${pack.price.toLocaleString('fr-CA')} $ ${t('pricing.tax')}`;
+        ? `$${pack.price.toLocaleString('en-CA', digits)}`
+        : `${pack.price.toLocaleString('fr-CA', digits)} $`;
 
     const getBackground = (id) => {
         switch (id) {

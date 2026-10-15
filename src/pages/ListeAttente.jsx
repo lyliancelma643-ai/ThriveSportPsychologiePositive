@@ -201,7 +201,7 @@ export default function ListeAttente() {
                 >
                     <img
                         src={logo}
-                        alt="Thrive Sport Positive"
+                        alt="THRIVE Sport Positive"
                         style={{ height: 'clamp(32px,6vw,44px)', width: 'auto', objectFit: 'contain' }}
                     />
                 </Link>

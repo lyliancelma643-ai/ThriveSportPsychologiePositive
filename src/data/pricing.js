@@ -6,11 +6,14 @@
 //  → Les textes sont dans src/locales/fr/translation.json (clés "pricing.*")
 //  → Le composant src/pages/Prix.jsx lit automatiquement ces valeurs.
 //
-//  Source de vérité produit : fiches produit verrouillées du 20 septembre 2026
-//  (Parties 1 à 4) — 3 programmes, prix affichés « + tx » :
-//    · Oser essayer          1 500 $ + tx  · 13 séances 1:1
-//    · Aller vers les autres 2 000 $ + tx  · 13 séances 1:1 + 13 en groupe
-//    · Le moment qui compte     15 $ + tx  toutes les 2 semaines (abonnement)
+//  Source de vérité produit : gamme V3 du 2 octobre 2026 et prix du 3 octobre 2026.
+//  3 programmes. THRIVE n'est pas inscrit aux taxes : les prix s'affichent SANS
+//  mention « + tx ».
+//    · THRIVE Individuel   1 500 $     · 13 séances en tête-à-tête
+//    · THRIVE Groupe         600 $     · 13 ateliers en petit groupe (4 à 6 jeunes)
+//    · THRIVE Maison          32,50 $  par mois (ou 299 $ par an), abonnement
+//  Le parcours Complet (Individuel puis Groupe, 2 000 $) n'a pas de carte : il
+//  est cité en texte sur les fiches produit et la page Prix.
 //  Les anciens packs Essentiel / Avancé / Performance sont retirés de l'offre.
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -48,8 +51,8 @@ export const PRICING_DATA = [
     {
         id: 'autres',
         path: '/programmes/aller-vers-les-autres',
-        price: 2000,
-        sessions: 26,
+        price: 600,
+        sessions: 13,
         action: 'booking',
         isRecommended: false,
         isEntry: false,
@@ -68,7 +71,8 @@ export const PRICING_DATA = [
     {
         id: 'moment',
         path: '/programmes/le-moment-qui-compte',
-        price: 15,
+        // 32,50 $ par mois : la carte l'affiche avec deux décimales (voir Prix.jsx).
+        price: 32.5,
         action: 'signup',
         isRecommended: false,
         isEntry: true,         // ← badge « À la maison ! »

@@ -64,7 +64,7 @@ const Comparison = ({ setBookingStep, openDiagnostic }) => {
                         <p className="text-gray-600 font-medium leading-relaxed">{t('home.comparison.diff_p2')}</p>
                     </div>
 
-                    {/* Who Thrive is designed for */}
+                    {/* Who THRIVE is designed for */}
                     <div className="bg-[#f8f9fa] rounded-[2rem] p-8 shadow-sm border border-gray-100">
                         <h3 className="text-2xl font-serif font-bold text-[#1B263B] mb-4">{t('home.comparison.who_heading')}</h3>
                         <p className="text-gray-600 mb-4 leading-relaxed">{t('home.comparison.who_p1')}</p>
@@ -93,7 +93,7 @@ const Comparison = ({ setBookingStep, openDiagnostic }) => {
                     <div className="order-1 lg:order-2 relative rounded-[2.5rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] h-[400px] lg:h-[600px] w-full">
                         <img 
                             src={coachChildImage} 
-                            alt="Coach Thrive et enfant sur la glace"
+                            alt="Coach THRIVE et enfant en séance"
                             className="absolute inset-0 w-full h-full object-cover object-center"
                         />
                     </div>

@@ -27,9 +27,9 @@ export const PatinageIcon = ({ className }) => (
         style={maskStyle(skateImg)}
         role="img"
         aria-label="Icône de Patinage - Coaching mental et développement"
-        title="Patinage - Thrive Sport Positive"
+        title="Patinage - THRIVE Sport Positive"
     >
-        <span className="sr-only">Patinage : Préparation mentale, développement de la confiance en soi et performance sportive avec Thrive Sport Positive.</span>
+        <span className="sr-only">Patinage : Préparation mentale, développement de la confiance en soi et performance sportive avec THRIVE Sport Positive.</span>
     </div>
 );
 
@@ -39,9 +39,9 @@ export const HockeyIcon = ({ className }) => (
         style={maskStyle(hockeyImg)}
         role="img"
         aria-label="Icône de Hockey sur glace - Coaching mental et développement"
-        title="Hockey - Thrive Sport Positive"
+        title="Hockey - THRIVE Sport Positive"
     >
-        <span className="sr-only">Hockey sur glace : Préparation mentale, gestion du stress, focus et intelligence de jeu avec Thrive Sport Positive.</span>
+        <span className="sr-only">Hockey sur glace : Préparation mentale, gestion du stress, focus et intelligence de jeu avec THRIVE Sport Positive.</span>
     </div>
 );
 
@@ -51,9 +51,9 @@ export const BasketballIcon = ({ className }) => (
         style={maskStyle(basketballImg)}
         role="img"
         aria-label="Icône de Basketball - Coaching mental et développement"
-        title="Basketball - Thrive Sport Positive"
+        title="Basketball - THRIVE Sport Positive"
     >
-        <span className="sr-only">Basketball : Préparation mentale, résilience face à l'échec et performance sportive avec Thrive Sport Positive.</span>
+        <span className="sr-only">Basketball : Préparation mentale, résilience face à l'échec et performance sportive avec THRIVE Sport Positive.</span>
     </div>
 );
 
@@ -63,9 +63,9 @@ export const SoccerIcon = ({ className }) => (
         style={maskStyle(soccerImg)}
         role="img"
         aria-label="Icône de Soccer - Coaching mental et développement"
-        title="Soccer - Thrive Sport Positive"
+        title="Soccer - THRIVE Sport Positive"
     >
-        <span className="sr-only">Soccer (Football) : Préparation mentale, intelligence relationnelle et performance en équipe avec Thrive Sport Positive.</span>
+        <span className="sr-only">Soccer (Football) : Préparation mentale, intelligence relationnelle et performance en équipe avec THRIVE Sport Positive.</span>
     </div>
 );
 
@@ -75,8 +75,8 @@ export const FootballIcon = ({ className }) => (
         style={maskStyle(americanFootballImg)}
         role="img"
         aria-label="Icône de Football américain - Coaching mental et développement"
-        title="Football Américain - Thrive Sport Positive"
+        title="Football Américain - THRIVE Sport Positive"
     >
-        <span className="sr-only">Football américain : Préparation mentale, gestion des émotions, courage et explosivité avec Thrive Sport Positive.</span>
+        <span className="sr-only">Football américain : Préparation mentale, gestion des émotions, courage et explosivité avec THRIVE Sport Positive.</span>
     </div>
 );

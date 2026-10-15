@@ -76,8 +76,8 @@ export default function OserEssayer() {
     return (
         <div className="bg-[#fafafa] min-h-screen font-sans text-gray-900 selection:bg-[#B07D4B]/20">
             <SEO
-                title="Oser essayer | Programme de 13 séances pour enfants de 8 à 17 ans — THRIVE"
-                description="Votre enfant lâche dès que ça devient difficile ? 13 séances individuelles à Montréal pour pratiquer l'art d'essayer, de persévérer et de rebondir. Progrès mesurés au début et à la fin. 1 500 $ + tx."
+                title="THRIVE Individuel | 13 séances en tête-à-tête pour oser essayer — THRIVE"
+                description="Votre enfant lâche dès que ça devient difficile ? 13 séances en tête-à-tête à Montréal pour pratiquer l'art d'essayer, de persévérer et de rebondir. Progrès mesurés. 1 500 $."
                 url="https://thrivesportpositive.com/programmes/oser-essayer"
             />
 
@@ -92,15 +92,15 @@ export default function OserEssayer() {
                     <Reveal delay={100}>
                         <div className="inline-flex items-center gap-2 border border-white/10 bg-white/5 backdrop-blur-md text-white/80 text-xs font-bold uppercase tracking-widest px-6 py-2.5 rounded-full mb-10">
                             <Sun size={14} className="text-[#B07D4B]" fill="currentColor" />
-                            Le programme principal THRIVE
+                            Oser essayer · en tête-à-tête
                         </div>
                     </Reveal>
 
                     <Reveal delay={200}>
                         <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white tracking-tight leading-[1.1] mb-8">
-                            Oser <br className="hidden md:block" />
+                            THRIVE <br className="hidden md:block" />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D0E2C8] to-[#B07D4B]">
-                                essayer
+                                Individuel
                             </span>
                         </h1>
                     </Reveal>
@@ -138,7 +138,7 @@ export default function OserEssayer() {
                             { label: "13 séances", sub: "1:1, une par semaine" },
                             { label: "1 défi", sub: "par semaine à la maison" },
                             { label: "Mesuré", sub: "au début et à la fin" },
-                            { label: "2 séances", sub: "à l'essai" }
+                            { label: "Remboursé", sub: "si vous arrêtez après la 2e séance" }
                         ].map((item, i) => (
                             <div key={i} className="text-center">
                                 <p className="text-white font-bold text-lg md:text-xl mb-1">{item.label}</p>
@@ -210,7 +210,7 @@ export default function OserEssayer() {
                             13 séances, 3 phases.
                         </h2>
                         <p className="text-lg text-white/60 max-w-2xl mx-auto">
-                            Une séance individuelle par semaine, de 60 à 70 minutes, par le sport. Chaque séance fait vivre à votre enfant au moins une réussite : ni trop facile, sinon elle ne compte pas ; ni trop dure, sinon elle confirme l’échec.
+                            Une séance individuelle par semaine, de 60 minutes, par le sport. Chaque séance fait vivre à votre enfant au moins une réussite : ni trop facile, sinon elle ne compte pas ; ni trop dure, sinon elle confirme l’échec.
                         </p>
                     </Reveal>
 
@@ -303,9 +303,9 @@ export default function OserEssayer() {
                     <div className="flex flex-col md:flex-row gap-8">
                         {[
                             {
-                                step: "Séance découverte",
+                                step: "Séance 1",
                                 title: "Le point de départ",
-                                desc: "On observe votre enfant et on pose ensemble sa ligne de base : dans quelles situations il bloque, à quelle fréquence, depuis quand. Idéalement, les deux parents sont là."
+                                desc: "On observe votre enfant et on pose sa ligne de base : dans quelles situations il bloque, à quelle fréquence, depuis quand. Avant, un appel de 15 minutes avec vous pour comprendre la situation."
                             },
                             {
                                 step: "Chaque semaine",
@@ -313,9 +313,9 @@ export default function OserEssayer() {
                                 desc: "Un défi à relever hors séance, à l'école ou à la maison, suivi dans l'app. Le passage du sport à la vie ne se fait pas tout seul : il se pratique."
                             },
                             {
-                                step: "Semaines 4, 8 et 13",
+                                step: "Séances 7 et 13",
                                 title: "Les bilans",
-                                desc: "Un bilan court aux semaines 4 et 8, puis une séance de remise en semaine 13 avec le bilan avant / après et le Book THRIVE."
+                                desc: "Un bilan et un appel avec vous à mi-parcours, puis une séance de remise en séance 13 avec le bilan avant / après et le Book THRIVE."
                             }
                         ].map((item, i) => (
                             <Reveal key={i} delay={i * 150} className="flex-1 bg-[#fafafa] border border-gray-100 p-8 rounded-[2rem] text-center hover:-translate-y-1 transition-transform">
@@ -343,7 +343,7 @@ export default function OserEssayer() {
                                 "Combien de fois il accepte un nouveau défi sans négocier",
                                 "S'il refait une tentative dans les 2 minutes après un échec",
                                 "Le même questionnaire, rempli au début et à la fin",
-                                "Des bilans courts aux semaines 4 et 8",
+                                "Un bilan et un appel à mi-parcours",
                                 "Les défis réalisés à la maison, semaine après semaine"
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-4 text-white/90">
@@ -420,11 +420,11 @@ export default function OserEssayer() {
 
                     <Reveal delay={100} className="bg-white border border-gray-200 rounded-[2rem] overflow-hidden shadow-sm">
                         {[
-                            { title: "Séance découverte", desc: "Une séance complète qui pose le point de départ de votre enfant. 97 $ + tx, déduits de votre premier versement si vous continuez." },
-                            { title: "13 séances individuelles", desc: "Une par semaine, de 60 à 70 min, en 1:1. La Méthode THRIVE complète : Ancrer, Développer, Intégrer." },
+                            { title: "Un appel gratuit de 15 minutes", desc: "Pour comprendre la situation et vérifier que l'Individuel est le bon choix." },
+                            { title: "13 séances individuelles", desc: "Une par semaine, de 60 minutes, en tête-à-tête. La Méthode THRIVE complète : Ancrer, Développer, Intégrer." },
                             { title: "1 défi par semaine", desc: "À relever hors séance, à l'école ou à la maison, avec vous. Suivi dans l'app." },
                             { title: "Suivi dans l'app", desc: "Ce qui a été travaillé à chaque séance, pour savoir où en est votre enfant." },
-                            { title: "Mesure avant / après", desc: "Le même questionnaire au début et à la fin, et des bilans courts aux semaines 4 et 8." },
+                            { title: "Mesure au début, au milieu et à la fin", desc: "Les mêmes questionnaires en séances 1, 7 et 13, et deux appels avec votre coach." },
                             { title: "Séance de remise + Book THRIVE", desc: "En semaine 13 : le bilan avant / après, la synthèse de ce qu'il a appris et la suite possible." }
                         ].map((row, i) => (
                             <div key={i} className="flex flex-col sm:flex-row sm:items-center p-6 sm:p-8 border-b border-gray-100 last:border-0 hover:bg-gray-50 transition-colors">
@@ -453,7 +453,7 @@ export default function OserEssayer() {
                                 "Ce n'est pas une psychothérapie. THRIVE est un programme de coaching et de développement des habiletés : il ne remplace pas un suivi psychologique.",
                                 "Si votre enfant vit une détresse importante ou a reçu un diagnostic qui demande une prise en charge, nous vous orienterons vers un professionnel.",
                                 "Nous promettons le travail fait chaque semaine et la mesure des progrès, pas un résultat garanti.",
-                                "Pas de séance en groupe : elle fait partie du programme Aller vers les autres."
+                                "Pas de séance en groupe : c'est THRIVE Groupe, ou le parcours Complet qui enchaîne les deux."
                             ].map((item, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-gray-500 text-sm">
                                     <div className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 shrink-0" />
@@ -464,7 +464,7 @@ export default function OserEssayer() {
 
                         <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-8">
                             <p className="text-gray-600 leading-relaxed text-base">
-                                Votre enfant a surtout du mal à aller vers les autres, à se faire des amis ? Le programme <button onClick={goAutres} className="text-[#B07D4B] font-bold hover:underline transition-all">Aller vers les autres</button> ajoute une séance en petit groupe chaque semaine et un défi social à vivre dans sa vraie vie.
+                                Votre enfant ose seul, mais se retient devant les autres ? <button onClick={goAutres} className="text-[#B07D4B] font-bold hover:underline transition-all">THRIVE Groupe</button> le fait pratiquer avec 4 à 6 jeunes. Et le parcours Complet (2 000 $) commence en tête-à-tête, puis rejoint un groupe dès la 4e séance.
                             </p>
                         </div>
                     </Reveal>
@@ -478,10 +478,9 @@ export default function OserEssayer() {
                         <p className="text-[#B07D4B] font-bold uppercase tracking-widest text-sm mb-6">Investissement</p>
                         <div className="flex justify-center items-baseline gap-3 mb-10">
                             <span className="text-7xl md:text-8xl font-serif font-bold text-[#1B263B] tracking-tight">1 500 $</span>
-                            <span className="text-3xl font-bold text-gray-400">+ tx</span>
                         </div>
                         <p className="text-xl text-gray-600 leading-relaxed mb-16 max-w-2xl mx-auto">
-                            Soit environ 115 $ la séance. Rien à payer à l’inscription : 2 versements de 750 $ + tx, le premier à la séance 3, le second à la séance 7.
+                            Rien à payer à l’inscription : 2 versements de 750 $, au début de la 1re et de la 7e séance. THRIVE Maison est inclus pendant tout le programme.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
                             <button
@@ -498,7 +497,7 @@ export default function OserEssayer() {
                             </button>
                         </div>
                         <p className="text-sm text-gray-400 font-medium max-w-xl mx-auto">
-                            Les 2 premières séances sont à l’essai : si vous n’êtes pas convaincu, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment.
+                            Si vous n’êtes pas convaincu après la 2e séance, vous arrêtez et votre 1er versement vous est remboursé. Ensuite, vous pouvez arrêter à tout moment.
                         </p>
                     </Reveal>
                 </div>
@@ -515,11 +514,11 @@ export default function OserEssayer() {
                         {[
                             {
                                 q: "Comment se passe la première étape ?",
-                                a: "Un appel gratuit pour comprendre la situation, puis une séance découverte (97 $ + tx) : une vraie séance avec votre enfant, qui pose son point de départ. Si vous continuez, les 97 $ sont déduits de votre premier versement. Idéalement, les deux parents y assistent."
+                                a: "Un appel gratuit de 15 minutes pour comprendre la situation. Si l'Individuel est le bon choix, la 1re séance a lieu 1 à 2 semaines plus tard : elle pose le point de départ de votre enfant."
                             },
                             {
                                 q: "Et si ça ne convient pas à mon enfant ?",
-                                a: "Les deux premières séances sont une période d'essai : si vous n'êtes pas convaincu après la deuxième, vous arrêtez et elles ne vous sont pas facturées. Ensuite, vous pouvez arrêter à tout moment : vous ne payez que les séances suivies."
+                                a: "Si vous n'êtes pas convaincu après la 2e séance, vous arrêtez et votre 1er versement vous est remboursé en entier. Ensuite, vous pouvez arrêter à tout moment : vous ne payez que les séances reçues."
                             },
                             {
                                 q: "Pourquoi passer par le sport ?",
@@ -527,7 +526,7 @@ export default function OserEssayer() {
                             },
                             {
                                 q: "Le coach de son club ne fait-il pas déjà ce travail ?",
-                                a: "Rarement, et ce n'est pas un reproche : ce n'est pas son rôle, et avec une vingtaine d'enfants à gérer, c'est matériellement impossible. Oser essayer se fait en 1:1, avec une séance entièrement consacrée à votre enfant."
+                                a: "Rarement, et ce n'est pas un reproche : ce n'est pas son rôle, et avec une vingtaine d'enfants à gérer, c'est matériellement impossible. Avec THRIVE Individuel, la séance est entièrement consacrée à votre enfant."
                             },
                             {
                                 q: "Pourquoi 13 semaines ?",
@@ -539,7 +538,7 @@ export default function OserEssayer() {
                             },
                             {
                                 q: "Où et quand ont lieu les séances ?",
-                                a: "À Montréal, sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. Il n'y a rien à préparer : vous déposez votre enfant, on s'occupe du reste."
+                                a: "À Centre Saint-Denis, sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. Il n'y a rien à préparer : vous déposez votre enfant, on s'occupe du reste."
                             }
                         ].map((faq, i) => (
                             <FaqItem
@@ -580,7 +579,7 @@ export default function OserEssayer() {
                                 onClick={goAutres}
                                 className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-white/20 text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-white/10 hover:border-white/50 transition-all"
                             >
-                                Découvrir Aller vers les autres
+                                Découvrir le Groupe
                             </button>
                         </div>
                     </Reveal>

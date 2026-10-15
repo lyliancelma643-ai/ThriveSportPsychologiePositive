@@ -27,7 +27,7 @@ const Home = ({ setBookingStep, handleSelectProgram }) => {
                 schema={{
                     "@context": "https://schema.org",
                     "@type": "SportsActivityLocation",
-                    "name": "Thrive Sport Positive",
+                    "name": "THRIVE Sport Positive",
                     "image": "https://thrivesportpositive.com/favicon.png",
                     "description": t('seo.home.desc'),
                     "url": "https://thrivesportpositive.com/",

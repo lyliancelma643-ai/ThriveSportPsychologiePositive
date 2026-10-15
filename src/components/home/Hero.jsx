@@ -69,7 +69,7 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                                 className="group relative overflow-hidden bg-[#1B263B] text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-[#253550] transition-all flex items-center justify-center shadow-xl hover:shadow-2xl hover:-translate-y-1 w-full scale-105"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] pointer-events-none z-10"></div>
-                                <span className="relative z-20 flex items-center">Réserver ma place gratuitement <ChevronRight className="ml-2" size={20} /></span>
+                                <span className="relative z-20 flex items-center">Réserver ma place <ChevronRight className="ml-2" size={20} /></span>
                             </Link>
                             <button
                                 data-cal-namespace="30min"
@@ -89,7 +89,7 @@ const Hero = ({ setBookingStep, openDiagnostic }) => {
                         <div className="absolute -inset-8 bg-gradient-to-br from-[#1B263B]/10 to-[#C5A059]/20 rounded-[2rem] blur-3xl opacity-70"></div>
                         <img
                             src={heroImage}
-                            alt="Thrive Sport Positive - Athlètes en action"
+                            alt="THRIVE Sport Positive — jeunes en action"
                             width="2048"
                             height="1073"
                             fetchPriority="high"

@@ -27,7 +27,7 @@ const Navbar = ({ setBookingStep }) => {
         <nav className="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-20 items-center">
                 <Link to="/" className="flex items-center cursor-pointer">
-                    <img src={logo} alt="Thrive Sport Positive" className="h-14 md:h-16 w-auto object-contain" />
+                    <img src={logo} alt="THRIVE Sport Positive" className="h-14 md:h-16 w-auto object-contain" />
                 </Link>
                 <div className="hidden md:flex items-center space-x-8">
                     {navLinks.map(link => (

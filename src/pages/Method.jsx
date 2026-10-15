@@ -74,7 +74,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                     "serviceType": "Sports Coaching & Positive Psychology",
                     "provider": {
                         "@type": "LocalBusiness",
-                        "name": "Thrive Sport Positive"
+                        "name": "THRIVE Sport Positive"
                     },
                     "description": t('seo.method.desc')
                 }}
@@ -197,10 +197,10 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                         {/* ── 3. DÉFINITION ────────────────────────────── */}
                         <section id="definition" className="scroll-mt-32 pb-16">
                             <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.sidebar.l3')}</span>
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">Une intervention psychoéducative par le sport.</h2>
+                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">Un programme de développement par le sport.</h2>
                             <div className="h-1 w-14 bg-[#C5A059] rounded-full mb-8" />
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. L'aréna est le laboratoire. Chaque défi technique est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend au sport : gérer la pression, demander de l'aide, persévérer. Il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
+                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. Le terrain est le laboratoire. Chaque défi est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend au sport : gérer la pression, demander de l'aide, persévérer. Il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
                                     <div key={d.title} className="bg-white border border-gray-100 rounded-[1.5rem] p-7 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                                         <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{background:d.color+'18'}}>{d.icon}</div>
                                         <h3 className="font-bold text-[#1B263B] text-base mb-2">{d.title}</h3>
@@ -211,7 +211,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                             <div className="bg-gray-50 border border-gray-100 rounded-[1.5rem] p-6 text-sm text-gray-600">
                                 <p className="font-bold text-[#1B263B] mb-3">THRIVE n'est pas :</p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants épanouis progressent encore plus vite."].map((item) => (
+                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants qui vont bien progressent aussi."].map((item) => (
                                         <div key={item} className="flex items-start gap-2"><span className="text-gray-400 mt-0.5">✕</span><span>{item}</span></div>
                                     ))}
                                 </div>

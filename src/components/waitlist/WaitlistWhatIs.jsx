@@ -9,7 +9,7 @@ const WaitlistWhatIs = () => {
             <div className="max-w-4xl mx-auto">
                 <div className="text-center mb-10 lg:mb-16">
                     <span className="text-[#C9A14A] font-semibold tracking-wider uppercase text-xs lg:text-sm mb-3 block">
-                        Thrive Sport Positive
+                        THRIVE Sport Positive
                     </span>
                     <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#1F2A44] font-bold mb-4 lg:mb-6">
                         {t('waitlist.what_is.title')}

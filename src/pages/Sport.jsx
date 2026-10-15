@@ -44,7 +44,7 @@ const Sport = ({ setBookingStep, bookingData, setBookingData }) => {
                     "serviceType": "Sports Coaching",
                     "provider": {
                         "@type": "LocalBusiness",
-                        "name": "Thrive Sport Positive"
+                        "name": "THRIVE Sport Positive"
                     },
                     "description": t('seo.sport.desc')
                 }}
