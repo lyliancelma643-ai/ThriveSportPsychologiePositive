@@ -155,7 +155,7 @@ export default function MomentQuiCompte() {
                     <Reveal>
                         <h2 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4 text-center">Vous vous reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-3xl mx-auto leading-tight">
-                            À qui s'adresse Le moment qui compte ?
+                            À qui s'adresse THRIVE Maison ?
                         </p>
                     </Reveal>
 

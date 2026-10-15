@@ -155,7 +155,7 @@ export default function AllerVersLesAutres() {
                     <Reveal>
                         <h2 className="text-sm font-bold uppercase tracking-widest text-[#94A3B8] mb-4 text-center">Vous le reconnaissez ?</h2>
                         <p className="text-3xl md:text-5xl font-serif font-bold text-[#1B263B] mb-20 text-center max-w-4xl mx-auto leading-tight">
-                            À qui s'adresse Aller vers les autres ?
+                            À qui s'adresse THRIVE Groupe ?
                         </p>
                     </Reveal>
 
