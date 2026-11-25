@@ -1,22 +1,21 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '../../content/methode';
 
 const INSTRUMENTS = [
-    { key: 'lsss10',  packs: ['Oser essayer', 'Aller vers les autres'], accent: '#8F9779' },
-    { key: 'lsss30',  packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
-    { key: 'smtq',    packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
-    { key: 'rpe',     packs: ['Oser essayer', 'Aller vers les autres'], accent: '#8F9779' },
-    { key: 'who5',    packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
-    { key: 'gse',     packs: ['Oser essayer', 'Aller vers les autres'], accent: '#C5A059' },
+    { key: 'lsss10',  formats: ['Individuel', 'Groupe'], accent: '#8F9779' },
+    { key: 'lsss30',  formats: ['Individuel', 'Groupe'], accent: '#C5A059' },
+    { key: 'smtq',    formats: ['Individuel', 'Groupe'], accent: '#C5A059' },
+    { key: 'rpe',     formats: ['Individuel', 'Groupe'], accent: '#8F9779' },
+    { key: 'who5',    formats: ['Individuel', 'Groupe'], accent: '#C5A059' },
+    { key: 'gse',     formats: ['Individuel', 'Groupe'], accent: '#C5A059' },
 ];
 
 const MeasureBattery = () => {
-    const { t } = useTranslation();
     return (
         <section id="mesures" className="scroll-mt-32 py-16">
             <div className="text-center mb-10">
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.measure.tag')}</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">
                     {t('method.measure.title')}
                 </h2>
                 <div className="h-1 w-14 bg-[#C5A059] mx-auto rounded-full mb-4" />
@@ -55,7 +54,7 @@ const MeasureBattery = () => {
                                 </td>
                                 <td className="px-4 py-2.5">
                                     <div className="flex flex-wrap gap-1">
-                                        {inst.packs.map((p) => (
+                                        {inst.formats.map((p) => (
                                             <span
                                                 key={p}
                                                 className="text-[10px] font-bold px-2 py-0.5 rounded-full"

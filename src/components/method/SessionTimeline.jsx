@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '../../content/methode';
 import { CheckCircle2 } from 'lucide-react';
 
 const PHASES = [
@@ -10,7 +10,6 @@ const PHASES = [
 
 
 const SessionTimeline = () => {
-    const { t } = useTranslation();
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -32,7 +31,7 @@ const SessionTimeline = () => {
         <section id="13-seances" ref={sectionRef} className="scroll-mt-32 py-16">
             <div className={`text-center mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.timeline.tag')}</span>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">
                     {t('method.timeline.title')}
                 </h2>
                 <div className="h-1 w-14 bg-[#C5A059] mx-auto rounded-full mb-4" />
@@ -49,7 +48,7 @@ const SessionTimeline = () => {
                     >
                         <div className="flex items-center gap-3 mb-4">
                             <div
-                                className="w-12 h-12 rounded-xl flex items-center justify-center font-bold font-serif text-lg"
+                                className="w-12 h-12 rounded-xl flex items-center justify-center font-serif text-2xl"
                                 style={{ background: phase.bg, color: phase.color }}
                             >
                                 {phase.num}

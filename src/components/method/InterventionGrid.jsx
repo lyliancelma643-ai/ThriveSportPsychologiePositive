@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '../../content/methode';
 import { ChevronDown, Target, Heart, Star, HelpCircle, Wind, Eye } from 'lucide-react';
 
 const INTERVENTIONS = [
@@ -11,7 +11,7 @@ const INTERVENTIONS = [
     { key: 'focus', icon: Eye, color: '#1B263B', sessions: '' },
 ];
 
-const InterventionCard = ({ item, isOpen, onToggle, t, isVisible, index }) => {
+const InterventionCard = ({ item, isOpen, onToggle, isVisible, index }) => {
     const Icon = item.icon;
     return (
         <div 
@@ -31,7 +31,7 @@ const InterventionCard = ({ item, isOpen, onToggle, t, isVisible, index }) => {
                 </div>
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                        <h3 className="font-bold text-[#1B263B] text-base">{t(`method.interventions.${item.key}_name`)}</h3>
+                        <h3 className="font-sans font-semibold text-[#1B263B] text-base">{t(`method.interventions.${item.key}_name`)}</h3>
                         {item.sessions && (
                             <span
                                 className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
@@ -69,7 +69,6 @@ const InterventionCard = ({ item, isOpen, onToggle, t, isVisible, index }) => {
 };
 
 const InterventionGrid = () => {
-    const { t } = useTranslation();
     const [open, setOpen] = useState(null);
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -99,7 +98,7 @@ const InterventionGrid = () => {
                 <div className="relative z-10">
                     <div className={`text-center mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         <span className="text-[#4A6FA5] font-bold uppercase tracking-widest text-xs">{t('method.interventions.tag')}</span>
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                        <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">
                             {t('method.interventions.title')}
                         </h2>
                         <div className="h-1 w-14 bg-[#4A6FA5] mx-auto rounded-full mb-4" />
@@ -115,7 +114,6 @@ const InterventionGrid = () => {
                                 isVisible={isVisible}
                                 isOpen={open === item.key}
                                 onToggle={() => setOpen(open === item.key ? null : item.key)}
-                                t={t}
                             />
                         ))}
                     </div>

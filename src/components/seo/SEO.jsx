@@ -1,47 +1,54 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
-export default function SEO({ 
-    title, 
-    description, 
-    name = "Thrive Sport Positive", 
-    type = "website", 
-    url = "https://thrivesportpositive.com",
+const SITE = 'https://thrivesportpositive.com';
+const IMAGE_DEFAUT = `${SITE}/og-image.jpg`;
+
+// Métadonnées de page : title, description, canonical, Open Graph, Twitter, JSON-LD.
+//  title, description  obligatoires (viennent de src/content/textes.js)
+//  url      URL canonique complète ; par défaut déduite de la route courante
+//  image    URL absolue de l'image de partage (défaut : /og-image.jpg, 1200×630)
+//  schema   objet (ou tableau d'objets) JSON-LD à injecter
+//  noindex  true → <meta name="robots" content="noindex">
+export default function SEO({
+    title,
+    description,
+    name = 'THRIVE Sport Positive',
+    type = 'website',
+    url,
     schema = null,
-    image = "https://thrivesportpositive.com/favicon.png"
+    image = IMAGE_DEFAUT,
+    noindex = false,
 }) {
-    const { i18n } = useTranslation();
-    const lang = i18n.language || 'fr';
+    const { pathname } = useLocation();
+    const lang = 'fr';
+    const canonique = url || `${SITE}${pathname === '/' ? '/' : pathname.replace(/\/$/, '')}`;
+    const imageParDefaut = image === IMAGE_DEFAUT;
 
     return (
         <Helmet htmlAttributes={{ lang }}>
-            {/* Standard metadata tags */}
             <title>{title}</title>
-            <meta name='description' content={description} />
-            <link rel="canonical" href={url} />
+            <meta name="description" content={description} />
+            <link rel="canonical" href={canonique} />
+            {noindex && <meta name="robots" content="noindex" />}
 
-            {/* OpenGraph tags */}
             <meta property="og:type" content={type} />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta property="og:url" content={url} />
+            <meta property="og:url" content={canonique} />
             <meta property="og:site_name" content={name} />
+            <meta property="og:locale" content="fr_CA" />
             <meta property="og:image" content={image} />
+            {imageParDefaut && <meta property="og:image:width" content="1200" />}
+            {imageParDefaut && <meta property="og:image:height" content="630" />}
 
-            {/* Twitter tags */}
-            <meta name="twitter:creator" content={name} />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={image} />
 
-            {/* Structured Data (JSON-LD) */}
-            {schema && (
-                <script type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
-            )}
+            {schema && <script type="application/ld+json">{JSON.stringify(schema)}</script>}
         </Helmet>
     );
 }

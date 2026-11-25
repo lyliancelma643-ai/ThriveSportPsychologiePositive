@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '../../content/methode';
 import { CheckCircle2, XCircle } from 'lucide-react';
 
 const ACTORS = [
@@ -9,7 +9,6 @@ const ACTORS = [
 ];
 
 const ActorsGrid = () => {
-    const { t } = useTranslation();
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -37,7 +36,7 @@ const ActorsGrid = () => {
                 <div className="relative z-10">
                     <div className={`text-center mb-10 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.actors.tag')}</span>
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                        <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">
                             {t('method.actors.title')}
                         </h2>
                         <div className="h-1 w-14 bg-[#C5A059] mx-auto rounded-full mb-4" />
@@ -59,7 +58,7 @@ const ActorsGrid = () => {
                                         {actor.icon}
                                     </div>
                                     <div>
-                                        <h3 className="font-bold text-[#1B263B] text-lg">{t(`method.actors.${actor.key}_name`)}</h3>
+                                        <h3 className="font-sans font-semibold text-[#1B263B] text-lg">{t(`method.actors.${actor.key}_name`)}</h3>
                                         <p className="text-xs text-gray-400">{t(`method.actors.${actor.key}_role`)}</p>
                                     </div>
                                 </div>

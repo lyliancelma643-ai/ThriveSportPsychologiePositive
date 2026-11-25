@@ -1,8 +1,84 @@
 {
+    "redirects": [
+        {
+            "source": "/prix",
+            "destination": "/programmes",
+            "permanent": true
+        },
+        {
+            "source": "/liste-attente",
+            "destination": "/appel",
+            "permanent": true
+        },
+        {
+            "source": "/booking",
+            "destination": "/appel",
+            "permanent": true
+        },
+        {
+            "source": "/evaluation",
+            "destination": "/appel",
+            "permanent": true
+        },
+        {
+            "source": "/sport",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/zones",
+            "destination": "/",
+            "permanent": true
+        },
+        {
+            "source": "/programmes/aller-vers-les-autres",
+            "destination": "/programmes/groupe",
+            "permanent": true
+        },
+        {
+            "source": "/programmes/oser-essayer",
+            "destination": "/programmes/individuel",
+            "permanent": true
+        },
+        {
+            "source": "/programmes/le-moment-qui-compte",
+            "destination": "/maison",
+            "permanent": true
+        },
+        {
+            "source": "/programmes/maison",
+            "destination": "/maison",
+            "permanent": true
+        },
+        {
+            "source": "/pack/:slug*",
+            "destination": "/programmes",
+            "permanent": true
+        }
+    ],
     "rewrites": [
         {
             "source": "/(.*)",
             "destination": "/"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "Referrer-Policy",
+                    "value": "strict-origin-when-cross-origin"
+                },
+                {
+                    "key": "Permissions-Policy",
+                    "value": "camera=(), microphone=(), geolocation=()"
+                }
+            ]
         }
     ]
 }

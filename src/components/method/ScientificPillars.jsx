@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { t } from '../../content/methode';
 
 // Niveau de preuve badge
 const LevelBadge = ({ level }) => {
@@ -75,7 +75,6 @@ const PILLARS = [
 ];
 
 const ScientificPillars = () => {
-    const { t } = useTranslation();
     const sectionRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -108,7 +107,7 @@ const ScientificPillars = () => {
                     {/* Header */}
                     <div className={`text-center mb-4 transition-all duration-1000 ease-out transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
                         <span className="text-[#8F9779] font-bold uppercase tracking-widest text-xs">{t('method.pillars.tag')}</span>
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">
+                        <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">
                             {t('method.pillars.title')}
                         </h2>
                         <div className="h-1 w-14 bg-[#8F9779] mx-auto rounded-full mb-4" />
@@ -146,7 +145,7 @@ const ScientificPillars = () => {
                                     <LevelBadge level={p.level} />
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-[#1B263B] text-base leading-snug mb-0.5">
+                                    <h3 className="font-sans font-semibold text-[#1B263B] text-base leading-snug mb-0.5">
                                         {t(`method.pillars.${p.key}_name`)}
                                     </h3>
                                     <p className="text-xs text-gray-400 mb-2">{p.authors}</p>

@@ -7,24 +7,46 @@ import express from 'express';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Les routes prérendues = le plan du site (docs/REFONTE-2026-11.md).
+// Les anciennes URL (/prix, /liste-attente, /booking…) sont des 301 dans
+// vercel.json : on ne les prérend pas. Garder cette liste identique à
+// `dynamicRoutes` (+ '/') dans vite.config.js.
 const routes = [
     '/',
+    '/maison',
+    '/accompagnements',
+    '/programmes',
+    '/programmes/groupe',
+    '/programmes/individuel',
     '/methode',
-    '/prix',
-    '/sport',
-    // '/evaluation' retiré : la route redirige vers /liste-attente, la
-    // prérendre produirait une page en double dans l'index.
-    '/booking',
-    '/zones',
     '/a-propos',
-    '/programmes/oser-essayer',
-    '/programmes/aller-vers-les-autres',
-    '/programmes/le-moment-qui-compte',
-    // Landing de campagne : c'est la page vers laquelle pointent le QR code et
-    // la bio Instagram. Sans prérendu, elle est partagée avec le titre et la
-    // description génériques du site.
-    '/liste-attente'
+    '/partenaires',
+    '/appel',
+    '/confidentialite',
+    '/conditions',
 ];
+
+// index.html contient des balises <meta> statiques (description, Open Graph,
+// Twitter). Une fois la page rendue, react-helmet-async ajoute les siennes
+// (attribut data-rh) SANS retirer les statiques : les robots de partage lisent
+// alors la première, celle de l'accueil. On retire donc les doublons statiques
+// quand une version Helmet existe.
+function dedoublonnerMeta(html) {
+    const cle = (tag) => {
+        const m = tag.match(/\s(?:name|property)="([^"]+)"/);
+        return m ? m[1] : null;
+    };
+    const metas = html.match(/<meta\b[^>]*>/g) || [];
+    const gerees = new Set(metas.filter((t) => /\sdata-rh="true"/.test(t)).map(cle).filter(Boolean));
+    let resultat = html;
+    for (const tag of metas) {
+        const k = cle(tag);
+        if (k && gerees.has(k) && !/\sdata-rh="true"/.test(tag)) {
+            resultat = resultat.replace(tag, '');
+        }
+    }
+    return resultat;
+}
 
 async function prerender() {
     console.log('Starting prerender process...');
@@ -71,7 +93,7 @@ async function prerender() {
                 await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle0' });
 
                 // Get the complete HTML code
-                let html = await page.content();
+                let html = dedoublonnerMeta(await page.content());
 
                 // Remove the script that injects the React app if you want true static, 
                 // but since we want hydration, we keep it!

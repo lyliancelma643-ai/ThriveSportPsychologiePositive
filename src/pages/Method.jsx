@@ -1,15 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
-import { getCalApi } from "@calcom/embed-react";
+import { t } from '../content/methode';
+import Bouton from '../components/shared/Bouton';
+import CtaAppel from '../components/shared/CtaAppel';
 
-// Existing components
 import MethodSidebar from '../components/method/MethodSidebar';
-import ContactSection from '../components/ui/ContactSection';
-
-// New components
 import ScientificPillars from '../components/method/ScientificPillars';
 import InterventionGrid from '../components/method/InterventionGrid';
 import SessionTimeline from '../components/method/SessionTimeline';
@@ -17,10 +13,7 @@ import ActorsGrid from '../components/method/ActorsGrid';
 import MeasureBattery from '../components/method/MeasureBattery';
 import EthicsSection from '../components/method/EthicsSection';
 
-const Method = ({ setBookingStep, handleSelectProgram }) => {
-    const { t, i18n } = useTranslation();
-    const navigate = useNavigate();
-    
+const Method = () => {
     const problemRef = useRef(null);
     const [problemVisible, setProblemVisible] = useState(false);
 
@@ -38,23 +31,6 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
         return () => observer.disconnect();
     }, []);
 
-    useEffect(() => {
-        if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
-
-        (async function () {
-            const cal = await getCalApi({ namespace: "30min" });
-            cal("ui", {
-                theme: "light",
-                styles: { branding: { brandColor: "#1B263B" } },
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        })();
-    }, []);
-
-    const goBooking = () => { navigate('/booking'); window.scrollTo(0, 0); };
-    const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
-
     return (
         <div className="bg-[#FAFAFA] relative">
             {/* Ambient Background */}
@@ -64,7 +40,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                 <div className="absolute top-[60%] -right-64 w-[800px] h-[800px] bg-[#8F9779]/10 rounded-full blur-[100px] opacity-50" />
             </div>
 
-            <SEO 
+            <SEO
                 title={t('seo.method.title')}
                 description={t('seo.method.desc')}
                 url="https://thrivesportpositive.com/methode"
@@ -74,7 +50,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                     "serviceType": "Sports Coaching & Positive Psychology",
                     "provider": {
                         "@type": "LocalBusiness",
-                        "name": "Thrive Sport Positive"
+                        "name": "THRIVE Sport Positive"
                     },
                     "description": t('seo.method.desc')
                 }}
@@ -84,22 +60,21 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
                     {/* Sidebar sticky */}
-                    <MethodSidebar setBookingStep={setBookingStep} />
+                    <MethodSidebar />
 
                     {/* Main content */}
                     <main className="space-y-0 min-w-0">
 
                         {/* ── 1. HERO / INTRO ─────────────────────────── */}
                         <section id="intro" className="text-center pt-8 pb-16">
-                            {/* Pill tag */}
                             <div className="inline-flex items-center gap-2 bg-[#C5A059]/10 border border-[#C5A059]/20 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
                                 <Sparkles size={12} fill="currentColor" />
                                 {t('method.intro_tag')}
                             </div>
 
-                            <h1 className="text-5xl md:text-6xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
+                            <h1 className="text-6xl md:text-7xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
                                 <span dangerouslySetInnerHTML={{ __html: t('method.intro_title') }} />
-                                <span className="text-4xl md:text-5xl text-gray-400 italic font-serif block mt-2">{t('method.intro_title_italic')}</span>
+                                <span className="text-5xl md:text-6xl text-gray-400 italic font-serif block mt-2">{t('method.intro_title_italic')}</span>
                             </h1>
 
                             <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed mb-6">
@@ -118,39 +93,26 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
 
                             {/* CTAs */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button
-                                    id="method-cta-primary"
-                                    data-cal-namespace="30min"
-                                    data-cal-link="thrive-sport-positive/30min"
-                                    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                                    className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-9 py-4 rounded-full font-bold text-base hover:bg-[#253550] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
-                                >
-                                    {t('home.hero.cta')} <ArrowRight size={17} />
-                                </button>
-                                <button
-                                    id="method-cta-secondary"
-                                    onClick={() => { navigate('/prix'); window.scrollTo(0,0); }}
-                                    className="inline-flex items-center justify-center border-2 border-[#1B263B]/20 text-[#1B263B] px-9 py-4 rounded-full font-bold text-base hover:border-[#1B263B] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
-                                >
+                                <CtaAppel taille="lg" libelle={t('method.cta_primary')} icone={<ArrowRight size={17} />} />
+                                <Bouton to="/programmes" variante="secondaire" taille="lg">
                                     {t('method.cta_secondary')}
-                                </button>
+                                </Bouton>
                             </div>
                         </section>
 
                         {/* ── 2. PROBLÈME & INSIGHT ────────────────────── */}
-                        <section 
-                            id="probleme" 
+                        <section
+                            id="probleme"
                             ref={problemRef}
                             className={`scroll-mt-32 pb-16 transition-all duration-1000 ease-out transform ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
                         >
                             <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl rounded-[2rem] border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-8 md:p-12">
-                                {/* Premium glowing orbs */}
                                 <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#C5A059]/30 to-[#C5A059]/5 rounded-full blur-[60px] pointer-events-none" />
                                 <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-[#1B263B]/15 to-transparent rounded-full blur-[60px] pointer-events-none" />
-                                
+
                                 <div className="relative z-10">
                                 <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.problem.tag')}</span>
-                                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-5">
+                                <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-5">
                                     {t('method.problem.title')}
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
@@ -171,7 +133,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                                             <ArrowRight size={12} style={{ color: colors.text }} />
                                                         </div>
                                                         <span className="text-[15px] text-gray-500">{t(`method.problem.t${i}_from`)}</span>
-                                                        <strong 
+                                                        <strong
                                                             className="text-[15px] px-2.5 py-1 rounded-lg font-bold shadow-sm"
                                                             style={{ color: colors.text, background: colors.bg }}
                                                         >
@@ -197,13 +159,13 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                         {/* ── 3. DÉFINITION ────────────────────────────── */}
                         <section id="definition" className="scroll-mt-32 pb-16">
                             <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.sidebar.l3')}</span>
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#1B263B] mt-3 mb-4">Une intervention psychoéducative par le sport.</h2>
+                            <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">Un programme de développement par le sport.</h2>
                             <div className="h-1 w-14 bg-[#C5A059] rounded-full mb-8" />
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
-                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. L'aréna est le laboratoire. Chaque défi technique est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend au sport : gérer la pression, demander de l'aide, persévérer. Il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
+                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. Le terrain est le laboratoire. Chaque défi est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend au sport : gérer la pression, demander de l'aide, persévérer. Il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
                                     <div key={d.title} className="bg-white border border-gray-100 rounded-[1.5rem] p-7 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
                                         <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{background:d.color+'18'}}>{d.icon}</div>
-                                        <h3 className="font-bold text-[#1B263B] text-base mb-2">{d.title}</h3>
+                                        <h3 className="font-sans font-semibold text-[#1B263B] text-base mb-2">{d.title}</h3>
                                         <p className="text-gray-600 text-sm leading-relaxed">{d.desc}</p>
                                     </div>
                                 ))}
@@ -211,7 +173,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                             <div className="bg-gray-50 border border-gray-100 rounded-[1.5rem] p-6 text-sm text-gray-600">
                                 <p className="font-bold text-[#1B263B] mb-3">THRIVE n'est pas :</p>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants épanouis progressent encore plus vite."].map((item) => (
+                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants qui vont bien progressent aussi."].map((item) => (
                                         <div key={item} className="flex items-start gap-2"><span className="text-gray-400 mt-0.5">✕</span><span>{item}</span></div>
                                     ))}
                                 </div>
@@ -224,8 +186,10 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                         {/* ── 5. INTERVENTIONS ─────────────────────────── */}
                         <InterventionGrid />
 
-                        {/* ── 6. 13 SÉANCES ────────────────────────────── */}
-                        <SessionTimeline />
+                        {/* ── 6. 13 SÉANCES (ancre /methode#parcours) ──── */}
+                        <div id="parcours" className="scroll-mt-32">
+                            <SessionTimeline />
+                        </div>
 
                         {/* ── 7. ACTEURS ───────────────────────────────── */}
                         <ActorsGrid />
@@ -245,29 +209,17 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                     <div className="inline-flex items-center gap-2 bg-[#C5A059]/15 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
                                         <Sparkles size={12} /> {t('method.final_cta.tag')}
                                     </div>
-                                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight mb-5">
+                                    <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight mb-5">
                                         {t('method.final_cta.title')}
                                     </h2>
                                     <p className="text-white/70 text-base max-w-xl mx-auto leading-relaxed mb-10">
                                         {t('method.final_cta.desc')}
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <button
-                                            id="method-final-cta-primary"
-                                            data-cal-namespace="30min"
-                                            data-cal-link="thrive-sport-positive/30min"
-                                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
-                                            className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg"
-                                        >
-                                            {t('home.hero.cta')} <ArrowRight size={17} />
-                                        </button>
-                                        <button
-                                            id="method-final-cta-secondary"
-                                            onClick={() => navigate('/prix')}
-                                            className="inline-flex items-center justify-center border-2 border-white/25 text-white px-10 py-4 rounded-full font-bold hover:border-white/60 transition-all"
-                                        >
+                                        <CtaAppel taille="lg" variante="or" libelle={t('method.final_cta.btn_primary')} icone={<ArrowRight size={17} />} />
+                                        <Bouton to="/programmes" variante="secondaire" taille="lg" surFonce>
                                             {t('method.final_cta.btn_secondary')}
-                                        </button>
+                                        </Bouton>
                                     </div>
                                 </div>
                             </div>
@@ -275,8 +227,6 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
 
                     </main>
                 </div>
-
-                <ContactSection handleSelectProgram={handleSelectProgram} />
             </div>
         </div>
     );
