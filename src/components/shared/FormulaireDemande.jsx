@@ -7,7 +7,8 @@ import { FORMULAIRES } from '../../content/textes';
 // Formulaire de demande réutilisable → public.waitlist (via envoyerDemande).
 //
 // Props
-//  type          'appel' | 'maison-beta' | 'partenaire' (enregistré dans notes)
+//  type          'appel' | 'reservation' | 'maison-beta' | 'partenaire' (enregistré dans notes)
+//  interets      liste d'options {value,label} (défaut : FORMULAIRES.interets)
 //  champs        liste parmi : 'prenom','email','telephone','interet','moment','organisation','message'
 //                (prenom et email sont toujours affichés)
 //  titre, texte  en-tête facultatif
@@ -46,6 +47,7 @@ const FormulaireDemande = ({
     texte,
     boutonLabel,
     confirmation,
+    interets = FORMULAIRES.interets, // options proposées pour « Ce qui vous intéresse »
     id,
     className = '',
 }) => {
@@ -203,7 +205,7 @@ const FormulaireDemande = ({
                     <Champ uid={uid} nom="interet" label={L.interet} erreur={erreurs.interet}>
                         <select {...attrs('interet')}>
                             <option value="">{L.choisir}</option>
-                            {FORMULAIRES.interets.map((o) => (
+                            {interets.map((o) => (
                                 <option key={o.value} value={o.value}>
                                     {o.label}
                                 </option>

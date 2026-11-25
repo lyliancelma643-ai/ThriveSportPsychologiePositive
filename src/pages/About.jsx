@@ -1,15 +1,16 @@
 import React from 'react';
-import { Check, GraduationCap, Rocket, Trophy, Users } from 'lucide-react';
+import { Check, GraduationCap, Rocket, Trophy, Users, HeartHandshake, Video } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Section from '../components/shared/Section';
 import TitreSection from '../components/shared/TitreSection';
 import CtaAppel from '../components/shared/CtaAppel';
 import Bouton from '../components/shared/Bouton';
 import { PAGE_A_PROPOS } from '../content/textes';
-import photo from '../assets/coach-child-hockey.jpg';
+import photo from '../assets/lylian-celma.webp';
+import CtaReserver from '../components/shared/CtaReserver';
 
 const A = PAGE_A_PROPOS;
-const ICONES_REPERES = [Trophy, Users, GraduationCap, Rocket];
+const ICONES_REPERES = [Trophy, Users, GraduationCap, HeartHandshake, Video, Rocket];
 
 const About = () => (
     <>
@@ -19,7 +20,8 @@ const About = () => (
         <Section>
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 items-start">
                 <div>
-                    <h1 className="font-serif font-bold text-4xl md:text-5xl text-[#1B263B] leading-tight">{A.titre}</h1>
+                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6F7A5A] mb-4">{A.surtitre}</p>
+                    <h1 className="font-serif text-4xl md:text-6xl text-[#1B263B] leading-tight">{A.titre}</h1>
                     <div className="mt-8 max-w-prose space-y-5 text-lg leading-relaxed text-gray-700">
                         {A.histoire.map((p) => (
                             <p key={p.slice(0, 24)}>{p}</p>
@@ -29,9 +31,11 @@ const About = () => (
                 <figure className="lg:sticky lg:top-28">
                     <img
                         src={photo}
-                        alt="Un entraîneur se penche vers un jeune hockeyeur pour lui parler, sur la glace"
-                        loading="lazy"
-                        className="w-full h-auto rounded-[2rem] shadow-lg object-cover aspect-[4/3]"
+                        alt="Lylian Celma, fondateur de THRIVE Sport Positive, en polo THRIVE"
+                        width="900"
+                        height="900"
+                        fetchPriority="high"
+                        className="w-full max-w-md mx-auto h-auto rounded-[2rem] shadow-lg object-cover aspect-square"
                     />
                 </figure>
             </div>
@@ -39,7 +43,7 @@ const About = () => (
 
         {/* Repères */}
         <Section fond="gris">
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {A.reperes.map((r, i) => {
                     const Icone = ICONES_REPERES[i] || Trophy;
                     return (
@@ -47,7 +51,7 @@ const About = () => (
                             <div className="w-11 h-11 rounded-full bg-[#C5A059]/15 flex items-center justify-center text-[#8A6A2F] mb-4">
                                 <Icone size={22} aria-hidden="true" />
                             </div>
-                            <h2 className="font-serif font-bold text-lg text-[#1B263B] leading-snug">{r.titre}</h2>
+                            <h2 className="font-sans font-semibold text-lg text-[#1B263B] leading-snug">{r.titre}</h2>
                             <p className="mt-2 text-gray-600 leading-relaxed">{r.texte}</p>
                         </div>
                     );
@@ -76,7 +80,8 @@ const About = () => (
                 {A.citation}
             </blockquote>
             <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
-                <CtaAppel taille="lg" surFonce />
+                <CtaReserver taille="lg" variante="or" surFonce />
+                <CtaAppel taille="lg" variante="secondaire" surFonce />
                 <Bouton to="/methode" variante="secondaire" taille="lg" surFonce>
                     Découvrir la méthode
                 </Bouton>

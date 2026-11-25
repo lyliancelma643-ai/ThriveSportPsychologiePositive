@@ -1,10 +1,10 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import CtaMaison from './CtaMaison';
-import CtaAppel from './CtaAppel';
+import CtaReserver from './CtaReserver';
 import { CTA, NAV } from '../../content/textes';
 
-// Barre fixe en bas d'écran, mobile seulement (< md) : « Essayer l'app » + « Réserver l'appel ».
+// Barre fixe en bas d'écran, mobile seulement (< md) : « Essayer l'app » + « Réserver ma place ».
 // Masquée sur /appel. Le gabarit (App.jsx) ajoute pb-20 md:pb-0 pour que le pied de page reste visible.
 const BarreMobile = () => {
     const { pathname } = useLocation();
@@ -18,7 +18,7 @@ const BarreMobile = () => {
         >
             <div className="flex gap-2">
                 <CtaMaison variante="secondaire" taille="sm" libelle={CTA.maisonCourt} className="flex-1 !px-2" />
-                <CtaAppel variante="primaire" taille="sm" court className="flex-1 !px-2" />
+                <CtaReserver variante="primaire" taille="sm" court className="flex-1 !px-2" />
             </div>
         </div>
     );

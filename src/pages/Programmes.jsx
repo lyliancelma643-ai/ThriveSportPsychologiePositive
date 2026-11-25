@@ -7,6 +7,7 @@ import TitreSection from '../components/shared/TitreSection';
 import CarteOffre from '../components/shared/CarteOffre';
 import CtaMaison from '../components/shared/CtaMaison';
 import CtaAppel from '../components/shared/CtaAppel';
+import CtaReserver from '../components/shared/CtaReserver';
 import { PAGE_PROGRAMMES, PAGES_PROGRAMME, PAGE_MAISON } from '../content/textes';
 import {
     ENTREPRISE,
@@ -39,7 +40,7 @@ const Programmes = () => {
 
     const actionProgramme = (p) => (
         <div className="space-y-3">
-            <CtaAppel to={`/appel?programme=${p.id}`} variante={p.id === 'groupe' ? 'primaire' : 'secondaire'} libelle={LOCAL.reserver} className="w-full !whitespace-normal !px-4" />
+            <CtaReserver court programme={p.id} variante={p.id === 'groupe' ? 'primaire' : 'secondaire'} className="w-full !whitespace-normal !px-4" />
             <p className="text-center">
                 <Link
                     to={p.path}

@@ -14,6 +14,7 @@ const __dirname = path.dirname(__filename);
 const routes = [
     '/',
     '/maison',
+    '/accompagnements',
     '/programmes',
     '/programmes/groupe',
     '/programmes/individuel',

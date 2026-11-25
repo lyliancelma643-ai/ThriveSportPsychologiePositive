@@ -4,6 +4,7 @@ import SEO from '../seo/SEO';
 import Section from '../shared/Section';
 import TitreSection from '../shared/TitreSection';
 import CtaAppel from '../shared/CtaAppel';
+import CtaReserver from '../shared/CtaReserver';
 import Faq from '../shared/Faq';
 import { PAGE_PROGRAMMES } from '../../content/textes';
 import { ENTREPRISE, OFFRE_FONDATRICE, NOTE_TAXES, GARANTIE, PAIEMENT_PROGRAMMES, APPEL, formatPrix, prixGroupe } from '../../data/offre';
@@ -91,7 +92,7 @@ const ProgrammePage = ({ programme, page, image, alt, children }) => {
                         </p>
                         <p className="mt-1 text-gray-700">{NOTE_TAXES}</p>
                         <div className="mt-7">
-                            <CtaAppel taille="lg" to={lienAppel} className="w-full sm:w-auto" />
+                            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3"><CtaReserver taille="lg" programme={programme.id} className="w-full sm:w-auto" /><CtaAppel taille="lg" variante="secondaire" to={lienAppel} className="w-full sm:w-auto" /></div>
                         </div>
                     </div>
                     <img
@@ -166,7 +167,7 @@ const ProgrammePage = ({ programme, page, image, alt, children }) => {
             {/* Bouton final */}
             <Section fond="marine" conteneurClassName="text-center">
                 <TitreSection titre={TITRES.cta} texte={TITRES.ctaTexte} className="!mb-8" />
-                <CtaAppel taille="lg" variante="or" surFonce to={lienAppel} className="w-full sm:w-auto" />
+                <div className="flex flex-col sm:flex-row gap-3 justify-center"><CtaReserver taille="lg" variante="or" surFonce programme={programme.id} className="w-full sm:w-auto" /><CtaAppel taille="lg" variante="secondaire" surFonce to={lienAppel} className="w-full sm:w-auto" /></div>
                 <p className="mt-6 text-sm text-white/80">{PAGE_PROGRAMMES.lancement}</p>
             </Section>
         </>

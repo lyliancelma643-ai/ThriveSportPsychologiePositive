@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import logo from '../../assets/logo.png';
-import CtaAppel from '../shared/CtaAppel';
+import CtaReserver from '../shared/CtaReserver';
 import { APP_LOGIN_URL } from '../../lib/appUrl';
 import { CTA, NAV } from '../../content/textes';
 
@@ -45,7 +45,7 @@ const Navbar = () => {
                             {l.label}
                         </NavLink>
                     ))}
-                    <CtaAppel court taille="sm" />
+                    <CtaReserver court taille="sm" />
                     <a
                         href={APP_LOGIN_URL}
                         className="text-sm text-gray-500 hover:text-[#1B263B] transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]"
@@ -82,7 +82,7 @@ const Navbar = () => {
                             {l.label}
                         </NavLink>
                     ))}
-                    <CtaAppel court taille="lg" className="w-full mt-5" onClick={fermer} />
+                    <CtaReserver court taille="lg" className="w-full mt-5" onClick={fermer} />
                     <a
                         href={APP_LOGIN_URL}
                         onClick={fermer}

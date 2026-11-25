@@ -7,6 +7,7 @@ import TitreSection from '../components/shared/TitreSection';
 import Bouton from '../components/shared/Bouton';
 import CtaMaison from '../components/shared/CtaMaison';
 import CtaAppel from '../components/shared/CtaAppel';
+import CtaReserver from '../components/shared/CtaReserver';
 import CarteOffre from '../components/shared/CarteOffre';
 import Faq from '../components/shared/Faq';
 import HeroAccueil from '../components/home/HeroAccueil';
@@ -22,12 +23,14 @@ import {
     prixGroupe,
 } from '../data/offre';
 import appTroisEcrans from '../assets/app/app-trois-ecrans.webp';
-import photoFondateur from '../assets/coach-child-hockey.jpg';
+import photoFondateur from '../assets/lylian-celma.webp';
+import photoTerrain from '../assets/coach-child-hockey.jpg';
 
 // Petits textes ajoutés localement (à reporter dans textes.js).
 const LIBELLE_DETAIL = 'En savoir plus';
 const ALT_TROIS_ECRANS = 'Trois écrans de l’application THRIVE Maison : l’activité du soir, le parcours et le bilan';
-const ALT_FONDATEUR = 'Un entraîneur THRIVE et un jeune hockeyeur sur la glace';
+const ALT_FONDATEUR = 'Lylian Celma, fondateur de THRIVE Sport Positive, en polo THRIVE';
+const ALT_TERRAIN = 'Un coach parle à un jeune hockeyeur sur la glace, pendant une séance';
 
 const SCHEMA_ORGANISATION = {
     '@context': 'https://schema.org',
@@ -127,6 +130,43 @@ const Home = () => {
                 </div>
             </Section>
 
+            {/* Bloc présentiel (miroir du bloc Maison) */}
+            <Section>
+                <div className="grid gap-10 lg:grid-cols-2 items-center">
+                    <img
+                        src={photoTerrain}
+                        alt={ALT_TERRAIN}
+                        width="1024"
+                        height="682"
+                        loading="lazy"
+                        className="order-last lg:order-first w-full h-56 sm:h-auto object-cover rounded-[2rem] shadow-2xl"
+                    />
+                    <div>
+                        <TitreSection
+                            alignement="gauche"
+                            surtitre={ACCUEIL.presentiel.surtitre}
+                            titre={ACCUEIL.presentiel.titre}
+                            texte={ACCUEIL.presentiel.texte}
+                            className="!mb-6"
+                        />
+                        <ul className="space-y-3">
+                            {ACCUEIL.presentiel.points.map((p) => (
+                                <li key={p} className="flex items-start gap-3 text-gray-700">
+                                    <Check size={20} aria-hidden="true" className="mt-0.5 shrink-0 text-[#8A6A2F]" />
+                                    <span>{p}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
+                            <CtaReserver taille="lg" className="w-full sm:w-auto" />
+                            <Bouton to="/accompagnements" variante="secondaire" taille="lg" className="w-full sm:w-auto" icone={<ArrowRight size={18} aria-hidden="true" />}>
+                                {ACCUEIL.presentiel.cta}
+                            </Bouton>
+                        </div>
+                    </div>
+                </div>
+            </Section>
+
             {/* Offres */}
             <Section id="offres" fond="gris" conteneurClassName="!max-w-7xl">
                 <TitreSection titre={ACCUEIL.offres.titre} texte={ACCUEIL.offres.texte} />
@@ -147,21 +187,21 @@ const Home = () => {
                         prix={prixGroupe()}
                         prixBarre={fondatrice ? G.prix : undefined}
                         points={[G.resume]}
-                        action={<Bouton to={G.path} variante="primaire" className="w-full !whitespace-normal !px-4">{LIBELLE_DETAIL}</Bouton>}
+                        action={<div className="space-y-3"><CtaReserver court programme={G.id} variante="primaire" className="w-full !whitespace-normal !px-4" /><p className="text-center"><Link to={G.path} className="inline-flex items-center gap-1.5 font-semibold text-[#8A6A2F] hover:text-[#1B263B] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]">{LIBELLE_DETAIL}<ArrowRight size={16} aria-hidden="true" /></Link></p></div>}
                     />
                     <CarteOffre
                         nom={I.nom}
                         accroche={I.accroche}
                         prix={I.prix}
                         points={[I.resume]}
-                        action={<Bouton to={I.path} variante="secondaire" className="w-full !whitespace-normal !px-4">{LIBELLE_DETAIL}</Bouton>}
+                        action={<div className="space-y-3"><CtaReserver court programme={I.id} variante="secondaire" className="w-full !whitespace-normal !px-4" /><p className="text-center"><Link to={I.path} className="inline-flex items-center gap-1.5 font-semibold text-[#8A6A2F] hover:text-[#1B263B] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]">{LIBELLE_DETAIL}<ArrowRight size={16} aria-hidden="true" /></Link></p></div>}
                     />
                     <CarteOffre
                         nom={C.nom}
                         accroche={C.accroche}
                         prix={C.prix}
                         points={[C.resume]}
-                        action={<Bouton to={C.path} variante="secondaire" className="w-full !whitespace-normal !px-4">{LIBELLE_DETAIL}</Bouton>}
+                        action={<div className="space-y-3"><CtaReserver court programme={C.id} variante="secondaire" className="w-full !whitespace-normal !px-4" /><p className="text-center"><Link to={C.path} className="inline-flex items-center gap-1.5 font-semibold text-[#8A6A2F] hover:text-[#1B263B] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]">{LIBELLE_DETAIL}<ArrowRight size={16} aria-hidden="true" /></Link></p></div>}
                     />
                 </div>
                 <div className="mt-10 max-w-3xl mx-auto text-center space-y-2">
@@ -209,13 +249,21 @@ const Home = () => {
                     <img
                         src={photoFondateur}
                         alt={ALT_FONDATEUR}
-                        width="1024"
-                        height="682"
+                        width="900"
+                        height="900"
                         loading="lazy"
-                        className="w-full h-auto rounded-[2rem] shadow-xl object-cover"
+                        className="w-full max-w-md mx-auto lg:mx-0 h-auto aspect-square rounded-[2rem] shadow-xl object-cover"
                     />
                     <div>
                         <TitreSection alignement="gauche" titre={ACCUEIL.fondateur.titre} texte={ACCUEIL.fondateur.texte} className="!mb-6" />
+                        <ul className="mb-8 grid gap-3 sm:grid-cols-2">
+                            {ACCUEIL.fondateur.competences.map((c) => (
+                                <li key={c} className="flex items-start gap-2.5 text-gray-700 leading-snug">
+                                    <Check size={18} aria-hidden="true" className="mt-0.5 shrink-0 text-[#8A6A2F]" />
+                                    <span>{c}</span>
+                                </li>
+                            ))}
+                        </ul>
                         <Bouton to="/a-propos" variante="secondaire" icone={<ArrowRight size={18} aria-hidden="true" />}>
                             {ACCUEIL.fondateur.lien}
                         </Bouton>
@@ -234,8 +282,15 @@ const Home = () => {
                 <TitreSection titre={ACCUEIL.hero.titre + ' ' + ACCUEIL.hero.titreSuite} className="!mb-8" />
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <CtaMaison taille="lg" variante="or" surFonce className="w-full sm:w-auto" />
-                    <CtaAppel taille="lg" variante="secondaire" surFonce className="w-full sm:w-auto" />
+                    <CtaReserver taille="lg" variante="secondaire" surFonce className="w-full sm:w-auto" />
                 </div>
+                <p className="mt-6 text-white/80">
+                    Une question avant de vous lancer&nbsp;?{' '}
+                    <Link to="/appel" className="underline underline-offset-4 hover:text-[#C5A059] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]">
+                        Réservez l’appel gratuit de 15 minutes
+                    </Link>
+                    .
+                </p>
             </Section>
         </>
     );

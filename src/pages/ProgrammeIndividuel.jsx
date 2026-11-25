@@ -4,6 +4,7 @@ import ProgrammePage from '../components/programme/ProgrammePage';
 import Section from '../components/shared/Section';
 import TitreSection from '../components/shared/TitreSection';
 import CtaAppel from '../components/shared/CtaAppel';
+import CtaReserver from '../components/shared/CtaReserver';
 import { PAGES_PROGRAMME } from '../content/textes';
 import { PROGRAMMES, NOTE_TAXES, formatPrix } from '../data/offre';
 import photo from '../assets/pexels-cottonbro-6557330.jpg';
@@ -28,7 +29,7 @@ const ProgrammeIndividuel = () => {
                     <p className="mt-1 text-gray-700">{NOTE_TAXES}</p>
                     <p className="mt-5 text-gray-700">{c.passerelle}</p>
                     <div className="mt-7">
-                        <CtaAppel taille="lg" to="/appel?programme=complet" className="w-full sm:w-auto" />
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3"><CtaReserver taille="lg" programme="complet" className="w-full sm:w-auto" /><CtaAppel taille="lg" variante="secondaire" to="/appel?programme=complet" className="w-full sm:w-auto" /></div>
                     </div>
                     <p className="mt-5 text-sm">
                         <Link to="/programmes/groupe" className="underline text-[#1B263B] hover:text-[#8A6A2F]">

@@ -15,6 +15,7 @@ import Method from './pages/Method';
 import About from './pages/About';
 import Partenaires from './pages/Partenaires';
 import Appel from './pages/Appel';
+import Accompagnements from './pages/Accompagnements';
 import Confidentialite from './pages/legal/Confidentialite';
 import Conditions from './pages/legal/Conditions';
 import { capturerAttribution } from './lib/attribution';
@@ -99,6 +100,7 @@ const App = () => {
                 <Route element={<SiteChrome />}>
                     <Route path="/" element={<Home />} />
                     <Route path="/maison" element={<Maison />} />
+                    <Route path="/accompagnements" element={<Accompagnements />} />
                     <Route path="/programmes" element={<Programmes />} />
                     <Route path="/programmes/groupe" element={<ProgrammeGroupe />} />
                     <Route path="/programmes/individuel" element={<ProgrammeIndividuel />} />

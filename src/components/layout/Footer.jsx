@@ -11,6 +11,7 @@ const titreCol = 'text-[#C5A059] font-bold text-xs uppercase tracking-widest mb-
 const Footer = () => {
     const offre = [
         { to: '/maison', label: MAISON.nom },
+        { to: '/accompagnements', label: 'Accompagnements en présentiel' },
         { to: PROGRAMMES.groupe.path, label: PROGRAMMES.groupe.nom },
         { to: PROGRAMMES.individuel.path, label: PROGRAMMES.individuel.nom },
         { to: PROGRAMMES.complet.path, label: PROGRAMMES.complet.nom },
@@ -20,6 +21,7 @@ const Footer = () => {
         { to: '/methode', label: 'La méthode' },
         { to: '/a-propos', label: 'À propos' },
         { to: '/partenaires', label: 'Partenaires' },
+        { to: '/accompagnements#reserver', label: CTA.reserverCourt },
         { to: '/appel', label: CTA.appelCourt },
     ];
 

@@ -3,7 +3,8 @@ import { ACCUEIL } from '../../content/textes';
 import { decembreGratuitActif } from '../../data/offre';
 import { Waves } from '../ui/Waves';
 import CtaMaison from '../shared/CtaMaison';
-import CtaAppel from '../shared/CtaAppel';
+import CtaReserver from '../shared/CtaReserver';
+import photoTerrain from '../../assets/coach-child-hockey.jpg';
 import CadreTelephone from './CadreTelephone';
 import ecranMaison from '../../assets/app/ecran-maison.webp';
 import cabri from '../../assets/cabri/cabri-accueil.webp';
@@ -28,7 +29,7 @@ const HeroAccueil = () => {
                         <p className="mt-6 text-lg sm:text-xl text-gray-700 leading-relaxed max-w-xl">{h.texte}</p>
                         <div className="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
                             <CtaMaison taille="lg" className="w-full sm:w-auto" />
-                            <CtaAppel taille="lg" variante="secondaire" className="w-full sm:w-auto" />
+                            <CtaReserver taille="lg" variante="secondaire" className="w-full sm:w-auto" />
                         </div>
                         {decembreGratuitActif() && (
                             <p className="mt-4 text-sm font-semibold text-[#8A6A2F]">{h.note}</p>
@@ -47,6 +48,19 @@ const HeroAccueil = () => {
                                 priorite
                                 className="absolute right-6 sm:right-12 lg:right-8 top-4 lg:top-2 w-40 sm:w-56 lg:w-60 rotate-3"
                             />
+                            <figure className="hidden sm:block absolute left-0 lg:-left-10 top-6 lg:top-10 w-48 lg:w-56 -rotate-3 z-10">
+                                <img
+                                    src={photoTerrain}
+                                    alt="Un coach parle à un jeune hockeyeur sur la glace"
+                                    width="1024"
+                                    height="682"
+                                    fetchPriority="high"
+                                    className="w-full h-32 lg:h-36 object-cover rounded-[1.25rem] shadow-xl border-4 border-white"
+                                />
+                                <figcaption className="mt-2 inline-block rounded-full bg-[#1B263B] text-white text-xs font-semibold px-3 py-1 shadow">
+                                    Sur le terrain · dès janvier
+                                </figcaption>
+                            </figure>
                             <img
                                 src={cabri}
                                 alt="Cabri, la mascotte de THRIVE Maison, qui salue"

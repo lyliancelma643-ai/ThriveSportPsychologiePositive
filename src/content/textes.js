@@ -22,6 +22,9 @@ export const CTA = {
     maisonBeta: 'Essayer THRIVE Maison gratuitement',
     maisonOuvert: 'Commencer gratuitement',
     maisonCourt: 'Essayer l’app',
+    reserver: 'Réserver ma place pour janvier',
+    reserverCourt: 'Réserver ma place',
+    accompagnements: 'Voir les accompagnements',
     programmes: 'Voir les programmes',
     methode: 'Découvrir la méthode',
     partenaires: 'Devenir partenaire',
@@ -40,10 +43,10 @@ export const ACCUEIL = {
         titre: 'Grandir par le sport,',
         titreSuite: 'réussir pour la vie.',
         texte:
-            'Votre enfant lâche dès que c’est difficile, ou reste dans son coin ? THRIVE l’aide à prendre confiance, avec vous : 10 minutes par soir à la maison, et du sport pour le vivre en vrai.',
+            'Votre enfant lâche dès que c’est difficile, ou reste dans son coin ? THRIVE l’aide à prendre confiance, avec vous : 10 minutes par soir à la maison avec l’app, et un coach sur le terrain pour le vivre en vrai.',
         ctaPrincipal: CTA.maisonBeta,
-        ctaSecondaire: CTA.appel,
-        note: 'Gratuit pour toutes les familles jusqu’au 31 décembre.',
+        ctaSecondaire: CTA.reserver,
+        note: 'L’app est gratuite pour toutes les familles jusqu’au 31 décembre. Les accompagnements en présentiel commencent en janvier.',
     },
     situations: {
         titre: 'Vous reconnaissez votre enfant ?',
@@ -108,11 +111,30 @@ export const ACCUEIL = {
         texte:
             'Hockey, soccer, basket, patinage… Peu importe le sport de votre enfant : nous utilisons le jeu et l’effort pour faire pratiquer ce qui compte ensuite à l’école, en famille et avec les amis.',
     },
+    presentiel: {
+        surtitre: 'En présentiel · Montréal · dès janvier 2027',
+        titre: 'Sur le terrain, avec un coach.',
+        texte: 'Ce que votre enfant découvre à la maison, il le vit en vrai : 13 semaines de sport, en petit groupe de 4 enfants ou en tête-à-tête, avec des progrès mesurés et un bilan écrit pour vous.',
+        points: [
+            'THRIVE Groupe : 13 ateliers multisports, 4 enfants maximum',
+            'THRIVE Individuel : 13 séances en tête-à-tête',
+            'Un bilan de départ, des mesures aux séances 7 et 13, un bilan final écrit',
+        ],
+        cta: 'Découvrir les accompagnements',
+    },
     fondateur: {
         titre: 'Qui est derrière THRIVE',
         texte:
-            'Lylian Celma, ancien hockeyeur de haut niveau, entraîneur de plus de 150 enfants et étudiant en psychologie à l’Université de Montréal. À 12 ans, il ne lui manquait pas le niveau : il lui manquait un guide. THRIVE, c’est ce guide.',
-        lien: 'Lire son histoire',
+            'Je suis Lylian Celma, athlète de haut niveau et entraîneur. Après plus de 150 enfants accompagnés, j’y ai joint mes études en psychologie : la science comme méthode, le sport comme terrain de pratique.',
+        competences: [
+            'Hockeyeur de haut niveau, en France',
+            'Entraîneur de plus de 150 enfants',
+            'Études en psychologie et en sociologie à l’Université de Montréal',
+            'Sport et loisir communautaire, au quotidien',
+            'Vidéaste et monteur : je crée moi-même les contenus de THRIVE',
+            'Fondateur accompagné par l’incubateur de l’Université de Montréal',
+        ],
+        lien: 'Lire mon histoire',
     },
     faqTitre: 'Vos questions',
 };
@@ -282,6 +304,54 @@ export const PAGES_PROGRAMME = {
     },
 };
 
+// ── Accompagnements en présentiel ────────────────────────────────────────────
+export const PAGE_ACCOMPAGNEMENTS = {
+    seo: {
+        title: 'Accompagnements en présentiel | THRIVE Groupe, Individuel, Complet — Montréal',
+        description: `Dès janvier 2027 à Montréal : 13 semaines de sport avec un coach, en petit groupe de ${G.enfantsMax} enfants ou en tête-à-tête, pour aider votre enfant à oser et à aller vers les autres. Réservez votre place.`,
+    },
+    surtitre: `En présentiel à Montréal · dès ${ENTREPRISE.lancement}`,
+    titre: 'Le sport,',
+    titreSuite: 'pour vivre sa confiance en vrai.',
+    texte: 'Ce que votre enfant découvre à la maison, il le met en pratique sur le terrain : avec un coach, en petit groupe ou en tête-à-tête, pendant 13 semaines. Vous recevez un bilan écrit de ses progrès.',
+    pourquoi: {
+        titre: 'Pourquoi le terrain change tout',
+        items: [
+            { titre: 'Un coach qui connaît votre enfant', texte: 'Le même adulte, chaque semaine, qui suit son parcours et vous donne des nouvelles.' },
+            { titre: 'Le sport comme terrain d’entraînement', texte: 'Oser, se tromper, recommencer, aller vers les autres : on le pratique en jouant, pas en en parlant.' },
+            { titre: 'Des progrès mesurés', texte: 'Un bilan de départ, des mesures aux séances 7 et 13, et un bilan final écrit, au nom de votre enfant.' },
+        ],
+    },
+    formules: {
+        titre: 'Trois formules',
+        texte: 'Toutes durent 13 semaines et commencent par un appel gratuit de 15 minutes.',
+    },
+    seance: {
+        titre: 'Une séance de 60 minutes, toujours dans le même ordre',
+        temps: [
+            { nom: 'Accueil et connexion', duree: '5 min' },
+            { nom: 'Retour sur la semaine', duree: '10 min' },
+            { nom: 'Ce qu’on apprend aujourd’hui', duree: '20 min' },
+            { nom: 'Application sur le terrain', duree: '20 min' },
+            { nom: 'Bilan et outil pour la maison', duree: '5 min' },
+        ],
+    },
+    maison: {
+        titre: 'Et à la maison',
+        texte: 'Pendant le programme, THRIVE Maison premium est inclus : 10 minutes par soir avec votre enfant pour prolonger ce qu’il a vécu sur le terrain. Puis 3 mois offerts.',
+    },
+    reserver: {
+        titre: 'Réserver ma place pour janvier',
+        texte: 'Les premières vagues commencent en janvier. Laissez vos coordonnées et le programme qui vous intéresse : nous vous rappelons pour confirmer votre place. Rien n’est payé avant la séance 1.',
+        bouton: 'Réserver ma place',
+        confirmation: {
+            titre: 'Votre demande est bien reçue.',
+            texte: 'Nous vous rappelons dans les 2 jours ouvrables pour confirmer votre place en janvier. Rien n’est payé avant la séance 1.',
+        },
+    },
+    lieu: ENTREPRISE.lieu,
+};
+
 // ── La méthode ───────────────────────────────────────────────────────────────
 export const PAGE_METHODE = {
     seo: {
@@ -353,19 +423,23 @@ export const PAGE_METHODE = {
 export const PAGE_A_PROPOS = {
     seo: {
         title: 'À propos | Lylian Celma, fondateur de THRIVE Sport Positive',
-        description: 'Ancien hockeyeur de haut niveau, entraîneur de plus de 150 enfants et étudiant en psychologie à l’Université de Montréal : l’histoire derrière THRIVE.',
+        description: 'Athlète de haut niveau, entraîneur de plus de 150 enfants, études en psychologie à l’Université de Montréal : je suis Lylian Celma, et voici pourquoi j’ai créé THRIVE.',
     },
-    titre: 'Il ne me manquait pas le niveau. Il me manquait un guide.',
+    surtitre: 'Lylian Celma · fondateur de THRIVE',
+    titre: 'Le sport, la psychologie et l’accompagnement.',
     histoire: [
-        'Je m’appelle Lylian Celma. J’ai joué au hockey sur glace à haut niveau, en France. À 12 ans, j’avais le niveau ; ce qui me manquait, c’était quelqu’un pour m’apprendre à gérer la pression, à oser, à rebondir.',
-        'Depuis, j’ai entraîné plus de 150 enfants. J’ai vu les mêmes choses revenir : l’enfant qui abandonne au premier échec, celui qui reste au bord du groupe, le parent qui voudrait aider mais qui manque de temps.',
-        'En étudiant la psychologie à l’Université de Montréal, j’ai trouvé les outils qui m’avaient manqué. THRIVE relie les deux : la science comme méthode, le sport comme terrain de pratique, et le parent comme partenaire.',
+        'Je suis Lylian Celma, athlète de haut niveau et entraîneur. J’ai joué au hockey sur glace à haut niveau en France : le sport m’a appris la pression, l’effort, l’échec et l’esprit d’équipe.',
+        'Entre la fatigue, le stress et le peu de temps qu’on a, le temps passé avec son enfant n’est pas toujours du bon temps. L’envie, les parents l’ont : il leur manque un allié.',
+        'Après plus de 150 enfants accompagnés, j’y ai joint mes études en psychologie : la science comme méthode, le sport comme terrain de pratique. C’est ça, THRIVE.',
+        'Je réunis trois expertises : le sport, la psychologie et l’accompagnement. Je travaille aussi dans le sport et le loisir communautaire, et je réalise moi-même les vidéos et les contenus de THRIVE.',
     ],
     reperes: [
-        { titre: 'Ancien hockeyeur de haut niveau', texte: 'Le sport comme école de la pression, de l’effort et de l’équipe.' },
-        { titre: 'Plus de 150 enfants entraînés', texte: 'Le terrain, avant la théorie.' },
-        { titre: 'Psychologie à l’Université de Montréal', texte: 'La recherche en psychologie positive comme base de la méthode.' },
-        { titre: 'Accompagné par un incubateur', texte: 'THRIVE est accompagné par le Parcours Concrétisez de l’Université de Montréal (Millénium Québecor).' },
+        { titre: 'Athlète de haut niveau', texte: 'Le hockey sur glace en France : la pression, l’effort et l’équipe.' },
+        { titre: 'Plus de 150 enfants entraînés', texte: 'Le terrain avant la théorie.' },
+        { titre: 'Psychologie et sociologie', texte: 'Mes études à l’Université de Montréal : la base scientifique de la méthode.' },
+        { titre: 'Sport et loisir communautaire', texte: 'Je côtoie chaque semaine des familles, des enfants et des animateurs.' },
+        { titre: 'Vidéaste et monteur', texte: 'Je crée moi-même les vidéos et les contenus de THRIVE.' },
+        { titre: 'Accompagné par un incubateur', texte: 'Le Parcours Concrétisez de l’Université de Montréal (Millénium Québecor).' },
     ],
     engagements: {
         titre: 'Mes engagements envers vous',
@@ -463,6 +537,12 @@ export const FORMULAIRES = {
         organisation: 'Indiquez le nom de votre organisation.',
         consentement: 'Cochez cette case pour continuer.',
     },
+    interetsPresentiel: [
+        { value: 'groupe', label: 'THRIVE Groupe (en petit groupe)' },
+        { value: 'individuel', label: 'THRIVE Individuel (en tête-à-tête)' },
+        { value: 'complet', label: 'THRIVE Complet (les deux)' },
+        { value: 'ne-sais-pas', label: 'Je ne sais pas encore' },
+    ],
     moments: [
         { value: 'peu-importe', label: 'Peu importe' },
         { value: 'matin', label: 'Le matin' },
@@ -501,7 +581,8 @@ export const NAV = {
     actionsRapides: 'Actions rapides',
     liens: [
         { to: '/maison', label: 'THRIVE Maison' },
-        { to: '/programmes', label: 'Programmes' },
+        { to: '/accompagnements', label: 'En présentiel' },
+        { to: '/programmes', label: 'Prix' },
         { to: '/methode', label: 'La méthode' },
         { to: '/partenaires', label: 'Partenaires' },
         { to: '/a-propos', label: 'À propos' },

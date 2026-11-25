@@ -3,6 +3,7 @@ import { CalendarDays, MapPin } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Section from '../components/shared/Section';
 import TitreSection from '../components/shared/TitreSection';
+import CtaReserver from '../components/shared/CtaReserver';
 import CtaMaison from '../components/shared/CtaMaison';
 import FormulaireDemande from '../components/shared/FormulaireDemande';
 import { PAGE_APPEL } from '../content/textes';
@@ -134,6 +135,10 @@ const Appel = () => {
                             <Formulaire />
                         )}
 
+                        <div className="mt-6 rounded-[2rem] bg-[#1B263B] text-white shadow-sm p-6 text-center">
+                            <p className="mb-4 text-white/90">Vous savez déjà que vous voulez commencer en janvier ? Réservez directement votre place.</p>
+                            <CtaReserver variante="or" surFonce />
+                        </div>
                         <div className="mt-6 rounded-[2rem] bg-white border border-gray-100 shadow-sm p-6 text-center">
                             <p className="text-gray-700 mb-4">{LIBELLES.maisonEnAttendant}</p>
                             <CtaMaison variante="secondaire" />

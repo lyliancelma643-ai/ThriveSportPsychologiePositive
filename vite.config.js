@@ -14,6 +14,7 @@ export default defineConfig({
             // '/' est ajoutée par le plugin (ne pas la répéter ici) ; garder cette liste identique à prerender.js.
             dynamicRoutes: [
                 '/maison',
+                '/accompagnements',
                 '/programmes',
                 '/programmes/groupe',
                 '/programmes/individuel',

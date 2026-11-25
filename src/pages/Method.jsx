@@ -1,150 +1,235 @@
-import React from 'react';
-import { ArrowRight, Check, Flag, Users, X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
-import Section from '../components/shared/Section';
-import TitreSection from '../components/shared/TitreSection';
-import CtaAppel from '../components/shared/CtaAppel';
+import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
+import { t } from '../content/methode';
 import Bouton from '../components/shared/Bouton';
-import { PAGE_METHODE } from '../content/textes';
+import CtaAppel from '../components/shared/CtaAppel';
 
-const M = PAGE_METHODE;
-const ICONES_PARCOURS = [Flag, Users];
+import MethodSidebar from '../components/method/MethodSidebar';
+import ScientificPillars from '../components/method/ScientificPillars';
+import InterventionGrid from '../components/method/InterventionGrid';
+import SessionTimeline from '../components/method/SessionTimeline';
+import ActorsGrid from '../components/method/ActorsGrid';
+import MeasureBattery from '../components/method/MeasureBattery';
+import EthicsSection from '../components/method/EthicsSection';
 
-// « Aucun tableau d'auteurs à l'écran » : le nom de l'auteur reste en petit sous chaque pilier.
-const Method = () => (
-    <>
-        <SEO title={M.seo.title} description={M.seo.description} />
+const Method = () => {
+    const problemRef = useRef(null);
+    const [problemVisible, setProblemVisible] = useState(false);
 
-        {/* En-tête */}
-        <section className="bg-[#f8f9fa]">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 text-center">
-                <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3 text-[#6F7A5A]">{M.sousTitre}</p>
-                <h1 className="font-serif font-bold text-4xl md:text-5xl text-[#1B263B] leading-tight">{M.titre}</h1>
-                <p className="mt-5 mx-auto max-w-2xl text-lg leading-relaxed text-gray-600">{M.definition}</p>
-                <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
-                    <CtaAppel taille="lg" />
-                    <Bouton to="/maison" variante="secondaire" taille="lg" icone={<ArrowRight size={18} aria-hidden="true" />}>
-                        THRIVE Maison
-                    </Bouton>
-                </div>
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setProblemVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15 }
+        );
+        if (problemRef.current) observer.observe(problemRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div className="bg-[#FAFAFA] relative">
+            {/* Ambient Background */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-gradient-to-b from-[#C5A059]/10 to-transparent rounded-full blur-[120px] opacity-60" />
+                <div className="absolute top-[20%] -left-64 w-[800px] h-[800px] bg-[#1B263B]/5 rounded-full blur-[100px] opacity-70" />
+                <div className="absolute top-[60%] -right-64 w-[800px] h-[800px] bg-[#8F9779]/10 rounded-full blur-[100px] opacity-50" />
             </div>
-        </section>
 
-        {/* Deux parcours */}
-        <Section id="parcours">
-            <TitreSection titre={M.parcours.titre} />
-            <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-                {M.parcours.items.map((p, i) => {
-                    const Icone = ICONES_PARCOURS[i] || Flag;
-                    return (
-                        <div
-                            key={p.titre}
-                            className="rounded-[2rem] bg-white border border-gray-100 shadow-lg p-8 border-t-4 border-t-[#C5A059]"
-                        >
-                            <div className="w-12 h-12 rounded-full bg-[#C5A059]/15 flex items-center justify-center text-[#8A6A2F] mb-5">
-                                <Icone size={24} aria-hidden="true" />
+            <SEO
+                title={t('seo.method.title')}
+                description={t('seo.method.desc')}
+                url="https://thrivesportpositive.com/methode"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "Service",
+                    "serviceType": "Sports Coaching & Positive Psychology",
+                    "provider": {
+                        "@type": "LocalBusiness",
+                        "name": "THRIVE Sport Positive"
+                    },
+                    "description": t('seo.method.desc')
+                }}
+            />
+
+            <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
+
+                    {/* Sidebar sticky */}
+                    <MethodSidebar />
+
+                    {/* Main content */}
+                    <main className="space-y-0 min-w-0">
+
+                        {/* ── 1. HERO / INTRO ─────────────────────────── */}
+                        <section id="intro" className="text-center pt-8 pb-16">
+                            <div className="inline-flex items-center gap-2 bg-[#C5A059]/10 border border-[#C5A059]/20 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
+                                <Sparkles size={12} fill="currentColor" />
+                                {t('method.intro_tag')}
                             </div>
-                            <h3 className="font-serif font-bold text-2xl text-[#1B263B]">{p.titre}</h3>
-                            <p className="mt-2 text-gray-600 leading-relaxed">{p.texte}</p>
+
+                            <h1 className="text-6xl md:text-7xl font-serif text-[#1B263B] mt-4 mb-6 leading-tight">
+                                <span dangerouslySetInnerHTML={{ __html: t('method.intro_title') }} />
+                                <span className="text-5xl md:text-6xl text-gray-400 italic font-serif block mt-2">{t('method.intro_title_italic')}</span>
+                            </h1>
+
+                            <p className="max-w-3xl mx-auto text-xl text-gray-600 leading-relaxed mb-6">
+                                {t('method.intro_desc')}
+                            </p>
+
+                            {/* CFR 3 lines */}
+                            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10">
+                                {['cfr1', 'cfr2', 'cfr3'].map((k) => (
+                                    <div key={k} className="flex items-center gap-2 bg-white border border-gray-100 rounded-full px-4 py-2 text-sm font-medium text-gray-700 shadow-sm">
+                                        <CheckCircle2 size={14} className="text-[#C5A059] shrink-0" />
+                                        {t(`method.${k}`)}
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* CTAs */}
+                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                <CtaAppel taille="lg" libelle={t('method.cta_primary')} icone={<ArrowRight size={17} />} />
+                                <Bouton to="/programmes" variante="secondaire" taille="lg">
+                                    {t('method.cta_secondary')}
+                                </Bouton>
+                            </div>
+                        </section>
+
+                        {/* ── 2. PROBLÈME & INSIGHT ────────────────────── */}
+                        <section
+                            id="probleme"
+                            ref={problemRef}
+                            className={`scroll-mt-32 pb-16 transition-all duration-1000 ease-out transform ${problemVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                        >
+                            <div className="relative overflow-hidden bg-white/70 backdrop-blur-2xl rounded-[2rem] border border-white shadow-[0_8px_30px_rgba(0,0,0,0.04)] p-8 md:p-12">
+                                <div className="absolute -top-24 -right-24 w-96 h-96 bg-gradient-to-br from-[#C5A059]/30 to-[#C5A059]/5 rounded-full blur-[60px] pointer-events-none" />
+                                <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gradient-to-tr from-[#1B263B]/15 to-transparent rounded-full blur-[60px] pointer-events-none" />
+
+                                <div className="relative z-10">
+                                <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.problem.tag')}</span>
+                                <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-5">
+                                    {t('method.problem.title')}
+                                </h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                                    <div>
+                                        <p className="text-[15px] text-gray-600 leading-relaxed mb-6">{t('method.problem.body1')}</p>
+                                        <div className="space-y-3 mb-8">
+                                            {[1, 2, 3, 4, 5].map((i, idx) => {
+                                                const colors = [
+                                                    { text: '#C5A059', bg: '#C5A05915' }, // Gold
+                                                    { text: '#8F9779', bg: '#8F977915' }, // Sage
+                                                    { text: '#4A6FA5', bg: '#4A6FA515' }, // Blue
+                                                    { text: '#C5A059', bg: '#C5A05915' }, // Gold
+                                                    { text: '#8F9779', bg: '#8F977915' }, // Sage
+                                                ][idx];
+                                                return (
+                                                    <div key={i} className="flex items-center gap-2.5">
+                                                        <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: colors.bg }}>
+                                                            <ArrowRight size={12} style={{ color: colors.text }} />
+                                                        </div>
+                                                        <span className="text-[15px] text-gray-500">{t(`method.problem.t${i}_from`)}</span>
+                                                        <strong
+                                                            className="text-[15px] px-2.5 py-1 rounded-lg font-bold shadow-sm"
+                                                            style={{ color: colors.text, background: colors.bg }}
+                                                        >
+                                                            {t(`method.problem.t${i}_to`)}
+                                                        </strong>
+                                                    </div>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                    <div className="h-full flex flex-col justify-center gap-4">
+                                        {['gap1', 'gap2', 'gap3'].map((k, i) => (
+                                            <div key={k} className={`px-5 py-4 rounded-2xl text-sm font-medium shadow-sm transition-transform hover:-translate-y-1 ${i === 2 ? 'bg-[#1B263B] text-white ring-2 ring-[#1B263B]/10 shadow-md' : 'bg-gray-50/80 text-gray-600 border border-gray-100'}`}>
+                                                {t(`method.problem.${k}`)}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* ── 3. DÉFINITION ────────────────────────────── */}
+                        <section id="definition" className="scroll-mt-32 pb-16">
+                            <span className="text-[#C5A059] font-bold uppercase tracking-widest text-xs">{t('method.sidebar.l3')}</span>
+                            <h2 className="text-4xl md:text-5xl font-serif text-[#1B263B] mt-3 mb-4">Un programme de développement par le sport.</h2>
+                            <div className="h-1 w-14 bg-[#C5A059] rounded-full mb-8" />
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+                                {[{icon:'🏒',title:'Compétences Sportives',desc:"Le sport est le véhicule. Le terrain est le laboratoire. Chaque défi est une occasion de développer la confiance et la tolérance à l'erreur.",color:'#8F9779'},{icon:'🧠',title:'Ressources Psychologiques',desc:'Auto-efficacité, régulation émotionnelle, concentration, dureté mentale. Des compétences réelles, enseignées avec rigueur, mesurées avant et après.',color:'#1B263B'},{icon:'🌍',title:'Life Skills Transférables',desc:"Ce que votre enfant apprend au sport : gérer la pression, demander de l'aide, persévérer. Il le réutilise à l'école, en famille, dans la vie.",color:'#C5A059'}].map((d) => (
+                                    <div key={d.title} className="bg-white border border-gray-100 rounded-[1.5rem] p-7 shadow-sm hover:-translate-y-1 hover:shadow-md transition-all duration-200">
+                                        <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4" style={{background:d.color+'18'}}>{d.icon}</div>
+                                        <h3 className="font-sans font-semibold text-[#1B263B] text-base mb-2">{d.title}</h3>
+                                        <p className="text-gray-600 text-sm leading-relaxed">{d.desc}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="bg-gray-50 border border-gray-100 rounded-[1.5rem] p-6 text-sm text-gray-600">
+                                <p className="font-bold text-[#1B263B] mb-3">THRIVE n'est pas :</p>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                    {["Une psychothérapie — aucun diagnostic, aucun traitement clinique.","Un entraînement sportif ordinaire — chaque séance a un objectif précis.","Du développement personnel vague — tout est structuré et mesuré.","Réservé aux enfants en difficulté — les enfants qui vont bien progressent aussi."].map((item) => (
+                                        <div key={item} className="flex items-start gap-2"><span className="text-gray-400 mt-0.5">✕</span><span>{item}</span></div>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+
+                        {/* ── 4. PILIERS SCIENTIFIQUES ─────────────────── */}
+                        <ScientificPillars />
+
+                        {/* ── 5. INTERVENTIONS ─────────────────────────── */}
+                        <InterventionGrid />
+
+                        {/* ── 6. 13 SÉANCES (ancre /methode#parcours) ──── */}
+                        <div id="parcours" className="scroll-mt-32">
+                            <SessionTimeline />
                         </div>
-                    );
-                })}
-            </div>
-        </Section>
 
-        {/* 8 piliers */}
-        <Section fond="gris">
-            <TitreSection titre={M.piliers.titre} />
-            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {M.piliers.items.map((p) => (
-                    <li key={p.nom} className="rounded-[2rem] bg-white border border-gray-100 shadow-sm p-6 flex flex-col">
-                        <h3 className="font-serif font-bold text-lg text-[#1B263B] leading-snug">{p.nom}</h3>
-                        <p className="mt-2 text-gray-700 leading-relaxed flex-1">{p.texte}</p>
-                        <p className="mt-4 text-xs text-gray-600">{p.ref}</p>
-                    </li>
-                ))}
-            </ul>
-        </Section>
+                        {/* ── 7. ACTEURS ───────────────────────────────── */}
+                        <ActorsGrid />
 
-        {/* 3 phases */}
-        <Section>
-            <TitreSection titre={M.phases.titre} />
-            <ol className="relative max-w-md mx-auto lg:max-w-none lg:grid lg:grid-cols-3 lg:gap-8">
-                {/* Ligne : verticale sur mobile, horizontale sur grand écran */}
-                <div
-                    aria-hidden="true"
-                    className="absolute left-5 top-2 bottom-2 w-0.5 bg-[#C5A059]/50 lg:left-[16.6%] lg:right-[16.6%] lg:top-5 lg:bottom-auto lg:h-0.5 lg:w-auto"
-                />
-                {M.phases.items.map((ph, i) => (
-                    <li key={ph.nom} className="relative pl-16 pb-10 last:pb-0 lg:pl-0 lg:pb-0 lg:text-center">
-                        <span className="absolute left-0 top-0 lg:static lg:mx-auto w-10 h-10 rounded-full bg-[#1B263B] text-white font-serif font-bold flex items-center justify-center ring-4 ring-white">
-                            {i + 1}
-                        </span>
-                        <h3 className="lg:mt-5 font-serif font-bold text-xl text-[#1B263B]">{ph.nom}</h3>
-                        <p className="text-sm font-semibold text-[#8A6A2F]">{ph.seances}</p>
-                        <p className="mt-2 text-gray-600 leading-relaxed lg:max-w-xs lg:mx-auto">{ph.texte}</p>
-                    </li>
-                ))}
-            </ol>
-        </Section>
+                        <MeasureBattery />
 
-        {/* Acteurs */}
-        <Section fond="gris">
-            <TitreSection titre={M.acteurs.titre} />
-            <div className="grid gap-6 md:grid-cols-3">
-                {M.acteurs.items.map((a) => (
-                    <div key={a.nom} className="rounded-[2rem] bg-white border border-gray-100 shadow-sm p-7">
-                        <h3 className="font-serif font-bold text-xl text-[#1B263B]">{a.nom}</h3>
-                        <p className="mt-2 text-gray-600 leading-relaxed">{a.texte}</p>
-                    </div>
-                ))}
-            </div>
-        </Section>
+                        {/* ── 9. ÉTHIQUE ───────────────────────────────── */}
+                        <EthicsSection />
 
-        {/* Mesure */}
-        <Section>
-            <div className="max-w-3xl mx-auto">
-                <TitreSection titre={M.mesure.titre} texte={M.mesure.texte} alignement="gauche" className="!mb-0" />
-            </div>
-        </Section>
+                        {/* ── CTA FINAL ────────────────────────────────── */}
+                        <section id="programmes" className="scroll-mt-32 pt-16 pb-4">
+                            <div className="relative bg-[#1B263B] rounded-[2.5rem] p-12 md:p-20 text-center overflow-hidden">
+                                <div className="pointer-events-none absolute inset-0" aria-hidden>
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[260px] bg-[#C5A059]/10 rounded-full blur-3xl" />
+                                </div>
+                                <div className="relative z-10">
+                                    <div className="inline-flex items-center gap-2 bg-[#C5A059]/15 text-[#C5A059] text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-7">
+                                        <Sparkles size={12} /> {t('method.final_cta.tag')}
+                                    </div>
+                                    <h2 className="text-4xl md:text-5xl font-serif text-white leading-tight mb-5">
+                                        {t('method.final_cta.title')}
+                                    </h2>
+                                    <p className="text-white/70 text-base max-w-xl mx-auto leading-relaxed mb-10">
+                                        {t('method.final_cta.desc')}
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                        <CtaAppel taille="lg" variante="or" libelle={t('method.final_cta.btn_primary')} icone={<ArrowRight size={17} />} />
+                                        <Bouton to="/programmes" variante="secondaire" taille="lg" surFonce>
+                                            {t('method.final_cta.btn_secondary')}
+                                        </Bouton>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-        {/* Limites */}
-        <Section fond="gris">
-            <TitreSection titre={M.limites.titre} />
-            <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-                <div className="rounded-[2rem] bg-white border border-gray-100 shadow-sm p-7">
-                    <h3 className="font-serif font-bold text-xl text-[#1B263B] mb-4">THRIVE est</h3>
-                    <ul className="space-y-3">
-                        {M.limites.est.map((t) => (
-                            <li key={t} className="flex gap-3 text-gray-700 leading-relaxed">
-                                <Check size={20} className="shrink-0 mt-0.5 text-[#6F7A5A]" aria-hidden="true" />
-                                <span>{t}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div className="rounded-[2rem] bg-white border border-gray-100 shadow-sm p-7">
-                    <h3 className="font-serif font-bold text-xl text-[#1B263B] mb-4">THRIVE n’est pas</h3>
-                    <ul className="space-y-3">
-                        {M.limites.nEstPas.map((t) => (
-                            <li key={t} className="flex gap-3 text-gray-700 leading-relaxed">
-                                <X size={20} className="shrink-0 mt-0.5 text-[#8A6A2F]" aria-hidden="true" />
-                                <span>{t}</span>
-                            </li>
-                        ))}
-                    </ul>
+                    </main>
                 </div>
             </div>
-        </Section>
-
-        {/* Références + bouton final */}
-        <Section conteneurClassName="!py-12 md:!py-16">
-            <p className="max-w-3xl mx-auto text-xs leading-relaxed text-gray-600">{M.references}</p>
-            <div className="mt-10 text-center">
-                <CtaAppel taille="lg" />
-            </div>
-        </Section>
-    </>
-);
+        </div>
+    );
+};
 
 export default Method;
