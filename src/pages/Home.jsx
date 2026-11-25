@@ -24,13 +24,13 @@ import {
 } from '../data/offre';
 import appTroisEcrans from '../assets/app/app-trois-ecrans.webp';
 import photoFondateur from '../assets/lylian-celma.webp';
-import photoTerrain from '../assets/coach-child-hockey.jpg';
+import photoTerrain from '../assets/coach-terrain.webp';
 
 // Petits textes ajoutés localement (à reporter dans textes.js).
 const LIBELLE_DETAIL = 'En savoir plus';
 const ALT_TROIS_ECRANS = 'Trois écrans de l’application THRIVE Maison : l’activité du soir, le parcours et le bilan';
 const ALT_FONDATEUR = 'Lylian Celma, fondateur de THRIVE Sport Positive, en polo THRIVE';
-const ALT_TERRAIN = 'Un coach parle à un jeune hockeyeur sur la glace, pendant une séance';
+const ALT_TERRAIN = 'Un coach THRIVE prend des notes en échangeant avec deux jeunes, dans un gymnase';
 
 const SCHEMA_ORGANISATION = {
     '@context': 'https://schema.org',
@@ -136,8 +136,8 @@ const Home = () => {
                     <img
                         src={photoTerrain}
                         alt={ALT_TERRAIN}
-                        width="1024"
-                        height="682"
+                        width="1400"
+                        height="933"
                         loading="lazy"
                         className="order-last lg:order-first w-full h-56 sm:h-auto object-cover rounded-[2rem] shadow-2xl"
                     />

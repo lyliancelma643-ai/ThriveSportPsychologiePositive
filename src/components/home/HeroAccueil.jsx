@@ -4,7 +4,7 @@ import { decembreGratuitActif } from '../../data/offre';
 import { Waves } from '../ui/Waves';
 import CtaMaison from '../shared/CtaMaison';
 import CtaReserver from '../shared/CtaReserver';
-import photoTerrain from '../../assets/coach-child-hockey.jpg';
+import photoTerrain from '../../assets/coach-terrain.webp';
 import CadreTelephone from './CadreTelephone';
 import ecranMaison from '../../assets/app/ecran-maison.webp';
 import cabri from '../../assets/cabri/cabri-accueil.webp';
@@ -51,9 +51,9 @@ const HeroAccueil = () => {
                             <figure className="hidden sm:block absolute left-0 lg:-left-10 top-6 lg:top-10 w-48 lg:w-56 -rotate-3 z-10">
                                 <img
                                     src={photoTerrain}
-                                    alt="Un coach parle à un jeune hockeyeur sur la glace"
-                                    width="1024"
-                                    height="682"
+                                    alt="Un coach THRIVE prend des notes en échangeant avec deux jeunes, dans un gymnase"
+                                    width="1400"
+                                    height="933"
                                     fetchPriority="high"
                                     className="w-full h-32 lg:h-36 object-cover rounded-[1.25rem] shadow-xl border-4 border-white"
                                 />

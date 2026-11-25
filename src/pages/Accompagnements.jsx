@@ -19,7 +19,7 @@ import {
     ENTREPRISE,
     prixGroupe,
 } from '../data/offre';
-import photoTerrain from '../assets/coach-child-hockey.jpg';
+import photoTerrain from '../assets/coach-terrain.webp';
 import photoPatinage from '../assets/pexels-tima-miroshnichenko-6015973.jpg';
 
 const P = PAGE_ACCOMPAGNEMENTS;
@@ -96,9 +96,9 @@ const Accompagnements = () => {
                     <div className="lg:col-span-6 relative min-w-0">
                         <img
                             src={photoTerrain}
-                            alt="Un coach parle à un jeune hockeyeur sur la glace, pendant une séance"
-                            width="1024"
-                            height="682"
+                            alt="Un coach THRIVE prend des notes en échangeant avec deux jeunes, dans un gymnase"
+                            width="1400"
+                            height="933"
                             fetchPriority="high"
                             className="w-full h-64 sm:h-[26rem] object-cover rounded-[2rem] shadow-2xl"
                         />
