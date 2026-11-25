@@ -1,115 +1,88 @@
 import React from 'react';
+import { Check, GraduationCap, Rocket, Trophy, Users } from 'lucide-react';
 import SEO from '../components/seo/SEO';
-import { Award, BookOpen, ShieldCheck, Users, GraduationCap, Activity, Quote } from 'lucide-react';
-import { useTranslation, Trans } from 'react-i18next';
-import SectionHeader from '../components/ui/SectionHeader';
-import ContactSection from '../components/ui/ContactSection';
+import Section from '../components/shared/Section';
+import TitreSection from '../components/shared/TitreSection';
+import CtaAppel from '../components/shared/CtaAppel';
+import Bouton from '../components/shared/Bouton';
+import { PAGE_A_PROPOS } from '../content/textes';
+import photo from '../assets/coach-child-hockey.jpg';
 
-const About = () => {
-    const { t, i18n } = useTranslation();
-    return (
-        <div className="py-20 bg-gray-50/50">
-            <SEO 
-                title={t('seo.about.title')}
-                description={t('seo.about.desc')}
-                url="https://thrivesportpositive.com/a-propos"
-            />
-            <div className="max-w-4xl mx-auto px-4 text-center mb-16">
-                <SectionHeader
-                    title={t('about.header_title')}
-                    subtitle={t('about.header_subtitle')}
-                    isH1={true}
-                />
-                <p className="text-xl text-gray-600 leading-relaxed">
-                    {t('about.intro_p')}
-                </p>
+const A = PAGE_A_PROPOS;
+const ICONES_REPERES = [Trophy, Users, GraduationCap, Rocket];
+
+const About = () => (
+    <>
+        <SEO title={A.seo.title} description={A.seo.description} />
+
+        {/* Titre + histoire + photo */}
+        <Section>
+            <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 items-start">
+                <div>
+                    <h1 className="font-serif font-bold text-4xl md:text-5xl text-[#1B263B] leading-tight">{A.titre}</h1>
+                    <div className="mt-8 max-w-prose space-y-5 text-lg leading-relaxed text-gray-700">
+                        {A.histoire.map((p) => (
+                            <p key={p.slice(0, 24)}>{p}</p>
+                        ))}
+                    </div>
+                </div>
+                <figure className="lg:sticky lg:top-28">
+                    <img
+                        src={photo}
+                        alt="Un entraîneur se penche vers un jeune hockeyeur pour lui parler, sur la glace"
+                        loading="lazy"
+                        className="w-full h-auto rounded-[2rem] shadow-lg object-cover aspect-[4/3]"
+                    />
+                </figure>
             </div>
+        </Section>
 
-            <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
-                    <div className="w-16 h-16 bg-[#1B263B]/10 rounded-full flex items-center justify-center text-[#1B263B] mb-6">
-                        <Users size={32} />
-                    </div>
-                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col1_title')}</h2>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                        <Trans i18nKey="about.col1_desc">
-                            {t('about.col1_desc_1')}<strong>{t('about.col1_desc_b1')}</strong>{t('about.col1_desc_2')}<strong>{t('about.col1_desc_b2')}</strong>{t('about.col1_desc_3')}
-                        </Trans>
-                    </p>
-                </div>
-
-                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300 relative overflow-hidden">
-                    <div className="absolute top-0 w-full h-1 bg-gradient-to-r from-[#8F9779] to-[#C5A059]"></div>
-                    <div className="w-16 h-16 bg-[#8F9779]/10 rounded-full flex items-center justify-center text-[#8F9779] mb-6">
-                        <BookOpen size={32} />
-                    </div>
-                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col2_title')}</h2>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                        <Trans i18nKey="about.col2_desc">
-                            {t('about.col2_desc_1')}<strong>{t('about.col2_desc_b1')}</strong>{t('about.col2_desc_2')}
-                        </Trans>
-                    </p>
-                </div>
-
-                <div className="bg-white p-8 rounded-[2rem] shadow-lg border border-gray-100 flex flex-col items-center text-center hover:-translate-y-2 transition-transform duration-300">
-                    <div className="w-16 h-16 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mb-6">
-                        <ShieldCheck size={32} />
-                    </div>
-                    <h2 className="text-xl font-serif font-bold text-[#1B263B] mb-4">{t('about.col3_title')}</h2>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                        <Trans i18nKey="about.col3_desc">
-                            {t('about.col3_desc_1')}<strong>{t('about.col3_desc_b1')}</strong>{t('about.col3_desc_2')}
-                        </Trans>
-                    </p>
-                </div>
-            </div>
-
-            {/* History & Philosophy Section */}
-            <section className="max-w-5xl mx-auto px-4">
-                <div className="bg-white rounded-[3rem] p-8 md:p-16 shadow-2xl border border-gray-100 overflow-hidden relative">
-                    <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
-                        <Quote size={200} />
-                    </div>
-
-                    <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-10 text-center">{t('about.hist_title')}</h2>
-
-                        <div className="space-y-8 text-lg text-gray-600 leading-relaxed font-light">
-                            <p>
-                                <span className="font-serif text-[#C5A059] text-2xl mr-1 font-bold">{t('about.hist_intro_b1')}</span>{t('about.hist_intro_2')}<strong>{t('about.hist_intro_b2')}</strong>{t('about.hist_intro_3')}<strong>{t('about.hist_intro_b3')}</strong>{t('about.hist_intro_4')}
-                            </p>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 my-12">
-                                <div>
-                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><GraduationCap className="mr-3 text-[#8F9779]" /> {t('about.hist_col1_title')}</h3>
-                                    <p className="text-sm leading-7">
-                                        <Trans i18nKey="about.hist_col1_desc">
-                                            {t('about.hist_col1_desc_1')}<strong>{t('about.hist_col1_desc_b')}</strong>{t('about.hist_col1_desc_2')}
-                                        </Trans>
-                                    </p>
-                                </div>
-                                <div>
-                                    <h3 className="text-[#1B263B] font-bold mb-4 flex items-center text-lg"><Activity className="mr-3 text-[#8F9779]" /> {t('about.hist_col2_title')}</h3>
-                                    <p className="text-sm leading-7">
-                                        <Trans i18nKey="about.hist_col2_desc">
-                                            {t('about.hist_col2_desc_1')}<strong>{t('about.hist_col2_desc_b')}</strong>{t('about.hist_col2_desc_2')}
-                                        </Trans>
-                                    </p>
-                                </div>
+        {/* Repères */}
+        <Section fond="gris">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {A.reperes.map((r, i) => {
+                    const Icone = ICONES_REPERES[i] || Trophy;
+                    return (
+                        <div key={r.titre} className="rounded-[2rem] bg-white border border-gray-100 shadow-sm p-6">
+                            <div className="w-11 h-11 rounded-full bg-[#C5A059]/15 flex items-center justify-center text-[#8A6A2F] mb-4">
+                                <Icone size={22} aria-hidden="true" />
                             </div>
-
-                            <div className="text-center relative py-8 mt-4 border-t border-gray-100">
-                                <p className="font-serif text-[#1B263B] text-2xl italic leading-relaxed">
-                                    {t('about.quote')}
-                                </p>
-                            </div>
+                            <h2 className="font-serif font-bold text-lg text-[#1B263B] leading-snug">{r.titre}</h2>
+                            <p className="mt-2 text-gray-600 leading-relaxed">{r.texte}</p>
                         </div>
-                    </div>
-                </div>
-            </section>
-            <ContactSection />
-        </div>
-    );
-};
+                    );
+                })}
+            </div>
+        </Section>
+
+        {/* Engagements */}
+        <Section>
+            <TitreSection titre={A.engagements.titre} />
+            <ul className="max-w-2xl mx-auto space-y-4">
+                {A.engagements.items.map((t) => (
+                    <li key={t} className="flex gap-3 text-lg text-gray-700 leading-relaxed">
+                        <span className="mt-1 shrink-0 w-6 h-6 rounded-full bg-[#8F9779]/25 flex items-center justify-center text-[#4F5A3A]">
+                            <Check size={16} strokeWidth={3} aria-hidden="true" />
+                        </span>
+                        <span>{t}</span>
+                    </li>
+                ))}
+            </ul>
+        </Section>
+
+        {/* Citation + appels */}
+        <Section fond="marine">
+            <blockquote className="max-w-3xl mx-auto text-center font-serif text-2xl md:text-3xl italic leading-relaxed text-white">
+                {A.citation}
+            </blockquote>
+            <div className="mt-10 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
+                <CtaAppel taille="lg" surFonce />
+                <Bouton to="/methode" variante="secondaire" taille="lg" surFonce>
+                    Découvrir la méthode
+                </Bouton>
+            </div>
+        </Section>
+    </>
+);
 
 export default About;

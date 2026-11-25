@@ -8,7 +8,7 @@
     }
 
     body {
-        font-family: 'Times New Roman MT Condensed', sans-serif;
+        font-family: Figtree, system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
 
     h1,
@@ -16,12 +16,15 @@
     h3,
     h4,
     .font-serif {
-        font-family: 'TAN Vivre Libre', serif;
+        font-family: 'Instrument Serif', Georgia, serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        /* Instrument Serif n'existe qu'en 400 : pas de faux gras. */
+        font-synthesis: none;
     }
 
     strong, b {
-        font-family: 'loubag', sans-serif;
-        font-weight: normal; /* Often custom display fonts have their own heavy weight inherently */
+        font-weight: 600;
     }
 }
 

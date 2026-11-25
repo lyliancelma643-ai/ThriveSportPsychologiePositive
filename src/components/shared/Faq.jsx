@@ -45,14 +45,14 @@ const Faq = ({ items = [], ouvertParDefaut = null, schema = true, className = ''
                                 fonce ? 'border-white/15 bg-white/5' : 'border-gray-100 bg-white shadow-sm'
                             }`}
                         >
-                            <h3>
+                            <h3 className="font-sans" style={{ fontFamily: 'inherit' }}>
                                 <button
                                     type="button"
                                     id={idBouton}
                                     aria-expanded={estOuvert}
                                     aria-controls={idPanneau}
                                     onClick={() => setOuvert(estOuvert ? null : i)}
-                                    className={`w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-4 min-h-[56px] rounded-2xl font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] ${
+                                    className={`w-full flex items-center justify-between gap-4 text-left px-5 sm:px-6 py-4 min-h-[56px] rounded-2xl font-sans font-semibold text-base sm:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] ${
                                         fonce ? 'text-white' : 'text-[#1B263B]'
                                     }`}
                                 >

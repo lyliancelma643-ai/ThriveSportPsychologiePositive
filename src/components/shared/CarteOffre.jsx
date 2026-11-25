@@ -54,7 +54,7 @@ const CarteOffre = ({
                         <span className="text-4xl font-serif font-bold text-[#1B263B]">{fmt(prix)}</span>
                         {prixBarre !== undefined && prixBarre !== null && (
                             <span className="text-lg text-gray-500 line-through">
-                                <span className="sr-only">Ancien prix : </span>
+                                <span className="sr-only">Ancien prix : </span>
                                 {fmt(prixBarre)}
                             </span>
                         )}

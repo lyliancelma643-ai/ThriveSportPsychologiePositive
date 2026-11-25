@@ -7,8 +7,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"Times New Roman MT Condensed"', 'sans-serif'],
-                serif: ['"TAN Vivre Libre"', 'serif'],
+                sans: ['Figtree', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+                serif: ['"Instrument Serif"', 'Georgia', 'serif'],
                 accent: ['"loubag"', 'sans-serif'],
             },
             animation: {

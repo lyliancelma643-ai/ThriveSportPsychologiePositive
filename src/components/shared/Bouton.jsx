@@ -8,11 +8,11 @@ import { Link } from 'react-router-dom';
 //  taille     'sm' | 'md' (défaut) | 'lg'
 //  to         lien interne (react-router) ; accepte « /maison#acces »
 //  href       lien externe, mailto: ou tel: (balise <a>)
-//  nouvelOnglet  avec href : ouvre dans un nouvel onglet (rel noopener)
+//  nouvelOnglet  avec href : ouvre dans un nouvel onglet (rel noopener)
 //  surFonce   à mettre quand le bouton est posé sur un fond marine (inverse le contour et l'anneau de focus)
 //  icone      élément affiché après le libellé (ex. <ArrowRight size={18} />)
-//  className  classes ajoutées (ex. « w-full »)
-//  Sans to ni href : <button> (type et onClick transmis).
+//  className  classes ajoutées (ex. « w-full »)
+//  Sans to ni href : <button> (type et onClick transmis).
 const BASE =
     'inline-flex items-center justify-center gap-2 rounded-full font-semibold text-center whitespace-nowrap ' +
     'transition-colors duration-200 select-none ' +

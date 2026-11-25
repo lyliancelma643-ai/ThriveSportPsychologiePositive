@@ -1,193 +1,167 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LegalPage, { Section, ToConfirm } from './LegalPage';
+import { ENTREPRISE } from '../../data/offre';
 
 // Politique de confidentialité — Loi 25 (Loi sur la protection des
-// renseignements personnels dans le secteur privé, Québec). Couvre le site
-// vitrine, l'application web et les applications mobiles.
+// renseignements personnels dans le secteur privé, Québec).
+// Couvre le SITE VITRINE. L'app THRIVE Maison a sa propre politique pour les
+// données de l'enfant.
 
 const SECTIONS = [
     ['responsable', 'Responsable de la protection des renseignements personnels'],
-    ['renseignements', 'Renseignements que nous recueillons'],
-    ['enfants', 'Renseignements concernant les enfants'],
+    ['renseignements', 'Ce que le site recueille'],
+    ['enfants', 'Aucune information sur votre enfant'],
     ['fins', 'Pourquoi nous les utilisons'],
-    ['paiement', 'Paiements et abonnements'],
     ['fournisseurs', 'Fournisseurs et communication hors Québec'],
     ['temoins', 'Témoins et mesure d’audience'],
     ['conservation', 'Durée de conservation'],
-    ['securite', 'Sécurité'],
     ['droits', 'Vos droits'],
     ['incidents', 'Incidents de confidentialité'],
+    ['app', 'L’application THRIVE Maison'],
     ['modifications', 'Modifications'],
 ];
 
 const Confidentialite = () => (
     <LegalPage
         title="Politique de confidentialité"
-        seoTitle="Politique de confidentialité — Thrive Sport Positive"
-        description="Comment THRIVE recueille, utilise, conserve et protège les renseignements personnels des parents et des enfants, conformément à la Loi 25 du Québec."
+        seoTitle="Politique de confidentialité | THRIVE Sport Positive"
+        description="Ce que le site de THRIVE recueille, pourquoi, avec qui nous le partageons et comment exercer vos droits, conformément à la Loi 25 du Québec."
         url="https://thrivesportpositive.com/confidentialite"
-        updated="29 septembre 2026"
+        updated="24 novembre 2026"
         sections={SECTIONS}
     >
         <p className="mb-10 text-[15px] leading-relaxed text-gray-700">
-            Vous nous confiez des renseignements sur vous et sur votre enfant. Cette politique explique, en termes
-            simples, ce que nous recueillons, pourquoi, avec qui nous le partageons et comment exercer vos droits. Elle
-            s'applique au site thrivesportpositive.com, à l'application THRIVE (app.thrivesportpositive.com) et aux
-            applications mobiles THRIVE.
+            Cette politique explique, en termes simples, ce que le site thrivesportpositive.com recueille, pourquoi,
+            avec qui nous le partageons et comment exercer vos droits. Le site est exploité par{' '}
+            {ENTREPRISE.raisonSociale}, société par actions du Québec dont le siège est à {ENTREPRISE.ville}{' '}
+            (NEQ : <ToConfirm>NEQ</ToConfirm>).
         </p>
 
         <Section id="responsable" title="1. Responsable de la protection des renseignements personnels">
             <p>
-                <ToConfirm>nom et titre de la personne responsable</ToConfirm>
+                Lylian Celma, président de {ENTREPRISE.raisonSociale}.
                 <br />
-                Thrive Sport Positive, Montréal (Québec)
-                <br />
-                Courriel : <a href="mailto:info@thrivesportpositive.com" className="underline">info@thrivesportpositive.com</a>{' '}
+                Courriel :{' '}
+                <a href={`mailto:${ENTREPRISE.courriel}`} className="underline">
+                    {ENTREPRISE.courriel}
+                </a>{' '}
                 (objet : « Confidentialité »)
             </p>
         </Section>
 
-        <Section id="renseignements" title="2. Renseignements que nous recueillons">
+        <Section id="renseignements" title="2. Ce que le site recueille">
+            <p>Quand vous remplissez un formulaire du site (appel de 15 minutes, accès à THRIVE Maison, partenaires), nous recueillons :</p>
             <ul className="list-disc pl-6 space-y-2">
+                <li>votre prénom et votre courriel ;</li>
+                <li>votre numéro de téléphone, quand le formulaire le demande ;</li>
+                <li>le moment qui vous convient pour être rappelé ;</li>
+                <li>le programme qui vous intéresse ;</li>
+                <li>le nom de votre organisation et votre message, pour les partenaires ;</li>
                 <li>
-                    <strong>Parent ou tuteur</strong> : nom, courriel, téléphone, mot de passe (conservé sous forme
-                    chiffrée, jamais lisible par nous), préférences de langue et de notification.
-                </li>
-                <li>
-                    <strong>Enfant</strong> : prénom, âge ou date de naissance, sport pratiqué, réponses aux
-                    questionnaires de bien-être et d'habiletés de vie, observations et bilans rédigés par le coach,
-                    activités réalisées dans le module Maison, photo de profil si vous choisissez d'en ajouter une.
-                </li>
-                <li>
-                    <strong>Liste d'attente</strong> : les renseignements que vous saisissez dans le formulaire (nom,
-                    courriel, téléphone, âge de l'enfant, programme souhaité, ville).
-                </li>
-                <li>
-                    <strong>Abonnement</strong> : formule choisie, dates d'essai et de renouvellement, statut du
-                    paiement. Nous ne recevons jamais le numéro complet de votre carte.
-                </li>
-                <li>
-                    <strong>Données techniques</strong> : journaux de connexion, type d'appareil, rapports d'erreur,
-                    jeton de notification si vous les activez.
+                    le code partenaire et les paramètres de campagne (UTM) du lien par lequel vous êtes arrivé, afin de
+                    savoir d’où vient la demande.
                 </li>
             </ul>
         </Section>
 
-        <Section id="enfants" title="3. Renseignements concernant les enfants">
+        <Section id="enfants" title="3. Aucune information sur votre enfant">
             <p>
-                L'enfant n'a pas de compte. Ses renseignements sont recueillis avec le consentement du titulaire de
-                l'autorité parentale, qui peut en tout temps les consulter, les faire corriger ou les faire supprimer.
-                Ils ne sont visibles que par vous, par le coach assigné et par l'équipe THRIVE autorisée, et ne sont
-                jamais rendus publics ni utilisés à des fins publicitaires.
+                Le site ne recueille <strong>aucune information sur votre enfant</strong> : pas de nom, pas d’âge, pas
+                de date de naissance. Les formulaires s’adressent au parent.
             </p>
         </Section>
 
         <Section id="fins" title="4. Pourquoi nous les utilisons">
             <ul className="list-disc pl-6 space-y-2">
-                <li>fournir les programmes, les bilans et le module Maison ;</li>
-                <li>gérer votre compte, votre abonnement et vos paiements ;</li>
-                <li>vous envoyer les messages liés au service (rappel de fin d'essai, reçu, renouvellement, sécurité) ;</li>
-                <li>assurer la sécurité des Services et corriger les erreurs ;</li>
-                <li>améliorer nos contenus à partir de statistiques globales, sans identifier personne.</li>
+                <li>vous rappeler ou vous écrire au sujet de votre demande ;</li>
+                <li>vous envoyer votre accès à THRIVE Maison ;</li>
+                <li>répondre aux organisations qui souhaitent devenir partenaires ;</li>
+                <li>savoir quels liens et quels partenaires amènent des familles, sans vous identifier dans nos statistiques.</li>
             </ul>
-            <p>
-                Nous ne vendons pas vos renseignements. Nous ne les utilisons pas pour du profilage publicitaire. Aucune
-                décision vous concernant n'est prise uniquement par un traitement automatisé.
-            </p>
+            <p>Nous ne vendons pas vos renseignements et nous ne les utilisons pas pour du profilage publicitaire.</p>
         </Section>
 
-        <Section id="paiement" title="5. Paiements et abonnements">
-            <p>
-                Les paiements sur le web sont traités par Stripe. Les achats faits dans une application mobile sont
-                traités par Apple (App Store) ou Google (Google Play). RevenueCat nous permet de reconnaître un même
-                abonnement sur le web et sur mobile ; il reçoit un identifiant technique de votre compte et l'état de
-                votre abonnement, jamais vos données de carte.
-            </p>
-        </Section>
-
-        <Section id="fournisseurs" title="6. Fournisseurs et communication hors Québec">
-            <p>
-                Nos données principales (comptes, dossiers des enfants, bilans) sont hébergées au Canada, dans la région
-                de Montréal, par Supabase. Certains fournisseurs peuvent traiter une partie des renseignements à
-                l'extérieur du Québec, notamment aux États-Unis :
-            </p>
-            <ul className="list-disc pl-6 space-y-1">
-                <li>Stripe — paiements web ;</li>
-                <li>RevenueCat — gestion des abonnements multiplateformes ;</li>
-                <li>Apple et Google — achats intégrés et notifications ;</li>
-                <li>Vercel — hébergement du site et de l'application web ;</li>
-                <li>Sentry — rapports d'erreurs techniques ;</li>
-                <li>Google Analytics — mesure d'audience du site vitrine (voir section 7).</li>
-            </ul>
-            <p>
-                Avant toute communication à l'extérieur du Québec, nous évaluons les facteurs relatifs à la vie privée et
-                nous encadrons le fournisseur par contrat pour qu'il protège les renseignements de façon adéquate et ne
-                les utilise qu'aux fins prévues. <ToConfirm>évaluations des facteurs relatifs à la vie privée (EFVP)
-                réalisées et consignées pour chaque fournisseur</ToConfirm>
-            </p>
-        </Section>
-
-        <Section id="temoins" title="7. Témoins et mesure d'audience">
-            <p>
-                L'application utilise uniquement les témoins nécessaires à la connexion et à la sécurité. Le site
-                vitrine utilise Google Analytics pour mesurer son audience ; cet outil n'est activé qu'avec votre
-                consentement, que vous pouvez retirer en tout temps.{' '}
-                <ToConfirm>ajouter un bandeau de consentement : Google Analytics est aujourd'hui chargé sans
-                consentement, ce que la Loi 25 n'autorise pas</ToConfirm>
-            </p>
-        </Section>
-
-        <Section id="conservation" title="8. Durée de conservation">
+        <Section id="fournisseurs" title="5. Fournisseurs et communication hors Québec">
             <ul className="list-disc pl-6 space-y-2">
-                <li>Compte et dossiers : tant que le compte est actif. À la fermeture, ils sont supprimés ou anonymisés
-                    <ToConfirm>délai de suppression après la demande (ex. 30 jours)</ToConfirm>.</li>
-                <li>Pièces comptables (factures, reçus) : six (6) ans, comme l'exigent les lois fiscales.</li>
-                <li>Liste d'attente : jusqu'à votre inscription ou au plus tard <ToConfirm>durée (ex. 24 mois)</ToConfirm>.</li>
-                <li>Rapports d'erreurs techniques : quelques semaines.</li>
+                <li>
+                    <strong>Supabase</strong> : hébergement des formulaires, dans la région Canada (ca-central-1) ;
+                </li>
+                <li>
+                    <strong>Vercel</strong> : hébergement du site et mesure d’audience sans témoins (Vercel Web
+                    Analytics) ;
+                </li>
+                <li>
+                    <strong>Cal.com</strong> : réservation en ligne de l’appel, lorsqu’elle est offerte ;
+                </li>
+                <li>
+                    <strong>Stripe</strong> : paiement des programmes, hors de ce site ;
+                </li>
+                <li>
+                    <strong>Apple, Google et RevenueCat</strong> : abonnements de l’application THRIVE Maison.
+                </li>
             </ul>
             <p>
-                Lors de la suppression d'un compte, nous annulons l'abonnement web en cours et supprimons les données
-                d'abonnement tenues par RevenueCat. Un abonnement pris sur l'App Store ou Google Play doit être annulé
-                depuis l'appareil.
+                Certains de ces fournisseurs peuvent traiter une partie des renseignements à l’extérieur du Québec,
+                notamment aux États-Unis. Avant toute communication hors Québec, nous évaluons les facteurs relatifs à
+                la vie privée et nous encadrons le fournisseur par contrat. <ToConfirm>évaluations des facteurs relatifs à
+                la vie privée réalisées et consignées pour chaque fournisseur</ToConfirm>
             </p>
         </Section>
 
-        <Section id="securite" title="9. Sécurité">
+        <Section id="temoins" title="6. Témoins et mesure d’audience">
             <p>
-                Accès limité par des règles appliquées directement par la base de données, chiffrement des
-                communications, stockage privé des documents et des photos avec liens temporaires, double
-                authentification disponible, accès du personnel limité à ce qui est nécessaire à son travail.
+                Nous mesurons la fréquentation du site avec Vercel Web Analytics, qui n’utilise <strong>aucun témoin</strong>{' '}
+                et ne vous suit pas d’un site à l’autre. Nous n’utilisons pas Google Analytics. Le site ne dépose pas de
+                témoin publicitaire.
             </p>
         </Section>
 
-        <Section id="droits" title="10. Vos droits">
-            <p>Vous pouvez en tout temps :</p>
+        <Section id="conservation" title="7. Durée de conservation">
+            <p>
+                Les renseignements des formulaires sont conservés 24 mois après notre dernier contact avec vous, puis
+                supprimés ou rendus anonymes. <ToConfirm>durée de 24 mois à valider</ToConfirm>
+            </p>
+        </Section>
+
+        <Section id="droits" title="8. Vos droits">
+            <p>Vous pouvez en tout temps :</p>
             <ul className="list-disc pl-6 space-y-1">
-                <li>consulter les renseignements que nous détenons sur vous ou sur votre enfant ;</li>
-                <li>les faire corriger s'ils sont inexacts ou incomplets ;</li>
-                <li>retirer votre consentement ou demander leur suppression ;</li>
-                <li>obtenir une copie de vos renseignements dans un format structuré et couramment utilisé ;</li>
-                <li>demander la désindexation d'un renseignement diffusé.</li>
+                <li>accéder aux renseignements que nous détenons sur vous ;</li>
+                <li>les faire corriger s’ils sont inexacts ou incomplets ;</li>
+                <li>retirer votre consentement et demander leur suppression ;</li>
+                <li>obtenir une copie de vos renseignements dans un format structuré et couramment utilisé (portabilité).</li>
             </ul>
             <p>
-                L'application permet d'exporter vos données et de demander la suppression de votre compte ; vous pouvez
-                aussi écrire à la personne responsable (section 1). Nous répondons dans un délai de trente (30) jours.
-                Si vous n'êtes pas satisfait, vous pouvez vous adresser à la Commission d'accès à l'information du
-                Québec (cai.gouv.qc.ca).
+                Écrivez à la personne responsable (section 1). Nous répondons dans un délai de 30 jours. Si vous n’êtes
+                pas satisfait, vous pouvez vous adresser à la Commission d’accès à l’information du Québec
+                (cai.gouv.qc.ca).
             </p>
         </Section>
 
-        <Section id="incidents" title="11. Incidents de confidentialité">
+        <Section id="incidents" title="9. Incidents de confidentialité">
             <p>
                 Nous tenons un registre des incidents de confidentialité. Si un incident présente un risque de préjudice
-                sérieux, nous avisons sans délai la Commission d'accès à l'information et les personnes concernées.
+                sérieux, nous avisons sans délai la Commission d’accès à l’information et les personnes concernées.
             </p>
         </Section>
 
-        <Section id="modifications" title="12. Modifications">
+        <Section id="app" title="10. L’application THRIVE Maison">
             <p>
-                Nous publions ici toute mise à jour de cette politique, avec sa date. Une modification importante vous est
-                annoncée par courriel ou dans l'application avant son entrée en vigueur.
+                L’application THRIVE Maison a sa propre politique de confidentialité, qui décrit les renseignements
+                traités pour votre compte et, le cas échéant, pour votre enfant. Vous la trouvez dans l’application, au
+                moment de créer votre compte. <ToConfirm>adresse de la politique de l’application</ToConfirm>
+            </p>
+        </Section>
+
+        <Section id="modifications" title="11. Modifications">
+            <p>
+                Nous publions ici toute mise à jour de cette politique, avec sa date. Pour les règles qui encadrent
+                l’utilisation du site et des programmes, voyez nos{' '}
+                <Link to="/conditions" className="underline">
+                    conditions
+                </Link>
+                .
             </p>
         </Section>
     </LegalPage>

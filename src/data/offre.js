@@ -40,7 +40,7 @@ export const GARANTIE =
 
 // ── Paiement des programmes ──────────────────────────────────────────────────
 export const PAIEMENT_PROGRAMMES =
-    '2 versements égaux : au début de la séance 1, puis au début de la séance 7. Rien n’est prélevé avant la séance 1.';
+    '2 versements égaux : au début de la séance 1, puis au début de la séance 7. Rien n’est prélevé avant la séance 1.';
 
 // ── THRIVE Maison (l'application) ────────────────────────────────────────────
 export const MAISON = {
@@ -73,7 +73,7 @@ export const MAISON = {
 export const OFFRE_FONDATRICE = {
     active: true,
     finLe: '31 mars 2027', // « 600 $ les 3 premiers mois » de 2027
-    texte: 'Offre fondatrice : THRIVE Groupe à 600 $ et le premier mois de THRIVE Maison premium offert, pour toute inscription avant le 31 mars 2027.',
+    texte: 'Offre fondatrice : THRIVE Groupe à 600 $ et le premier mois de THRIVE Maison premium offert, pour toute inscription avant le 31 mars 2027.',
 };
 
 export const PROGRAMMES = {
@@ -127,9 +127,8 @@ export const APPEL = {
 };
 
 // ── Langue ───────────────────────────────────────────────────────────────────
-//  Le site est en français. L'anglais reste caché tant que 100 % des textes
-//  ne sont pas traduits (à réactiver avant toute publicité à Westmount).
-export const AFFICHER_ANGLAIS = env.VITE_SHOW_EN === 'true';
+//  Le site est en français seulement. L'ancienne version anglaise (incomplète)
+//  est dans l'historique Git (src/locales/en, avant la refonte de nov. 2026).
 
 // ── Utilitaires d'affichage ──────────────────────────────────────────────────
 export const formatPrix = (n) => {

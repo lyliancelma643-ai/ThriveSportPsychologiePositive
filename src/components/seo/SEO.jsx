@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 const SITE = 'https://thrivesportpositive.com';
 const IMAGE_DEFAUT = `${SITE}/og-image.jpg`;
@@ -22,9 +21,8 @@ export default function SEO({
     image = IMAGE_DEFAUT,
     noindex = false,
 }) {
-    const { i18n } = useTranslation();
     const { pathname } = useLocation();
-    const lang = (i18n.resolvedLanguage || i18n.language || 'fr').slice(0, 2);
+    const lang = 'fr';
     const canonique = url || `${SITE}${pathname === '/' ? '/' : pathname.replace(/\/$/, '')}`;
     const imageParDefaut = image === IMAGE_DEFAUT;
 

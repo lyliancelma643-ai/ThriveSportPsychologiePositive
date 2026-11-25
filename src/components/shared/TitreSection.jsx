@@ -5,7 +5,7 @@ import { useFond } from './Section';
 //  surtitre   petit texte au-dessus (facultatif)
 //  titre      le titre
 //  texte      paragraphe sous le titre (facultatif)
-//  h1         true → balise <h1> (une seule par page) ; sinon <h2>
+//  h1         true → balise <h1> (une seule par page) ; sinon <h2>
 //  alignement 'centre' (défaut) | 'gauche'
 //  surFonce   force les couleurs claires (sinon déduit de <Section fond="marine">)
 //  className  classes ajoutées au conteneur

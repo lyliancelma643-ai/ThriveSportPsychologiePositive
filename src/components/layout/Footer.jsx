@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, Phone } from 'lucide-react';
 import logo from '../../assets/logo.png';
-import LanguageSwitcher from '../ui/LanguageSwitcher';
-import { AFFICHER_ANGLAIS, ENTREPRISE, PROGRAMMES, MAISON } from '../../data/offre';
+import { ENTREPRISE, PROGRAMMES, MAISON } from '../../data/offre';
 import { PIED, CTA } from '../../content/textes';
 
 const lien = 'text-sm text-white/75 hover:text-white hover:underline underline-offset-4 transition-colors rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059]';
@@ -81,9 +80,6 @@ const Footer = () => {
                         {' · '}
                         <Link to="/conditions" className="hover:text-white underline underline-offset-4">Conditions</Link>
                     </p>
-                    {AFFICHER_ANGLAIS && (
-                        <div className="flex justify-center"><LanguageSwitcher /></div>
-                    )}
                     <p className="text-xs text-white/60">&copy; {new Date().getFullYear()} {ENTREPRISE.raisonSociale}</p>
                 </div>
             </div>

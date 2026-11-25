@@ -4,7 +4,7 @@ import CtaMaison from './CtaMaison';
 import CtaAppel from './CtaAppel';
 import { CTA, NAV } from '../../content/textes';
 
-// Barre fixe en bas d'écran, mobile seulement (< md) : « Essayer l'app » + « Réserver l'appel ».
+// Barre fixe en bas d'écran, mobile seulement (< md) : « Essayer l'app » + « Réserver l'appel ».
 // Masquée sur /appel. Le gabarit (App.jsx) ajoute pb-20 md:pb-0 pour que le pied de page reste visible.
 const BarreMobile = () => {
     const { pathname } = useLocation();
