@@ -100,7 +100,7 @@
       "q2_q": "What is the level of commitment?",
       "q2_a": "The full program lasts 13 structured sessions for measurable results.",
       "q3_q": "Where do the sessions take place?",
-      "q3_a": "In Montreal, at 5115 Rivard street.",
+      "q3_a": "In Montreal, on the Plateau-Mont-Royal. The exact location is confirmed at registration.",
       "q4_q": "Is it suitable for my child?",
       "q4_a": "We support youth from 8 to 17 years old, with programs tailored by age group."
     },
@@ -142,7 +142,7 @@
     },
     "zones": {
       "title": "Where the sessions take place | Plateau-Mont-Royal, Montreal — THRIVE",
-      "desc": "THRIVE sessions take place at Centre Saint-Denis, in Plateau-Mont-Royal, Montreal. And THRIVE Home happens at your place, every day."
+      "desc": "THRIVE sessions take place in the Plateau-Mont-Royal, Montreal. And THRIVE Home happens at your place, every day."
     }
   },
   "home": {
@@ -250,7 +250,7 @@
     "logistics": {
       "title": "Practical Information",
       "item1_t": "Locations",
-      "item1_d1": "Centre Saint-Denis (Plateau-Mont-Royal, Montreal).",
+      "item1_d1": "Plateau-Mont-Royal, Montreal.",
       "item1_d2": "And THRIVE Home, at your place, every day.",
       "item2_t": "Ages",
       "item2_d1": "8 to 17 years old.",
@@ -261,9 +261,9 @@
     },
     "locations": {
       "map1_badge": "Our sessions",
-      "map1_title": "Centre Saint-Denis",
+      "map1_title": "Plateau-Mont-Royal",
       "map1_desc": "A space in the heart of Plateau-Mont-Royal, where the workshops and sessions take place.",
-      "map1_addr": "5115 Rue Rivard, Montreal, QC H2J 2P5",
+      "map1_addr": "Montreal, QC",
       "map2_badge": "At home",
       "map2_title": "THRIVE Home",
       "map2_desc_1": "A 10 to 30 minute moment each day, to share with your child.",
@@ -271,7 +271,7 @@
       "header_title": "Where it happens",
       "header_subtitle": "A space designed for movement, and an extension at your place.",
       "desc_1": "We welcome you to ",
-      "desc_1_b1": "Centre Saint-Denis",
+      "desc_1_b1": "Plateau-Mont-Royal",
       "desc_1_2": ", in Plateau-Mont-Royal: a safe space, with the right equipment, where every child can ",
       "desc_1_b2": "try without fear",
       "desc_1_3": ".",
@@ -328,7 +328,7 @@
       "q1": "My child is new to sport — is this for them?",
       "a1": "Yes. The workshops are new to everyone and each child picks their own level: nobody is already “the best”. We’re not teaching them a sport — we use sport to practise confidence, emotions and connecting with others.",
       "q2": "Where do the sessions take place?",
-      "a2": "At Centre Saint-Denis, in Plateau-Mont-Royal, at a fixed weekly slot. THRIVE Home, for its part, happens at your place.",
+      "a2": "In the Plateau-Mont-Royal, at a fixed weekly slot. THRIVE Home, for its part, happens at your place.",
       "q3": "Do parents need to be present?",
       "a3": "No. To protect their space, your child experiences the sessions without you. You receive their report in the app, and we call you at the midpoint and at the end to talk it through.",
       "q4": "Can I use my insurance?",
@@ -842,7 +842,7 @@
       "q6_q": "Why this price?",
       "q6_a": "Because each program includes far more than sessions: a structured 13-week journey, a challenge to take on outside the session every week, measurement at the start, the midpoint and the end, two calls with the coach, and THRIVE Home throughout the program. Clubs and private lessons work on technique; THRIVE works on what they don’t have time for: daring to try, and reaching out to others.",
       "q7_q": "Where do sessions take place?",
-      "q7_a": "At Centre Saint-Denis, in Plateau-Mont-Royal, at a fixed weekly slot. Groups start on set dates; One-on-One starts 1 to 2 weeks after the call. THRIVE Home happens at your place."
+      "q7_a": "In the Plateau-Mont-Royal, at a fixed weekly slot. Groups start on set dates; One-on-One starts 1 to 2 weeks after the call. THRIVE Home happens at your place."
     },
     "cta_final": {
       "aria": "Final CTA pricing page",
@@ -892,7 +892,7 @@
     "step3_body": "Dates, location, and how the 13 sessions unfold.",
     "cohort": "Next group: Saturday, November 7, 2026",
     "cohort_proof": "6 young people per group at most · closed groups, no joining midway",
-    "footer": "© 2026 THRIVE Sport Positive · 5115 Rue Rivard, Montreal, QC H2J 2P5",
+    "footer": "© 2026 THRIVE Sport Positive",
     "seo_title": "Waitlist — THRIVE Sport Positive",
     "seo_desc": "Join the THRIVE waitlist. A free 15-minute call to talk about your child, with no strings attached.",
     "back": "Back",

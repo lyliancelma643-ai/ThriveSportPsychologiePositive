@@ -12,6 +12,7 @@
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
     "@supabase/supabase-js": "^2.112.0",
+    "@vercel/analytics": "^2.0.1",
     "i18next": "^26.0.1",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.292.0",

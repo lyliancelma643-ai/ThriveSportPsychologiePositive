@@ -101,7 +101,7 @@
       "q2_q": "Quel est le niveau d'engagement ?",
       "q2_a": "Le programme complet dure 13 séances structurées pour des résultats mesurables.",
       "q3_q": "Où se déroulent les séances ?",
-      "q3_a": "À Montréal, au 5115 rue Rivard.",
+      "q3_a": "À Montréal, sur le Plateau-Mont-Royal. Le lieu exact vous est confirmé à l’inscription.",
       "q4_q": "Est-ce adapté à mon enfant ?",
       "q4_a": "Nous accompagnons les jeunes de 8 à 17 ans, avec des programmes adaptés par tranche d'âge."
     },
@@ -143,7 +143,7 @@
     },
     "zones": {
       "title": "Où ont lieu les séances | Plateau-Mont-Royal, Montréal — THRIVE",
-      "desc": "Les séances THRIVE ont lieu à Centre Saint-Denis, sur le Plateau-Mont-Royal à Montréal. Et THRIVE Maison se vit chez vous, chaque jour."
+      "desc": "Les séances THRIVE ont lieu sur le Plateau-Mont-Royal, à Montréal. Et THRIVE Maison se vit chez vous, chaque jour."
     }
   },
   "home": {
@@ -251,7 +251,7 @@
     "logistics": {
       "title": "Informations Pratiques",
       "item1_t": "Lieux",
-      "item1_d1": "Centre Saint-Denis (Plateau-Mont-Royal, Montréal).",
+      "item1_d1": "Plateau-Mont-Royal, Montréal.",
       "item1_d2": "Et THRIVE Maison, chez vous, chaque jour.",
       "item2_t": "Âges",
       "item2_d1": "8 à 17 ans.",
@@ -262,9 +262,9 @@
     },
     "locations": {
       "map1_badge": "Nos séances",
-      "map1_title": "Centre Saint-Denis",
+      "map1_title": "Plateau-Mont-Royal",
       "map1_desc": "Une salle au cœur du Plateau-Mont-Royal, où se tiennent les ateliers et les séances.",
-      "map1_addr": "5115 Rue Rivard, Montréal, QC H2J 2P5",
+      "map1_addr": "Montréal, QC",
       "map2_badge": "À la maison",
       "map2_title": "THRIVE Maison",
       "map2_desc_1": "Un moment de 10 à 30 minutes par jour, à vivre avec votre enfant.",
@@ -272,7 +272,7 @@
       "header_title": "Où ça se passe",
       "header_subtitle": "Une salle pensée pour bouger, et un prolongement chez vous.",
       "desc_1": "Nous vous accueillons à ",
-      "desc_1_b1": "Centre Saint-Denis",
+      "desc_1_b1": "Plateau-Mont-Royal",
       "desc_1_2": ", sur le Plateau-Mont-Royal : une salle sûre, avec un matériel adapté, où chaque enfant peut ",
       "desc_1_b2": "essayer sans crainte",
       "desc_1_3": ".",
@@ -329,7 +329,7 @@
       "q1": "Mon enfant est débutant en sport, est-ce pour lui ?",
       "a1": "Oui. Les ateliers sont nouveaux pour tout le monde et chaque enfant choisit son niveau : personne n'est déjà « le meilleur ». On ne lui apprend pas un sport : on se sert du sport pour pratiquer la confiance, les émotions et le lien aux autres.",
       "q2": "Où se déroulent les séances ?",
-      "a2": "À Centre Saint-Denis, sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. THRIVE Maison, lui, se vit chez vous.",
+      "a2": "Sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. THRIVE Maison, lui, se vit chez vous.",
       "q3": "Les parents doivent-ils être présents ?",
       "a3": "Non. Pour préserver son espace, votre enfant vit les séances sans vous. Vous recevez son bilan dans l'app, et on vous appelle à mi-parcours et à la fin pour en parler.",
       "q4": "Puis-je utiliser mes assurances ?",
@@ -932,7 +932,7 @@
       "q6_q": "Pourquoi ce prix ?",
       "q6_a": "Parce que chaque programme comprend bien plus que des séances : un parcours de 13 semaines structuré, un défi à vivre hors séance chaque semaine, une mesure au début, au milieu et à la fin, deux appels avec le coach et THRIVE Maison pendant tout le programme. Le club et le cours privé travaillent la technique ; THRIVE travaille ce qu'ils n'ont pas le temps de travailler : oser essayer, et aller vers les autres.",
       "q7_q": "Où ont lieu les séances ?",
-      "q7_a": "À Centre Saint-Denis, sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. Les groupes démarrent à dates fixes ; l'Individuel commence 1 à 2 semaines après l'appel. THRIVE Maison se vit chez vous."
+      "q7_a": "Sur le Plateau-Mont-Royal, à un créneau fixe chaque semaine. Les groupes démarrent à dates fixes ; l'Individuel commence 1 à 2 semaines après l'appel. THRIVE Maison se vit chez vous."
     },
     "cta_final": {
       "aria": "CTA final page prix",
@@ -982,7 +982,7 @@
     "step3_body": "Dates, lieu et déroulé des 13 séances.",
     "cohort": "Prochain groupe : samedi 7 novembre 2026",
     "cohort_proof": "6 jeunes maximum par groupe · groupes fermés, sans entrée en cours de route",
-    "footer": "© 2026 THRIVE Sport Positive · 5115 Rue Rivard, Montréal, QC H2J 2P5",
+    "footer": "© 2026 THRIVE Sport Positive",
     "seo_title": "Liste d'attente — THRIVE Sport Positive",
     "seo_desc": "Rejoignez la liste d’attente de THRIVE. Un appel gratuit de 15 minutes pour parler de votre enfant, sans engagement.",
     "back": "Retour",

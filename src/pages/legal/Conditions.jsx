@@ -226,8 +226,7 @@ const Conditions = () => (
 
         <Section id="contact" title="16. Nous joindre">
             <p>
-                Thrive Sport Positive — <ToConfirm>adresse d'affaires : 5115 rue Rivard (site) ou 5006 rue Fabre
-                (Stripe)</ToConfirm>, Montréal (Québec)
+                Thrive Sport Positive — <ToConfirm>adresse d'affaires à confirmer</ToConfirm>, Montréal (Québec)
                 <br />
                 Courriel : <a href="mailto:info@thrivesportpositive.com" className="underline">info@thrivesportpositive.com</a>
                 <br />

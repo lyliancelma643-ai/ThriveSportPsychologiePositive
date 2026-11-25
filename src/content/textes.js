@@ -21,6 +21,7 @@ export const CTA = {
     appelCourt: 'Réserver l’appel',
     maisonBeta: 'Essayer THRIVE Maison gratuitement',
     maisonOuvert: 'Commencer gratuitement',
+    maisonCourt: 'Essayer l’app',
     programmes: 'Voir les programmes',
     methode: 'Découvrir la méthode',
     partenaires: 'Devenir partenaire',
@@ -441,6 +442,27 @@ export const FORMULAIRES = {
         'J’accepte que THRIVE Sport Positive utilise ces coordonnées pour me recontacter à ce sujet. Aucune information sur mon enfant n’est demandée ici.',
     lienConfidentialite: 'Politique de confidentialité',
     erreur: 'L’envoi n’a pas fonctionné. Réessayez, ou écrivez-nous à ' + ENTREPRISE.courriel + '.',
+    // Libellés, aides et messages d’erreur des champs (composant FormulaireDemande).
+    champs: {
+        prenom: 'Prénom',
+        email: 'Courriel',
+        telephone: 'Téléphone',
+        telephoneFacultatif: 'Téléphone (facultatif)',
+        interet: 'Ce qui vous intéresse',
+        moment: 'Meilleur moment pour vous rappeler',
+        organisation: 'Organisation',
+        message: 'Message (facultatif)',
+        choisir: 'Choisir…',
+    },
+    envoyer: 'Envoyer',
+    envoiEnCours: 'Envoi en cours…',
+    erreurs: {
+        prenom: 'Indiquez votre prénom.',
+        email: 'Cette adresse courriel ne semble pas valide.',
+        telephone: 'Indiquez un numéro de téléphone valide.',
+        organisation: 'Indiquez le nom de votre organisation.',
+        consentement: 'Cochez cette case pour continuer.',
+    },
     moments: [
         { value: 'peu-importe', label: 'Peu importe' },
         { value: 'matin', label: 'Le matin' },
@@ -468,4 +490,32 @@ export const PIED = {
         contact: 'Contact',
     },
     legal: 'THRIVE n’est pas une thérapie et ne remplace pas un professionnel de la santé.',
+};
+
+// ── Navigation, bandeau et page introuvable ──────────────────────────────────
+export const NAV = {
+    accueil: 'THRIVE Sport Positive, accueil',
+    menuPrincipal: 'Menu principal',
+    ouvrirMenu: 'Ouvrir le menu',
+    fermerMenu: 'Fermer le menu',
+    actionsRapides: 'Actions rapides',
+    liens: [
+        { to: '/maison', label: 'THRIVE Maison' },
+        { to: '/programmes', label: 'Programmes' },
+        { to: '/methode', label: 'La méthode' },
+        { to: '/partenaires', label: 'Partenaires' },
+        { to: '/a-propos', label: 'À propos' },
+    ],
+};
+
+export const BANDEAU_DECEMBRE = {
+    texte: 'En décembre, THRIVE Maison est gratuite pour toutes les familles.',
+    lien: 'En profiter',
+};
+
+export const PAGE_INTROUVABLE = {
+    title: 'Page introuvable | THRIVE Sport Positive',
+    titre: 'Cette page n’existe pas (ou plus).',
+    texte: 'Le lien est peut-être ancien. Revenez à l’accueil, nous vous y retrouverons.',
+    bouton: 'Retour à l’accueil',
 };

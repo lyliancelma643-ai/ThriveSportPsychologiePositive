@@ -54,14 +54,12 @@ const PainPoints = () => {
                             <Link to="/methode" className="px-8 py-4 bg-[#1B263B] text-white rounded-full font-bold hover:bg-[#2A3B5C] transition-colors text-center shadow-md">
                                 {t('home.pain_points.btn_method')}
                             </Link>
-                            <button
-                                data-cal-namespace="30min"
-                                data-cal-link="thrive-sport-positive/30min"
-                                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            <Link
+                                to="/appel"
                                 className="px-8 py-4 bg-[#8F9779] text-white rounded-full font-bold hover:bg-[#A3AC8B] transition-colors text-center shadow-md cursor-pointer"
                             >
                                 {t('home.pain_points.btn_booking')}
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import SEO from '../components/seo/SEO';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Sparkles, CheckCircle2 } from 'lucide-react';
-import { getCalApi } from "@calcom/embed-react";
 
 // Existing components
 import MethodSidebar from '../components/method/MethodSidebar';
@@ -17,9 +16,8 @@ import ActorsGrid from '../components/method/ActorsGrid';
 import MeasureBattery from '../components/method/MeasureBattery';
 import EthicsSection from '../components/method/EthicsSection';
 
-const Method = ({ setBookingStep, handleSelectProgram }) => {
+const Method = () => {
     const { t, i18n } = useTranslation();
-    const navigate = useNavigate();
     
     const problemRef = useRef(null);
     const [problemVisible, setProblemVisible] = useState(false);
@@ -38,22 +36,6 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
         return () => observer.disconnect();
     }, []);
 
-    useEffect(() => {
-        if (typeof window !== 'undefined' && /HeadlessChrome|Puppeteer/i.test(window.navigator.userAgent)) return;
-
-        (async function () {
-            const cal = await getCalApi({ namespace: "30min" });
-            cal("ui", {
-                theme: "light",
-                styles: { branding: { brandColor: "#1B263B" } },
-                hideEventTypeDetails: false,
-                layout: "month_view"
-            });
-        })();
-    }, []);
-
-    const goBooking = () => { navigate('/booking'); window.scrollTo(0, 0); };
-    const goEval = () => { navigate('/evaluation'); window.scrollTo(0, 0); };
 
     return (
         <div className="bg-[#FAFAFA] relative">
@@ -84,7 +66,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
 
                     {/* Sidebar sticky */}
-                    <MethodSidebar setBookingStep={setBookingStep} />
+                    <MethodSidebar />
 
                     {/* Main content */}
                     <main className="space-y-0 min-w-0">
@@ -118,22 +100,20 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
 
                             {/* CTAs */}
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <button
+                                <Link
                                     id="method-cta-primary"
-                                    data-cal-namespace="30min"
-                                    data-cal-link="thrive-sport-positive/30min"
-                                    data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                    to="/appel"
                                     className="inline-flex items-center justify-center gap-2 bg-[#1B263B] text-white px-9 py-4 rounded-full font-bold text-base hover:bg-[#253550] transition-all hover:-translate-y-0.5 shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
                                 >
                                     {t('home.hero.cta')} <ArrowRight size={17} />
-                                </button>
-                                <button
+                                </Link>
+                                <Link
                                     id="method-cta-secondary"
-                                    onClick={() => { navigate('/prix'); window.scrollTo(0,0); }}
+                                    to="/programmes"
                                     className="inline-flex items-center justify-center border-2 border-[#1B263B]/20 text-[#1B263B] px-9 py-4 rounded-full font-bold text-base hover:border-[#1B263B] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C5A059]"
                                 >
                                     {t('method.cta_secondary')}
-                                </button>
+                                </Link>
                             </div>
                         </section>
 
@@ -252,22 +232,20 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                                         {t('method.final_cta.desc')}
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <button
+                                        <Link
                                             id="method-final-cta-primary"
-                                            data-cal-namespace="30min"
-                                            data-cal-link="thrive-sport-positive/30min"
-                                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                                            to="/appel"
                                             className="inline-flex items-center justify-center gap-2 bg-[#C5A059] text-white px-10 py-4 rounded-full font-bold hover:bg-[#B08D45] transition-all hover:-translate-y-0.5 shadow-lg"
                                         >
                                             {t('home.hero.cta')} <ArrowRight size={17} />
-                                        </button>
-                                        <button
+                                        </Link>
+                                        <Link
                                             id="method-final-cta-secondary"
-                                            onClick={() => navigate('/prix')}
+                                            to="/programmes"
                                             className="inline-flex items-center justify-center border-2 border-white/25 text-white px-10 py-4 rounded-full font-bold hover:border-white/60 transition-all"
                                         >
                                             {t('method.final_cta.btn_secondary')}
-                                        </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -276,7 +254,7 @@ const Method = ({ setBookingStep, handleSelectProgram }) => {
                     </main>
                 </div>
 
-                <ContactSection handleSelectProgram={handleSelectProgram} />
+                <ContactSection />
             </div>
         </div>
     );

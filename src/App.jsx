@@ -1,132 +1,131 @@
-import React, { useState, useEffect } from 'react';
-import SEO from './components/seo/SEO';
+import React, { useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Routes, Route, useLocation, Navigate, Outlet } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
+import BandeauDecembre from './components/shared/BandeauDecembre';
+import BarreMobile from './components/shared/BarreMobile';
+import Bouton from './components/shared/Bouton';
 import Home from './pages/Home';
-import Sport from './pages/Sport';
+import Maison from './pages/Maison';
+import Programmes from './pages/Programmes';
+import ProgrammeGroupe from './pages/ProgrammeGroupe';
+import ProgrammeIndividuel from './pages/ProgrammeIndividuel';
 import Method from './pages/Method';
-import Prix from './pages/Prix';
-import Booking from './pages/Booking';
 import About from './pages/About';
-import OserEssayer from './pages/OserEssayer';
-import AllerVersLesAutres from './pages/AllerVersLesAutres';
-import MomentQuiCompte from './pages/MomentQuiCompte';
-import Locations from './components/home/Locations';
-import ListeAttente from './pages/ListeAttente';
-import useBooking from './hooks/useBooking';
-import { useTranslation } from 'react-i18next';
+import Partenaires from './pages/Partenaires';
+import Appel from './pages/Appel';
+import Confidentialite from './pages/legal/Confidentialite';
+import Conditions from './pages/legal/Conditions';
+import { capturerAttribution } from './lib/attribution';
+import { PAGE_INTROUVABLE } from './content/textes';
 import './styles.css';
 
-// Gabarit du site : la coquille commune à toutes les pages sauf la landing.
-const SiteChrome = ({ booking }) => (
-    <div className="min-h-screen bg-white font-sans text-gray-900">
-        <Navbar setBookingStep={booking.setBookingStep} />
+// Haut de page à chaque changement de route ; si l'URL porte une #ancre, on
+// défile vers l'ancre à la place (avec quelques essais : l'élément peut
+// apparaître juste après le rendu).
+const ScrollManager = () => {
+    const { pathname, hash, key } = useLocation();
+    const precedent = useRef(null);
+
+    useEffect(() => {
+        const changeDePage = precedent.current !== pathname;
+        precedent.current = pathname;
+
+        if (hash) {
+            const id = decodeURIComponent(hash.slice(1));
+            let essais = 0;
+            let minuteur;
+            const aller = () => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'auto', block: 'start' });
+                } else if (essais++ < 10) {
+                    minuteur = setTimeout(aller, 60);
+                }
+            };
+            aller();
+            return () => clearTimeout(minuteur);
+        }
+        if (changeDePage) window.scrollTo(0, 0);
+        return undefined;
+    }, [pathname, hash, key]);
+
+    return null;
+};
+
+// Gabarit du site. pb-20 md:pb-0 : la barre fixe mobile ne cache pas le pied de page.
+const SiteChrome = () => (
+    <div className="min-h-screen bg-white font-sans text-gray-900 pb-20 md:pb-0">
+        <Navbar />
         <main className="pt-20">
+            <BandeauDecembre />
             <Outlet />
         </main>
         <Footer />
+        <BarreMobile />
+    </div>
+);
+
+// Filet de sécurité (navigation interne / dev) : les anciennes URL sont en 301
+// côté Vercel (vercel.json). Ici on garde la query string (?source=qr, ?code=…).
+const Rediriger = ({ vers }) => {
+    const { search } = useLocation();
+    return <Navigate to={vers + search} replace />;
+};
+
+const PageIntrouvable = () => (
+    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 py-16">
+        <Helmet>
+            <title>{PAGE_INTROUVABLE.title}</title>
+            <meta name="robots" content="noindex" />
+        </Helmet>
+        <h1 className="text-3xl md:text-4xl font-serif text-[#1B263B] mb-4">{PAGE_INTROUVABLE.titre}</h1>
+        <p className="text-gray-600 mb-8 max-w-md">{PAGE_INTROUVABLE.texte}</p>
+        <Bouton to="/" taille="lg">{PAGE_INTROUVABLE.bouton}</Bouton>
     </div>
 );
 
 const App = () => {
-    // We use useLocation to recreate the scroll to top behavior on route change
-    const location = useLocation();
-    const { t, i18n } = useTranslation();
-
-    // Use the custom hook for all booking logic
-    const booking = useBooking();
-
+    // Code partenaire et UTM : lus une fois, à l'arrivée sur le site.
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location.pathname]);
+        capturerAttribution();
+    }, []);
 
     return (
-        <Routes>
-            {/* Landing autonome : elle apporte son propre en-tête et son propre
-                pied de page, et ne doit RIEN mettre entre le visiteur et le
-                formulaire — donc pas de Navbar, pas de Footer, pas de `pt-20`.
+        <>
+            <ScrollManager />
+            <Routes>
+                <Route element={<SiteChrome />}>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/maison" element={<Maison />} />
+                    <Route path="/programmes" element={<Programmes />} />
+                    <Route path="/programmes/groupe" element={<ProgrammeGroupe />} />
+                    <Route path="/programmes/individuel" element={<ProgrammeIndividuel />} />
+                    <Route path="/methode" element={<Method />} />
+                    <Route path="/a-propos" element={<About />} />
+                    <Route path="/partenaires" element={<Partenaires />} />
+                    <Route path="/appel" element={<Appel />} />
+                    <Route path="/confidentialite" element={<Confidentialite />} />
+                    <Route path="/conditions" element={<Conditions />} />
 
-                Déclarée en sœur du gabarit, PAS derrière un early-return : un
-                early-return démontait tout l'arbre d'un coup, et
-                react-helmet-async traitait le démontage de la page précédente
-                APRÈS le montage de celle-ci. Résultat, sur toute navigation
-                interne vers cette page, le <head> se retrouvait vidé — titre
-                d'onglet périmé et canonical absent. */}
-            <Route path="/liste-attente" element={<ListeAttente />} />
+                    {/* Anciennes URL (301 dans vercel.json) — filet de sécurité */}
+                    <Route path="/liste-attente" element={<Rediriger vers="/appel" />} />
+                    <Route path="/booking" element={<Rediriger vers="/appel" />} />
+                    <Route path="/evaluation" element={<Rediriger vers="/appel" />} />
+                    <Route path="/prix" element={<Rediriger vers="/programmes" />} />
+                    <Route path="/sport" element={<Rediriger vers="/" />} />
+                    <Route path="/zones" element={<Rediriger vers="/" />} />
+                    <Route path="/programmes/aller-vers-les-autres" element={<Rediriger vers="/programmes/groupe" />} />
+                    <Route path="/programmes/oser-essayer" element={<Rediriger vers="/programmes/individuel" />} />
+                    <Route path="/programmes/le-moment-qui-compte" element={<Rediriger vers="/maison" />} />
+                    <Route path="/programmes/maison" element={<Rediriger vers="/maison" />} />
+                    <Route path="/pack/*" element={<Rediriger vers="/programmes" />} />
 
-            <Route element={<SiteChrome booking={booking} />}>
-                <Route path="/" element={
-                    <Home
-                        setBookingStep={booking.setBookingStep}
-                        handleSelectProgram={booking.handleSelectProgram}
-                    />
-                } />
-                <Route path="/sport" element={
-                    <Sport
-                        setBookingStep={booking.setBookingStep}
-                        bookingData={booking.bookingData}
-                        setBookingData={booking.setBookingData}
-                    />
-                } />
-                <Route path="/methode" element={
-                    <Method
-                        setBookingStep={booking.setBookingStep}
-                    />
-                } />
-                <Route path="/prix" element={
-                    <Prix handleSelectProgram={booking.handleSelectProgram} />
-                } />
-                <Route path="/booking" element={
-                    <Booking
-                        {...booking} // Spread all booking state and handlers props
-                    />
-                } />
-                {/* Les trois programmes (fiches produit du 20 septembre 2026) */}
-                <Route path="/programmes/oser-essayer" element={<OserEssayer />} />
-                <Route path="/programmes/aller-vers-les-autres" element={<AllerVersLesAutres />} />
-                <Route path="/programmes/le-moment-qui-compte" element={<MomentQuiCompte />} />
-                {/* Anciens packs retirés de l'offre : les URL indexées redirigent.
-                    Essentiel (13 séances 1:1) a pour successeur direct Oser
-                    essayer ; les autres n'ont pas d'équivalent, ils vont à /prix. */}
-                <Route path="/pack/essential" element={<Navigate to="/programmes/oser-essayer" replace />} />
-                <Route path="/pack/avance" element={<Navigate to="/prix" replace />} />
-                <Route path="/pack/performance" element={<Navigate to="/prix" replace />} />
-                <Route path="/pack/diagnostic" element={<Navigate to="/prix" replace />} />
-                <Route path="/a-propos" element={<About />} />
-                {/* Reusing Locations component as a standalone page */}
-                <Route path="/zones" element={
-                    <div className="pt-10">
-                        <SEO
-                            title={t('seo.zones.title')}
-                            description={t('seo.zones.desc')}
-                            url="https://thrivesportpositive.com/zones"
-                        />
-                        <Locations />
-                    </div>
-                } />
-                {/* L'onglet « Réservation » pointe désormais sur la liste
-                    d'attente. /evaluation redirige au lieu de disparaître : la
-                    page est indexée et sert de cible à des liens existants.
-                    src/pages/Evaluation.jsx est conservé intact — pour la
-                    remettre en service, réimporter la page et la rebrancher
-                    ici. */}
-                <Route path="/evaluation" element={<Navigate to="/liste-attente" replace />} />
-                {/* 404 Fallback */}
-                <Route path="*" element={
-                    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-                        <h1 className="text-4xl font-serif text-[#1B263B] mb-4">{t('error.not_found_title')}</h1>
-                        <p className="text-gray-600 mb-8">{t('error.not_found_desc')}</p>
-                        <button
-                            onClick={() => window.location.href = "/"}
-                            className="bg-[#1B263B] text-white px-8 py-3 rounded-full hover:bg-[#2c3e5a] transition-colors"
-                        >
-                            {t('error.not_found_btn')}
-                        </button>
-                    </div>
-                } />
-            </Route>
-        </Routes>
+                    <Route path="*" element={<PageIntrouvable />} />
+                </Route>
+            </Routes>
+        </>
     );
 };
 

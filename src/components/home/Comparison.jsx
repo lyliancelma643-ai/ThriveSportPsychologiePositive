@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckCircle2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SectionHeader from '../ui/SectionHeader';
 import coachChildImage from '../../assets/coach-child-hockey.jpg';
 
-const Comparison = ({ setBookingStep, openDiagnostic }) => {
-    const navigate = useNavigate();
+const Comparison = () => {
     const { t } = useTranslation();
     return (
         <section className="py-24 bg-white">
@@ -108,17 +107,15 @@ const Comparison = ({ setBookingStep, openDiagnostic }) => {
 
                 {/* Buttons */}
                 <div className="flex flex-col md:flex-row flex-wrap justify-center gap-4 items-center mt-12">
-                    <Link to="/prix" className="px-8 py-4 bg-[#1B263B] text-white rounded-full text-lg font-bold hover:bg-[#253550] transition-colors text-center shadow-lg w-full md:w-auto">
+                    <Link to="/programmes" className="px-8 py-4 bg-[#1B263B] text-white rounded-full text-lg font-bold hover:bg-[#253550] transition-colors text-center shadow-lg w-full md:w-auto">
                         {t('home.comparison.btn_book_place')}
                     </Link>
-                    <button
-                        data-cal-namespace="30min"
-                        data-cal-link="thrive-sport-positive/30min"
-                        data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                    <Link
+                        to="/appel"
                         className="px-8 py-4 bg-[#8F9779] text-white rounded-full text-lg font-bold hover:bg-[#A3AC8B] transition-colors text-center shadow-lg cursor-pointer w-full md:w-auto"
                     >
                         {t('home.comparison.btn_rdv')}
-                    </button>
+                    </Link>
                     <Link to="/methode" className="px-8 py-4 bg-white text-[#1B263B] border-2 border-[#1B263B] rounded-full text-lg font-bold hover:bg-[#1B263B] hover:text-white transition-colors text-center shadow-sm hover:shadow-xl w-full md:w-auto">
                         {t('home.comparison.btn_method')}
                     </Link>

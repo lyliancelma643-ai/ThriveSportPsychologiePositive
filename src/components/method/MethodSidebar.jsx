@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { BookOpen, Activity, Shield, Microscope, BarChart3, Wrench, Users, FlaskConical, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const MethodSidebar = ({ setBookingStep }) => {
+const MethodSidebar = () => {
     const { t } = useTranslation();
     const [activeSection, setActiveSection] = useState('intro');
-    const navigate = useNavigate();
 
     const SECTIONS = [
         { id: 'intro',         label: t('method.sidebar.l1'), icon: <BookOpen size={16} /> },
@@ -75,17 +74,15 @@ const MethodSidebar = ({ setBookingStep }) => {
             </nav>
 
             {/* CTA Mini Widget */}
-            <button
+            <Link
+                to="/appel"
                 className="mt-5 w-full block bg-[#1B263B] rounded-2xl p-4 border border-[#1B263B] text-center shadow-lg group cursor-pointer hover:shadow-xl transition-all text-left"
-                data-cal-namespace="30min"
-                data-cal-link="thrive-sport-positive/30min"
-                data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
             >
                 <p className="text-white text-xs font-bold mb-3 leading-tight text-center" dangerouslySetInnerHTML={{ __html: t('method.sidebar.cta_text') }}></p>
                 <div className="w-full h-9 bg-[#C5A059] text-white rounded-lg text-xs font-bold flex items-center justify-center group-hover:bg-[#b08d4d] transition-colors">
                     {t('method.sidebar.cta_btn')} <ArrowRight size={14} className="ml-2" />
                 </div>
-            </button>
+            </Link>
 
         </div>
     );

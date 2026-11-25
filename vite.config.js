@@ -11,17 +11,18 @@ export default defineConfig({
         react(),
         Sitemap({
             hostname: 'https://thrivesportpositive.com',
+            // '/' est ajoutée par le plugin (ne pas la répéter ici) ; garder cette liste identique à prerender.js.
             dynamicRoutes: [
+                '/maison',
+                '/programmes',
+                '/programmes/groupe',
+                '/programmes/individuel',
                 '/methode',
-                '/prix',
-                '/sport',
-                '/evaluation',
-                '/booking',
-                '/zones',
                 '/a-propos',
-                '/programmes/oser-essayer',
-                '/programmes/aller-vers-les-autres',
-                '/programmes/le-moment-qui-compte'
+                '/partenaires',
+                '/appel',
+                '/confidentialite',
+                '/conditions'
             ],
             changefreq: 'monthly',
             priority: 0.8,
