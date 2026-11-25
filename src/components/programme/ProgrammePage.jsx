@@ -6,7 +6,7 @@ import TitreSection from '../shared/TitreSection';
 import CtaAppel from '../shared/CtaAppel';
 import Faq from '../shared/Faq';
 import { PAGE_PROGRAMMES } from '../../content/textes';
-import { ENTREPRISE, OFFRE_FONDATRICE, NOTE_TAXES, GARANTIE, PAIEMENT_PROGRAMMES, formatPrix, prixGroupe } from '../../data/offre';
+import { ENTREPRISE, OFFRE_FONDATRICE, NOTE_TAXES, GARANTIE, PAIEMENT_PROGRAMMES, APPEL, formatPrix, prixGroupe } from '../../data/offre';
 
 // Titres de blocs ajoutés localement (à reporter dans textes.js).
 const TITRES = {
