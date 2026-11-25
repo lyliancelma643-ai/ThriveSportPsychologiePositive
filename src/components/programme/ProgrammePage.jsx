@@ -17,7 +17,7 @@ const TITRES = {
     faq: 'Vos questions',
     remboursement: 'Si ce n’est pas le bon cadre',
     cta: 'On en parle ?',
-    ctaTexte: 'Un appel gratuit de 15 minutes, sans engagement. Nous vous disons honnêtement si c’est le bon cadre pour votre enfant.',
+    ctaTexte: `Un appel gratuit de ${APPEL.duree}, sans engagement. Nous vous disons honnêtement si c’est le bon cadre pour votre enfant.`,
     lieu: 'Lieu',
 };
 

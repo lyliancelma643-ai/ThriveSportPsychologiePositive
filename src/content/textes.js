@@ -10,7 +10,7 @@
 //   · les prix et les nombres viennent de src/data/offre.js, jamais d'ici.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { MAISON, PROGRAMMES, ENTREPRISE, APPEL, OFFRE_FONDATRICE } from '../data/offre';
+import { MAISON, PROGRAMMES, ENTREPRISE, APPEL, OFFRE_FONDATRICE, GARANTIE } from '../data/offre';
 
 const G = PROGRAMMES.groupe;
 const I = PROGRAMMES.individuel;
@@ -277,7 +277,7 @@ export const PAGES_PROGRAMME = {
             { q: 'Pourquoi en tête-à-tête ?', r: 'Certains enfants ont besoin d’un cadre rassurant pour oser. Le tête-à-tête permet d’aller à leur rythme.' },
             { q: 'Quand peut-on commencer ?', r: `À partir de ${ENTREPRISE.lancement}, 1 à 2 semaines après l’appel de 15 minutes.` },
             { q: 'Où ?', r: ENTREPRISE.lieu },
-            { q: 'Et si ce n’est pas le bon cadre ?', r: 'Vous pouvez arrêter après la séance 2 : les versements déjà faits vous sont remboursés.' },
+            { q: 'Et si ce n’est pas le bon cadre ?', r: GARANTIE },
         ],
     },
 };

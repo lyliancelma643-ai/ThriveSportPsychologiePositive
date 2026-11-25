@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col items-center text-center mb-12">
                     <div className="bg-white p-4 sm:px-8 sm:py-5 rounded-[2rem] shadow-xl">
-                        <img src={logo} alt="THRIVE Sport Positive" className="h-12 sm:h-16 w-auto object-contain" />
+                        <img src={logo} alt="THRIVE Sport Positive" loading="lazy" className="h-12 sm:h-16 w-auto object-contain" />
                     </div>
                     <p className="mt-5 font-serif text-lg text-white/90">{PIED.signature}</p>
                 </div>
