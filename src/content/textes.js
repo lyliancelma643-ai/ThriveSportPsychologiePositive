@@ -131,7 +131,6 @@ export const ACCUEIL = {
             'Entraîneur de plus de 150 enfants',
             'Études en psychologie et en sociologie à l’Université de Montréal',
             'Sport et loisir communautaire, au quotidien',
-            'Vidéaste et monteur : je crée moi-même les contenus de THRIVE',
             'Fondateur accompagné par l’incubateur de l’Université de Montréal',
         ],
         lien: 'Lire mon histoire',
@@ -431,14 +430,13 @@ export const PAGE_A_PROPOS = {
         'Je suis Lylian Celma, athlète de haut niveau et entraîneur. J’ai joué au hockey sur glace à haut niveau en France : le sport m’a appris la pression, l’effort, l’échec et l’esprit d’équipe.',
         'Entre la fatigue, le stress et le peu de temps qu’on a, le temps passé avec son enfant n’est pas toujours du bon temps. L’envie, les parents l’ont : il leur manque un allié.',
         'Après plus de 150 enfants accompagnés, j’y ai joint mes études en psychologie : la science comme méthode, le sport comme terrain de pratique. C’est ça, THRIVE.',
-        'Je réunis trois expertises : le sport, la psychologie et l’accompagnement. Je travaille aussi dans le sport et le loisir communautaire, et je réalise moi-même les vidéos et les contenus de THRIVE.',
+        'Je réunis trois expertises : le sport, la psychologie et l’accompagnement. Je travaille aussi dans le sport et le loisir communautaire.',
     ],
     reperes: [
         { titre: 'Athlète de haut niveau', texte: 'Le hockey sur glace en France : la pression, l’effort et l’équipe.' },
         { titre: 'Plus de 150 enfants entraînés', texte: 'Le terrain avant la théorie.' },
         { titre: 'Psychologie et sociologie', texte: 'Mes études à l’Université de Montréal : la base scientifique de la méthode.' },
         { titre: 'Sport et loisir communautaire', texte: 'Je côtoie chaque semaine des familles, des enfants et des animateurs.' },
-        { titre: 'Vidéaste et monteur', texte: 'Je crée moi-même les vidéos et les contenus de THRIVE.' },
         { titre: 'Accompagné par un incubateur', texte: 'Le Parcours Concrétisez de l’Université de Montréal (Millénium Québecor).' },
     ],
     engagements: {

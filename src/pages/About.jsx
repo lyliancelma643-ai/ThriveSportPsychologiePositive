@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, GraduationCap, Rocket, Trophy, Users, HeartHandshake, Video } from 'lucide-react';
+import { Check, GraduationCap, Rocket, Trophy, Users, HeartHandshake } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import Section from '../components/shared/Section';
 import TitreSection from '../components/shared/TitreSection';
@@ -10,7 +10,7 @@ import photo from '../assets/lylian-celma.webp';
 import CtaReserver from '../components/shared/CtaReserver';
 
 const A = PAGE_A_PROPOS;
-const ICONES_REPERES = [Trophy, Users, GraduationCap, HeartHandshake, Video, Rocket];
+const ICONES_REPERES = [Trophy, Users, GraduationCap, HeartHandshake, Rocket];
 
 const About = () => (
     <>
